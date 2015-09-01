@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string paddleName="app_name">PatternExercise</string>
+    <string paddleName="hello_world">Hello world!</string>
+    <string paddleName="action_settings">Settings</string>
+
+</resources>

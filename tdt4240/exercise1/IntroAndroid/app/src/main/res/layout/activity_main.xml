@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="253dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="TDT4240 - Intro Android"
+        android:id="@+id/textView"
+        android:textSize="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/buttonTask3"
+        android:layout_alignEnd="@+id/buttonTask3" />
+
+    <Button
+        android:id="@+id/buttonTask1AND2"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Task 1 - Helicopter Sprite"
+        android:layout_gravity="center_horizontal"
+        android:layout_above="@+id/buttonTask3"
+        android:layout_marginBottom="59dp"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_alignLeft="@+id/buttonTask3"
+        android:layout_alignStart="@+id/buttonTask3" />
+
+    <Button
+        android:id="@+id/buttonTask3"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Task 3 - Helicopter Animation"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/buttonTask4"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Task 4 - Let&apos;s play Pong!"
+        android:layout_marginTop="113dp"
+        android:layout_below="@+id/buttonTask3"
+        android:layout_alignRight="@+id/buttonTask3"
+        android:layout_alignEnd="@+id/buttonTask3"
+        android:layout_alignLeft="@+id/buttonTask3"
+        android:layout_alignStart="@+id/buttonTask3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="shaharib@stud.ntnu.no"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="63dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shahariar Kabir Bhuiyan"
+        android:id="@+id/textView3"
+        android:layout_above="@+id/textView2"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
