@@ -28,6 +28,10 @@
 % bruk \pagestyle{empty} for å fjerne alt, og \pagestyle{plain} for å ha sidenummer på underkapitler (sections).
 % Husk å bytte til fancy ved neste avsnitt eller der du vil ha fancy greier.
 
+\usepackage[Glenn]{fncychap}
+
+\usepackage{import}
+
 % for Bibtex
 \usepackage[backend=bibtex]{biblatex}
 \addbibresource{references/papers.bib}
@@ -50,9 +54,9 @@
 \pagestyle{fancy}
 
 \include{chapters/introduction}
-\include{chapters/chapter02}
-\include{chapters/chapter03}
-\include{chapters/chapter04}
+\include{chapters/litterature_review}
+\include{chapters/research_method}
+\include{chapters/results}
 \include{chapters/discussion}
 \include{chapters/conclusion}
 
