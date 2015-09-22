@@ -2,39 +2,41 @@
 \chapter{Technical Debt}
 
 
-\section{Introduction}
-Techincal debt is all about unfinished, unecessary complex, and outdated solutions which hinders us when it comes to maintencance of the solution in an effective way. 
-
-Skjer når snarveies tar for å løse et IT-problem i stor grad fra kortsiktige hensyn til kostnad og tidsbruk. Medfører problemer ifm. Gjennomføring av endringer og nyutvikling hvis markedskravene endrer seg. Et økende globalt problem. 
-
-
-
-
-
-
-
-------------------------------
-
-You're currently working on a project. It's short time for delivery, and yet many functionality which needs to be implemented. You have two choices when implementing a functionality. You can deliver a less good solution (quick and dirty) where you'll deliver the functionality in time, but we trade off design and quality, which makes operation, management and maintenance hard to do. The other way is a much cleaner result, but in exhange of more time to put the functionality in place. This is what technical debt is, when shortcuts are taken to solve problems trading off quality and design. Technical debt is a big problem today. In 2010, the total debt was around 500 millions dollar, while it's estimated that in 2015 the technical debt will be around 1 billion dollar.
+You're currently working on a project. It's short time for delivery, and yet many functionality which needs to be implemented. You have two choices when implementing a functionality. You can deliver a less good solution (quick and dirty) where you'll deliver the functionality in time, but we trade off design and quality, which makes operation, management and maintenance hard to do. The other way is a much cleaner result, but in exhange of more time to put the functionality in place. This is what technical debt is, when shortcuts trading of design and quality in order to solve a problem in time. Technical debt is a big problem today. In 2010, the total debt was around 500 millions dollar, while it's estimated that in 2015 the technical debt will be around 1 billion dollar.
 
 In order to understand and investigate the consequences of technical debt, one needs to know what technical debt is, the reasons for it, and how it can be eliminated.
 
-\section{Types of technical debt}
-The concept of technical debt was first introduced by Ward Cunningham\cite{cunningham}. Like financial debt, the technical debt incurs interest payments, which comes in the form of extra time and money, whenever the software needs to be refactored or redesigned\cite{fowler}. This connects the term technical debt to the problem of "deciding when and how to refactor a system to improve its structure as a basis for future evolution".
+
+\section{What is technical debt}
+The concept of technical debt was first introduced by Ward Cunningham in 1992\cite{cunningham}. He defines the term in terms of bad code . Like financial debt, the technical debt incurs interest payments, which comes in the form of extra time it takes to redesign or refactor the code, or otherwise fix the problem\cite{allmann}. This connects the term technical debt to the problem of "deciding when and how to refactor a system to improve its structure as a basis for future evolution". 
+
+\subsection{Comparation with financial debt}
+Financial debt can be seen as the following:
+- You take a loan, and you have to repay it eventually.
+- You usually pay back with interest
+- If you can't pay back, a very high cost will follow. For example, you'll loose your house.
+
+Technical debt has some of the following characteristics as financial debt. Debt has to be payed back with interests. Failure to fix the problem may lead to software project failure - the customer gives up and goes somewhere else, the system has to be rewritten, or collapse of the company. 
+
+However, there are some differences as well. The debt has to be repaid eventually, but not on any fixed schedule. This means that some debts may never have to be paid back, which depends on the interest and the cost of paying back the debt. The person who takes the debt is not necessaryly the one who has to pay it off. A software project which moves from development mode to maintencance mode might change the engineers as well. So the engineers who has to maintain the system are the one who has to pay back the debt which occured in the development mode. Developers are often rewarded for their implementation speed. However, technical debt is not about bad code design. In practice, it's much more than that. Example on interests might be lowr pace of development, low competitiveness, security flaws on the system, loss of developers and their expertise, poor internal collaboration environment, dissatisfied customers and loss of market share. 
+
+
+
+\subsection{Types of technical debt}
 
 McConnels defines two categories based on how they are incurred, intentionally or unintentionally. The unintentional category includes debt that comes from doing a poor job. For instance, uninntentional debt might be when a junior software developer writes bad code due to lack of knowledge and experience. Intentional debt occurs when an organization makes a decision to optimize for the present rather than the future. An example is when the project release must be done on time, or else there wont be a next release. This leads to bad decisions, like taking a shortcut to solve a problem, and reconcile the problem after shipment
 
-Fowlers presents a formal explanation of how techincal debt can occur. He categories technical debt into different debt types, in which he calls "Technical Debt Quadrant". As seen in the figure, the debt is grouped into four categories: reckless deliberate/inadvertent and prudent deliberate/inadvertent. 
+Fowlers presents a formal explanation of how techincal debt can occur. He categories technical debt into different debt types, in which he calls "Technical Debt Quadrant". As seen in the figure, the debt is grouped into four categories: reckless deliberate/inadvertent and prudent deliberate/inadvertent. Reckless-deliberate is descibed as "we dont have time for design", while reckless-inadveretnt is described as "waht's layering?". Prudent-deliberate is described as "we must ship now and deal with the consequences" and prudent-inadvertent is described as "now we know what we should have done". 
 
 Krutchen divides technical debt into two categories. Visible, debt that is visible for everyone. It containts elements such as new functionality to add and defects to fix. Invisible is the other category, debt that is only visible to software developers.
 
 \subsection{Organizational debt}
-Organazional debt
+While technical debt is known problem, there's one more type of debt which can be accrued on a compandy-wide level. This type of debt is called organizational debt. Organizational debt is all about people and culture compromises made to "just get it done" in early stages of a startup \cite{steve-blank}.  
+
+Technical debt is issues within the software which hampers its maintenance, which leads to that organizational debt is issues preventing a company from running smoothly. When things should be going great, organizational debt can turn a growing company to a nightmare. Growing companies needs to know how to recognize and refactor organizational debt. 
 
 \section{Why does it occur}
-When you Developers often wants to deliver something in time, and shortcuts is often used. However, technical debt might occur already in the requirement specification phase in software development project. 
-
-People often sees technical debt as bad code design, but in practice, technical debt is much more than that. Like a financial loan, technical debt incurs interests as well, which can be quite dangerous. Example on interests might be lowr pace of development, low competitiveness, security flaws on the system, loss of developers and their expertise, poor internal collaboration environment, dissatisfied customers and loss of market share. 
+Many thinks that technical debt is mostly related to code decide. However, technical debt might occur already in the requirement specification phase in software development project. 
 
 Technical debt may be caused by several factors:
 - Work processes: Software development methology, can some tasks be automized (with a deploy script), is tests written after bug fixing, do you map and document shortcuts you take, is there any plans for techincal debt management later, is it important to implement new functionality or to make sure that the existing ones work propertly?
@@ -47,26 +49,16 @@ Developers might not care about the product because they don't feel that they "o
 
 Operating technical debt might be to maintenance and manage existing code rather than implementing new functionality. It is important to keep track of the technical debt, and incur interest payments, before it makes troubles for you. Do do that, you could for example set up a plan for repayment which tells you something about how the debt shall be repayed. Scrum can be used to do this for example, where you split the repayment plan to smaller parts where you estimate and prioritize tasks. It is important to remember that taking too much loan might cause problems. As mentioned ealier, technical debt can be seen as taking a financial loan according to Cunningham. The loan has to be repaid with interests. Technical debt uses time and effort as repayment. It is acceptable to take a loan, but it should be controlled. Do not take loan than what you are able to handle. Think with your head.
 
-"Kort tid til leveranse, alt for mye å gjøre. Levere en mindre god løsning i tide (quick and dirty), eller gjennomarbeidet løsning hvor vi går over tidsfristen. Quick and dirty gjør at vi leverer i tide, men på bekosnitng av design og kvalitet, som fører til at drift, forvaltning og vedlikeholdt blir komplekst. ""
-
 
 
 \section{Technical debt in Industry}
 Technical debt today is connected with many differnet aspects in the software development process, like documentation debt, requirements debt, architecture debt etc. 
 
-Using sequential design processes in software development processes to develop big software is often a failure. Requirements are specified in the beginning, and rest of the steps in this model has to follow these requirements which can't be changed. There's no benefits using this model for big softwares as technology and business requirements always change. 
+Using sequential design processes in software development processes to build complex, intensive systems is often a failure. Requirements are specified at the beginning of the software development process, and the remaining software development activities has to follow the initiral requirements. This kind of model is not appropiate to use for big softwares where technology and business requirements always change. This is why agile methods was made, where change and feedback is important. One of the benefits is the ability to quickly release new functionality. However, one of the problems with agile methods is that developers often wants to focus on implementing new fucntionality, which results in poor focus on design, code quality, testing, which again leads to technical debt.  
 
-This is why agile methods was made, where change and feedback is important. However, one big problem with agile methods is that developets often wants to focus on implementing new fucntionality, and have very poor focus on design, code quality, testing, which again leads to technical debt. 
+Klinger carried out an industrial case study at IBM where four technical architechts with different backgrounds were interviewed and the goal was to examine how the decisions to incur debt was taken and the extend to which the debt provided leverage. What they found out was that the company failed to assess the impact of intentionally incurring debt on projects. Decisions regarding technical debt were rarely quantified. There were also big organizational gaps among the business, operational and technical stakeholders, which incurred debt.
 
-There are multiple classification on techincal debt, which can occur everywhere in the software development life cycle. Like documentation debt, design debt, code, testing etc. 
-
-Architecture violations might hiundter future development as it might be hard to extend.
-
-
-
-Klinger
-
-Codabux
+Codabux carried out an industrial case study where the topic was agile development focusing on techincal debt. They wanted to gain insights on agile adoption and how techincal debt affects the development processes. This industiral case study happened in form of an interview. After conducting the research, they got two definitions of technical debt, further known as infrastructure and automation debt. Infrastrucutre is the work that improves the teams processes and ability to produce a quality procudt with refactoring, repackaging, developing unit tests. Automation isthe work relatedd to supporting continious integration and faster development cycles. The term technical debt was mostly related to design, testing and defect debts according to the participants. One of the engineers mentioned that when they were working, they didn't know the "balacne of the credit card. They kept charging it". Management decides when enough debt has incurred, and is influenced by the customer needs.
 
 
 
@@ -74,33 +66,19 @@ Codabux
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 
 \chapter{Embedded Systems}
 \section{Introduction}
-Embedded systems is a combination of hardware and software to perform a specific task. Embedded systems has a big role today as  
+With the rapid evolution of electrical and software based systems, known as embedded systems, we see that most of the future compuing systems will be embedded systems\cite{wolfmadsen-2000}. However, as the complexity of embedded systems increases, maintaining the quality of such systems becomes more difficult. Higher functionality is provided when multiple components are combined together with embedde systems. This type of combination leads to higher cost of verifying additional software, which makes many fail to test the product properly and deliver reliable products. Companies must often recall their products, and catching these software defects earlier in the system design process saves a lot of money. The ability to identify these kind of problems earlier is still something many companies has troubles with. Embedded systems has also long lifetime and it's important to find out how to make decisions so future maintenance and operation has low cost as possible. Technical debt is a big factor in embedded systems as developers might not be available years after implementaion. 
+
+Since embedded systems are some specialized hardware,
 
 
-\section{Embedded system software111}
+\section{Embedded system software}
 
 
 Embedded software er en slags programvare for innebygde systemer. Disse programvarene er spesialisert for en type hardware (som den ligger og kjører på). Disse programvarene har derfor spesifikke begrensninger når det kommer til run-time, som minnebruk, prosesseringskraft osv.
@@ -113,8 +91,7 @@ Trenger en platform for å kunne vedlikeholde TG kontinuerlig, veilede, priorite
 
 
 ...............
-
-Most of the future computing systems will be embedde systems. Such systems will integrate both hardware and software components\cite{wolfmadsen-2000}. Embedded software are specialized hardware it runs on, which gives us some constraints when it comes to run-time, like memory usage, processessing power etc. With Internet of Things as a big trend now, these types of software has a big role today. 
+Embedded software are specialized hardware it runs on, which gives us some constraints when it comes to run-time, like memory usage, processessing power etc. With Internet of Things as a big trend now, these types of software has a big role today. 
 
 One of the problems ES faces is the 
 
@@ -163,13 +140,19 @@ Software reuse is about using existing software artifacts, or knowledge, to crea
 
 
 \subsection{Software development life cycles} % (fold)
-Weathered j-pop tube paranoid systema marketing sprawl warehouse boy receding corrupted footage DIY order-flow Chiba. Rain narrative construct shoes kanji faded bicycle denim girl. Gang car city sentient silent drugs dolphin man. Garage lights face forwards motion monofilament stimulate table sensory network disposable cartel systema sign katana. Man apophenia pre-A.I. papier-mache pistol range-rover rain computer receding hacker saturation point. 
+
+\subsection{Software maintenance}
+
+
 
 \subsection{Software evolution} % (fold)
-Soul-delay shoes neural wonton soup hotdog BASE jump knife towards A.I. engine concrete katana network bridge cartel artisanal. Rain girl shanty town advert into uplink pre-convenience store camera singularity DIY marketing Tokyo papier-mache j-pop nodal point. Fluidity hotdog camera cyber-assassin bomb 8-bit denim concrete shoes. A.I. weathered nodality corporation voodoo god industrial grade soul-delay jeans 8-bit. 
+http://www.kantega.no/livslop/
+
+Software evolution is a process that usually takes place when the initial development of a software project is done and was successfull. The goal of software evolution is to incorporate new user requirements in the application and adapt it to the existing application. This phase is important beacuse it takes a lage part of the overall lifecycle costs. It is also important because these days technology tend to change rapidly, and not following these trend means loosing business oppertunities.
+
 
 \subsection{Deployment} % (fold)
-Systema beef noodles rifle papier-mache wristwatch Legba futurity city meta-Kowloon. Tattoo film otaku carbon sprawl bomb vehicle boat refrigerator San Francisco woman grenade meta-tube neural digital. Courier uplink chrome convenience store marketing Chiba refrigerator smart-modem 8-bit. Post-skyscraper claymore mine towards Kowloon hotdog savant rebar camera. Dead jeans weathered neural carbon paranoid gang A.I. nano-office papier-mache youtube 8-bit corrupted. Weathered paranoid cardboard tiger-team 3D-printed kanji man savant faded footage rebar. Man smart-denim convenience store pre-towards kanji nano-hacker soul-delay woman dome physical. 
+
 
 
 
