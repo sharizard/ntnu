@@ -31,9 +31,25 @@ Fowlers presents a formal explanation of how techincal debt can occur. He catego
 Krutchen divides technical debt into two categories. Visible, debt that is visible for everyone. It containts elements such as new functionality to add and defects to fix. Invisible is the other category, debt that is only visible to software developers.
 
 \subsection{Organizational debt}
-While technical debt is known problem, there's one more type of debt which can be accrued on a compandy-wide level. This type of debt is called organizational debt. Organizational debt is all about people and culture compromises made to "just get it done" in early stages of a startup \cite{steve-blank}.  
+While technical debt is known problem, there's one more type of debt which can be accrued on a compandy-wide level. This type of debt is called organizational debt. Organizational debt is all about people and culture compromises made to "just get it done" in early stages of a startup\cite{steve-blank}.  
 
 Technical debt is issues within the software which hampers its maintenance, which leads to that organizational debt is issues preventing a company from running smoothly. When things should be going great, organizational debt can turn a growing company to a nightmare. Growing companies needs to know how to recognize and refactor organizational debt. 
+
+Reasons for technical debt:
+- Training the new hires, both culture and specific tasks
+- Retain existing hire by doing something for them. Many doesn't get promoted. New hire might get a better posistion than existing hire who has been there from the start.
+
+Good building, furniture, and compensation for executive staff isnt enough. Think about existing employees who's been there from the start. You might end up loosing qualified people who's spent years building up the company, but not compensated for it. Top-down approach is focused too much. Think about the bottom employees.They have the inistituinal knowledge and hard-earned skills.
+
+When new people got hired, the ones who could train them about the company culture and how to do their specific tasks is the old employees who's being underpaid. They will look for another job. No one would be able to train the new people then. Giving compensation in form of stock vesting, insurance benefits, movie nights etc isnt enough as everyone gets it. Do something for the employees who's been there for a long time.
+
+Refarocting might be important in order to reduce the organizational debt. Write plan for managing new wave of hires before hiring them. Sometimes, you'll also need to think about what you will have to do if you're about to loose a key employee. Is it worth to replace employees who hold critical knowledge? Put together an expence budget using the current employee salaries. See who's important. Identify the one they wanted to keep and upgrade them. Some employees might not be that important as welll as they might be a performance problem for the whole organization. Need to look at the company culture as well, does it take into account of the new size and stage of the organization? What have the company achieved, what are the key elements that have made it great so farm, are they same of different. Think about the customer too. Does we talk to the customer, or does the customer talk to us. Also, keep in mind that an adivosory board of other CEOS who've been through the early stages might be good. Failure to refactor might kill a growing company. 
+
+Some examples on organizational debt:
+- Different departments solving the same problems might use differnet methologies and tools. Difficult to see similarities in order to address company-wide issues.
+- Creation of processes and implement solutions which seems great at first, but didnt address the root casue of the issue and ending up creating more problems.
+- Time constraints, solving a problem in less-than-ideal manner this time. This manner is repeated because no one remember that the first time was intended to be one-off situation.
+
 
 \section{Why does it occur}
 Many thinks that technical debt is mostly related to code decide. However, technical debt might occur already in the requirement specification phase in software development project. 
@@ -48,6 +64,11 @@ Developers might not care about the product because they don't feel that they "o
 
 
 Operating technical debt might be to maintenance and manage existing code rather than implementing new functionality. It is important to keep track of the technical debt, and incur interest payments, before it makes troubles for you. Do do that, you could for example set up a plan for repayment which tells you something about how the debt shall be repayed. Scrum can be used to do this for example, where you split the repayment plan to smaller parts where you estimate and prioritize tasks. It is important to remember that taking too much loan might cause problems. As mentioned ealier, technical debt can be seen as taking a financial loan according to Cunningham. The loan has to be repaid with interests. Technical debt uses time and effort as repayment. It is acceptable to take a loan, but it should be controlled. Do not take loan than what you are able to handle. Think with your head.
+
+
+Når det kommer til teknisk gjeld er det ikke alltid personen som har utviklet noe som tar ansvar, men kan en annen kan ta seg av den gjelda. Mange utviklere vedlikeholder ikke sin egen kode. Mange selskaper har også regler om at når et software er ferdig utviklet av de "beste" til å bli vedlikeholdt av de nest beste, som ofte kan få mindre betalt men har mye mer arbeid å gjøre. Ingen i din organisasjonen viser interesse for det, er brukerne som må betale for gjelda. Utviklere er belønnet for hvor raskt de implementerer enn langsiktig vedlikehold og kan ha fått seg et nytt prosjekt før gjelda er betalt. Få systemer har TODO eller FIXME kommentarer i kildekoden. 
+
+Til forskjell fra finansiell gjeld kan teknisk gjeld aldri betales tilbake i sitt fulle. Å betale TG kommer i en form av hvor lang tid det tar å fikse koden/problemet. Men det er ikke lett å vise hvilke gjeld som har høyest kost. Er interessen lavere enn hva det koster, er det ikke vits i å betale tilbake. Eksempel: Man har et system som trenger en oppgradering som kan koste 1 million. Man tar valget i å ikke oppgradere, og satse på at systemet fungerer. Det gjør det ikke, systemet går ned og firmaet taper felre millioner på å reparere systemet. Her kunne man spart penger på å oppgradere.
 
 
 
@@ -130,10 +151,6 @@ o	Siden embedded systemer ofte tar I bruk tredje-parts teknologier, er det vikti
 
 
 
-Når det kommer til teknisk gjeld er det ikke alltid personen som har utviklet noe som tar ansvar, men kan en annen kan ta seg av den gjelda. Mange utviklere vedlikeholder ikke sin egen kode. Mange selskaper har også regler om at når et software er ferdig utviklet av de "beste" til å bli vedlikeholdt av de nest beste, som ofte kan få mindre betalt men har mye mer arbeid å gjøre. Ingen i din organisasjonen viser interesse for det, er brukerne som må betale for gjelda. Utviklere er belønnet for hvor raskt de implementerer enn langsiktig vedlikehold og kan ha fått seg et nytt prosjekt før gjelda er betalt. Få systemer har TODO eller FIXME kommentarer i kildekoden. 
-
-Til forskjell fra finansiell gjeld kan teknisk gjeld aldri betales tilbake i sitt fulle. Å betale TG kommer i en form av hvor lang tid det tar å fikse koden/problemet. Men det er ikke lett å vise hvilke gjeld som har høyest kost. Er interessen lavere enn hva det koster, er det ikke vits i å betale tilbake. Eksempel: Man har et system som trenger en oppgradering som kan koste 1 million. Man tar valget i å ikke oppgradere, og satse på at systemet fungerer. Det gjør det ikke, systemet går ned og firmaet taper felre millioner på å reparere systemet. Her kunne man spart penger på å oppgradere.
-
 
 \subsection{Software reuse}
 Software reuse is about using existing software artifacts, or knowledge, to create new software, rather than building it from scratch. Software reuse is a key method for improving software quality. 
@@ -141,18 +158,39 @@ Software reuse is about using existing software artifacts, or knowledge, to crea
 
 \subsection{Software development life cycles} % (fold)
 
-\subsection{Software maintenance}
 
 
 
-\subsection{Software evolution} % (fold)
+
+
+\subsection{Software maintenance and evolution}
+%http://www.cs.uah.edu/~rcoleman/CS499/CourseTopics/IEEE_Std_1219-1998.pdf
 http://www.kantega.no/livslop/
+http://swreflections.blogspot.no/2011/04/lientz-and-swanson-on-software.html
+
+After the software is transferred to the users, software will enter maintenance mode. Software maintenance according to IEEE 1219 is defined as "modification of a software after delivery to correct faults, to improve performance or other attributes, or to adapt the product to a modified environment." however, the definition is poor defined term and little used in the industry. Most research today has been on the inital development phase. Configuration management has made contributions to software maintenance. 
+
+The term maintenance can also be appliec to the problem of keeping web pages and software applications up to date and consistent.
+
+Lientz and Swanson did a survey back in the 1970s with 487. The surveywhere they categorized maintenance into four categories:
+- Adaptive: Changes in the software environment
+- Perfective: New requirements
+- Corrective: Fixing errors
+- Preventive: Preventing future problems
+Survey showed that nearly 75 \% of the attendees spent their time on category 1 and 2. Nearly 22 percent on category 3 and 3 percent on category 4. Why didn't they spend more time on fixing bugs and preventing future erros? Most severe maintenance problems was caused by poor documentation, demand from users for changes, difficulty meeting schedulment, problems training new hires.  Some other problem areas was lack of user understand and user training, the customers didnt understand how system works. Programmers had low productivity, skill level and motivation. System was badly designed leading to low quality. How much has this changed since then? it looks like that new user requirements is the main problem for software evolution and maintenance.
+
+Software maintenance is important because it consumes a larg part of the lifecycle costs and that if not able to change software quickly to adapt to software environment means that business opportunities are lost.
+
+
+A model called stage model basded on empirical observation was defined by Bennet and Rajlich. This model helps us analysing maintenance and evolution of software development. Maintenance was seen as a single activity after initial development, however, a staged model was introduced which split maintenance into five distinc stages. The reason is to separate maintenance into an evolution stage followd by servicing and phase out stages. To make this possible, both software architecture and software team knowledge needs to be well made. Architecture needs to be well defines as it will be used for the rest of the life of the program. Knowledge is abhout the knowledge og the app domain, requirements, algorithms, data formats, strength/weaknesses of program/architecture/environment.
+
+Servicing stage is about small changes, usually patches and code changes. The program is not evolvable here. 
 
 Software evolution is a process that usually takes place when the initial development of a software project is done and was successfull. The goal of software evolution is to incorporate new user requirements in the application and adapt it to the existing application. This phase is important beacuse it takes a lage part of the overall lifecycle costs. It is also important because these days technology tend to change rapidly, and not following these trend means loosing business oppertunities.
 
+Final stages are phase out and close-down. System might be in production, but no service is undertaken. During close-down, software is disconnected. 
 
-\subsection{Deployment} % (fold)
-
+An amplified of this staged model was defined as well, versioned stage model. The difference between this model and the simple stage model is that during evolution, versions of software are being made. All new functionality or changes are implemented in the future versions. If a version becomes outdated, it is replaced with a new version.	
 
 
 
