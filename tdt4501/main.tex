@@ -33,8 +33,7 @@
 \usepackage{import}
 
 % for Bibtex
-\usepackage[backend=bibtex]{biblatex}
-\addbibresource{references/papers.bib}
+\usepackage{cite}
 
 \begin{document}
 \pagestyle{plain}
@@ -45,7 +44,7 @@
 \pagenumbering{roman}
 
 \include{intro/abstract}
-\include{intro/acknowledgment}
+\include{intro/preface}
 
 \tableofcontents
 
@@ -64,7 +63,7 @@
 \include{appendix/appendix-a}
 
 \newpage
-\nocite{*}
-\printbibliography
+\bibliography{references/papers,references/urls}
+\bibliographystyle{plain}
 
 \end{document}
