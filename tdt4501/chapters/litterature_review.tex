@@ -1,23 +1,31 @@
-\chapter{State-of-the-Art Technical Debt}
+% !TEX root = ..\main.tex
+\chapter{State-of-the-Art}
+
+This chapter presentes the state-of-the-art topics which is relevant to this project. Section 2.1 looks into technical debt with its definitions, types etc. Section 2.2 looks into embedded systems and some of the challenges with it. Section 2.3 presents 
 
 
-You're currently working on a project. It's short time for delivery, and yet many functionality which needs to be implemented. You have two choices when implementing a functionality. You can deliver a less good solution (quick and dirty) where you'll deliver the functionality in time, but we trade off design and quality, which makes operation, management and maintenance hard to do. The other way is a much cleaner result, but in exhange of more time to put the functionality in place. This is what technical debt is, when shortcuts trading of design and quality in order to solve a problem in time. Technical debt is a big problem today. In 2010, the total debt was around 500 millions dollar, while it's estimated that in 2015 the technical debt will be around 1 billion dollar.
-
-In order to understand and investigate the consequences of technical debt, one needs to know what technical debt is, the reasons for it, and how it can be eliminated.
+\section{Technical Debt}
 
 
-\section{What is technical debt}
-The concept of technical debt was first introduced by Ward Cunningham in 1992\cite{cunningham}. He defines the term in terms of bad code . Like financial debt, the technical debt incurs interest payments, which comes in the form of extra time it takes to redesign or refactor the code, or otherwise fix the problem\cite{allmann}. This connects the term technical debt to the problem of "deciding when and how to refactor a system to improve its structure as a basis for future evolution". 
+A developer has the choice to implement a functionality in two different ways. The first one is a less good solution, known as the "quick and dirty" way\cite{p29-cunningham}. The developer will deliver the functionality in time, but we trade off design and quality, which makes operation, management and maintenance hard to do. The other choice is a much cleaner result, but in exhange of more time to put the functionality in place. This choice also makes changes and implementations of new functionality a lot easier in the future\cite{url-fowler}. This is what technical debt is, when shortcuts trading of design and quality in order to solve a problem in time. The concept of technical debt was first introduced by Ward Cunningham in 1992 in order to communicate the problem with non-technical stakeholders\cite{p29-cunningham}. He defines the term in terms of low quality code. 
+
+Technical debt is a big problem today. In 2010, the total debt was around 500 millions dollar, while it's estimated that in 2015 the technical debt will be around 1 billion dollar\cite{gartner2010}.
+
 
 \subsection{Comparation with financial debt}
-Financial debt can be seen as the following:
-- You take a loan, and you have to repay it eventually.
-- You usually pay back with interest
-- If you can't pay back, a very high cost will follow. For example, you'll loose your house.
+Techincal debt has many similarities as financial debt, which can be seen as the following:
+\begin{itemize}
+	\item You take a loan that has to be repaid later
+	\item You usually repay the loan with interest
+	\item If you can't pay back, a very high cost will follow. For example, you can loose your house or car.
+\end{itemize}
 
-Technical debt has some of the following characteristics as financial debt. Debt has to be payed back with interests. Failure to fix the problem may lead to software project failure - the customer gives up and goes somewhere else, the system has to be rewritten, or collapse of the company. 
+Just like financial debt, technical debt needs to be repaid with interests\cite{wiki:techdebt}. If the debt is not repaid, local maintenance will be hard, and it may lead to software project failure - the customer gives up and goes somewhere else, the system has to be rewritten, or collapse of the company. 
 
-However, there are some differences as well. The debt has to be repaid eventually, but not on any fixed schedule. This means that some debts may never have to be paid back, which depends on the interest and the cost of paying back the debt. The person who takes the debt is not necessaryly the one who has to pay it off. A software project which moves from development mode to maintencance mode might change the engineers as well. So the engineers who has to maintain the system are the one who has to pay back the debt which occured in the development mode. Developers are often rewarded for their implementation speed. However, technical debt is not about bad code design. In practice, it's much more than that. Example on interests might be lowr pace of development, low competitiveness, security flaws on the system, loss of developers and their expertise, poor internal collaboration environment, dissatisfied customers and loss of market share. 
+However, there are some differences as well. The debt has to be repaid eventually, but not on any fixed schedule. This means that some debts may never have to be paid back, which depends on the interest and the cost of paying back the debt. The person who takes the debt is not necessaryly the one who has to pay it off. A software project which moves from development mode to maintencance mode might change the engineers as well. So the engineers who has to maintain the system are the one who has to pay back the debt which occured in the development mode. Developers are often rewarded for their implementation speed. However, technical debt is not about bad code design. In practice, it's much more than that. Example on interests might be lowr pace of development, low competitiveness, security flaws on the system, loss of developers and their expertise, poor internal collaboration environment, dissatisfied customers and loss of market share\cite{p50-allman}.
+
+
+Til forskjell fra finansiell gjeld kan teknisk gjeld aldri betales tilbake i sitt fulle. Å betale TG kommer i en form av hvor lang tid det tar å fikse koden/problemet. Men det er ikke lett å vise hvilke gjeld som har høyest kost. Er interessen lavere enn hva det koster, er det ikke vits i å betale tilbake. Eksempel: Man har et system som trenger en oppgradering som kan koste 1 million. Man tar valget i å ikke oppgradere, og satse på at systemet fungerer. Det gjør det ikke, systemet går ned og firmaet taper felre millioner på å reparere systemet. Her kunne man spart penger på å oppgradere.
 
 
 
@@ -25,9 +33,15 @@ However, there are some differences as well. The debt has to be repaid eventuall
 
 McConnels defines two categories based on how they are incurred, intentionally or unintentionally. The unintentional category includes debt that comes from doing a poor job. For instance, uninntentional debt might be when a junior software developer writes bad code due to lack of knowledge and experience. Intentional debt occurs when an organization makes a decision to optimize for the present rather than the future. An example is when the project release must be done on time, or else there wont be a next release. This leads to bad decisions, like taking a shortcut to solve a problem, and reconcile the problem after shipment
 
-Fowlers presents a formal explanation of how techincal debt can occur. He categories technical debt into different debt types, in which he calls "Technical Debt Quadrant". As seen in the figure, the debt is grouped into four categories: reckless deliberate/inadvertent and prudent deliberate/inadvertent. Reckless-deliberate is descibed as "we dont have time for design", while reckless-inadveretnt is described as "waht's layering?". Prudent-deliberate is described as "we must ship now and deal with the consequences" and prudent-inadvertent is described as "now we know what we should have done". 
+Fowlers presents a formal explanation of how techincal debt can occur. He categories technical debt into different debt types, in which he calls "Technical Debt Quadrant". As seen in the figure, the debt is grouped into four categories: reckless deliberate/inadvertent and prudent deliberate/inadvertent. Reckless-deliberate is descibed as "we dont have time for design", while reckless-inadveretnt is described as "waht's layering?". Prudent-deliberate is described as "we must ship now and deal with the consequences" and prudent-inadvertent is described as "now we know what we should have done". Figure \ref{fig:techDebtQuad} shows the following quadrant.
 
-Krutchen divides technical debt into two categories. Visible, debt that is visible for everyone. It containts elements such as new functionality to add and defects to fix. Invisible is the other category, debt that is only visible to software developers.
+\begin{figure}
+	\includegraphics[width=0.8\textwidth]{images/techDebtQuadrant.png}
+	\caption{Technical Debt Quadrant}
+	\label{fig:techDebtQuad}
+\end{figure}
+
+Krutchen divides technical debt into two categories\cite{krutchen}. Visible, debt that is visible for everyone. It containts elements such as new functionality to add and defects to fix. Invisible is the other category, debt that is only visible to software developers.
 
 \subsection{Organizational debt}
 While technical debt is known problem, there's one more type of debt which can be accrued on a compandy-wide level. This type of debt is called organizational debt. Organizational debt is all about people and culture compromises made to "just get it done" in early stages of a startup\cite{steve-blank}.  
@@ -35,30 +49,36 @@ While technical debt is known problem, there's one more type of debt which can b
 Technical debt is issues within the software which hampers its maintenance, which leads to that organizational debt is issues preventing a company from running smoothly. When things should be going great, organizational debt can turn a growing company to a nightmare. Growing companies needs to know how to recognize and refactor organizational debt. 
 
 Reasons for technical debt:
-- Training the new hires, both culture and specific tasks
-- Retain existing hire by doing something for them. Many doesn't get promoted. New hire might get a better posistion than existing hire who has been there from the start.
+
+\begin{itemize}
+	\item Training the new hires, both culture and specific tasks
+	\item Retain existing hire by doing something for them. Many doesn't get promoted. New hire might get a better posistion than existing hire who has been there from the start.
+\end{itemize}
 
 Good building, furniture, and compensation for executive staff isnt enough. Think about existing employees who's been there from the start. You might end up loosing qualified people who's spent years building up the company, but not compensated for it. Top-down approach is focused too much. Think about the bottom employees.They have the inistituinal knowledge and hard-earned skills.
 
 When new people got hired, the ones who could train them about the company culture and how to do their specific tasks is the old employees who's being underpaid. They will look for another job. No one would be able to train the new people then. Giving compensation in form of stock vesting, insurance benefits, movie nights etc isnt enough as everyone gets it. Do something for the employees who's been there for a long time.
 
-Refarocting might be important in order to reduce the organizational debt. Write plan for managing new wave of hires before hiring them. Sometimes, you'll also need to think about what you will have to do if you're about to loose a key employee. Is it worth to replace employees who hold critical knowledge? Put together an expence budget using the current employee salaries. See who's important. Identify the one they wanted to keep and upgrade them. Some employees might not be that important as welll as they might be a performance problem for the whole organization. Need to look at the company culture as well, does it take into account of the new size and stage of the organization? What have the company achieved, what are the key elements that have made it great so farm, are they same of different. Think about the customer too. Does we talk to the customer, or does the customer talk to us. Also, keep in mind that an adivosory board of other CEOS who've been through the early stages might be good. Failure to refactor might kill a growing company. 
+Refarocting might be important in order to reduce the organizational debt. Write plan for managing new wave of hires before hiring them. Sometimes, you'll also need to think about what you will have to do if you're about to loose a key employee. Is it worth to replace employees who hold critical knowledge? Put together an expence budget using the current employee salaries. See who's important. Identify the one they wanted to keep and upgrade them. Some employees might not be that important as welll as they might be a performance problem for the whole organization. Need to look at the company culture as well, does it take into account of the new size and stage of the organization? What have the company achieved, what are the key elements that have made it great so farm, are they same of different. Think about the customer too. Does we talk to the customer, or does the customer talk to us. Also, keep in mind that an adivosory board of other CEOS who've been through the early stages might be good. Failure to refactor might kill a growing company\cite{steveblank}.
 
 Some examples on organizational debt:
-- Different departments solving the same problems might use differnet methologies and tools. Difficult to see similarities in order to address company-wide issues.
-- Creation of processes and implement solutions which seems great at first, but didnt address the root casue of the issue and ending up creating more problems.
-- Time constraints, solving a problem in less-than-ideal manner this time. This manner is repeated because no one remember that the first time was intended to be one-off situation.
+\begin{itemize}
+	\item Different departments solving the same problems might use differnet methologies and tools. Difficult to see similarities in order to address company-wide issues.
+	\item Creation of processes and implement solutions which seems great at first, but didnt address the root casue of the issue and ending up creating more problems.
+	\item Time constraints, solving a problem in less-than-ideal manner this time. This manner is repeated because no one remember that the first time was intended to be one-off situation.
+\end{itemize}
 
 
-\section{Why does it occur}
+\subsection{Why does it occur}
 Many thinks that technical debt is mostly related to code decide. However, technical debt might occur already in the requirement specification phase in software development project. 
 
 Technical debt may be caused by several factors:
-- Work processes: Software development methology, can some tasks be automized (with a deploy script), is tests written after bug fixing, do you map and document shortcuts you take, is there any plans for techincal debt management later, is it important to implement new functionality or to make sure that the existing ones work propertly?
-- People (knowledge and capacity): Do you need some individuals to finish a task, Do you have the right people for the job, is enough training given to new people, what happens if you need someone who's on vacation/change project/is sick or something. You should keep this in mind and make a plan on how knowledge is transferred. Techcnical debt can be the reason for poor motivation and productivity which causes you to work poorly. 
-- Technology: Is solutions hard to integrate with other solutions, is all the systems out there compatible with newer technology, is there any outdated or duplicated code in the system, is all the systems secure, is the solutions old, or user friendly, is there some code which is hard to maintencance. 
-- Collaboration in the organization: Commuinication between developers and requirement people. You often get a list with requirements, is the list understandable? Do we work with a backlog with tasks that should have been solved long time ago, but not which is not "actual" now?
-
+\begin{itemize}
+	\item Work processes: Software development methology, can some tasks be automized (with a deploy script), is tests written after bug fixing, do you map and document shortcuts you take, is there any plans for techincal debt management later, is it important to implement new functionality or to make sure that the existing ones work propertly?
+	\item People (knowledge and capacity): Do you need some individuals to finish a task, Do you have the right people for the job, is enough training given to new people, what happens if you need someone who's on vacation/change project/is sick or something. You should keep this in mind and make a plan on how knowledge is transferred. Techcnical debt can be the reason for poor motivation and productivity which causes you to work poorly. 
+	\item Technology: Is solutions hard to integrate with other solutions, is all the systems out there compatible with newer technology, is there any outdated or duplicated code in the system, is all the systems secure, is the solutions old, or user friendly, is there some code which is hard to maintencance. 
+	\item Collaboration in the organization: Commuinication between developers and requirement people. You often get a list with requirements, is the list understandable? Do we work with a backlog with tasks that should have been solved long time ago, but not which is not "actual" now?
+\end{itemize}
 Developers might not care about the product because they don't feel that they "own" what's being made. They get told what do to, but not more than that. Can't make requirements.
 
 
@@ -67,18 +87,17 @@ Operating technical debt might be to maintenance and manage existing code rather
 
 Når det kommer til teknisk gjeld er det ikke alltid personen som har utviklet noe som tar ansvar, men kan en annen kan ta seg av den gjelda. Mange utviklere vedlikeholder ikke sin egen kode. Mange selskaper har også regler om at når et software er ferdig utviklet av de "beste" til å bli vedlikeholdt av de nest beste, som ofte kan få mindre betalt men har mye mer arbeid å gjøre. Ingen i din organisasjonen viser interesse for det, er brukerne som må betale for gjelda. Utviklere er belønnet for hvor raskt de implementerer enn langsiktig vedlikehold og kan ha fått seg et nytt prosjekt før gjelda er betalt. Få systemer har TODO eller FIXME kommentarer i kildekoden. 
 
-Til forskjell fra finansiell gjeld kan teknisk gjeld aldri betales tilbake i sitt fulle. Å betale TG kommer i en form av hvor lang tid det tar å fikse koden/problemet. Men det er ikke lett å vise hvilke gjeld som har høyest kost. Er interessen lavere enn hva det koster, er det ikke vits i å betale tilbake. Eksempel: Man har et system som trenger en oppgradering som kan koste 1 million. Man tar valget i å ikke oppgradere, og satse på at systemet fungerer. Det gjør det ikke, systemet går ned og firmaet taper felre millioner på å reparere systemet. Her kunne man spart penger på å oppgradere.
 
 
 
-\section{Technical debt in Industry}
+\subsection{Technical debt in Industry}
 Technical debt today is connected with many differnet aspects in the software development process, like documentation debt, requirements debt, architecture debt etc. 
 
 Using sequential design processes in software development processes to build complex, intensive systems is often a failure. Requirements are specified at the beginning of the software development process, and the remaining software development activities has to follow the initiral requirements. This kind of model is not appropiate to use for big softwares where technology and business requirements always change. This is why agile methods was made, where change and feedback is important. One of the benefits is the ability to quickly release new functionality. However, one of the problems with agile methods is that developers often wants to focus on implementing new fucntionality, which results in poor focus on design, code quality, testing, which again leads to technical debt.  
 
-Klinger carried out an industrial case study at IBM where four technical architechts with different backgrounds were interviewed and the goal was to examine how the decisions to incur debt was taken and the extend to which the debt provided leverage. What they found out was that the company failed to assess the impact of intentionally incurring debt on projects. Decisions regarding technical debt were rarely quantified. There were also big organizational gaps among the business, operational and technical stakeholders, which incurred debt.
+Klinger carried out an industrial case study at IBM where four technical architechts with different backgrounds were interviewed and the goal was to examine how the decisions to incur debt was taken and the extend to which the debt provided leverage\cite{p35-klinger}. What they found out was that the company failed to assess the impact of intentionally incurring debt on projects. Decisions regarding technical debt were rarely quantified. There were also big organizational gaps among the business, operational and technical stakeholders, which incurred debt.
 
-Codabux carried out an industrial case study where the topic was agile development focusing on techincal debt. They wanted to gain insights on agile adoption and how techincal debt affects the development processes. This industiral case study happened in form of an interview. After conducting the research, they got two definitions of technical debt, further known as infrastructure and automation debt. Infrastrucutre is the work that improves the teams processes and ability to produce a quality procudt with refactoring, repackaging, developing unit tests. Automation isthe work relatedd to supporting continious integration and faster development cycles. The term technical debt was mostly related to design, testing and defect debts according to the participants. One of the engineers mentioned that when they were working, they didn't know the "balacne of the credit card. They kept charging it". Management decides when enough debt has incurred, and is influenced by the customer needs.
+Codabux carried out an industrial case study where the topic was agile development focusing on techincal debt\cite{p8-codabux}. They wanted to gain insights on agile adoption and how techincal debt affects the development processes. This industiral case study happened in form of an interview. After conducting the research, they got two definitions of technical debt, further known as infrastructure and automation debt. Infrastrucutre is the work that improves the teams processes and ability to produce a quality procudt with refactoring, repackaging, developing unit tests. Automation isthe work relatedd to supporting continious integration and faster development cycles. The term technical debt was mostly related to design, testing and defect debts according to the participants. One of the engineers mentioned that when they were working, they didn't know the "balacne of the credit card. They kept charging it". Management decides when enough debt has incurred, and is influenced by the customer needs.
 
 
 
@@ -91,46 +110,50 @@ Codabux carried out an industrial case study where the topic was agile developme
 
 
 
-\chapter{Embedded Systems}
-\section{Introduction}
+\section{Embedded Systems}
 With the rapid evolution of electrical and software based systems, known as embedded systems, we see that most of the future compuing systems will be embedded systems\cite{wolfmadsen-2000}. However, as the complexity of embedded systems increases, maintaining the quality of such systems becomes more difficult. Higher functionality is provided when multiple components are combined together with embedde systems. This type of combination leads to higher cost of verifying additional software, which makes many fail to test the product properly and deliver reliable products. Companies must often recall their products, and catching these software defects earlier in the system design process saves a lot of money. The ability to identify these kind of problems earlier is still something many companies has troubles with. Embedded systems has also long lifetime and it's important to find out how to make decisions so future maintenance and operation has low cost as possible. Technical debt is a big factor in embedded systems as developers might not be available years after implementaion. 
 
 Since embedded systems are some specialized hardware,
 
 
-\section{Embedded system software}
+\subsection{Embedded system software}
+
+Embedded software is a computer software for embedded systems. It is specialized for a type of hardware which it lays and runs on. Therefore, embedded software might have multiple constraints related to run-time, memory usage, processing power etc.
+
+ 
+Embedded software had an important role today with the rapid evolution of ES. Escpecially with the Internet of Things trend.
+
+However, there are some challenges with embedde system software. These type of software usually has long lifetime. Old systems are usually hard to maintain compared to new ones. Companies must maintain many different configurations, and maintaining systems are challenging due to time. It is important to take the right choices when designing such systems. Abstract and high level design, architecture. People tend to deliver something in time rather than making something good. 
 
 
-Embedded software er en slags programvare for innebygde systemer. Disse programvarene er spesialisert for en type hardware (som den ligger og kjører på). Disse programvarene har derfor spesifikke begrensninger når det kommer til run-time, som minnebruk, prosesseringskraft osv.
-
-ES har en store rolle idag siden embedded systems utvikles stadig, spesielt med IoT som en trend nå.
-
-Problem: Har en lang livsstid som gjør det utfordrenede å vedlikeholde gamle systemer kontra utviling av nye. Bedrifter må derfor vedlikeholde mange ulike konfigurasjoner, og vedlikeholde systemer er noe av det mest utfordrende siden det krever så mye tid. Derfor er det viktig å se på løsninger som tar til hensyn til dette. Utvikle abstrakte, high level design tme quality software. Viktig med arkitektur. Problem er at de fleste foretrekker å levere noe i tide enn å lage noe bra.
-
-Trenger en platform for å kunne vedlikeholde TG kontinuerlig, veilede, prioritere, håndtere, refactor.
-
-
-...............
-Embedded software are specialized hardware it runs on, which gives us some constraints when it comes to run-time, like memory usage, processessing power etc. With Internet of Things as a big trend now, these types of software has a big role today. 
-
-One of the problems ES faces is the 
-
-\section{Virtualization of embedded systems}
+\subsection{Virtualization of embedded systems}
 
 
 \section{Configuration management}
-Configuration management er et disiplin for styring av av innhold, endringer, status på delt informasjon i et prosjekt. Det omfatter både prosesser og tekniske løsninger for å håndtere endringer og integriteten til prosjektet.F.eks hvis man utgir ny versjon av et produkt, må dokumentasjon også oppdateres. Config Management identifiserer hver komponent, og holder rede på alt som har blitt foreslått og godkjent endring fra dag 1 til slutt.
 
-Software CM er en disiplin for kontrollering av programvaresystemer. Altså kontrollere utviklingen av store og komplekse programvarer. Noen eksempler på SCM er Git-Scm, SVN, RCS, Adele, ClearCase osv. Versjonskontroll er nøkkelen bak SCM. Følgende aspekter er med å definere CM ifølge IEEE:
--	Identification: Struktur av produktet, identifiserer komponenter og deres typer, gjør den unik og tilgjengelig på en måte.
--	Control: Kontrollerer release og og endringer av et produkt i løpet av produktets livsyklus ved å ha diverse kontroller/sjekk som sørger for konsistent produkt via "creation of a baseline product"
--	Status Accounting: Tar opp og rapporterer status til komponenter og evt endringer (forespørsler). Får også  statistikk om produktet.
--	Audit and Review: Validerer det komplette produktet og vedlikeholder konsistensen mellom komponenter ved å sørge for at produktet er en vel-definert kolleksjon av komponenter.
+Dart defines configuration management as a dicipline for controlling the evolution of software systems (siter dart). This includes content, changes and status in a shared project. Both processes and technical solutions to handle changes and the projects integrity. Example, if a new version of the product is released, everything related to this projects needs to be up-to-date. Like documentation. Configuration management identifies every component in a project and has an overview of every suggestions and changes from day 1 to the end of the product.
 
-Kan utvides med disse tre definisjonene å:
--	Manufacture: Vedlikeholde konstruksjon og bygge produktet på en optimert måte. 
--	Process management: Passe på organisasjonens personvern, prosedyrer og livssyklus modell.
--	Teamwork: Sjekke arbeidet og passe på et godt samarbeid, og passe på interaksjonen mellom flere brukere og produktet.
+Software CM is a dicipline for controlling the evolution of software systems. Some examples on SCM is Git-SCM, SVN, RCS, Adele, ClearCase. Version control is the key behind SCM. IEEE standard 729-1983 highlights the following operational aspects of CM:
+
+\begin{itemize}
+
+	\item \textbf{Idenfitication}: The products structure. Identifies every component in the products, making them unique and accessible in some form.
+	\item \textbf{Control}: Controls every reelase and changes of a product throghout the lifecycles by having some controls in place that ensure consistent software via the creation of ab aseline product.
+	\item \textbf{Status accounting}: Records and reports the status of components and change requests. It is also possible to review statistics about components in the product.
+	\item \textbf{Audit and review}: Validates the product and maintaining the consistency between components by ensuring that the product is a well-defined collection of compontens.
+\end{itemize}
+
+In addition th those aspect, we can expect the definition of CM by three more aspects
+\begin{itemize}
+	\item \textbf{Manufacture}: Maintaining the construction, and build the product in an optimal way.
+	\item \textbf{Process management}: Take care of the companies policies, processes and lifecycle model.
+	\item \textbf{Teamwork}: Review the work and make sure that the collaboration is good. Keep an eye on the interaction between multiple users and the product.
+
+\end{itemize}
+
+When do we use CM? 
+
+
 
 Når skal CM brukes? Det varierer. Noen velger å bruke CM system når produktet har gått gjennom utviklingsfasen og er klar for lansering/shipment. Andre velger å putte alt i CM ved oppstart av prosjektet. Begge har sine overheads. Man kan ta et valgt basert på overheads ved en endring. Er det mye manuell arbeid som å fylle ut diverse former, søke om godkjennelse osv vil man ofte plassere programverer under CM etter utvikling. Men hvis en forespørslen om en endring bruker lite tid og innsats fra utviklere, kan man velge å implementere tidlig. I teorien kan CM implementeres i alle stadiger i produktets livssyklus som opprettelse, utvikling, release, levering til kunde, bruk av produkt osv. Men ideelt sett bør et CM ha lite overhead som mulig, slik at software til CM implementeres så tidlig som mulig. Eksisterende CM systemer fokusterer dessverre på en viss fase i livsfasen, så brukere er begrenset av funksjonaliteten.
 
@@ -151,18 +174,18 @@ o	Siden embedded systemer ofte tar I bruk tredje-parts teknologier, er det vikti
 
 
 
-\subsection{Software reuse}
+\section{Software reuse}
 Software reuse is about using existing software artifacts, or knowledge, to create new software, rather than building it from scratch. Software reuse is a key method for improving software quality. 
 
 
-\subsection{Software development life cycles} % (fold)
+\section{Software development life cycles} % (fold)
 
 
 
 
 
 
-\subsection{Software maintenance and evolution}
+\section{Software maintenance and evolution}
 %http://www.cs.uah.edu/~rcoleman/CS499/CourseTopics/IEEE_Std_1219-1998.pdf
 http://www.kantega.no/livslop/
 http://swreflections.blogspot.no/2011/04/lientz-and-swanson-on-software.html

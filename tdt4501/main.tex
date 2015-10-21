@@ -6,7 +6,7 @@
 \usepackage[a4paper,width=150mm,top=35mm,bottom=35mm,bindingoffset=6mm]{geometry}
 
 \usepackage{setspace}
-\linespread{1.5}
+\linespread{1.25}
 
 % FancyHdr pakken gjør det mulig å legge til header og footer
 \usepackage{fancyhdr}
@@ -19,7 +19,7 @@
 \fancyfoot[LE,RO]{\thepage} % returnerer sidenummeret.
 % Hvis vi ønsker å legge til noe info om kapittel og forfatter
 \fancyfoot[LO,CE]{Chapter \thechapter} % kan bruke leftmark og rightmark å. sjekk
-\fancyfoot[CO,RE]{Author Name}
+\fancyfoot[CO,RE]{Shahariar Kabir Bhuiyan}
 
 %endrer på størrelse på skrift
 \renewcommand{\headrulewidth}{0.4pt}
@@ -35,18 +35,32 @@
 % for Bibtex
 \usepackage{cite}
 
+% For new page
+\usepackage{afterpage}
+\newcommand\blankpage{%
+	\null
+	\thispagestyle{empty}%
+	\addtocounter{page}{-1}%
+	\newpage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SETUP DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
 \pagestyle{plain}
 \include{titlepage}
-\null
+\afterpage{\blankpage}
 
 \setcounter{page}{0}
 \pagenumbering{roman}
 
 \include{intro/abstract}
+\afterpage{\null\newpage}
 \include{intro/preface}
 
+\afterpage{\null\newpage}
 \tableofcontents
+\listoffigures
 
 \setcounter{page}{0}
 \pagenumbering{arabic}
