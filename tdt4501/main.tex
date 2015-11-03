@@ -3,27 +3,23 @@
 \usepackage{graphicx}
 \graphicspath{{images/}}
 % Konfigurerer page layout, default er US paper. Endrer på width også, og top/bottom margin.
-\usepackage[a4paper,width=150mm,top=35mm,bottom=35mm,bindingoffset=6mm]{geometry}
+\usepackage[a4paper,width=150mm,top=35mm,bottom=35mm,bindingoffset=2mm]{geometry}
 
 \usepackage{setspace}
-\linespread{1.25}
+\linespread{1.5}
 
 % FancyHdr pakken gjør det mulig å legge til header og footer
 \usepackage{fancyhdr}
+\fancyhf{}
 \pagestyle{fancy} % legger til default
 % Endrer på header.
 \fancyhead{}
-\fancyhead[RO,LE]{Thesis Title} %Ønsker thesis tittel på høyre side på oddetallssider, og venstre på partallsider.
-% Endrer på footer
-\fancyfoot{}
-\fancyfoot[LE,RO]{\thepage} % returnerer sidenummeret.
-% Hvis vi ønsker å legge til noe info om kapittel og forfatter
-\fancyfoot[LO,CE]{Chapter \thechapter} % kan bruke leftmark og rightmark å. sjekk
-\fancyfoot[CO,RE]{Shahariar Kabir Bhuiyan}
+\fancyhead[RO,LE]{\rightmark} %Ønsker thesis tittel på høyre side på oddetallssider, og venstre på partallsider.
+\fancyhead[RE,LO]{\thepage}
 
 %endrer på størrelse på skrift
 \renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
+%\renewcommand{\footrulewidth}{0.4pt}
 
 % bruk \pagestyle{empty} for å fjerne alt, og \pagestyle{plain} for å ha sidenummer på underkapitler (sections).
 % Husk å bytte til fancy ved neste avsnitt eller der du vil ha fancy greier.
@@ -32,8 +28,17 @@
 
 \usepackage{import}
 
+% For enumerate
+\usepackage{enumitem}
+
 % for Bibtex
 \usepackage{cite}
+
+% For block quote
+\usepackage{csquotes}
+
+\usepackage{parskip}  % Separate paragraphs with a blank line
+                      % rather than using indentation
 
 % For new page
 \usepackage{afterpage}
@@ -47,37 +52,35 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SETUP DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\pagestyle{plain}
-\include{titlepage}
-\afterpage{\blankpage}
+	\pagestyle{plain}
+	\include{titlepage}
+	\afterpage{\blankpage}
 
-\setcounter{page}{0}
-\pagenumbering{roman}
+	\setcounter{page}{0}
+	\pagenumbering{roman}
 
-\include{intro/abstract}
-\afterpage{\null\newpage}
-\include{intro/preface}
+	\include{intro/abstract}
+	\afterpage{\null\newpage}
+	\include{intro/preface}
 
-\afterpage{\null\newpage}
-\tableofcontents
-\listoffigures
+	\afterpage{\null\newpage}
+	\tableofcontents
 
-\setcounter{page}{0}
-\pagenumbering{arabic}
-\pagestyle{fancy}
+	\clearpage
+	\listoffigures
 
-\include{chapters/introduction}
-\include{chapters/litterature_review}
-\include{chapters/research_method}
-\include{chapters/results}
-\include{chapters/discussion}
-\include{chapters/conclusion}
+	\clearpage
+	\setcounter{page}{0}
+	\pagenumbering{arabic}
+	\pagestyle{fancy}
 
-\appendix
-\include{appendix/appendix-a}
+	\include{chapters/introduction}
+	\include{chapters/litterature_review}
+	\include{chapters/research_method}
+	\include{chapters/results}
+	\include{chapters/discussion}
+	\include{chapters/conclusion}
 
-\newpage
-\bibliography{references/papers,references/urls}
-\bibliographystyle{plain}
-
+	\bibliography{references/papers,references/urls}
+	\bibliographystyle{plain}
 \end{document}
