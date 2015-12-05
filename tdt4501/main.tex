@@ -1,12 +1,16 @@
-\documentclass[12pt,twoside]{report} % Two side gjør det tosidig
+\documentclass[11pt,twoside]{report} % Two side gjør det tosidig
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \graphicspath{{images/}}
 % Konfigurerer page layout, default er US paper. Endrer på width også, og top/bottom margin.
-\usepackage[a4paper,width=150mm,top=35mm,bottom=35mm,bindingoffset=2mm]{geometry}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=2mm]{geometry}
 
 \usepackage{setspace}
-\linespread{1.5}
+\linespread{1.25}
+
+% for caption top tables
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}
 
 % FancyHdr pakken gjør det mulig å legge til header og footer
 \usepackage{fancyhdr}
@@ -16,6 +20,8 @@
 \fancyhead{}
 \fancyhead[RO,LE]{\rightmark} %Ønsker thesis tittel på høyre side på oddetallssider, og venstre på partallsider.
 \fancyhead[RE,LO]{\thepage}
+
+\setlength{\headheight}{14pt}
 
 %endrer på størrelse på skrift
 \renewcommand{\headrulewidth}{0.4pt}
@@ -29,7 +35,9 @@
 \usepackage{import}
 
 % For enumerate
-\usepackage{enumitem}
+
+\usepackage{easylist}
+\usepackage{paralist}
 
 % for Bibtex
 \usepackage{cite}
@@ -39,6 +47,11 @@
 
 \usepackage{parskip}  % Separate paragraphs with a blank line
                       % rather than using indentation
+\usepackage{url}
+\usepackage{float} % for bildeplassering der du vil
+
+\usepackage[colorlinks=true, a4paper=true, pdfstartview=FitV,
+linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
 
 % For new page
 \usepackage{afterpage}
@@ -82,5 +95,5 @@
 	\include{chapters/conclusion}
 
 	\bibliography{references/papers,references/urls}
-	\bibliographystyle{plain}
+	\bibliographystyle{ieeetr}
 \end{document}

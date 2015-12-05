@@ -1,0 +1,26 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage[margin=0.9in]{geometry}
+
+\usepackage{colortbl} % To color table cells
+\usepackage{color} % Able to change textcolor
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{lscape}   % Make a page in landscape format \begin{landscape}
+\usepackage{cite}
+\usepackage{csquotes}
+\usepackage{float}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\subsection*{\refname}}{}{}{}
+
+\hypersetup{
+	pdfborder = {0 0 0}
+}
+
+\begin{document}
+	\include{titlepage}
+	\include{report}
+\end{document}

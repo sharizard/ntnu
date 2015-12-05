@@ -1,14 +1,22 @@
 % !TEX root = ..\main.tex
 \chapter{Introduction}
 
-\section{Motivation and background}
-Today, hardware and software based systems, further known as embedded systems, are growing rapidly. Ranging from microprosessors in cellphones to sensors in cars and surveillance systems, embedded computing is becoming a big part of our lives. With the rapid growth of embedded systems, we clearly see that most future computing systems will be embedded systems\cite{wolfmadsen-2000}. With the new era of Internet of Things, more and more embedded systems are getting a networked interconnection. This leads to a distributed network of devices communicating with other devices as well as human beings. Gartner has estimated that in 2020, 25 billion connected "things" will be in use\cite{gartner}. To provide more functionality, multiple components are combined together with embedded systems. However, as the complexity of embedded system increases, the ability to maintain the quality of such systems becomes more difficult. Combination of multiple components leads to higher costs of verifying additional software and many fails to test the product properly and deliver a reliable product. Such systems accumulates technical debt. As debt accumulates, it becomes necessary to manage the overall debt while keeping the system flexible and extensible. Companies must often recall their products. If they could catch these software defects earlier in the system design process, they would have saved a lot of money. Embedded systems also has long lifetime and its important to find out how to make decisisions so future maintenance and evolution has low cost as possible. 
+\section{Motivation and Background}
+The field of embedded systems is growing rapidly based on the evolution in electronics and widespread use of sensors and actuators. From consumer electronics to automobiles, to satellites, embedded systems represent one of the largest segment of the software industry. Our society has come to depend on such systems for its day-to-day operation, and with this trend ongoing, we clearly see that most future computing systems will be embedded systems\cite{wolfmadsen-2000}. Internet of Things describes the concept of interconnecting the virtual world of computers with the real world of physical artifacts\cite{mattern2010internet}. This leads to a distributed network of devices communicating with other devices as well as humans. Gartner has estimated that in 2020, 25 billion connected "things" will be in use\cite{gartner}. 
 
-With the rapid evolution of electrical and software based systems, known as embedded systems, we see that most of the future compuing systems will be embedded systems\cite{wolfmadsen-2000}. However, as the complexity of embedded systems increases, maintaining the quality of such systems becomes more difficult. Higher functionality is provided when multiple components are combined together with embedde systems. This type of combination leads to higher cost of verifying additional software, which makes many fail to test the product properly and deliver reliable products. Companies must often recall their products, and catching these software defects earlier in the system design process saves a lot of money. The ability to identify these kind of problems earlier is still something many companies has troubles with. Embedded systems has also long lifetime and it's important to find out how to make decisions so future maintenance and operation has low cost as possible. Technical debt is a big factor in embedded systems as developers might not be available years after implementaion. 
+Software plays an important role in the development of embedded systems. The software is specialized for one particular type of hardware and may therefore have hardware specific run-time constrains. To provide more functionality, multiple components are combined together within embedded systems. However, as the complexity of embedded system increases, the ability to maintain the required quality of such systems becomes more difficult. Combination of multiple components leads to higher costs of verifying additional software and many consequencly may fail to test the product properly and deliver a reliable product.  
 
-Since embedded systems are some specialized hardware,
+Embedded systems expected lifetime goes beoynd one decade for many systems, which requires managing old systems in parallell to the design and implementation of new systems. 
 
-\begin{table}
+
+In most cases, many companies are forced to think about their time-to-market strategy to keep up with the increased competition. This leads companies to decide what shortcuts in the development process they have to take. Such compromises leads to the creation of a financial overhead in the future maintenance activities, usually termed as technical debt\cite{p29-cunningham}. 
+
+As technical debt accumulates, it becomes necessary to manage the overall debt while keeping the system flexible and extensible. Companies must often recall their products. If they could catch software defects earlier in the system design process, they would have saved a lot of money. It is important to find out how to make decisisions so future maintenance and evolution has as low cost as possible. 
+
+
+Technical debt is a rising problem. It is estimated that the cost of dealing with technical debt threatens to grow to \$ 1 trillion globally by 2015\cite{gartner2010}. That is the double of the amount of technical debt in 2010. IT management teams must measure the level of technical debt in their organization and develop a strategy to deal with it.
+
+\begin{table}[H]
 	\centering
 	\begin{tabular}{ | l | l | l | l | l |}
 	\hline
@@ -23,38 +31,38 @@ Since embedded systems are some specialized hardware,
 	\caption{Table from Gartner\cite{gartner}} \label{tab:table1}
 \end{table}
 
-Technical debt is a rising problem. It is estimated that the cost of dealing with technical debt threatens to grow to \$ 1 trillion globally by 2015\cite{gartner2010}. That is the double of the amount technical debt in 2010. IT management teams must measure the level of technical debt in their organization and develop a strategy to deal with it.
-
 
 \section{Research Questions}
-The main objective of this project is to increase the knowledge on how the significant sources of technical debt, and find out how technical debt in embedded systems are managed. The reason for this is that embedded systems usually has long lifetime, and it is important to find out how such systems are managed because the architecture and design decisions are usually made long time ago and these people might not be available. 
+The main objective of this project is to increase the knowledge on the significant sources of technical debt, and find out how technical debt in embedded systems are managed. The reason for this is that embedded systems usually has long lifetime, and it is important to find out how such systems are managed because the architecture and design decisions are usually made long time ago and the decision makers might not be available anymore. 
 
 \textbf{The research questions will be:} 
 \begin{itemize}
-	\item \textbf{RQ-1}: Are there any practices and tools for managing technical debt? How are they used?
+	\item \textbf{RQ-1}: What practices and tools for managing technical debt? How are they used?
 	\item \textbf{RQ-2}: What are the most significant sources of technical debt?
-	\item \textbf{RQ-3}: When should a debt be refactored?
-	\item \textbf{RQ-4}: Who is responsible for deciding whether to incur, and pay off technical debt?
+	\item \textbf{RQ-3}: When should a technical debt be paid?
+	\item \textbf{RQ-4}: Who is responsible for deciding whether to incur, or pay off technical debt?
 \end{itemize}
 
-\section{Research method}
-The most relevant research methologies in software engineering is summarized in Figure \ref{fig:researchProcess}. This model will be used as a basis in this thesis. In order to define the research questions, it is necessary to an overview of the research field. To do this, one can either conduct a review of published research within the selected area of study, or use experiences and motivations. Following this, a research strategy is needed to answer the research questions. There are six different research strategies: survey, design and creation, experiment, case study, action research, and ethnography. To produce empirical data or evidence, a data generation method is needed. There are four methods: interviews, observations, questionnaire, and documents. These data can either be quantitative or qualitative. 
+\section{Research Method}
+The most relevant research methologies in software engineering is summarized in Figure \ref{fig:researchProcess}. Throughout this thesis, the research process illustrated in the model will be used as a basis for the elaboration of how to conduct the research in my master thesis. 
 
-To achieve my goal, a litterature review will be conducted in order to get familiar with the area of study. Following this, one or more research questions will be defined. In order to answer the research questions, a series of semi-structured interviews is conducted with software developers and managers working with various systems. 
-
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{images/researchStrategies.png}
 	\caption{Model of research process\cite{Oates:2006:RIS:1202299}}
 	\label{fig:researchProcess}
 \end{figure}
 
-\section{Project structure}
-The report is structured as follows:
+To define the research questions, it is necessary to get an overview of the research field by conducting a review of published research within the selected area of study, or use experiences and motivations. This provides a conceptual framework for this research. A research strategy is needed to answer the research questions. There are six different research strategies: survey, design and creation, experiment, case study, action research, and ethnography. A data collection method is needed to produce empirical data or evidence. There are four methods: interviews, observations, questionnaire, and documents. These data can either be quantitative or qualitative. 
 
+A litterature review was conducted to start with, providing a conceptual framework for this research. This led to the definition of the research questions to be answered in this research. To answer the research questions, survey is chosen as research strategy along with interviews for data collection.
+
+
+\section{Project Structure}
+The report is structured as follows:
 \begin{itemize}
-	\item \textbf{Chapter 1} introduces the problem and motivation behind this project, the research questions and the different parts of this project.
-	\item \textbf{Chapter 2} provides state-of-art within the field of techincal debt, embedded systems, and software engineering.
+	\item \textbf{Chapter 1} introduces the problem and motivation behind this project, the research questions, and the different parts of this project.
+	\item \textbf{Chapter 2} provides a state-of-art within the field of technical debt, embedded systems, and software engineering.
 	\item \textbf{Chapter 3} presents the research method, and the procedures behind the method.
 	\item \textbf{Chapter 4} provides an overview of the results and analyses from the research method.
 	\item \textbf{Chapter 5} presents a discussion of the whole project.
