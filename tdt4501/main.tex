@@ -1,6 +1,7 @@
 \documentclass[11pt,twoside]{report} % Two side gjør det tosidig
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
 \graphicspath{{images/}}
 % Konfigurerer page layout, default er US paper. Endrer på width også, og top/bottom margin.
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=2mm]{geometry}
@@ -78,6 +79,9 @@ linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
 
 	\afterpage{\null\newpage}
 	\tableofcontents
+
+	\clearpage
+	\listoftables
 
 	\clearpage
 	\listoffigures
