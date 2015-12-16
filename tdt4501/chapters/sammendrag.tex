@@ -1,42 +1,247 @@
-\chapter{Sammendrag artikler}
-\section{Sammendrag oppskrift}
-- Description
-- Goal (find out something, maybe give organization something)
-- Research method
-- Findings
-
-\section{P8-Codabux}
-Description: One of the root failures for software development is use of the sequential design processes for building complex, intensive systems. In sequential design processes, the remaining software development activities is based on the initial requirements. So this type, eg. Waterfall, is not appropriate to use when business needs to change business needs and technology rapidly. This is where agile development comes in. One primary benefit is the quick release of functionality. However, the focus can change from implementing new functionality rather than design, good programming practice and test coverage.
-
-Goal: Codabux goal is to research agile development focusing on TD in an industrial context. Gain software developers insights on agile adptopn and how technical debt affects the development process. The objective is to identify the main challenges and best practices with agile adoption and the management of technical debt.
-
-Research method: 3 on-site process evaluations with their industrial partner since their initial adpotion of the Agile methods., in the form of an interview
-
-Findings: After conducting their research methology, they got two definitions of technical debt, infrastructure and automation debt. Infrastructure is the work that improves team's processes and ability to produce a quality product. Example of this is refactoring, repackaging, developing unit tests. Automation is the work related to supporing continous integration and faster development cycles. Make sure that previuous tests are running.
-
-There are indications that technical debt is influenced by lack of time needed to properly design and code new features. The participants relates technical debt mostly to design, testing and defects debts.
-
-One of the engineers doesn't know the "balance of the credit card, and keep on charging it.". Management decides when enough debt has incurred, and the management is influenced by the customer needs.
-
-Some debt stay in the backlog if it's not a priority because the focus is on new features.
-
-\section{P35-Klinger}
-Description: Klinger describes an industrial case study on technical debt carried out at IBM.
-
-Goal: They want to find out how technical debt is analogous to using leverage for long-term investment (the extent to whicn borrowed money is being used in an investment or a business). For example, to meet the delivery date of a product, techincal shortcuts might be necessary. However, meeting the delivery date might ensure that the product thrives and grows in marketplace, something that might be en jeopardy if delivery date is missed. 
-
-Research method: Ethnographic study in the form of a series of interviews involving four technical architects with different backgrounds. Goal here is to examine how the decisions to incur debt were taken and the extent to which the debt provided leverage.
-
-Findings: The company fails to assess the impact of intentionally incurring debt on projects. Decisions regarding technical debt were rarely quantified, and organizational gaps among the busness, operational and technical stakeholders contribute to incurring debts.
+% Embedded Software: Facts, Figures, and Future - \cite{ebert2009embedded}
+% EMbedded Software Engineering: State of the Practice * \cite{graaf2003embedded}
+% Software Engineering for Automotive Systems: A Roadmap / \cite{pretschner2007software}
+% Quality Evaluation of Embedded Software in Robot thing # \cite{washizaki2007quality}
+% Quality specification and metrication, results from case-study in a mission-critical software domain + {trienekens2010quality}
 
 
 
 
-\section{p73-bennet}
-Description: Software maintenance and evolution are characterized by their cost and implementation speed. But they are inevitable activities, all software that is successfull can be changed and improved.
 
-Goal: Describe a landscape for research in software maintenance and evolution for the next ten years. This research has a goal to improve the implementaitn speed and accuracy while reducing the costs. This is done by identifying key problems, promising solution strategies and topics of importance.
+% Embedded Software: Facts, Figures, and Future - 
+% EMbedded Software Engineering: State of the Practice *
+% Software Engineering for Automotive Systems: A Roadmap /
+% Quality Evaluation of Embedded Software in Robot thing #
+% Quality specification and metrication, results from case-study in a mission-critical software domain +
 
-Research method: 
+* Software development technologies do not take into account the specific needs of embedded systems development. They does not address the specific constrains.
 
-Findings: 
+# Table 2
+
+
+- Quality is the most difficult measurement in embedded ysstems. Reviews, unit test, and test progress and coverage are the key measurement keys to indicate quality. Reliability models are established to forecast how many defects still need to be found. Note that QA are not only functional, but also relate to performance, security, safety, diagnosability, and maintainability.
+
+
+/ INtegration of subsystems is always a challenging task for complex systems, the situation in automotive software engineering is even worse, because suppliers usually have a lot of freedom in how they realize individual solutions.
+
+
+Software Quality in ES:
+- Quality requirements are high in embedded systems. Some examples of practices used are quality function deployment for requirements priotizition and traceabiity of quality, model-driven design and test, selected agile principles, and broad automatic testing.
+
++ Software quality is of increasing importance in embedded systems. Due to the fast growing complexity and accompanying risks of failures of these systems, software quality needs to be adressex explicitly by software developers.
+
++ SQ is carried out in an ad-hoc way, on the basis of the expertise of indiduval software developers.
+# In other words, evaluating and improving product quality is one means of improving quality in use, and, appropriate internal attributes of software are a prerequisite for achieving the required external behaviour.
+
+Achitecture:
+* Small projects did not consider explicit analysis, development, and specificatin of the product archictecture
+* Owning to time-to-market pressure, deadlines often obstructed the development of sound architecture. Architects did not have enough time to do things right
+* Different organizational unit had designed the system architecure. The architecture was more or less fixed. This led to suboptimal software architectures. 
+
+Reuse:
+* Reuse was rather ad hoc. Requirements, design documents, and code were reused by copying them. This was because most products were based on previous products.
+* Issue: Difficulty of estimating both a reuse approach's benefits and the effort to introduce it.
+* Since most projects did not start from scratch, developers always had to deal with legacy. 
+/ Functionality changes only to a small amount from one vehicle generation to the next. Most of old functionaly remains and can be found in the new car generation, as it was in the old one. Functionality differs mostly not more than 10\%, while more than 10\% of the software is re-written.
+/ Reuse come in different forms. Reuse at the level of single code modules has proven to be difficult. At the level og programming or modeling languages, recurring patterns of behaviour in a domain can be ecapsulated into consise language.
+
+
+Two masjor cost drivers in embedded software development are requirements and test.
+Requirements:
+- Forty percent of all software defects in embedded systems result from insufficient requirements. 
+* Requirements does not take into account real-time requirements.
+* Non-functionalities are important.
+# Non-functional characteristics were not specified. 
+* Requirements are also reused. New projects are built on previous projects. (REUSE)
+
+Testing: 
+- Testing after code completion consumes 30 to 40 percent of embedded-development resources, and depending on the project life cycle - requires a lead time of 15 to 50 percent of total project duration.
+
+
+Schedule pressures
+- Beware of the negatie imapct of time presure. We often find companies that compress schedules to a point that makes engineers skip necessary V&V activities, ontly to find later they need extra time and incur costs for repair.
+
+
+Compexity management:
+- Increasing complexity means extra defects and cost. 
+* Mrore and more companies are having trouble achieving high quality and time delivery.
+* The key is to successfully develop high-quality embedded ysstems and software on time. 
+* Requires highly skilled software engineers to apply complext development technologies. 
+
+Non functional req:
+/ Reliability and safety concerns for all functions relevant to driving.
+* Embeddd domain is driven by reliability, cost, and time to market
+* Performance was an issue, wasnt taken into account when requirements was specified. 
++ Mission critical systems are characterized by extreme complexity, and a need for high level of real-time performance and reliability.
+
+
+Safety and security: 
+- Risks and malfucntions of embedded software are much higher than those of application software. Security rapdily grows in relevance as embedded software communicates autonomously with other computing devices.
+- Focus on arch and perfprmance req before diving into alg and fnctions. Use technices such as traceability of reqs, model-driven developement, TDD, automatic testing.
+/ The life-criticality of many avionics systems has led to reliabilites of 10^9 hours mean time between failures. 
+/ Furthermore, driven by goverment mandates, avionics companies invest heavily into quality management. 
+/ Liability also is an important issue in ad-hoc distributed safety-critical applications such as crash prevention that relies on communication between cars. 
+/ The more the vehicles become connected to the cyber-infrastruture, the more suspectible it becomes to attacks carried out via this cyber-infrastructure.
+
+Development:
+* System engineering was mostly hardware driven - htat is, from a mechanical or electronic viewponint. Sofware architects were in some cases not involved. Software development started at a phase where hard phre development was at a stage where changes would be expensive.
+
+
+Software development processes
+# The waterwall process tries to cover the entire scope in each activity and contains no iteration; it leads to a situation in which the hardware and envrionmental characteristics are not dealt with in the analysis and design models. on the other hand, the iterative and agile processes divide the netire scope into several smaller fragments and perform several iterations; this leads to a system build step by step, involving hardware and environmental characteristics.
++ To reduce the complexity of software applications, incremental development techniques have been introduced by the quality assurance staff in collaboration with the software developers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+# Table 2
+
+
+
+
+Software Quality in ES:
+- Quality is the most difficult measurement in embedded systems. SOLUTION: Reviews, unit test, and test progress and coverage are the key measurement keys to indicate quality. Reliability models are established to forecast how many defects still need to be found. Note that QA are not only functional, but also relate to performance, security, safety, diagnosability, and maintainability\cite{ebert2009embedded}
+
+- Quality requirements are high in embedded systems. Some examples of practices used are quality function deployment for requirements priotizition and traceabiity of quality, model-driven design and test, selected agile principles, and broad automatic testing.\cite{ebert2009embedded}
+
+- Quality as a multifactor set of reqs are more complex and important in ES than in app software or information system.\cite{ebert2009embedded}
+
+- Failure and poor can cause death or serious injuries. \cite{ebert2009embedded}
+
+# For embedded software development, it is particulary important to estimate and verify reliability and performance in early stages.\cite{washizaki2007quality}
+
++ This study shows time behavours, relaibility and usability as important quality chars.\cite{trienekens2010quality}
++ %Software quality is of increasing importance in embedded systems. Due to the fast growing complexity and accompanying risks of failures of these systems, software quality needs to be adressex explicitly by software developers.\cite{trienekens2010quality}
++ At CAMS, the managemnt has doubts regarding the quality of the software. Although satisfied with the functionalities, they complain about weak quality aspects, such as the sometimes unpredictable time-behavirous and the restricted reliability of the systems. \cite{trienekens2010quality}
+
+
+# In other words, evaluating and improving product quality is one means of improving quality in use, and, appropriate internal attributes of software are a prerequisite for achieving the required external behaviour.\cite{washizaki2007quality}
+
+- Focus on arch and perfprmance req before diving into alg and fnctions. Use technices such as traceability of reqs, model-driven developement, TDD, automatic testing.\cite{ebert2009embedded}
+/ The life-criticality of many avionics systems has led to reliabilites of 10^9 hours mean time between failures. \cite{pretschner2007software}
+/ Furthermore, driven by goverment mandates, avionics companies invest heavily into quality management. \cite{pretschner2007software}
+
+
+
+* Embeddd domain is driven by reliability, cost, and time to market\cite{graaf2003embedded}
+* Performance was an issue, wasnt taken into account when requirements was specified. \cite{graaf2003embedded}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Safety and security: 
+
+/ Liability also is an important issue in ad-hoc distributed safety-critical applications such as crash prevention that relies on communication between cars. \cite{pretschner2007software}
+
+
+
+Two masjor cost drivers in embedded software development are requirements and test.
+Requirements:
+- Forty percent of all software defects in embedded systems result from insufficient requirements. \cite{ebert2009embedded}
+* Requirements does not take into account real-time requirements.\cite{graaf2003embedded}
+* Non-functionalities are important.\cite{graaf2003embedded}
+# Non-functional characteristics were not specified. \cite{washizaki2007quality}
+* Requirements are also reused. New projects are built on previous projects. (REUSE)\cite{graaf2003embedded}
+
+
+
+
+
+
+
+Achitecture:
+* Small projects did not consider explicit analysis, development, and specificatin of the product archictecture\cite{graaf2003embedded}
+* Owning to time-to-market pressure, deadlines often obstructed the development of sound architecture. Architects did not have enough time to do things right\cite{graaf2003embedded}
+* Different organizational unit had designed the system architecure. The architecture was more or less fixed. This led to suboptimal software architectures. \cite{graaf2003embedded}
+
+* System engineering was mostly hardware driven - htat is, from a mechanical or electronic viewponint. Sofware architects were in some cases not involved. Software development started at a phase where hard phre development was at a stage where changes would be expensive.\cite{graaf2003embedded}
+
+
+
+
+
+
+
+
+Reuse:
+* Issue: Difficulty of estimating both a reuse approach's benefits and the effort to introduce it.\cite{graaf2003embedded}
+* Since most projects did not start from scratch, developers always had to deal with legacy. \cite{graaf2003embedded}
+
+
+
+
+
+
+
+
+Schedule pressures
+- Beware of the negatie imapct of time presure. We often find companies that compress schedules to a point that makes engineers skip necessary V&V activities, ontly to find later they need extra time and incur costs for repair.\cite{ebert2009embedded}
+
+
+Compexity management:
+- Increasing complexity means extra defects and cost. \cite{ebert2009embedded}
+* Mrore and more companies are having trouble achieving high quality and time delivery.\cite{graaf2003embedded}
+* The key is to successfully develop high-quality embedded ysstems and software on time. \cite{graaf2003embedded}
+* Requires highly skilled software engineers to apply complext development technologies. \cite{graaf2003embedded}
+
+
+
+
+
+
+Software development processes
+# The waterwall process tries to cover the entire scope in each activity and contains no iteration; it leads to a situation in which the hardware and envrionmental characteristics are not dealt with in the analysis and design models. on the other hand, the iterative and agile processes divide the netire scope into several smaller fragments and perform several iterations; this leads to a system build step by step, involving hardware and environmental characteristics.\cite{washizaki2007quality}
++ To reduce the complexity of software applications, incremental development techniques have been introduced by the quality assurance staff in collaboration with the software developers.\cite{trienekens2010quality}

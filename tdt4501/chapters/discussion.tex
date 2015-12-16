@@ -1,65 +1,65 @@
+% !TEX encoding = UTF-8 Unicode
 % !TEX root = ..\main.tex
+% !TEX spellcheck = en-US
 \chapter{Discussion}
-This chaptes takes a closer look at the findings from this research. This chapters starts by summarizing the findings from Chapter 4. Following, the research questions will be answered. This chapter ends with an evaluation of this research.
+The purpose of this study was to do a broader review of how TD in embedded systems.
 % Svare på forskingsspørsmål
-%In Section X.X, the research questions were outlined. Below is a summary of how the research questions have been addressed. Several sources of technical debt were identified.
+%In Section X.X, the research questions were outlined. Below is a summary of how the research questions have been addressed. Several sources of TD were identified.
+
+
+
+
 % Knowledge might be a problem too (I4, source. Modul greia).
 
-% Relasjoner, likheter, ulikheter
-
-% Mappe opp mot RQ
-
-
-
 \section{Definitions of Technical Debt}
-The definitions of technical debt given by the participants have many similarities. Two of them defined technical debt in terms of code that needs to be refactored, which matches Cunninghams definition of technical debt\cite{p29-cunningham}. The last two participants defined technical debt as the use of technologies and frameworks that is out-of-support. Additionally, the definitions agreed with the findings from the literature review. In particular, the participants had to not only evaluate the technical implications before making a choice, but also the impact on the delivered business value. For example, such trade-offs included release of the product in time to capture the market share. 
+The definitions of TD given by the participants have many similarities with the literature. TD was defined in terms of code refactoring, which matches Cunningham's definition of TD\cite{p29-cunningham}. Furthermore, TD was also defined in terms of using legacy solutions. McConnell classifies TD as intentional and unintentional debt\cite{url-mcconnell}. By looking at the material from the interviews, it is possible to see that TD was mostly associated with intentional debt. One example was that developers experimented different solutions to a problem by hard-coding. Solving problems by hard-coding results in short-term benefits, but refactoring is needed at a later point. Moreover, the interview data revealed that TD is not always bad. In some situations, intentional debt brought success in terms of reaching goals, such as delivering products quickly to customers. Additionally, the interview data revealed some situations where TD was incurred unintentionally. Such decisions afftected the overall software quality.
 
-\subsection{Types of Technical Debt}
-McConnell classifies technical debt as intentional and unintentional debt\cite{url-mcconnell}. The interviews indicated that technical debt was mostly associated with intentional debt. Technical debt was incurred intentionally based on business decisions, such as faster time-to-market. There were also some situations were developers experimented different ways to solve a problem by hardcoding. These kind of solutions needs to be refactored later. Moreover, the interviews revealed that intentional debt is not always bad. In some situations, intentional debt brough success in terms of reaching goals, such as delivering their products quickly to customers. On the other hand, the interviews revealed situations where technical debt was incurred unintentionally. These decisions resulted in creating risks, such as poor performance. 
-
-Workaround is not something the literature reviewes has talked about, but it is enough to describe as some of the symptoms of technical debt. Workarounds are related to code design which is not abvious and easy to understand. It can be used to bypass difficult points in the code which may result in technical debt. Moreover, workarounds can be taken in other phases in software development, which makes the concept much closer to technical debt.
+Workaround is not something that has been mentioned by the literature, but it is enough to describe as some of the symptoms of TD. Workarounds are related to code design which is not obvious and easy to understand. It can be used to bypass difficult points in the code which may result in TD. Moreover, workarounds can be taken in other phases in software development, which makes the concept much closer to TD. As described in one of the interviews, workarounds were often taken in legacy systems.
 
 \section{Causes of Technical Debt}
 %closing the gap between technical and business.
-A common cause of technial debt that was revealed in the interviews were time issues. All of the participants expect one mentioned time pressure as a primary source of technical debt issues. Issues with time has been present in multiple articles as a reason for incuring technical debt\cite{p29-cunningham,foser076-brown,zazworka2011investigating,p8-codabux,p50-allman,lim-taksande}. Time issues ultimately comes from business realities that needs to be met based on customer needs and market situations. Time issues may lead to communication problems within the team, thus incurring technical debt intentionally. Fowler defines this situation as reckless and deliberate technical debt\cite{url-fowler}. This could be due to stress or lack of knowledge. As the project moves along, the debt will eventualle surface, and when it does it will suddenly need to be repaid. Nevertheless, the findings revealed that time pressure was manageable.
 
-The research identified that technical debt is connected with many different aspects in the software development life cycle. Table \ref{tab:subcategories} lists the subcategories of technical debt. We clearly see that there many similarities between. When the problem of technical debt is divided into subcategories, it is easier to become aware of the problems of technical debt. An architectural solution resulted in bad outcomes. This is very similar to architectural debt, and unintentional debt. Software architecture is one of the artefacts that is hard to change, and therefore the debt becomes much higher. Code had to be refactored before new functionalities could be added. This is very similar to code debt\cite{li2015systematic}. The interviews also revealed some lack of tests, and that shortcuts were also taken in test code. This is known as test debt\cite{li2015systematic}. Use of older technologies and framework are related to infrastructure debt\cite{li2015systematic}. The findings also revealed lack of documentation in some of the third-party solutions, known as documentation debt\cite{li2015systematic}. By dividing technical debt problems into categories based on where and why they occur, the actual problem would becomre more specific and this easier to graps. This makes it easier to allocate responsbility for making sure that debt is correctly managed.
+% FLYTT P1 and P2 revealed that requirements from the management or customers are the dominant factor in determining if the available resources should be used to address TD, while deadlines are the dominant factor. 
 
-Poor choices of technologies and third-party solutions from external suppliers can be considered as a debt generating activity. The participants expressed how technical debt accumulates when suppliers are going out of business, or are unable to support the product with updates. It is very rare for companies to select a poor implementation intentionally, to get short term benefits. However, poor technology choices will eventually surface as the system grows and its bottlenecks are discovered. It is something that cannot be planned for, and requires time and effort to fix one discovered. 
+Time pressure was revealed as a common cause for TD accumulation. Issues with time has been present in multiple articles as a reason for incurring TD\cite{p29-cunningham,foser076-brown,zazworka2011investigating,p8-codabux,p50-allman,lim-taksande}. Moreover, Ebert et al.\cite{ebert2009embedded} states that companies compress schedules to a point that makes engineers compromise design-time qualities to run-time qualities. Time issues ultimately comes from business realities that needs to be met based on customer needs and market situations. 
 
-When choosing technologies or third-party solutions from external suppliers, it is important that developers has the competence to use the technologies, or that enough documentation follows the solutions that is bought from external suppliers. One of the participants mentioned that lack of documentation led to major workarounds later on.
+Time issues may lead to communication problems within the team, thus incurring TD intentionally. Fowler defines this situation as reckless and deliberate TD\cite{url-fowler}. This could be due to stress or lack of knowledge. As the project moves along, the debt will eventually surface, and when it does it will suddenly need to be repaid. Nevertheless, the findings revealed that time pressure was manageable.
 
+Furthermore, the research identified that TD is connected with many different aspects in the software development life cycle. Table \ref{tab:subcategories} lists the subcategories of TD. We clearly see that there many similarities between. When the problem of TD is divided into subcategories, it is easier to become aware of the problems of TD. An architectural solution resulted in bad outcomes. This is very similar to architectural debt, and unintentional debt. Software architecture is one of the artifacts that is hard to change, and therefore the debt becomes much higher. Code refactoring is needed before new functionalities could be added. This is very similar to code debt\cite{li2015systematic}. The interviews also revealed some lack of tests, and that shortcuts were also taken in test code. This is known as test debt\cite{li2015systematic}. Use of older technologies and framework are related to infrastructure debt\cite{li2015systematic}. The findings also revealed lack of documentation in some of the third-party solutions, known as documentation debt\cite{li2015systematic}. By dividing TD problems into categories based on where and why they occur, the actual problem would become more specific and this easier to grasp. This makes it easier to allocate respectability for making sure that debt is correctly managed.
 
+Poor choices of technologies and third-party solutions from external suppliers can be considered as a debt generating activity. The participants expressed how TD accumulates when suppliers are going out of business, or are unable to support the product with updates. It is very rare for companies to select a poor implementation intentionally, to get short term benefits. However, poor technology choices will eventually surface as the system grows and its bottlenecks are discovered. It is something that cannot be planned for, and requires time and effort to fix one discovered. When choosing technologies or third-party solutions from external suppliers, it is important that developers has the competence to use the technologies, or that enough documentation follows the solutions that is bought from external suppliers. One of the participants mentioned that lack of documentation led to major workarounds later on.
 
 \section{Incurring Technical Debt}
-Observations from the interviews suggests that there is a difference on incurring technical debt between developers and management. Project managers were more likely to incur technical debt, because they realized that they needed to meet their business goals, witout any plans on paying it back. How they met their business goals was not important. It also revealed that if something is working, it should not be touched. Moreover, from the developer perspective, the management remains largely unaware of technical debt, and they cannot see the value behind technical debt management. It makes it hard to convince the management. This reveals that the technical communcation gap between the business and development departments is high. Klinger et al.\cite{p35-klinger} found similar causes in their IBM study. Based on this, we believe that larger companies has more challenges dealing with technical debt issues due to complex communication structure. We believe that management with no knowledge about technical debt is responsible for technical debt accumulation in this research.  Development teams may incur small amount of technical debt, but not more than what they are able to handle.
+Observations from the interviews suggests that there is a difference on incurring TD between developers and management. Project managers were more likely to incur TD, because they realized that they needed to meet their business goals, without any plans on paying it back. How they met their business goals was not important. It also revealed that if something is working, it should not be touched. Moreover, from the developer perspective, the management remains largely unaware of TD, and they cannot see the value behind TD management. It makes it hard to convince the management. This reveals that the technical communication gap between the business and development departments is high. Klinger et al.\cite{p35-klinger} found similar causes in their IBM study. Based on this, we believe that larger companies has more challenges dealing with TD issues due to complex communication structure. We believe that management with no knowledge about TD is responsible for TD accumulation in this research.  Development teams may incur small amount of TD, but not more than what they are able to handle.
 
-Several studies argue that the short-term effect of time-to-market is a good thing about technical debt\cite{lim-taksande,p247-siebra}. The interviews revealed similar situations, where technical debt were used to deliver a solution faster to the customer, resulting in customer satisfaction. We believe that the customer and management will demand more over time, causing accumulation of technical debt, leaving them unhandled. Moreover, the long-term effects of technical debt tends to have more negative effects\cite{lim-taksande,p247-siebra,buschmann2011pay}. The findings revealed that technical debt in the long-term started to generate extra working hours, performance issues, scalability errors, and system failures. By taking technical debt, things might turn into a problem later if they are not paid back. This might be a reason for why the amount of technical debt has doubled since 2010\cite{gartner2010}. Business people often thinks that technical debt is something that can be incurred to reach a deadline, and just fix it later. This is very similar to reckless and deliberate debt\cite{url-fowler}.
+In particular, the participants had to not only evaluate the technical implications before making a choice, but also the impact on the delivered business value. For example, such trade-offs included release of the product in time to capture the market share. 
 
-The findings also pointed out difficulities with ongoing projects, where each project has low amount of available resources. It seems like the participants have problems on balancing technical debt in parallell with development of new functionality. Many of their systems does not get updated, which creates problems in the long-term.
+Several studies argue that the short-term effect of time-to-market is a good thing about TD\cite{lim-taksande,p247-siebra}. The interviews revealed similar situations, where TD were used to deliver a solution faster to the customer, resulting in customer satisfaction. We believe that the customer and management will demand more over time, causing accumulation of TD, leaving them unhandled. Moreover, the long-term effects of TD tends to have more negative effects\cite{lim-taksande,p247-siebra,buschmann2011pay}. The findings revealed that TD in the long-term started to generate extra working hours, performance issues, scalability errors, and system failures. By taking TD, things might turn into a problem later if they are not paid back. This might be a reason for why the amount of TD has doubled since 2010\cite{gartner2010}. Business people often thinks that TD is something that can be incurred to reach a deadline, and just fix it later. This is very similar to reckless and deliberate debt\cite{url-fowler}.
+
+The findings also pointed out difficulties with ongoing projects, where each project has low amount of available resources. It seems like the participants have problems on balancing TD in parallel with development of new functionality. Many of their systems does not get updated, which creates problems in the long-term.
 
 
 
-% Krutchen claim that "Most authors agree that the major cause of technical debt is schedule pressure", although other issues can come into play, like lack of knowledge, carelessness, basic incompetence, lack of educiation.
+% Krutchen claim that "Most authors agree that the major cause of TD is schedule pressure", although other issues can come into play, like lack of knowledge, carelessness, basic incompetence, lack of educiation.
 
 % Klinger claim that debt is result of stakeholders that lack effective means to communicate.
 
 
 
 \section{Management of Technical Debt}
-The findings from the interviews revealed that even though technical debt is not considered in the different projects, it is still managed thorough the development and evolution by using different practices. One of the practices that was mentioned is very similar to managing risks. Like risk management, technical debt management is a balancing act that aims to achieve a level of good quality while mitigating its failures. This requires involvement of all the stakeholders. The impact and consequence of technical debt can be used to convince the stakeholders to agree upon the same strategy for managing technical debt. A similar strategy has been defined in the literature\cite{lim-taksande,Theodoropoulos:2011:TDS:1985362.1985373}. We believe that closing the communication gap between technical and non-technical stakeholders is important to increase the visibility of technical debt. 
+The findings from the interviews revealed that even though TD is not considered in the different projects, it is still managed thorough the development and evolution by using different practices. One of the practices that was mentioned is very similar to managing risks. Like risk management, TD management is a balancing act that aims to achieve a level of good quality while mitigating its failures. This requires involvement of all the stakeholders. The impact and consequence of TD can be used to convince the stakeholders to agree upon the same strategy for managing TD. A similar strategy has been defined in the literature\cite{lim-taksande,Theodoropoulos:2011:TDS:1985362.1985373}. The author believe that closing the communication gap between technical and non-technical stakeholders is important to increase the visibility of TD. 
 
-It was evident from the interviews that communication within the team played a big part in achieving higher software quality. A common practice to handle technical debt issues that was expressed by the participants, is to make sure that the developers are aware of the technical debt issues. For example, if a company knows that there are some lack of tests, or that a system has performance issues, the debt would be less significant. The different development team used a backlog to collect technical debt issues and their risk along with new functionalities to be implemented. Technical debt issues can be taken into account when planning feaure implementation, which lessens the impact of the debt. Similar strategy has been suggested by Krutchen et. al\cite{krutchen}. A portfolio management strategy has been proposed in other studies, where technical debt is storted to backlog and development team can use that for management of technical debt. This backlog strategy might be beneficial in the long-run when older technical debt is tracable, instead of of forgotten.
+It was evident from the interviews that communication within the team played a big part in achieving higher software quality. A common practice to handle TD issues that was expressed by the participants, is to make sure that the developers are aware of the TD issues. For example, if a company knows that there are some lack of tests, or that a system has performance issues, the debt would be less significant. The different development team used a backlog to collect TD issues and their risk in parallel with new functionalities to be implemented. TD issues can be taken into account when planning feature implementation, which lessens the impact of the debt. Similar strategy has been suggested by Krutchen et. al\cite{krutchen}. A portfolio management strategy has been proposed in other studies, where TD is stored to backlog and development team can use that for management of TD. This backlog strategy might be beneficial in the long-run when older TD is traceable, instead of of forgotten.
 
-The use of test-driven development was identified as a way to manage technical debt thorough the development. Using test-driven development makes sure that bugs are discovered in the software. This improves the quality of the software.
+The use of test-driven development was identified as a way to manage TD thorough the development. Using test-driven development makes sure that bugs are discovered in the software. This improves the quality of the software.
 
-A common approach to keep the debt from growing over time is to conduct refactoring and reengineering. Both refactoring and reengineer was mentioned by the interview participants. It has also been mentioned in the literature. Developers refactored code as they encountered while they were working. There were also times when they only refactored code. One of the participants had to reengineer their solution because the amount of technical debt was too high. We believe that refactoring keeps the codebase from deteriorating and mitigates technical debt issues.
+A common approach to keep the debt from growing over time is to conduct refactoring and re-engineering. Both refactoring and re-engineer has mentioned by the interview participants, and the literature\cite{p8-codabux}. Code refactoring was applied by developers in parallel with development. Sometimes, developers spent evenings on code refactoring. The author believes that refactoring keeps the software quality stable, and mitigates TD issues. 
 
 Picking suitable technologies, frameworks, or solutions from external suppliers for implementation needs to be considered thoroughly. It was revealed that 
 
-Besides the use of practices that has been mentioned, it would be preferable to set apart a certain amount of time during each iteration, to address and manage technical debt. These measures may not have a big impact for the first few iterations, but we believe that one would be able to see improvements in quality and productivity over time.
+Besides the use of practices that has been mentioned, it would be preferable to set apart a certain amount of time during each iteration, to address and manage TD. These measures may not have a big impact for the first few iterations, but we believe that one would be able to see improvements in quality and productivity over time.
 
-It is interesting to see that the way the embedded system developers and traditional software developers handles technical debt is different. The studies revealed that technical debt in traditional software projects are much higher than the embedded system projects. One of the participants reengineered their product, using open-source technologies. This reveals that technical debt is taken much more seriously by the embedded system developers. One reason for this is that their solutions cannot contain any errors. However, both of the embedded systems projects have some technical debt in their project, but nothing more than what they are able to handle. The most important thing is that the product is stable, and the quality is good. Using open-source solutions, or developing frameworks, gives lots of benefits. One thing is that the frameworks can be reused in other projects. There are some downsides with uThe downside of developing own frameworks is that there might be a possibility for developers to be blind of their own solution.
+It is interesting to see that the way the embedded system developers and traditional software developers handles TD is different. The studies revealed that TD in traditional software projects are much higher than the embedded system projects. One of the participants re-engineered their product, using open-source technologies. This reveals that TD is taken much more seriously by the embedded system developers. One reason for this is that their solutions cannot contain any errors. However, both of the embedded systems projects have some TD in their project, but nothing more than what they are able to handle. The most important thing is that the product is stable, and the quality is good. Using open-source solutions, or developing frameworks, gives lots of benefits. One thing is that the frameworks can be reused in other projects. There are some downsides with uThe downside of developing own frameworks is that there might be a possibility for developers to be blind of their own solution.
 
 
 
@@ -70,60 +70,61 @@ Table \ref{tab:answerRQ} summarizes the findings and how they are related to the
 \centering
 \caption{My caption}
 \label{tab:answerRQ}
-\begin{tabular}{|l|l|}
-\hline
-\multicolumn{2}{|p{14cm}|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} \textbf{RQ1: What practices and tools for managing technical debt? How are they used?}}} \\ \hline
-Test-driven development                                       & It helps a lot during development                         \\ \hline
-Overview of system                        & Nice bro                                                  \\ \hline
-\multicolumn{2}{|p{14cm}|}{\cellcolor[HTML]{C0C0C0}\textbf{RQ2: What are the most significant sources of technical debt?}}                      \\ \hline
-Lack of time                              & Not good                                                  \\ \hline
-Business pressure                         & Yes man                                                   \\ \hline
-\multicolumn{2}{|p{14cm}|}{\cellcolor[HTML]{C0C0C0}\textbf{RQ3: When should a technical debt be paid?}}                       \\ \hline
-High risk                              & Because it is like that                                   \\ \hline
-Other people                              & Sure, tell me everything about it.                        \\ \hline
-\multicolumn{2}{|p{14cm}|}{\cellcolor[HTML]{C0C0C0}\textbf{RQ4: Who is responsible for deciding whether to incur, or pay off technical debt?}}                       \\ \hline
-Stakeholders                              & Because it is like that                                   \\ \hline
-Other people                              & Sure, tell me everything about it.                        \\ \hline
+\begin{tabular}{|l|l|} \hline
+
+\multicolumn{2}{|p{14cm}|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} \textbf{RQ1: What practices and tools for managing TD? How are they used?}}} \\ \hline
+Test-driven development & By implementing and automating tests, the overall software quality will dramatically improve by discovering and removing bugs. \\ \hline
+Overview of the software and hardware versions & An overview of software and hardware versions may help deciding systems that needs to be upgraded. \\ \hline
+Refactoring and re-engineering & Nice bro \\ \hline
+Backlog and issue tracker & Nice bro \\ \hline
+Risk management & Nice bro \\ \hline
+\multicolumn{2}{|p{14cm}|}{\cellcolor[HTML]{C0C0C0}\textbf{RQ2: What are the most significant sources of TD?}}                      \\ \hline
+Lack of time & Not good                                                  \\ \hline
+Business decisions & Yes man                                                   \\ \hline
+\multicolumn{2}{|p{14cm}|}{\cellcolor[HTML]{C0C0C0}\textbf{RQ3: When should a TD be paid?}}                       \\ \hline
+High risk & Because it is like that                                   \\ \hline
+\multicolumn{2}{|p{14cm}|}{\cellcolor[HTML]{C0C0C0}\textbf{RQ4: Who is responsible for deciding whether to incur, or pay off TD?}}                       \\ \hline
+Project leader & Because it is like that                                   \\ \hline
 \end{tabular}
 \end{table}
 
 
-\subsubsection{What practices and tools for managing technical debt? How are they used?}"
-- Test-driven development
-- Overview of the technologies, systems, frameworks being used, along with their versions.
-- Refactoring and reengineering
-- Backlog and issue tracker
-- Communication structure between business management and development team
+%\subsubsection{What practices and tools for managing TD? How are they used?}"
+%- Test-driven development
+%- Overview of the technologies, systems, frameworks being used, along with their versions.
+%- Refactoring and re-engineering
+%- Backlog and issue tracker
+%- Communication structure between business management and development team
 
 
-\subsubsection{What are the most significant sources of technical debt?}
-- Lack of time given for development
-- Pressure to the development team
-- Business decisions
-- Architectural choice
-- Lack of tests
+%\subsubsection{What are the most significant sources of TD?}
+%- Lack of time given for development
+%- Pressure to the development team
+%- Business decisions
+%- Architectural choice
+%- Lack of tests
 
-\subsubsection{When should a technical debt be paid?}"
-- When risk is high and it is causing big problems.
-- Some debt doesnt need to be paid off
+%\subsubsection{When should a TD be paid?}"
+%- When risk is high and it is causing big problems.
+%- Some debt does not need to be paid off
 
 
-\subsubsection{Who is responsible for deciding whether to incur, or pay off technical debt?}"
-- Management, customers, and developers. Depends on risk and situation.
+%\subsubsection{Who is responsible for deciding whether to incur, or pay off TD?}"
+%- Management, customers, and developers. Depends on risk and situation.
 
 
 \section{Threats to Validity}
-Validity is related to how much the results can be trusted\cite{Wohlin:2000:ESE:330775}. Wohlin et al.\cite{Wohlin:2000:ESE:330775} states that adequate validity refers to that the results should be valid for the population of interest. First of all, the results should not be valid for the population from which the samle is drawn. Secondly, it may be of interest to generalize the results to a broader population. Wohlin et al.\cite{Wohlin:2000:ESE:330775} describes four types of validity threats; internal, external, construct, and conclusion validity.
+Validity is related to how much the results can be trusted\cite{Wohlin:2000:ESE:330775}. Wohlin et al.\cite{Wohlin:2000:ESE:330775} states that adequate validity refers to that the results should be valid for the population of interest. First of all, the results should not be valid for the population from which the sample is drawn. Secondly, it may be of interest to generalize the results to a broader population. Wohlin et al.\cite{Wohlin:2000:ESE:330775} describes four types of validity threats; internal, external, construct, and conclusion validity.
 
 \subsection{Internal validity}
-Threats to internval validity refers to the possibility of having unwanted and unanticipated causal relationships between treatment and the outcome. The relevant threats for this research are:
+Threats to internal validity refers to the possibility of having unwanted and unanticipated causal relationships between treatment and the outcome. The relevant threats for this research are:
 - Maturation: The participants may be affected negatively during the interview. They could be tired, or not motivated to answer some questions. This was not the case in our interviews.
 - Instrumentation: This effect is caused if the artifacts of the interview is badly designed. We do not think that the interviews were badly designed, and helped the participants with additional information if needed.
 - Selection: 
 
 
 \subsection{External Validity}
-External validity is the degree to which the results of an experiment can be generalized outside the experiment setting. It is affected by the chosen experiment design, but also by the objects in the experiement and the subjects chosen. There are three main risks: people, place, and time. This research is concerned about people. Only four people were able to participate in the interviews, and they are not possibly not representative for the larger population.
+External validity is the degree to which the results of an experiment can be generalized outside the experiment setting. External validity is affected by the chosen experiment design, the objects in the experiment, and the subjects chosen. There are three main risks: people, place, and time. This research is concerned about people. Four people were able to participate in the interviews, and they are not possibly not representative for the larger population. In addition, only two of the participants were from the embedded system industry. 
 
 \subsection{Construct Validity}
 Threats to construct validity refer to the extent to which the experiment setting actually reflects the construct under study. Questions that were asked during the interviews may have been misunderstood because they were improperly phased. The participants may therefore answer something else. After conducting and analyzing the interviews, we realized that some questions could have been better phrased to gain deeper information about the topic. The interview guide was reviewed by the supervisor, but we did not test the interview guide before the interviews.
