@@ -17,17 +17,21 @@ How to
 - Identify violations, debt etc.
 - Conduct interviews, questionnaires about findings
 
+Identify TD:
+- Code smells to discover breaches in object-oriented design practices
+- Use of tools
+
 Keywords for state-of-the-art
 - Software architecture design
 - Architectural decay
 - Identifying Technical Debt
-- Identifying Architectural Technical Debt
+- Identifying/Investigate Architectural Technical Debt
 - Identifying Design Debt
 - Architectural Bad Smells
 - Code Smells
 - Architectural Erosion
 - Architectural Drift
-- Anti-patterns
+- Architecture Anti-patterns
 - Design patterns
 - Dependencies between components
 - Software quality
@@ -36,3 +40,6 @@ Keywords for state-of-the-art
 - Component Software
 - Object-oriented design
 - Component design
+- Architecture degradation
+- Refactoring
+- TD management process
