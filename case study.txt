@@ -1,0 +1,26 @@
+
+
+Case Study candidates
+- Nordic Semiconductor
+- Telenor Trondheim
+- Statoil
+- Autronica
+- Matiq (SKADA systemer - Life Cycle Management IIT)
+
+Case Study Design
+- Detect technical debt using static tools such as code smells and automated static analysis on code along with interviews. 
+- Use models and metrics from existing papaers
+- Modularity violations or design patterns and grime buildup
+- AntiPatterns, rot (when design pattern is not suitable for changes)
+- Look for symptoms on higher level abstraction of architecture (compoentns, connectors, concerns)
+
+How to
+- Prestudy/review the architecture
+- Identify violations, debt etc.
+- Conduct interviews, questionnaires about findings
+
+Keywords for state-of-the-art
+- Software architecture design
+- Architectural decay
+- Identifying Technical Debt
+- Identifying Architectural Technical Debt

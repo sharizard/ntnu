@@ -2,44 +2,35 @@
 % !TEX root = ..\main.tex
 % !TEX spellcheck = en-US
 \chapter{State-of-the-Art}
-This chapter presents topics which are relevant to this project. 
-
-Section \ref{sec:2-TD}
-Section \ref{sec:2-SQ}
-Section \ref{sec:2-SLC}
-Section \ref{sec:2-SA}
-Section \ref{sec:2-SE}
-Section \ref{sec:2-SR}
-Section \ref{sec:2-Refactoring}
-Section \ref{sec:2-CM}
-Section \ref{sec:2-ES}
+This chapter presents state-of-the-art topics which are relevant to this project. Section \ref{sec:2-TD} presents the technical debt with definitions, causes, and management tools. Section \ref{sec:2-SQ} looks into the topic of software quality and the relevant attributes. Section \ref{sec:2-SLC} presents the software life cycle along with the different development methodologies. Section \ref{sec:2-SA} presents software architecture. Section \ref{sec:2-SE} presents software evolution and maintenance.
+Section \ref{sec:2-SR} takes a look into software reuse. Section \ref{sec:2-Refactoring} presents refactoring. Section \ref{sec:2-CM} presents configuration management. Lastly, Section \ref{sec:2-ES} will take a closer look at embedded systems and software.
 
 
 \section{Technical Debt}
 \label{sec:2-TD}
-The concept of TD was first introduced by Ward Cunningham in 1992 to communicate technical problems with non-technical stakeholders\cite{p29-cunningham}. The concept was used to describe the system design trade-offs that are made everyday. To deliver business functionality as quickly as possible, \textit{'quick and dirty'} decisions had to be made, which affected the future development activities. Furthermore, Cunningham describes TD as \textit{"shipping first time code is like going into debt. A little debt speeds development as long as it is paid back promptly with a rewrite"}. As the time goes, TD accumulates \textit{interest}, leading to increased costs of a software system\cite{p31-guo,p35-klinger}. Li et al.\cite{li2015systematic} defines interest as \textit{the extra effort needed to modify the part of the software system that contains technical debt}. However, not all debts are necessarily bad. A small portion of debt may help developers speed up the development process, resulting in short-term benefits\cite{p31-guo}. 
+The concept of technical debt was first introduced by Ward Cunningham in 1992 to communicate technical problems with non-technical stakeholders\cite{p29-cunningham}. The concept was used to describe the system design trade-offs that are made everyday. To deliver business functionality as quickly as possible, \textit{'quick and dirty'} decisions had to be made, which affected the future development activities. Furthermore, Cunningham describes technical debt as \textit{"shipping first time code is like going into debt. A little debt speeds development as long as it is paid back promptly with a rewrite"}. As the time goes, technical debt accumulates \textit{interest}, leading to increased costs of a software system\cite{p31-guo,p35-klinger}. Li et al.\cite{li2015systematic} defines interest as \textit{the extra effort needed to modify the part of the software system that contains technical debt}. However, not all debts are necessarily bad. A small portion of debt may help developers speed up the development process, resulting in short-term benefits\cite{p31-guo}. 
 
 %% The costs of technical debt
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{images/techdebtCurve.jpg}
-	\caption{The TD Curve\cite{jim-highsmith}}
+	\caption{The Technical Debt Curve\cite{jim-highsmith}}
 	\label{fig:techDebtCurve}
 \end{figure}
 
-Figure \ref{fig:techDebtCurve} illustrates the effects of TD growth in a system.
+Figure \ref{fig:techDebtCurve} illustrates the effects of technical debt growth in a system.
 
 %%%
 
 \subsection{Definitions of Technical Debt}
-McConnell\cite{url-mcconnell} describes TD as \textit{a design or construction approach that is expedient in the short term but that creates a technical context in which the same work will cost more to do later than it would cost to do now (including the increased cost over time)}. He splits the term into two categories based on how they are incurred; TD that is incurred \textit{intentionally}, and TD that is incurred \textit{unintentionally}. For instance, unintentional debt accumulates when a junior software developer writes low quality code due to lack of knowledge and experience. Intentional debt commonly occurs when an organization makes a decision to optimize for the present rather than the future. These type of decisions results in shortcuts being taken to solve a problem.
+McConnell\cite{url-mcconnell} describes technical debt as \textit{a design or construction approach that is expedient in the short term but that creates a technical context in which the same work will cost more to do later than it would cost to do now (including the increased cost over time)}. He splits the term into two categories based on how they are incurred; technical debt that is incurred \textit{intentionally}, and technical debt that is incurred \textit{unintentionally}. For instance, unintentional debt accumulates when a junior software developer writes low quality code due to lack of knowledge and experience. Intentional debt commonly occurs when an organization makes a decision to optimize for the present rather than the future. These type of decisions results in shortcuts being taken to solve a problem.
 
-Fowler\cite{url-fowler} presents a more formal explanation of how TD can occur. He categories TD into a quadrant with two dimensions, which he calls the \textit{"Technical Debt Quadrant"}. As seen in the Figure \ref{fig:techDebtQuad}, the debt is grouped into four categories: 
+Fowler\cite{url-fowler} presents a more formal explanation of how technical debt can occur. He categories technical debt into a quadrant with two dimensions, which he calls the \textit{"Technical Debt Quadrant"}. As seen in the Figure \ref{fig:techDebtQuad}, the debt is grouped into four categories: 
 
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{images/techDebtQuadrant.png}
-	\caption{Fowler's TD Quadrant}
+	\caption{Fowler's Technical Debt Quadrant}
 	\label{fig:techDebtQuad}
 \end{figure}
 
@@ -50,49 +41,49 @@ Fowler\cite{url-fowler} presents a more formal explanation of how TD can occur. 
 	\item \textbf{Prudent/Inadvertent debt}: Software development process is as much learning as it is coding. The team can deliver a valuable software with clean code, but in the end they may realize that the design could have been better.
 \end{itemize}
 
-Krutchen et al.\cite{krutchen} divides TD into two categories; \textit{Visible debt}, that is visible for everyone. It contains elements such as new functionality to add, and defects to fix. \textit{Invisible debt} is the other category, debt that is only visible to software developers. Figure \ref{fig:techDebtLandscape} illustrates a map of the \textit{"TD Landscape"}, in which distinguish visible and invisible elements. On the left side of Figure \ref{fig:techDebtLandscape}, TD mostly affects evolvability of the software system, while on the right side, TD mainly affects maintainability.
+Krutchen et al.\cite{krutchen} divides technical debt into two categories; \textit{Visible debt}, that is visible for everyone. It contains elements such as new functionality to add, and defects to fix. \textit{Invisible debt} is the other category, debt that is only visible to software developers. Figure \ref{fig:techDebtLandscape} illustrates a map of the \textit{"Technical Debt Landscape"}, in which distinguish visible and invisible elements. On the left side of Figure \ref{fig:techDebtLandscape}, technical debt mostly affects evolvability of the software system, while on the right side, technical debt mainly affects maintainability.
 
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=1.0\textwidth]{images/techDebtLandscape.png}
-	\caption{TD Landscape}
+	\caption{Technical Debt Landscape}
 	\label{fig:techDebtLandscape}
 \end{figure}
 
 \subsection{Comparison with Financial Debt}
-TD has many similar characteristics to financial debt\cite{p50-allman,Zazworka:2011:PDD:1985362.1985372}:
+Technical debt has many similar characteristics to financial debt\cite{p50-allman,Zazworka:2011:PDD:1985362.1985372}:
 \begin{itemize}
 	\item You take a loan that has to be repaid later
 	\item You usually repay the loan with interest
 	\item If you can not pay back, a very high cost will follow. For example, you can loose your house or car.
 \end{itemize}
 
-Like financial debt, TD accrues interest over time which comes in the form of extra effort that has to be dedicated in future development\cite{p31-guo,p35-klinger}. Stakeholders can choose to continue paying interest, or to reduce future interest payments by refactoring the problem\cite{url-fowler}. 
+Like financial debt, technical debt accrues interest over time which comes in the form of extra effort that has to be dedicated in future development\cite{p31-guo,p35-klinger}. Stakeholders can choose to continue paying interest, or to reduce future interest payments by refactoring the problem\cite{url-fowler}. 
 
 
-However, if the debt is not repaid, the development may slow down, resulting in software project failure or bankruptcy\cite{p50-allman}. Moreover, there are some differences between financial debt and TD. The debt has to be repaid eventually, but not on any fixed schedule\cite{p50-allman}. This means that some debts may never have to be paid back, depending on the interest and the cost of paying back the debt\cite{foser076-brown}.
+However, if the debt is not repaid, the development may slow down, resulting in software project failure or bankruptcy\cite{p50-allman}. Moreover, there are some differences between financial debt and technical debt. The debt has to be repaid eventually, but not on any fixed schedule\cite{p50-allman}. This means that some debts may never have to be paid back, depending on the interest and the cost of paying back the debt\cite{foser076-brown}.
 
 
 \subsection{Causes and Effects of Technical Debt}
-Multiple studies have tried to analyze the reason for companies to incur TD.
+Multiple studies have tried to analyze the reason for companies to incur technical debt.
 
-Klinger et al.\cite{p35-klinger} conducted an industrial case study at IBM where four technical architects with different backgrounds were interviewed. The goal was to examine how decisions to incur debt were taken, and the extent to which the debt provided leverage\cite{p35-klinger}. The study revealed that the company failed to assess the impact of intentionally incurring debt on projects. Decisions regarding TD were rarely quantified. The study also revealed big organizational gaps among the business, operational, and technical stakeholders. When the project team felt pressure from the different stakeholders, TD decisions were made without quantifications of possible impacts.
+Klinger et al.\cite{p35-klinger} conducted an industrial case study at IBM where four technical architects with different backgrounds were interviewed. The goal was to examine how decisions to incur debt were taken, and the extent to which the debt provided leverage\cite{p35-klinger}. The study revealed that the company failed to assess the impact of intentionally incurring debt on projects. Decisions regarding technical debt were rarely quantified. The study also revealed big organizational gaps among the business, operational, and technical stakeholders. When the project team felt pressure from the different stakeholders, technical debt decisions were made without quantifications of possible impacts.
 
-Lim et al.\cite{lim-taksande} pointed out that TD is not always the result of poor developer disciplines, or sloppy programming. It can also include intentional decisions to trade off competing concerns during business pressure. Furthermore, Li et al. explains that TD can be used in short term to capture market share and to collect customers feedback early. In the long term, TD tended to be negative. These trade-offs included increased complexity, reduced performance, low maintainability, and fragile code. This led to bad customer satisfaction and extra working hours. In many cases, the short term benefits of TD outweighed the future costs.
+Lim et al.\cite{lim-taksande} pointed out that technical debt is not always the result of poor developer disciplines, or sloppy programming. It can also include intentional decisions to trade off competing concerns during business pressure. Furthermore, Li et al. explains that technical debt can be used in short term to capture market share and to collect customers feedback early. In the long term, technical debt tended to be negative. These trade-offs included increased complexity, reduced performance, low maintainability, and fragile code. This led to bad customer satisfaction and extra working hours. In many cases, the short term benefits of technical debt outweighed the future costs.
 
-Guo et al.\cite{guo2011tracking} studied the effects of TD by tracking a single delayed maintenance task in a real software project throughout its life-cycle, and simulated how managing TD can impact the project result. The results indicated that delaying the maintenance task would have almost tripled the costs, if it had been done later.
+Guo et al.\cite{guo2011tracking} studied the effects of technical debt by tracking a single delayed maintenance task in a real software project throughout its life-cycle, and simulated how managing technical debt can impact the project result. The results indicated that delaying the maintenance task would have almost tripled the costs, if it had been done later.
 
-Siebra et al.\cite{p247-siebra} carried out an industrial case study where they analyzed documents, emails, and code files. Additionally, they interviewed multiple developers and project managers. The case study revealed that TD were mainly taken by strategic decisions. Furthermore, they commented out that using a unique specialist could lead the development team to solutions that the specialist wanted and believe were correct, leading the team to incur debt. The study also identified that TD can both increase and decrease the amount of working hours.
+Siebra et al.\cite{p247-siebra} carried out an industrial case study where they analyzed documents, emails, and code files. Additionally, they interviewed multiple developers and project managers. The case study revealed that technical debt were mainly taken by strategic decisions. Furthermore, they commented out that using a unique specialist could lead the development team to solutions that the specialist wanted and believe were correct, leading the team to incur debt. The study also identified that technical debt can both increase and decrease the amount of working hours.
 
-Zazworka et al.\cite{zazworka2011investigating} studied the effects of god classes and TD on software quality. God classes are examples on bad coding, and therefore includes a possibility for refactoring\cite{Zazworka:2011:PDD:1985362.1985372}. The results indicated that god classes require more maintenance effort including bug fixing and changes to software that are considered as a cost to software project. In other words, if developers desire higher software quality, then TD needs to be addressed closely in the development process.
+Zazworka et al.\cite{zazworka2011investigating} studied the effects of god classes and technical debt on software quality. God classes are examples on bad coding, and therefore includes a possibility for refactoring\cite{Zazworka:2011:PDD:1985362.1985372}. The results indicated that god classes require more maintenance effort including bug fixing and changes to software that are considered as a cost to software project. In other words, if developers desire higher software quality, then technical debt needs to be addressed closely in the development process.
 
-Buschmann\cite{buschmann2011pay} explained three different stories of TD effects. In the first case, TD accumulated in a platform started had growth to a point where development, testing, and maintenance costs started to increase dramatically. Additionally, the components were hardly usable. In the second case, developers started to use shortcuts to increase the development speed. This resulted in significant performance issues because an improper software modularization reflected organizational structures instead of the system domains. It ended up turning in to economic consequences. In the last case, an existing software product experienced increased maintenance cost due to architectural erosion. However, management analyzed that re-engineering the whole software would cost more than doing nothing. Management decided not to do anything to TD, because it was cheaper from a business point-of-view.
+Buschmann\cite{buschmann2011pay} explained three different stories of technical debt effects. In the first case, technical debt accumulated in a platform started had growth to a point where development, testing, and maintenance costs started to increase dramatically. Additionally, the components were hardly usable. In the second case, developers started to use shortcuts to increase the development speed. This resulted in significant performance issues because an improper software modularization reflected organizational structures instead of the system domains. It ended up turning in to economic consequences. In the last case, an existing software product experienced increased maintenance cost due to architectural erosion. However, management analyzed that re-engineering the whole software would cost more than doing nothing. Management decided not to do anything to technical debt, because it was cheaper from a business point-of-view.
 
-Codabux et al.\cite{p8-codabux} carried out an industrial case study where the topic was agile development focusing on TD. They observed and interviewed developers to understand how TD is characterized, addressed, prioritized, and how decisions led to TD. Two subcategories of TD were commonly described in this case study; infrastructure and automation debt. 
+Codabux et al.\cite{p8-codabux} carried out an industrial case study where the topic was agile development focusing on technical debt. They observed and interviewed developers to understand how technical debt is characterized, addressed, prioritized, and how decisions led to technical debt. Two subcategories of technical debt were commonly described in this case study; infrastructure and automation debt. 
 
-The studies indicates that the causes and effects of TD are not always caused by technical reasons. TD can be the result of intentional decisions made by the different stakeholders. Incurring TD may have short-term positive effects such as time-to-market benefits. Not paying down TD can result economic consequences, or quality issues in the long-run. The allowance of TD can facilitate product development for a period, but decreases the product maintainability in the long-term. However, there are some times where short-term benefits overweight long-term costs\cite{guo2011tracking}. 
+The studies indicates that the causes and effects of technical debt are not always caused by technical reasons. technical debt can be the result of intentional decisions made by the different stakeholders. Incurring technical debt may have short-term positive effects such as time-to-market benefits. Not paying down technical debt can result economic consequences, or quality issues in the long-run. The allowance of technical debt can facilitate product development for a period, but decreases the product maintainability in the long-term. However, there are some times where short-term benefits overweight long-term costs\cite{guo2011tracking}. 
 
-Furthermore, the studies points out that several types of TD are related to software life-cycle phases. The effects of taking shortcuts can happen in several stages of software life-cycle. Table \ref{tab:subcategories} lists the types of TD that has been identified in the literature.
+Furthermore, the studies points out that several types of technical debt are related to software life-cycle phases. The effects of taking shortcuts can happen in several stages of software life-cycle. Table \ref{tab:subcategories} lists the types of technical debt that has been identified in the literature.
 
 \begin{table}
 	\centering
@@ -109,25 +100,25 @@ Furthermore, the studies points out that several types of TD are related to soft
 	Test debt\cite{li2015systematic,Zazworka:2013:CSE:2460999.2461005,foser076-brown} & Refers to shortcuts taken in testing. An example is lack of unit tests, and integration tests.\\
 	\hline
 	\end{tabular}
-	\caption{Types of TD} \label{tab:subcategories}
+	\caption{Types of Technical Debt} \label{tab:subcategories}
 \end{table}
 
 \subsection{Current Strategies and Practices for Managing Technical Debt}
-Managing TD compromises the actions of identifying the debt and making decisions about which debt should be repaid\cite{foser076-brown,krutchen,url-mcconnell}. This section examines some methods that has been proposed by several authors.
+Managing technical debt compromises the actions of identifying the debt and making decisions about which debt should be repaid\cite{foser076-brown,krutchen,url-mcconnell}. This section examines some methods that has been proposed by several authors.
 
-Brown et al.\cite{foser076-brown} proposed open research questions to understand the need to manage TD. The questions includes refactoring opportunities, architectural issues, identifying dominant sources of technical debt, and identifying issues that arise when measuring TD.
+Brown et al.\cite{foser076-brown} proposed open research questions to understand the need to manage technical debt. The questions includes refactoring opportunities, architectural issues, identifying dominant sources of technical debt, and identifying issues that arise when measuring technical debt.
 
 %Lim.et al - 4 strategies
-Lim et al.\cite{lim-taksande} suggested four strategies for managing TD. The first strategy is to do nothing because the TD may never be visible to the customer. The second strategy is to use a risk management approach to evaluate and prioritize TDs cost and value by allocating 5-10\% of each release cycle to address TD. The third strategy is to include the customers and non-technical stakeholders to TD decisions. Finally, the last strategy suggests to track TD items using tools like a Wiki, or a backlog.
+Lim et al.\cite{lim-taksande} suggested four strategies for managing technical debt. The first strategy is to do nothing because the technical debt may never be visible to the customer. The second strategy is to use a risk management approach to evaluate and prioritize technical debts cost and value by allocating 5-10\% of each release cycle to address technical debt. The third strategy is to include the customers and non-technical stakeholders to technical debt decisions. Finally, the last strategy suggests to track technical debt items using tools like a Wiki, or a backlog.
 
 %Codabux
-Codabux et al.\cite{p8-codabux} suggested best practices such as refactoring, repackaging, re-engineering, and developing unit tests to manage TD. Moreover, they also propose that having dedicated teams with the purpose of reducing TD, while the product development team devote 20\% of their effort toward TD reduction.
+Codabux et al.\cite{p8-codabux} suggested best practices such as refactoring, repackaging, re-engineering, and developing unit tests to manage technical debt. Moreover, they also propose that having dedicated teams with the purpose of reducing technical debt, while the product development team devote 20\% of their effort toward technical debt reduction.
 	
 %Portifolio management (guo, zazworka (priorizing design debt investment opportunities))
-Guo et al.\cite{p31-guo} suggested using of portfolio management for TD management. This approach collects TD items to a \textit{"TD List"} (TDL). TDL is used to pay TD back based on its cost and value. Three activities support the TDL. The first activity is TD Identification. TD Identification uses several tools to identify TD items, in which are automatically placed in the TDL. The second activity is TD Estimation. Each item in the list is assigned the estimates for the debt principal, and the interest. The third activity, Decision Making, is used to determine which debts should be addressed first, and when they should be addressed.
+Guo et al.\cite{p31-guo} suggested using of portfolio management for technical debt management. This approach collects technical debt items to a \textit{"Technical Debt List"} (Technical DebtL). TDL is used to pay technical debt back based on its cost and value. Three activities support the TDL. The first activity is Technical Debt Identification. Technical Debt Identification uses several tools to identify technical debt items, in which are automatically placed in the TDL. The second activity is Technical Debt Estimation. Each item in the list is assigned the estimates for the debt principal, and the interest. The third activity, Decision Making, is used to determine which debts should be addressed first, and when they should be addressed.
 
 %Quantifying technical debt - Nugraho
-Nugraho et al.\cite{p1-nugraho} proposed an approach to quantify TD and its interest by using a software quality assessment method. This method rates the technical quality of a system in terms of the quality characteristics of ISO/IEC 9126. 
+Nugraho et al.\cite{p1-nugraho} proposed an approach to quantify technical debt and its interest by using a software quality assessment method. This method rates the technical quality of a system in terms of the quality characteristics of ISO/IEC 9126. 
 
 %Krutchen (define tech debt in your backlog)
 Krutchen et al.\cite{krutchen} suggested listing debt-related tasks in a common backlog during release and iteration planning. Figure \ref{fig:fourColorBacklog} illustrates how these elements can be organized in a backlog. Moreover, Krutchen mentioned that project backlogs often contain the green elements. The rest are seen rarely, especially the black elements, they are nowhere to be found.
@@ -140,7 +131,7 @@ Krutchen et al.\cite{krutchen} suggested listing debt-related tasks in a common 
 	\label{fig:fourColorBacklog}
 \end{figure}
 
-SonarQube is an open source application for quality management\cite{sonarsource2013sonarqube}. It manages the results of various code analysis tools, and is used to analyze and measure a projects technical quality. TD is computed based on the SQALE (Software Quality Assessment based on Life-cycle Expectations) methodology\cite{letouzey2012sqale}. SQALE is a method for assessing TD in a project. It is based on tools that analyze the source code of the project, looking at different types of errors such as mismatched indentation, and different naming conventions. Each error is assigned a score based on how much work it would take to fix that error. The analysis gives a total sum of TD for the entire project.
+SonarQube is an open source application for quality management\cite{sonarsource2013sonarqube}. It manages the results of various code analysis tools, and is used to analyze and measure a projects technical quality. Technical debt is computed based on the SQALE (Software Quality Assessment based on Life-cycle Expectations) methodology\cite{letouzey2012sqale}. SQALE is a method for assessing technical debt in a project. It is based on tools that analyze the source code of the project, looking at different types of errors such as mismatched indentation, and different naming conventions. Each error is assigned a score based on how much work it would take to fix that error. The analysis gives a total sum of technical debt for the entire project.
 
 
 
@@ -382,7 +373,7 @@ Additionally, there can be problems associated with software reuse. A case study
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Refactoring}
 \label{sec:2-Refactoring}
-TD accumulates as developers write code\cite{Zazworka:2011:PDD:1985362.1985372}, and can be reduced by refactoring. Fowler defines refactoring as means of adjusting the design and architecture towards new requirements without changing the external behavior of a program in order to improve the quality of the system\cite{1999:RID:311424}. It is an act of improving the design and quality of an existing system\cite{Vliet:2008:SEP:1481475}. Most of the time spent on reducing TD is on refactoring activities itself. These activities includes planning the design and architecture, rewriting the code, and adjusting documentation\cite{Pressman:2009:SEP:1593949}. It is believed that refactoring improves software quality and developer productivity, by making it easier to understand and maintain software codes\cite{Kim:2012:FSR:2393596.2393655}, thus a way to manage the technical debt of a system. 
+technical debt accumulates as developers write code\cite{Zazworka:2011:PDD:1985362.1985372}, and can be reduced by refactoring. Fowler defines refactoring as means of adjusting the design and architecture towards new requirements without changing the external behavior of a program in order to improve the quality of the system\cite{1999:RID:311424}. It is an act of improving the design and quality of an existing system\cite{Vliet:2008:SEP:1481475}. Most of the time spent on reducing technical debt is on refactoring activities itself. These activities includes planning the design and architecture, rewriting the code, and adjusting documentation\cite{Pressman:2009:SEP:1593949}. It is believed that refactoring improves software quality and developer productivity, by making it easier to understand and maintain software codes\cite{Kim:2012:FSR:2393596.2393655}, thus a way to manage the technical debt of a system. 
 
 Table \ref{tab:refactorArtifacts} lists the software artifacts that refactoring applies to\cite{1265817}.
 
@@ -492,5 +483,5 @@ Risks and malfunctions in embedded software are much higher than in traditional 
 
 Despite the growth of embedded systems, research has revealed that many embedded system projects do not start from scratch\cite{graaf2003embedded,pretschner2007software}. Several authors have pointed out that software reuse is applied a lot in the embedded system industry. According to Graaf et al.\cite{graaf2003embedded}, software reuse is rather ad hoc. Most of the products that is developed today is based on previous products. Reuse artifacts, such as requirements and code, are therefore reused by copying them. Furthermore, Pretschner et al.\cite{pretschner2007software} states that the difference between functionality changes from one vehicle generation to the next is relatively small. Most of the old functionality remains and can be found in a new car generation. Functionality differs mostly not more than 10\%. However, more than 10\% of the software is re-written.
 
-Given the lack of focus on design-time aspects of SQ, the amount of TD accumulated in embedded systems grows continuously. This happens because of several factors, and especially because the current level of technical debt is not visible to the developers and managers. According to Graaf et al.\cite{graaf2003embedded} and Ebert et al.\cite{ebert2009embedded}, insufficient requirements and testing are two major cost drivers in embedded software development. 40\% of all software defects in embedded systems results from insufficient requirements, especially non-functional requirements\cite{graaf2003embedded,washizaki2007quality,ebert2009embedded}. Furthermore, testing after code completion consumes 30 to 40\% of embedded development resources, and depending on the project life cycle, testing requires a lead time of 15-50\% of total project duration\cite{ebert2009embedded}. Moreover, time pressure from the management has been identified as a negative impact on embedded projects, which usually leads to suboptimal solutions.
+Given the lack of focus on design-time aspects of SQ, the amount of technical debt accumulated in embedded systems grows continuously. This happens because of several factors, and especially because the current level of technical debt is not visible to the developers and managers. According to Graaf et al.\cite{graaf2003embedded} and Ebert et al.\cite{ebert2009embedded}, insufficient requirements and testing are two major cost drivers in embedded software development. 40\% of all software defects in embedded systems results from insufficient requirements, especially non-functional requirements\cite{graaf2003embedded,washizaki2007quality,ebert2009embedded}. Furthermore, testing after code completion consumes 30 to 40\% of embedded development resources, and depending on the project life cycle, testing requires a lead time of 15-50\% of total project duration\cite{ebert2009embedded}. Moreover, time pressure from the management has been identified as a negative impact on embedded projects, which usually leads to suboptimal solutions.
 

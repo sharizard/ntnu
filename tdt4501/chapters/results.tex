@@ -2,7 +2,7 @@
 % !TEX root = ..\main.tex
 % !TEX spellcheck = en-US
 \chapter{Results}
-This chapter presents the results of this study. The first section presents the participants. The main findings are presented in Section \ref{sec:techDebt}, \ref{sec:techCause}, \ref{sec:prior}, and \ref{sec:managing}. Section \ref{sec:techDebt} focuses the term TD and causes related to it. Section \ref{sec:techCause} reveals the causes of TD. Section \ref{sec:prior} takes a further look at how TD is addressed and prioritized in organizations. Section \ref{sec:managing} reveals the way TD is managed.
+This chapter presents the results of this study. The first section presents the participants. The main findings are presented in Section \ref{sec:techDebt}, \ref{sec:techCause}, \ref{sec:prior}, and \ref{sec:managing}. Section \ref{sec:techDebt} focuses the term technical debt. Section \ref{sec:techCause} reveals the causes of technical debt in the various systems. Section \ref{sec:prior} takes a further look at how technical debt is addressed and prioritized in organizations. Finally, Section \ref{sec:managing} reveals the way technical debt is managed.
 
 % Bakgrunn
 \section{Introduction of participants}
@@ -48,25 +48,25 @@ The interview began by asking the participants about their responsibilities with
 %The interviews started by asking the participants what their definition of technical debt is, what the causes for technical debt were, and why technical debt is a problem today. 
 \section{Definition of Technical Debt}
 \label{sec:techDebt}
-To get an understanding of what the participants meant when they talked about TD, they were asked to define the term.
+To get an understanding of what the participants meant when they talked about technical debt, they were asked to define the term.
 \begin{displayquote}
 \textit{"Technical debt is resolving things in a way so that there will be need of refactoring the solution later. Technical debt is incurred intentionally or unintentionally. It may be due to external assumptions that were not taken into account when designing the system. You can have the perfect payment system, but if you change the currency, the system may fail."} - P1.  
 \end{displayquote}
 
-P2 defines TD as follows:
+P2 defines technical debt as follows:
 \begin{displayquote}
 \textit{"Systems or software that performs under the level we have set as requirement, or is of lower quality. Like if we have systems out-of-support, then we have incurred technical debt as the system operates with bigger risk than what we want. [...] We do not want to run the latest version of a software, but a version less because someone has run it before and fixed the bugs."} - P2.
 \end{displayquote}
 
-The definition of TD given by P3 is:
+The definition of technical debt given by P3 is:
 \begin{displayquote}
-\textit{"A product where components are not available, operating system is outdated and is not supported with updates anymore. It is expensive to maintain the product, and people with the competence might not be available anymore."}.
+\textit{"A product where components are not available, operating system is outechnical debtated and is not supported with updates anymore. It is expensive to maintain the product, and people with the competence might not be available anymore."}.
 \end{displayquote}
 
-P4 defines TD as \textit{"things that needs to be changed before you can add new functionality"}.
+P4 defines technical debt as \textit{"things that needs to be changed before you can add new functionality"}.
 
-\subsubsection{Why TD is a problem}
-The literature stated that TD is not always bad\cite{p31-guo}. With that in mind, the participants were asked why they consider TD as a problem. Both P2 and P3 explained that incurring TD resulted in long-term risks. 
+\subsubsection{Why technical debt is a problem}
+The literature stated that technical debt is not always bad\cite{p31-guo}. With that in mind, the participants were asked why they consider technical debt as a problem. Both P2 and P3 explained that incurring technical debt resulted in long-term risks. 
 
 \begin{displayquote}
 	\textit{"Technical debt is a problem because all the products we deliver, will incur technical debt, if developers do not care to maintain the product, and remove unhealthy dependencies along the way that you quickly get as a result of technical debt. Another problem is that people are afraid to bring up this subject. I talked with a guy from the oil sector who told me that some of their systems has 40 years of technical debt. I think that it is time for an upgrade. The world has changed radically over the past decade and will change in the future."} - P3.
@@ -78,7 +78,7 @@ P2 expressed that their organization have many legacy equipments and systems. Ad
 
 P4 explained that there is always a possibility of refactoring in projects. \textit{"Our code base is almost 10 years old, and big parts of the architecture is still the same as it was 10 years ago. I am pretty sure that there are some parts of the system that can be improved"} - P4. 
 
-P1 remarked that TD is now always bad.
+P1 remarked that technical debt is now always bad.
 \begin{displayquote}
 \textit{If you create systems that does not incur technical debt, there would not be so much for developers to do later. This is the reason for agile methods being used, you create visible technical debt. Your boss might give you a task to build a house without a roof. The house looks very nice, but the day it snows, things will go bad} - P1.
 \end{displayquote}
@@ -91,7 +91,7 @@ P1 remarked that TD is now always bad.
 \section{Causes of Technical Debt}
 \label{sec:techCause}
 %Hvorfor de tror TG oppstår generelt. Kan si noe om eksempler fra de ulike scenarioene
-To identify the causes of TD, the participants were asked the reasons for TD accumulation in their project.
+To identify the causes of technical debt, the participants were asked the reasons for technical debt accumulation in their project.
 
 \subsection{Time Pressure}
 Time pressure was frequently mentioned as a reason for incurring technical debt. For example, P1 and P4 mentioned that if they did not incur technical debt, it ran the risk of not being able to deliver the solution at all. 
@@ -104,13 +104,13 @@ Furthermore, P2 explained that both lack of time and resources is why technical 
 \begin{displayquote}
 \textit{"We cannot prioritize upgrading existing systems. The resources that are given to us, are used to implement new functionality, or to fix critical errors such as system crashes. It is not certain that technical debt is behind a system crash, but it is something we need to prioritize. Additionally, we get new projects all the time, which makes software evolution a challenge."} - P2.
 \end{displayquote} 
-Moreover, P2 mentioned that one of their systems did not work properly after upgrading the operating system it was running on. Given the lack of resources to pay down TD, they eventually had to isolate the problem by workarounds. 
+Moreover, P2 mentioned that one of their systems did not work properly after upgrading the operating system it was running on. Given the lack of resources to pay down technical debt, they eventually had to isolate the problem by workarounds. 
 
 \subsubsection{System Size}
-As the system complexity keeps increasing, the system also becomes harder to change. Increased system complexity makes it easier and cheaper to incur TD in short-run. P4 explained that many of their developers did not know the system well enough, so change requests made by developers did not fit with the intended design.
+As the system complexity keeps increasing, the system also becomes harder to change. Increased system complexity makes it easier and cheaper to incur technical debt in short-run. P4 explained that many of their developers did not know the system well enough, so change requests made by developers did not fit with the intended design.
 
 \subsubsection{Architectural Decisions}
-Furthermore, P1 revealed a situation where an architectural decision was the reason for TD accumulation. The solution looked good to begin with, but the effects of the outcome was not optimal. The architecture design was a debt itself. He further stated that while the implementation was good, the outcomes was not as expected.
+Furthermore, P1 revealed a situation where an architectural decision was the reason for technical debt accumulation. The solution looked good to begin with, but the effects of the outcome was not optimal. The architecture design was a debt itself. He further stated that while the implementation was good, the outcomes was not as expected.
 
 \subsubsection{Technology Choices}
 The participants explained that technology and framework choices, may be a source of technical debt. Both technologies and frameworks gradually become obsolete by other solutions, resulting in legacy. P3 described a situation where their core product accumulated technical debt over time. The product used lots of legacy solutions from external suppliers. Replacing these was expensive because it would require changes at the infrastructure level of the system. However, at some point, the organization decided to manage the technical debt by re-engineering the solution using open-source solutions.
@@ -127,13 +127,13 @@ The participants were asked about the current level of technical debt in their p
 \textit{"There are some visible and some invisible technical debt in our project. Mostly visible that should have been fixed. The reason for it is that the product is relatively new and young, which makes it more important to deliver new functionality."} - P1
 \end{displayquote} 
 
-P2 explained that they have accumulated lots of technical debt in their product, both known and unknown. Their product consists of outdated solutions from external suppliers. They usually fix errors by workarounds, resulting in architecture violations. Legacy components are hard to change. Another problem that was mentioned is that there is no documentation or knowledge about the components, hence making it difficult to change the internal structure of the solutions.
+P2 explained that they have accumulated lots of technical debt in their product, both known and unknown. Their product consists of outechnical debtated solutions from external suppliers. They usually fix errors by workarounds, resulting in architecture violations. Legacy components are hard to change. Another problem that was mentioned is that there is no documentation or knowledge about the components, hence making it difficult to change the internal structure of the solutions.
 
 However, the product P3 is currently working on has accumulated small amounts of technical debt. The reason is that the product is relatively new. Their previous solution of the product had accumulated a high amount of technical debt. They ended up replacing the old solution with a new, improved solution using open-source technologies. Furthermore, P3 stated that shortcuts are taken if they need to reach a deadline. However, they always makes a plan to address it in the future. Test-driven development is used a lot thorough the development, making sure that problems are addressed immediately.
 
 P4 remarked that they have accumulated some technical debt in their product, but not more than they are able to handle. Most of the technical debt they have accumulated are related to integration and system tests. P4 also stated that technical debt is not bad. Sometimes, technical debt needs to be incurred, to meet business goals. \textit{"You can take a loan from the bank to buy a house, as long as you are able to pay it back"} - P4.
 
-Some of the participants revealed that TD is incurred intentionally to a certain extent. P1 explained that both developers and the management makes such decisions. 
+Some of the participants revealed that technical debt is incurred intentionally to a certain extent. P1 explained that both developers and the management makes such decisions. 
 \begin{displayquote}
     \textit{"Developers tries simple solution to understand the exact problem. They usually hard code some parts of the code that could have been coded dynamically. However, hard coding results in short-term benefits, but it causes long-time problems." - P1}
 \end{displayquote}
@@ -142,7 +142,7 @@ Some of the participants revealed that TD is incurred intentionally to a certain
 \subsubsection{Short-term vs. long-term effects}
 The interviews revealed that technical debt may affect the software development in the short-term. Incurring technical debts by taking shortcuts, is used to save development time and deliver a solution faster to the customers. P4 explained that technical debt is not the result of poor programming skills, but as a result of intentional decisions to trade off competing concerns during development. P1, P2, and P4 mentioned that such shortcuts in development are taken, in reaction to business pressure. Another short-term effect of technical debt that was identified is the customer satisfaction. The customers are interested in getting the product on time. They do not care about the technical details of implementation as long as it does not directly affect the product quality. \textit{"The customers does not care how they get electricity from the wall, they just want electricity" - P2}. Moreover, P4 mentioned that sometimes short-term solutions might outweigh the future costs, depending on the implementation method.
 
-The negative effects tended to be on the longer term, such as poor performance, increased complexity, and low maintainability. P3 brought up example where one of their systems that used legacy technologies, crashed during a scaling test. P2 mentioned that some of their systems are still running on Windows 95, and they do not have enough resources to upgrade the systems. Both P1 and P2 mentioned that TD is also incurred intentionally. Management and the customers often comes with requirements that needs to be prioritized. 
+The negative effects tended to be on the longer term, such as poor performance, increased complexity, and low maintainability. P3 brought up example where one of their systems that used legacy technologies, crashed during a scaling test. P2 mentioned that some of their systems are still running on Windows 95, and they do not have enough resources to upgrade the systems. Both P1 and P2 mentioned that technical debt is also incurred intentionally. Management and the customers often comes with requirements that needs to be prioritized. 
 
 \begin{displayquote}
     \textit{"Lets say that we have two systems with technical debt. If we have resources to manage technical debt in one of the systems, the other system needs to be postponed. These types of situations occurs frequently, and the total technical debt keeps increasing." - P2}
@@ -170,32 +170,32 @@ P4 remarked that the quality on their product is remarkable. He stated that it i
 
 \section{Management of Technical Debt}
 \label{sec:managing}
-Another important aspect regarding TD is how it is managed. The participants were asked about the importance of reducing TD, and how they reduce TD. Most of the responses involved some form of communication within the development team, and with management. It included approaches such as risk management, and use of backlogs. Some of the participants also pointed out that TD can be controlled by the customer, based on the needs.
+Another important aspect regarding technical debt is how it is managed. The participants were asked about the importance of reducing technical debt, and how they reduce technical debt. Most of the responses involved some form of communication within the development team, and with management. It included approaches such as risk management, and use of backlogs. Some of the participants also pointed out that technical debt can be controlled by the customer, based on the needs.
 
 % How important is it to reduce TG
-\subsubsection{Importance of reducing TD}
-A common response regarding the importance of reducing TD is the products ability to remain stable.
+\subsubsection{Importance of reducing technical debt}
+A common response regarding the importance of reducing technical debt is the products ability to remain stable.
 
 \begin{displayquote}
 \textit{Managing technical debt by upgrading the software is not necessary a goal, it is more important to use a version of the software that is stable.  A small change in the software may affect many people. [...] It is important to finish a task early as possible, and to clean up the mess before you end up with too much dependencies} - P1
 \end{displayquote}
 
-However, reducing TD is a challenge itself. P3 commented that the challenge is to get project leaders attention on various problems. \textit{"Sometimes, there is need of refactoring technical debt. Postponing technical debt problems create long-term issues. A challenge is to get an approval from the project manager to address the issue. It is important to fix technical debt problems while it is fresh. Keep the code agile."} - P3. 
+However, reducing technical debt is a challenge itself. P3 commented that the challenge is to get project leaders attention on various problems. \textit{"Sometimes, there is need of refactoring technical debt. Postponing technical debt problems create long-term issues. A challenge is to get an approval from the project manager to address the issue. It is important to fix technical debt problems while it is fresh. Keep the code agile."} - P3. 
 
-Furthermore, the participants were asked how much time the team spent on reducing TD. P3 and P4 remarked that fixing software bugs is something they work with all the time. The goal is to get an overview of all the bugs before product shipment to customers. P4 stated further than bugs are not considered as TD. TD is code that needs refactoring. P1 and P2 handled TD in parallel with development of new functionalities. Both of them spend around 25\% to 30\% each sprint on maintenance and evolution.
+Furthermore, the participants were asked how much time the team spent on reducing technical debt. P3 and P4 remarked that fixing software bugs is something they work with all the time. The goal is to get an overview of all the bugs before product shipment to customers. P4 stated further than bugs are not considered as technical debt. technical debt is code that needs refactoring. P1 and P2 handled technical debt in parallel with development of new functionalities. Both of them spend around 25\% to 30\% each sprint on maintenance and evolution.
 
 
 %What tools and techniques are used to manage it
 \subsubsection{Tools and techniques}
-The participants stated different ways to handle TD. rRefactoring and re-engineering were commonly mentioned. P3 had to re-engineer the core of their product using open-source software. Additionally, various tools are used to keep track of the TD. The most common mentioned tools was Jira, and issue trackers. However, one of the participants commented that they do not have any special tools for TD management. 
+The participants stated different ways to handle technical debt. rRefactoring and re-engineering were commonly mentioned. P3 had to re-engineer the core of their product using open-source software. Additionally, various tools are used to keep track of the technical debt. The most common mentioned tools was Jira, and issue trackers. However, one of the participants commented that they do not have any special tools for technical debt management. 
 
 \begin{displayquote}
-	\textit{We do not use any special tools or techniques to manage TD. We do have a system- and a service catalog. These catalogs gives an overview over all the systems we are working with. It displays information such as hardware and software version that is used, and age of the system. Administrators use these catalogs to create tasks for the different projects that are on-going. If some software or hardware is very old, the issues are addressed by risk management} - P2.
+	\textit{We do not use any special tools or techniques to manage technical debt. We do have a system- and a service catalog. These catalogs gives an overview over all the systems we are working with. It displays information such as hardware and software version that is used, and age of the system. Administrators use these catalogs to create tasks for the different projects that are on-going. If some software or hardware is very old, the issues are addressed by risk management} - P2.
 \end{displayquote}
 
-P3 considers TD issues all the time thorough the development. By using test driven development, they are able to address TD issues relatively fast. However, issues are raised if it is something important. Their goal is to fix it the next release.  
+P3 considers technical debt issues all the time thorough the development. By using test driven development, they are able to address technical debt issues relatively fast. However, issues are raised if it is something important. Their goal is to fix it the next release.  
 
 %How they would like to manage technical debt.
-The participants were asked how they would like to manage TD. P1 mentioned that encapsulating the code might help in the short-term. Software architecture does not get affected by encapsulation. Raise an issue, and put it on the backlog. Fix it the next sprint. Both P2 and P3 would like to use a fixed budget for managing TD. Using the budget, they would prioritize the tasks based on what effects it has for the customer. \textit{"Systems are getting older and older each day, and the quality is getting worse. You should think about replacing it" - P3}. P4 would like to spend more time on managing TD on each sprint. Ideally, 20\% of the time on each sprint.
+The participants were asked how they would like to manage technical debt. P1 mentioned that encapsulating the code might help in the short-term. Software architecture does not get affected by encapsulation. Raise an issue, and put it on the backlog. Fix it the next sprint. Both P2 and P3 would like to use a fixed budget for managing technical debt. Using the budget, they would prioritize the tasks based on what effects it has for the customer. \textit{"Systems are getting older and older each day, and the quality is getting worse. You should think about replacing it" - P3}. P4 would like to spend more time on managing technical debt on each sprint. Ideally, 20\% of the time on each sprint.
 
 

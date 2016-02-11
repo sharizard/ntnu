@@ -1,0 +1,58 @@
+\usepackage{setspace}
+\linespread{1.25}
+
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
+\graphicspath{{images/}}
+
+% for caption top tables
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}
+
+% FancyHdr pakken gjør det mulig å legge til header og footer
+\usepackage{fancyhdr}
+\usepackage[Glenn]{fncychap}
+\usepackage{import}
+% For enumerate
+\usepackage{easylist}
+\usepackage{paralist}
+% for Bibtex
+\usepackage{cite}
+% For block quote
+\usepackage{csquotes}
+\usepackage{parskip}  % Separate paragraphs with a blank line
+                     % rather than using indentation
+\usepackage{url}
+\usepackage{float} % for bildeplassering der du vil
+\usepackage[colorlinks=true, a4paper=true, pdfstartview=FitV,
+linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+
+
+
+
+\fancyhf{}
+\pagestyle{fancy} % legger til default
+% Endrer på header.
+\fancyhead{}
+\fancyhead[RO,LE]{\rightmark} %Ønsker thesis tittel på høyre side på oddetallssider, og venstre på partallsider.
+\fancyhead[RE,LO]{\thepage}
+
+\setlength{\headheight}{14pt}
+
+%endrer på størrelse på skrift
+\renewcommand{\headrulewidth}{0.4pt}
+%\renewcommand{\footrulewidth}{0.4pt}
+
+% bruk \pagestyle{empty} for å fjerne alt, og \pagestyle{plain} for å ha sidenummer på underkapitler (sections).
+% Husk å bytte til fancy ved neste avsnitt eller der du vil ha fancy greier.
+
+
+
+
+% For new page
+\usepackage{afterpage}
+\newcommand\blankpage{%
+	\null
+	\thispagestyle{empty}%
+	\addtocounter{page}{-1}%
+	\newpage}
