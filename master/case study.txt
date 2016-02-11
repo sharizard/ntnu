@@ -22,3 +22,17 @@ Keywords for state-of-the-art
 - Architectural decay
 - Identifying Technical Debt
 - Identifying Architectural Technical Debt
+- Identifying Design Debt
+- Architectural Bad Smells
+- Code Smells
+- Architectural Erosion
+- Architectural Drift
+- Anti-patterns
+- Design patterns
+- Dependencies between components
+- Software quality
+- Software reuse
+- Case study design
+- Component Software
+- Object-oriented design
+- Component design
