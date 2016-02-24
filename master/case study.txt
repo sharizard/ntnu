@@ -43,3 +43,27 @@ Keywords for state-of-the-art
 - Architecture degradation
 - Refactoring
 - TD management process
+
+
+
+-----------------------------------------------
+CASE STUDY OPEN SOURCE
+-----------------------------------------------
+
+Tools that can be used:
+- SonarQube (supports multiple languages such as Java, JS, Python, C/C++, C#). They have a code smells plugin
+- CLIO (modularity violations)
+- Code smells (Codevizard)
+- Automatic Static Analysis (FindBugs)
+- Design patterns and grime buildup
+- Structure101?
+- Anti Patterns
+- Design Pattern Disharmonies
+- Understand
+
+
+High-level models extracted from documentation.
+SweetHome3D had design terts in the JDepend tool.
+Ant had a modue view based on the packages in the Lattix LDM tool.
+Lucene had a layered view diagram, mappong performed outselves, using package names
+ArgoUML had a set of module views and the packages that made up each module.
