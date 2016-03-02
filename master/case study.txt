@@ -60,6 +60,10 @@ Tools that can be used:
 - Anti Patterns
 - Design Pattern Disharmonies
 - Understand
+- Titan toolset
+- Lattix
+- Design Pattern Finder
+- Create UML diagrams for pattern realizations, verify the UML diagrams manually.
 
 
 High-level models extracted from documentation.
@@ -67,3 +71,12 @@ SweetHome3D had design terts in the JDepend tool.
 Ant had a modue view based on the packages in the Lattix LDM tool.
 Lucene had a layered view diagram, mappong performed outselves, using package names
 ArgoUML had a set of module views and the packages that made up each module.
+
+Codecrawler to map dependencies?
+http://codecrawler.sourceforge.net/docs.htm
+http://hannesdorfmann.com/annotation-processing/annotationprocessing101
+
+
+https://wiki.eecs.yorku.ca/project/dpd/finder
+
+https://github.com/UnisannioSoftEng/DPF/wiki/Design-Pattern-Finder-Home
