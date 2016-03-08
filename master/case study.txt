@@ -64,7 +64,8 @@ Tools that can be used:
 - Lattix
 - Design Pattern Finder
 - Create UML diagrams for pattern realizations, verify the UML diagrams manually.
-
+- UMLGraph: http://www.umlgraph.org/index.html
+- Dependency analyzer: Class Dependency Analyzer (CDA V1.16.0)
 
 High-level models extracted from documentation.
 SweetHome3D had design terts in the JDepend tool.
@@ -80,3 +81,18 @@ http://hannesdorfmann.com/annotation-processing/annotationprocessing101
 https://wiki.eecs.yorku.ca/project/dpd/finder
 
 https://github.com/UnisannioSoftEng/DPF/wiki/Design-Pattern-Finder-Home
+
+http://www.ptidej.net/
+
+
+
+
+
+Open Source Projects
+- HomeGenie (C#) - Home Automation Server in a "internet of things" world
+- FreeRTOS Real Time Kernel (RTOS) (C)
+- MGSys (Java)
+- freedomotic (Java)
+- SmartSlog (JAva?)
+- StateOS (C)
+- QM Modeling Tool (C, C++)

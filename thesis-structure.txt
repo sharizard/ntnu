@@ -1,0 +1,73 @@
+Master thesis structure
+
+Title telling as precise as possible what the thesis is about. Remember that people search for key words, so the key words that you think describe your research should appear in the title. 
+Summary
+1 page presenting the research problem, the main results, conclusion and how the thesis advances the field.
+
+Foreword
+
+Acknowledgement to those who have helped you.
+
+Table of contents
+
+List of chapters and sections
+
+Chapter 1. Introduction
+On the first page, you should present
+•	The area of research (e.g. implementation of information systems)
+•	The most relevant previous findings in this area
+•	Your research problem and why this is worthwhile studying
+•	The objective of the thesis: how far you hope to advance knowledge in the field
+
+Target group
+To whom are you writing, what do you assume that the reader know? A normal target groupd would be new Master students.
+
+Personal motivation
+Why did you choose this topic?
+
+Research method in brief
+How will you find out?
+
+Structure of the report
+A paragraph about each chapter. What is the main contribution of the chapter? How do they relate?
+
+
+
+
+Chapter 2. Related literature and theoretical focus
+A survey of the literature (journals, conferences, book chapters) on the areas that are relevant to your research question. One section per area.
+The chapter should conclude with a summary of the previous research results that you want to develop further or challenge. The summary could be presented in a model, a list of issues, etc. Each issue could be a chapter in the presentation of results. They should definitely be discussed in the discussion / conclusion of the thesis. 
+
+
+
+
+Chapter 3. Presentation of the part of the world to be studied
+Which could be the health system in Mozambique, the rural areas where the telecentres are located, the financial businesses in which the accounting system you will develop will be used. 
+
+
+
+
+Chapter 4. Method
+The research method by which you will investigate the world. 
+•	A short summary of the available methods
+•	Your choice
+•	Detailed report of how you actually carried out your research. Presenting how you selected the people taking part is of special importance.
+
+
+
+
+Chapter 5-… Your research results (and discussion)
+Which could be the system you made and the reasons for various design decisions, what your interview objects said, observations of people using a computer system, stories of a development process, numeral data from a questionnaire, etc. 
+The discussion of the findings can be included in these chapters, or the discussion can be put  in a separate chapter. 
+The issues from the theory chapter (chapter 2) should be discussed here.
+
+
+
+
+Chapter Last. Conclusion
+Summary of the problem, the main findings and the discussion. Structured according to the issues in chapter 2.
+Comparison with the literature presented in chapter 2: how do your results fill in, advance or contradict previously reported research? 
+What are the implications of your research for people working in the field that you have studies?
+In which direction should further research go? 
+References
+A complete list of written documents you have referred to in the report. 
