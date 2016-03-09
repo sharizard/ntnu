@@ -66,6 +66,9 @@ Tools that can be used:
 - Create UML diagrams for pattern realizations, verify the UML diagrams manually.
 - UMLGraph: http://www.umlgraph.org/index.html
 - Dependency analyzer: Class Dependency Analyzer (CDA V1.16.0)
+- jArchitect
+- Checkstyle
+- Squale
 
 High-level models extracted from documentation.
 SweetHome3D had design terts in the JDepend tool.
@@ -89,13 +92,13 @@ http://www.ptidej.net/
 
 
 Open Source Projects
-- HomeGenie (C#) - Home Automation Server in a "internet of things" world
-- FreeRTOS Real Time Kernel (RTOS) (C)
+- HomeGenie (C#) - Home Automation Server in a "internet of things" world - felles interface for mange andre embedded systems.
+- FreeRTOS Real Time Kernel (RTOS) (C) (real time operating system)
 - MGSys (Java)
-- freedomotic (Java)
-- SmartSlog (JAva?)
-- StateOS (C)
-- QM Modeling Tool (C, C++)
-- OpenRocket
-- openPDC
-- JHotDraw
+- freedomotic (Java) - IOT rammeverk, kan brukes til home automation, bbygge og holde styr på iot
+- SmartSlog (JAva?) - development kit for Smart M3 agenter
+- StateOS (C) - Real time OS for embedded applikasjoner, target ARM cotrex m. 
+- QM Modeling Tool (C, C++) - modelleringsverktøy for designing og implementering real-time embedded software
+- OpenRocket - simulere raketter før man bygger dem (java)
+- openPDC - 
+- JHotDraw - bildemanipulering
