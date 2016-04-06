@@ -1,5 +1,5 @@
 % !TEX encoding = UTF-8 Unicode
-% !TEX root = ..\main.tex
+% !TEX root = ../main.tex
 % !TEX spellcheck = en-US
 
 
@@ -15,21 +15,11 @@
 % - 
 
 \chapter{State-of-the-Art}
-This chapter presents state-of-the-art topics which are relevant to this project. Section \ref{sec:2-TD} presents the technical debt with definitions, causes, and management tools. Section \ref{sec:2-SQ} looks into the topic of software quality and the relevant attributes. Section \ref{sec:2-SLC} presents the software life cycle along with the different development methodologies. Section \ref{sec:2-SA} presents software architecture. Section \ref{sec:2-SE} presents software evolution and maintenance.
-Section \ref{sec:2-SR} takes a look into software reuse. Section \ref{sec:2-Refactoring} presents refactoring. Section \ref{sec:2-CM} presents configuration management. Lastly, Section \ref{sec:2-ES} will take a closer look at embedded systems and software.
 
 
 \section{Technical Debt}
-\label{sec:2-TD}
-The concept of technical debt was first introduced by Ward Cunningham in 1992 to communicate technical problems with non-technical stakeholders\cite{p29-cunningham}. The concept was used to describe the system design trade-offs that are made everyday. To deliver business functionality as quickly as possible, \textit{'quick and dirty'} decisions had to be made, which affected the future development activities. Furthermore, Cunningham describes technical debt as \textit{"shipping first time code is like going into debt. A little debt speeds development as long as it is paid back promptly with a rewrite"}. As the time goes, technical debt accumulates \textit{interest}, leading to increased costs of a software system\cite{p31-guo,p35-klinger}. Li et al.\cite{li2015systematic} defines interest as \textit{the extra effort needed to modify the part of the software system that contains technical debt}. However, not all debts are necessarily bad. A small portion of debt may help developers speed up the development process, resulting in short-term benefits\cite{p31-guo}. 
+The concept of techncial debt was first introduced by Ward Cunningham\cite{
 
-%% The costs of technical debt
-\begin{figure}[ht!]
-	\centering
-	\includegraphics[width=0.8\textwidth]{images/techdebtCurve.jpg}
-	\caption{The Technical Debt Curve\cite{jim-highsmith}}
-	\label{fig:techDebtCurve}
-\end{figure}
 
 Figure \ref{fig:techDebtCurve} illustrates the effects of technical debt growth in a system.
 
