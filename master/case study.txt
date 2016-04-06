@@ -1,11 +1,4 @@
-Case Study candidates
-- Nordic Semiconductor
-- Telenor Trondheim
-- Statoil
-- Autronica
-- Matiq (SKADA systemer - Life Cycle Management IIT)
-
-Case Study Design
+﻿Case Study Design
 - Detect technical debt using static tools such as code smells and automated static analysis on code along with interviews. 
 - Use models and metrics from existing papaers
 - Modularity violations or design patterns and grime buildup

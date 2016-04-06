@@ -1,46 +1,87 @@
 % !TEX encoding = UTF-8 Unicode
-% !TEX root = ..\main.tex
+% !TEX root = ../main.tex
 % !TEX spellcheck = en-US
 
 \chapter{Research Methodology}
-
-This chapter describes the research methodology that has been used in this thesis to answer the research questions. 
-
-\section{Empirical Strategies}
-According to Wohlin\cite{Wohlin:2000:ESE:330775}, empirical studies follows two types of research paradigms; the qualitative, and the quantitative paradigm. Qualitative research is concerned with studying objects in their natural setting\cite{Wohlin:2000:ESE:330775}. It is based on non-numeric data found in sources as interview tapes, documents, or developers' model. Quantitative research is concerned with quantifying a relationship or to compare two or more groups\cite{Wohlin:2000:ESE:330775}. It is based on collecting numerical data. 
-
-Empirical research can be Oates\cite{Oates:2006:RIS:1202299} presents six different research strategies; survey, design and creation, case study, experimentation, action research, and ethnography. 
+Architectural technical debt is a problem for many software projects today. In this thesis, we will investigate how architectural technical debt can be identified in embedded software projects, and how it can be managed. This chapter describes the relevant research methodologies used in software engineering, and the methodologies that has been used in this thesis to answer the research questions. 
 
 
 
-Present different research strategies; survey, design and creation, case study, experimentation, action research, and ethnography
+\section{Research Methods in Software Engineering}
+Research is believed to be the most effective way of coming to know what is happening in the world\cite{bassey2003case}. According to Wohlin\cite{Wohlin:2000:ESE:330775}, empirical studies follows two types of research paradigms; the qualitative, and the quantitative paradigm. Qualitative research is concerned with studying objects in their natural setting\cite{Wohlin:2000:ESE:330775}. It is based on non-numeric data found in sources as interview tapes, documents, or developers' model. Quantitative research is concerned with quantifying a relationship or to compare two or more groups\cite{Wohlin:2000:ESE:330775}. It is based on collecting numerical data. 
 
 
 
+Empirical studies can be explanatory, descriptive, or exploratory. Furthermore, Oates\cite{Oates:2006:RIS:1202299} presents six different research strategies; survey, design and creation, case study, experimentation, action research, and ethnography. 
+
+\textit{{Survey}} focuses on collection data from a sample of individuals through their responses to questions. The primary means of gathering qualitative or quantitative data are interviews or questionnaires. The results are then analyzed using patterns to derive descriptive, exploratory, and explanatory conclusions. 
+
+\textit{{Design and creation}} focuses on developing new IT products, or artifacts. It can be a computer-based system, new model, or a new method. 
+
+\textit{{Case study}} focuses on monitoring one single 'thing'; an organization, a project, an information system, or a software developer. The goal is to obtain rich, and detailed data. 
+
+\textit{{Experimentation}} are normally done in laboratory environment, which provides a high level of control. The goal is to investigate cause and effect relationships, testing hypotheses, and to prove or disprove the link between a factor and an observed outcome. 
+
+\textit{{Action research}} focuses on solving a real-world problem while reflecting on the learning outcomes. \textit{{Ethnography}} is used to understand culture and ways of seeing of a particular group of people. The researcher spends time in the field by participating rather than observing.
 
 \section{Research Design}
+%  Introduce methods, why. Design/plan, justify the why part.  Why this approach was chosen
 
-- Open source systems
-- Object oriented
+According to Yin\cite{yin2003case}, a research design is an action plan from getting here to there, where here is defined as the initial set of questions answered, and there is some set of conclusions about these questions. Additionally, research can be seen as a blueprint of research, dealing with at least four problems: what questions to study, what data are relevant, what data to collect, and how to analyze the results\cite{yin2003case}. Soy\cite{soysusan} introduces a research process consisting of six steps for organizing and conducting the research:
 
-Data generation: Documents
+\begin{enumerate}
+	\item \textit{Determine and Define the Research Questions}: The first step involves establishing a research focus by forming questions about the problem to the studied. The researcher can refer to the research focus and questions over the course of study. 
+	\item \textit{Select the Cases and Determine Data Gathering and Analysis Techniques}: The second step involves determining what approaches to use in selecting single or multiple real-life cases cases to examine, and which instruments and data gathering approaches to use. (whom we want to study, the case, cases, sample. and how we want to study it, design).
+	\item \textit{Prepare to Collect Data}: The third step involves a systematic organization of the data to be analyzed. This is to prevent the researcher from being overwhelmed by the amount of data and to prevent the researcher from losing sight of the research focus and questions. 
+	\item \textit{Collect Data in the Field}: This step involves collecting, categorizing, and storing multiple sources of data systematically so it can be referenced and sorted. This makes the data readily available for subsequent reinterpretation. 
+	\item \textit{Evaluate and Analyze the Data}: The fifth step involves examining the raw data in order to find any connections between the research object and the outcomes with reference to the original research questions. 
+	\item \textit{Prepare the Report}: In the final step, the researcher report the data by transforming the problem into one that can be understood. The goal of the written report is to allow the reader to understand, question, and examine the study.
+\end{enumerate}
+
+
+\subsection{The Research}
+The goal of this research project is to gain an understanding about the nature of technical debt and its potential sources in embedded systems in order to improve the management of software evolution in embedded systems. To investigate technical debt, we have combined the research process defined by Soy\cite{soysusan} and Oates\cite{Oates:2006:RIS:1202299}. Figure X illustrates the research process that has been used through this thesis.
+
+Step 1: Determine and Define the Research Questions
+In this case, we are primarily interested in ..... We use the literature and experience and motivation to define the following research questions that will be our primarily driving force through this research:
+
+
+
+Step 2: Select the Cases and Determine Data Gathering and Analysis Techniques
+A case study has been chosen as the research method, which will be conducted in real-life context to obtain knowledge about the problem to be studied. This study addressed the research questions. Furthermore, we gathered data by analyzing documents and code. %Additionally, interviews were used to get a deeper insight about the problems from the developers. 
+
+In prior to our previous research, we have chosen a case study as our research method. The study will be conducted in real-life context to obtain knowledge about the problem.  We determine that only one embedded system will be studied. We contact a electronic company located in Trondheim, who are open and interested to the idea of the case study.
+
+Step 3: Prepare To Collect Data
+
+Step 4: Data Collection
+
+Step 5: Evaluate and Analyze the Data
+
+Step 6: Prepare the Report
+
+
+FIGURE:
+
+1 {Experiences and Motivation -> RQ} -> 2 {Case Study, Documents, Qualitative, Type: Descriptive and Exploratory} -> 3 {Prepare, organize and structure the data (ISO 9126 for requirements)} -> 4 {Data collection} -> 5 {Data analysis} -> 6 {Findings, conclusion, report,  All steps and methods that has been conducted during the the research will be reported through this thesis. }
+
+
+
+
+Data generation: Documents, Code
 
 Type: Descriptive, exploratory
 
-Steps:
-- Pre study (state of the art)
-- Case study design
-- Preparation for data collecton
-- Collecting data
-- Analysis of data
-- Discussing the data            
 
-
-Strategy:
-- Literature review, and experience and motivation -> research questions -> case study -> documents -> qualitative/quantitative
+\section{System and Participants}
+% with whom /participants)
+We have studied one system in this thesis. This is a pilot project. System description, language, commercial, usage, context. How it was selected.
 
 
 
-\section{Case Study}
+      
 
+
+\section{Importance and Limitations}
+Limitations about type of system, type of analysis
 
