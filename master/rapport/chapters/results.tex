@@ -1,34 +1,504 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX root = ../main.tex
+% !TEX spellcheck = en-US
+
 \chapter{Results}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+This chapter presents the results of this study. The first section presents the participants. The main findings are presented in Section X.. Section X focuses the term technical debt.  Finally, Section X reveals the way technical debt is managed.
 
-\section{Something}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+%No documentation for pattern usage, but they have a document with coding standard. This includes how to use some patterns. But no docs on where patterns are used, not so big focus on it. 
+
+%Hvor mye er gjenbrukt
+%Finne klasser som brukes mye
+%Se etter super-klasser
+%Memory footprint
+%Bruken av C++, gjenbruk kan skape arch drift
+%Se etter kode som ikke blir brukt
+%Kunne teste ting isolert
+
+\section{Overview}
+In this study, we evaluated the design and software quality of the system. This study also addresses all of the reseach questions. 
+
+
+\section{Issue List Resulsts}
+The first step was to examine the issue list in order to determine which of the components to look out for. 
+
+\section{Tool Analysis}
+
+
+
+
+
+
+\section{Code Smell Detection}
+\label{sub:code_smell_detection}
+As we explained in Chapter 2, one of the ways to identify design debt is to look at the number of code smells in the source code. Table \ref{tab:identifiedCodeSmell} describes the number of code smells that were identified using automatic and manual approaches. 
+
+\begin{table}[]
+\centering
+\caption{Number of Code Smells detected}
+\label{tab:identifiedCodeSmell}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Code Smell}                           & \textbf{Detected}    \\ \hline
+Long Method                                   & 10          \\ \hline
+Large Class                                   & 8          \\ \hline
+Long Parameter List                           & 15          \\ \hline
+Data Clumps                                   & Bloaters          \\ \hline
+Switch Statements                             & O-O Abusers       \\ \hline
+Temporary Field                               & O-O Abusers       \\ \hline
+Refused Bequest                               & O-O Abusers       \\ \hline
+Alternative Classes with Different Interfaces & O-O Abusers       \\ \hline
+Parallel Inheritance Hierarchies              & O-O Abusers       \\ \hline
+Divergent Change                              & Change Preventers \\ \hline
+Shotgun Surgery                               & Change Preventers \\ \hline
+Lazy Class                                    & Dispensables      \\ \hline
+Data Class                                    & Dispensables      \\ \hline
+Duplicated Code                               & Approximately 5\% of the source code. 39 files affected.       \\ \hline
+Speculative Generality                        & Dispensables      \\ \hline
+Message Chains                                & Encapsulators     \\ \hline
+Middle Man                                    & Encapsulators     \\ \hline
+Feature Envy                                  & Couplers          \\ \hline
+Inappropriate Intimacy                        & Couplers          \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Duplicated Code}
+Duplicated code is found by looking for a block of code that appears at multiple places in the source code, both internally in a file or in another file. Our results revealed that 39 files contains duplicated code. This determines 5\% of the source code, rougly 4400 lines of code is duplicated. Table XX summarizes the
+
+\subsection{Large Class}
+
+\subsection{Long Method}
+Looks for LOC of the method. A long method code smell is considered to be 200 LOC. Another tool using the rules: 30 LOC and 150+ lines reported 47 hits. 
+
+
+
+\subsection{Long Parameter List}
+The minimum number of parameters is 6. 3 of them were considered as critical, one with 9 parameters and two with 12. 
+
+\subsection{Speculative Generality}
+
+In addition, we record the number of false positive to further reflect the accuracy of the results. "False positive definition." 
+
+\subsection{Dead Code}
+Dead Code is a code smell that is not mentioned by Fowler. 
+
+Unused variables, unused functions. 
+
+
+
+
+
+
+
+How did we study the different code smells, the apporach and the results.
+The results from Table XX
+
+As we see, there are many code smells detected. We take a closer look at some of the classes; presented in UML diagrams here:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Traditional Software Quality Metrics Results}
+\label{sub:QA_metrics_results}
+
+
+
+\begin{table}[]
+\centering
+\caption{Project Summary}
+\label{tab:projectsummary}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+                                                    & \textbf{CCCC} & \textbf{SonarQube} & \textbf{Understand}                      & \textbf{SourceMonitor} \\ \hline
+\textbf{Lines}                                      &               & 88404              & 88546                                    & 88546                  \\ \hline
+\textbf{Lines of Code (LOC)}                        & 46220         & 48693              & 49287                                    &                        \\ \hline
+\textbf{Number of Files (NOM)}                      &               & 461                & 461                                      & 461                    \\ \hline
+\textbf{Number of Modules (NOF)}                    & 459           &                    &                                          &                        \\ \hline
+\textbf{Classes}                                    &               & 851                & 830                                      & 375                    \\ \hline
+\textbf{Functions}                                  &               & 3111               & 3589                                     & 812                    \\ \hline
+\textbf{Statements}                                 &               & 45153              & 30109 (executable) + 18882 (declarative) & 35622                  \\ \hline
+\textbf{McCabe's Cyclomatic Complexity (MVG)}       & 3572          & 15266              &                                          & Max complexity (71)    \\ \hline
+\textbf{Comments (COM)}                             & 19705         & 15962              & 23017                                    & 22845                  \\ \hline
+\textbf{LOC/COM (L\_C)}                             & 2.346         & 3.05               & 2.141                                    &                        \\ \hline
+\textbf{MVG/COM (M\_C)}                             & 0.181         &                    &                                          &                        \\ \hline
+\textbf{Information Flow Measure (inclusive) (IF4)} & 171493        &                    &                                          &                        \\ \hline
+\textbf{Information Flow Measure (visible) (IF4v)}  & 166589        &                    &                                          &                        \\ \hline
+\textbf{Information Flow Measure (concrete) (IF4c)} & 3789          &                    &                                          &                        \\ \hline
+\end{tabular}
+\end{table}
+
+
+Table \ref{tab:projectsummary} summarizes the measurements over the project as a whole from the different tools. The results from the different tools reveals some differences in the measurements. For example, CCCC did not identify number of files in the project, but instead it identified number of non-trivial modules in the project. Non-trivial modules include all classes, and any other module for which member functions are identified. Furthermore, SonarQube identified 851 classes in the project. We can see that the difference between the results of amount of classes from SourceMonitor/Understand and SonarQube is big. In addition, SonarQube identified a total of 45153 statements in the source code, while Understand identified 35254 statements, which is pretty close to what SourceMonitor identified. 
+
+Using CCCC, we were able to measure information flow between the different modules. This is done by identifying and counting inter-module couplings in the module interfaces. 
+
+%MVG: A measure of the decision complexity of the function which make up the program. The strict definition if this measure is that it is the umber of linearly independent routes through a directed acyclic graph which maps the flow of control of a subprogram. The analyzer counts this by recording the number of distinct decision outcomes contained within each function, which yields a good approximation to the formally defined version of the measure.
+
+%L_C : Lines per comment: Indicates density of comments with respect to logical complexity of program
+
+%M_C: Indicates density of comments with respect to logical complexity of the program.
+
+%IF4: Measure of information flow between modules suggested by Henry and Kafura. The analyzer makes an approx. count of this by counting inter-module couplings identified in the module interfaces.
+
+
+Moreover, we gathered two types of metrics: Class metrics and file metrics. File metrics returns software quality metrics for the specific file, while class metrics contains metrics for each class. A file can contain multiple classes. We wish to look at the different metrics on each file to indicate if there is any weaknesses in that particular file and what classes the file contains. The metrics we measured are lines of code, complexity of file, average complexity per function, amount of functions, and max depth. 
+
+SonarQube class metric includes nested classes, enums, interfaces, and annotations. Understand and SourceMonitor class metric includes classes and struct keyword. 
+
+SonarQube has more accurate data on classes and functions, while SourceMonitor has more accurate data about statements. 
+
+
+
+
+
+
+Metrics for files:
+- Component / Filename
+- Lines of Code
+- Complexity
+- Complexity per function
+- Structure (classes, methods, statements)
+- Functions
+- Max depth
+
+
+
+% Skal til Research Method
+
+
+
+\section{Object-Oriented Design Metrics}
+While size metrics are important for identifying large classes, size metrics alone may not tell us why the classes are big. In addition to the traditional metrics, we have also gathered data using object-oriented metrics. The metrics used to measure the quality of the code is mostly based on the work of Chidamber and Kemerer.\cite{chidamber1994metrics}. They have proposed a set of static metrics that are designed to measure the quality of object-oriented software. These metrics are widely known, and their metrics suite is the deepest research in object-oriented metrics investigationand the measurements we have are the following: Weighted Method per Class (WMC), Depth of Inheritance Tree (DIT), Number of Children (NOC), Lack of Cohesion in Methods (LCOM), Response For a Class (RFC), and Coupling between Object Classes (CBO). 
+
+
+Overall Project Firmus Components:
+
+Metric		|		Min 		|		Max 		| 		Median 		| 		Sample Mean 		| 		Standard Deviation
+-----------------------------------------------------------------------------------------------------------------------------
+LCOM		|		0			|		100			|		55			|		42.205				|		33.042
+DIT 		|		0			|		4			|		1			|		1.061				|		1.062
+CBO 		|		0			|		30			|		5			|		6.079				|		5.179
+NOC 		|		0			|		20			|		0			|		0.454				|		1.850
+RFC 		|		0			|		115			|		10  		|		15.777				|		18.677
+WMC 		|		0			|		48			|		7			|		8.616				|		7.167
+NIM			|		0			|		48			|		7			|		8.376				|		6.983
+NIV 		|		0			|		18			|		1 			|		2.223				|		2.811
+
+
+
+
+
+
+
+
+Tabell: 
+Component | No. Classes | Metric | Min | Max | Median | Sample Mean | Standard Deviation
+
+
+
+
+
+
+
+
+Component A
+Metric		|		MIN 		|		Max 		| 		Median 		| 		Sample Mean 		| 		Standard Deviation
+-----------------------------------------------------------------------------------------------------------------------------
+LCOM		|		0			|		94			|		57			|		42.925				|		35.222
+DIT 		|		0			|		4			|		1			|		1.525				|		1.132
+CBO 		|		0			|		29			|		5			|		5.875				|		6.252
+NOC 		|		0			|		8			|		0			|		0.7					|		1.652
+RFC 		|		2			|		115			|		28.5		|		40.525				|		32.252
+WMC 		|		2			|		44			|		10.5		|		12.675				|		9.339
+NIM			|		2			|		40			|		10			|		12.3				|		8.979
+NIV 		|		0			|		12			|		1 			|		2.4					|		2.889
+
+
+
+
+
+
+
+
+
+Component B
+Metric		|		MIN 		|		Max 		| 		Median 		| 		Sample Mean 		| 		Standard Deviation
+-----------------------------------------------------------------------------------------------------------------------------
+LCOM		|		0			|		100			|		55			|		42.205				|		33.042
+DIT 		|		0			|		4			|		1			|		1.061				|		1.061
+CBO 		|		0			|		30			|		5			|		6.079				|		5.179
+NOC 		|		0			|		20			|		0			|		0.454				|		1.850
+RFC 		|		0			|		115			|		10 			|		15.777				|		18.677
+WMC 		|		0			|		48			|		7			|		8.616				|		7.156
+NIM			|		0			|		48			|		7			|		8.375				|		6.983
+NIV 		|		0			|		86			|		1 			|		2.222				|		2.811
+
+
+
+
+
+
+
+
+
+
+
+Component C
+Metric		|		MIN 		|		Max 		| 		Median 		| 		Sample Mean 		| 		Standard Deviation
+-----------------------------------------------------------------------------------------------------------------------------
+LCOM		|		0			|		99			|		61			|		55.7				|		23.58
+DIT 		|		0			|		1			|		0			|		0.1					|		0.308
+CBO 		|		1			|		18			|		4			|		5.55				|		4.662
+NOC 		|		0			|		0			|		0			|		0					|		0
+RFC 		|		3			|		26			|		8.5			|		10.3				|		5.741
+WMC 		|		3			|		26			|		8.5			|		10.3				|		5.741
+NIM			|		3			|		26			|		8.5			|		9.85				|		5.153
+NIV 		|		0			|		9			|		2 			|		3.15				|		3.013
+
+
+
+
+
+
+
+
+
+
+Component D
+Metric		|		MIN 		|		Max 		| 		Median 		| 		Sample Mean 		| 		Standard Deviation
+-----------------------------------------------------------------------------------------------------------------------------
+LCOM		|		68			|		68			|		-			|		68					|		-
+DIT 		|		1			|		1			|		-			|		1					|		-
+CBO 		|		7			|		7			|		-			|		7					|		-
+NOC 		|		0			|		0			|		-			|		0					|		-
+RFC 		|		8			|		8			|		- 			|		8					|		-
+WMC 		|		8			|		8			|		-			|		8					|		-
+NIM			|		8			|		8			|		-			|		8					|		-
+NIV 		|		2			|		2			|		- 			|		2					|		-
+
+
+
+
+
+
+Component En
+Metric		|		MIN 		|		Max 		| 		Median 		| 		Sample Mean 		| 		Standard Deviation
+-----------------------------------------------------------------------------------------------------------------------------
+LCOM		|		62			|		62			|		-			|		62					|		-
+DIT 		|		0			|		0			|		-			|		0					|		-
+CBO 		|		1			|		1			|		-			|		1					|		-
+NOC 		|		0			|		0			|		-			|		0					|		-
+RFC 		|		8			|		8			|		- 			|		8					|		-
+WMC 		|		8			|		8			|		-			|		8					|		-
+NIM			|		8			|		8			|		-			|		8					|		-
+NIV 		|		2			|		2			|		- 			|		2					|		-
+
+
+
+
+
+
+
+Component Ex
+Metric		|		MIN 		|		Max 		| 		Median 		| 		Sample Mean 		| 		Standard Deviation
+-----------------------------------------------------------------------------------------------------------------------------
+LCOM		|		0			|		100			|		0			|		25.988				|		32.905
+DIT 		|		0			|		3			|		2			|		1.581				|		1.121
+CBO 		|		0			|		16			|		4			|		4.919				|		4.018
+NOC 		|		0			|		20			|		0			|		0.744				|		2.736
+RFC 		|		0			|		28			|		8 			|		10.279				|		6.030
+WMC 		|		0			|		22			|		3.5			|		5.07				|		3.928
+NIM			|		0			|		22			|		3			|		4.907				|		3.846
+NIV 		|		0			|		10			|		0 			|		1.209				|		2.098
+
+
+
+
+
+
+
+Component G
+Metric		|		MIN 		|		Max 		| 		Median 		| 		Sample Mean 		| 		Standard Deviation
+-----------------------------------------------------------------------------------------------------------------------------
+LCOM		|		0			|		100			|		55			|		42.205				|		33.042
+DIT 		|		0			|		4			|		1			|		1.061				|		1.061
+CBO 		|		0			|		30			|		5			|		6.079				|		5.179
+NOC 		|		0			|		20			|		0			|		0.454				|		1.850
+RFC 		|		0			|		115			|		10 			|		15.777				|		18.677
+WMC 		|		0			|		48			|		7			|		8.616				|		7.156
+NIM			|		0			|		48			|		7			|		8.375				|		6.983
+NIV 		|		0			|		86			|		1 			|		2.222				|		2.811
+
+
+
+
+
+
+Component L
+Metric		|		MIN 		|		Max 		| 		Median 		| 		Sample Mean 		| 		Standard Deviation
+-----------------------------------------------------------------------------------------------------------------------------
+LCOM		|		0			|		100			|		55			|		42.205				|		33.042
+DIT 		|		0			|		4			|		1			|		1.061				|		1.061
+CBO 		|		0			|		30			|		5			|		6.079				|		5.179
+NOC 		|		0			|		20			|		0			|		0.454				|		1.850
+RFC 		|		0			|		115			|		10 			|		15.777				|		18.677
+WMC 		|		0			|		48			|		7			|		8.616				|		7.156
+NIM			|		0			|		48			|		7			|		8.375				|		6.983
+NIV 		|		0			|		86			|		1 			|		2.222				|		2.811
+
+
+
+
+
+
+Component N
+Metric		|		MIN 		|		Max 		| 		Median 		| 		Sample Mean 		| 		Standard Deviation
+-----------------------------------------------------------------------------------------------------------------------------
+LCOM		|		0			|		100			|		55			|		42.205				|		33.042
+DIT 		|		0			|		4			|		1			|		1.061				|		1.061
+CBO 		|		0			|		30			|		5			|		6.079				|		5.179
+NOC 		|		0			|		20			|		0			|		0.454				|		1.850
+RFC 		|		0			|		115			|		10 			|		15.777				|		18.677
+WMC 		|		0			|		48			|		7			|		8.616				|		7.156
+NIM			|		0			|		48			|		7			|		8.375				|		6.983
+NIV 		|		0			|		86			|		1 			|		2.222				|		2.811
+
+
+
+
+
+
+Component P
+Metric		|		MIN 		|		Max 		| 		Median 		| 		Sample Mean 		| 		Standard Deviation
+-----------------------------------------------------------------------------------------------------------------------------
+LCOM		|		0			|		100			|		55			|		42.205				|		33.042
+DIT 		|		0			|		4			|		1			|		1.061				|		1.061
+CBO 		|		0			|		30			|		5			|		6.079				|		5.179
+NOC 		|		0			|		20			|		0			|		0.454				|		1.850
+RFC 		|		0			|		115			|		10 			|		15.777				|		18.677
+WMC 		|		0			|		48			|		7			|		8.616				|		7.156
+NIM			|		0			|		48			|		7			|		8.375				|		6.983
+NIV 		|		0			|		86			|		1 			|		2.222				|		2.811
+
+
+
+
+
+
+Component S
+Metric		|		MIN 		|		Max 		| 		Median 		| 		Sample Mean 		| 		Standard Deviation
+-----------------------------------------------------------------------------------------------------------------------------
+LCOM		|		0			|		100			|		55			|		42.205				|		33.042
+DIT 		|		0			|		4			|		1			|		1.061				|		1.061
+CBO 		|		0			|		30			|		5			|		6.079				|		5.179
+NOC 		|		0			|		20			|		0			|		0.454				|		1.850
+RFC 		|		0			|		115			|		10 			|		15.777				|		18.677
+WMC 		|		0			|		48			|		7			|		8.616				|		7.156
+NIM			|		0			|		48			|		7			|		8.375				|		6.983
+NIV 		|		0			|		86			|		1 			|		2.222				|		2.811
+
+
+
+
+
+
+Component W
+Metric		|		MIN 		|		Max 		| 		Median 		| 		Sample Mean 		| 		Standard Deviation
+-----------------------------------------------------------------------------------------------------------------------------
+LCOM		|		0			|		100			|		55			|		42.205				|		33.042
+DIT 		|		0			|		4			|		1			|		1.061				|		1.061
+CBO 		|		0			|		30			|		5			|		6.079				|		5.179
+NOC 		|		0			|		20			|		0			|		0.454				|		1.850
+RFC 		|		0			|		115			|		10 			|		15.777				|		18.677
+WMC 		|		0			|		48			|		7			|		8.616				|		7.156
+NIM			|		0			|		48			|		7			|		8.375				|		6.983
+NIV 		|		0			|		86			|		1 			|		2.222				|		2.811
+
+
+Table XX lists the classes and their metrics we thought were interesting. 
+
+
+- LOC (Lines of Code)
+- WMC (Weighted Methods Per Class)
+- DIT (Depth of Inheritance Tree)
+- NOC (Number of Children)
+- Coupling (Various coupling metrics, such as afferent and efferent)
+- LCOM (lack of cohesion)
+- CCN (McCabe Cyclomatic Complexity)
+- CBO (Coupling between Objects)
+
+Table X shows a sample of metrics for some of the classes. 
+
+
+A description of Software Metrics can be found in Section 2 in Chapter 2. 
+
+Table X shows the value of each software metric captured. For some of the metrics, the lower value, the better. Values that are presented in the table are average. The metrics calclation are from several static code analyzers, both open source and commercial: CppDepend, SourceMonitor, CCCC, Understand. All these software provides extensive numbers of software quality metrics. We will show the metrics that are related to the code smells; hence we do not show all the metrics here. 
+
+Our results show that (whats good and wrong with these metrics, what can be done). 
+
+
+% HVA SLAGS METRIKKER ER INTERESSANT, GÅ DYPERE INN PÅ DEM. F.EKS METHODS IN CLASS, HVA SIER DET OSS
+
+% TOO MANY LINES OF CODE? CHECK SINGLE RESPONSBILITY PRINCIPLE, it states that every class or module should have responsbility for a single part of the funcitnaility provided by the software.'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Threats To Validity}
+\label{sub:threats_to_validity}
+
+\subsection{Internal Validity}
+\label{sub:internal_validty}
+
+\subsection{External Validity}
+\label{sub:external_validity}
+
+\subsection{Construct Validity} % (fold)
+\label{sub:construct_validity}
+
+% subsection construct_validity (end)

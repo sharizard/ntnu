@@ -1,0 +1,17 @@
+Izuritea conducted an observational study to find empricical evidence of the accumulation of pattern grime and possible pattern rot in design pattern realizations. They track the evolution of various design patterns such as Factory, ADapter, Singleton, etc. and compare it with the RBML specification of taht pattern. They create RBML pattern specification of each design patttern which is used to described the essential classifiers and relationships necessary for a pattern relization to be in compliacne with the intented design. Then they use a tool to mine the data. Use AltovaUMl to reverse engineer and check or conformance against the RBML specification, which is an manual process. 
+
+Evaluate Pattern Conformance of UHL models: Kim d.k shen W
+
+
+
+
+
+
+
+
+
+The consequence of grime increease may mainfest iteself as anti patterins ina design. Can make testability efforts unmanageale and can quickly render tests ineffective. Especially true with dynamic patterns, where inheritance hierarchies can grow unbounded, causing the potential number of paths that need to be tested grow very fast.
+
+
+
+External validty refers to the ability to generalize resutlts, and it is quie evident that we do not have a large sample to make general conclusions. Further studies of additional systems, additional design patterns, and additional grime buildup measures are required.

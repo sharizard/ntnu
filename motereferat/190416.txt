@@ -1,0 +1,33 @@
+Hva slags biblioteker trenger de for å kompilere og kjøre programmet?
+Hva er standard bilbioteker, og hva er egenutviklet?
+Er det statisk eller dynamisk link mellom bibliotekene?
+
+Hvilke bilbioteker trengs for å kjøre og kompilere?
+Hva trengs for å kjøre og kompilere prosjektet generelt?
+
+Rapport:
+- Før inn noe om statisk kode analyse, at dette er gjort, og gir lite resultater grunnet PRQA
+
+
+Hvordan de sjekker inn kode, hvordan de gjør en release, hva slags prosesser gås gjennom før en release (f.eks PRQA).
+
+Se på utviklingsprosesser, hva jeg tester, hvordan jeg tester, effektiviteten til det jeg gjør siden manuelt arbeid koster mye. 
+
+Dokumenter all verktøy som brukes, hva verktøyet går ut på, hvordan det brukes, hensikt
+
+
+
+Hvordan man skal reengineer kode
+
+Hvor mye er det som er gjenbrukt (interfaces, libraries), hvilke klasser er hotspots (altså brukt mye, som super-klasser). Se etter memory footprints. C++ skal fremme gjenbruk, og kan skape architectural drift.
+
+
+
+Super-komponenter -> hotspot -> arch smell
+
+Standard biblioteker kan være interessant å se på. 
+
+Lag en indikator for TG?
+
+Sirkulære avhengigheter, bryte opp i hierarki struktur, teste komponent i isolasjon, forslag til refaktorering av kodebase, løse opp avhengigheter, bruk av patterns, lage fasader og factories.
+

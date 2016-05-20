@@ -3,32 +3,57 @@
 % !TEX spellcheck = en-US
 
 \chapter{Research Methodology}
-Architectural technical debt is a problem for many software projects today. In this thesis, we will investigate how architectural technical debt can be identified in embedded software projects, and how it can be managed. This chapter describes the relevant research methodologies used in software engineering, and the methodologies that has been used in this thesis to answer the research questions. 
 
+
+%Architectural technical debt is a problem for many software projects today. Even though ATD is recognized in many studies, there is lack of focus on ATD in embedded systems. In this thesis, we will investigate how architectural technical debt can be identified in embedded software projects, and how it can be managed. This chapter describes the relevant research methods used in software engineering, and the methods that has been used in this thesis to answer the research questions. 
+
+This chapter provides a brief introduction to research methods in software engineering, and describes the research conducted in the thesis. Section 3.1 describes the relevant research methods in software engineering. Section 3.2 describes the term research design. Section 3.3 presents the research questions that are to be answered, as well as the research design that are used to acquire the research data.
+
+
+
+
+
+%%%%%%%%% SECTION RESEARCH METHODS IN SE %%%%%%%%%%%%
 
 
 \section{Research Methods in Software Engineering}
-Research is believed to be the most effective way of coming to know what is happening in the world\cite{bassey2003case}. According to Wohlin\cite{Wohlin:2000:ESE:330775}, empirical studies follows two types of research paradigms; the qualitative, and the quantitative paradigm. Qualitative research is concerned with studying objects in their natural setting\cite{Wohlin:2000:ESE:330775}. It is based on non-numeric data found in sources as interview tapes, documents, or developers' model. Quantitative research is concerned with quantifying a relationship or to compare two or more groups\cite{Wohlin:2000:ESE:330775}. It is based on collecting numerical data. 
+ Research is believed to be the most effective way of coming to know what is happening in the world\cite{bassey2003case}. Empirical software engineering is a field of research based on empirical studies to derive knowledge from an actual experience rather than from theory or belief\cite{empirical-research-SE}. Empirical studies can be explanatory, descriptive, or exploratory\cite{Wohlin:2000:ESE:330775}. 
+
+ There are two types of research paradigms that have different approaches to empirical studies\cite{Wohlin:2000:ESE:330775}; the qualitative, and the quantitative paradigm. Qualitative research is concerned with studying objects in their natural setting\cite{Wohlin:2000:ESE:330775}. It is based on non-numeric data found in sources as interview tapes, documents, or developers' model. Quantitative research is concerned with quantifying a relationship or to compare two or more groups\cite{Wohlin:2000:ESE:330775}. It is based on collecting numerical data. 
 
 
-
-Empirical studies can be explanatory, descriptive, or exploratory. Furthermore, Oates\cite{Oates:2006:RIS:1202299} presents six different research strategies; survey, design and creation, case study, experimentation, action research, and ethnography. 
+To perform research in software, it is useful to understand the different research strategies that are available in software engineering. Oates\cite{Oates:2006:RIS:1202299} presents six different research strategies; survey, design and creation, case study, experimentation, action research, and ethnography. 
 
 \textit{{Survey}} focuses on collection data from a sample of individuals through their responses to questions. The primary means of gathering qualitative or quantitative data are interviews or questionnaires. The results are then analyzed using patterns to derive descriptive, exploratory, and explanatory conclusions. 
 
 \textit{{Design and creation}} focuses on developing new IT products, or artifacts. It can be a computer-based system, new model, or a new method. 
 
-
 \textit{{Case study}} focuses on monitoring one single 'thing'; an organization, a project, an information system, or a software developer. The goal is to obtain rich, and detailed data. 
 
 \textit{{Experimentation}} are normally done in laboratory environment, which provides a high level of control. The goal is to investigate cause and effect relationships, testing hypotheses, and to prove or disprove the link between a factor and an observed outcome. 
 
-\textit{{Action research}} focuses on solving a real-world problem while reflecting on the learning outcomes. \textit{{Ethnography}} is used to understand culture and ways of seeing of a particular group of people. The researcher spends time in the field by participating rather than observing.
+\textit{{Action research}} focuses on solving a real-world problem while reflecting on the learning outcomes. 
 
-\section{Research Design}
+\textit{{Ethnography}} is used to understand culture and ways of seeing of a particular group of people. The researcher spends time in the field by participating rather than observing.
+
+
+
+
+
+
+
+%%%%%%%%% SECTION OF OUR RESEARCH METHOD %%%%%%%%%%%%
+
+\section{Choice of Research Method}
+
+The main purpose of this research project is to gain an understanding about the nature of technical debt in software design and architecture, and its potential sources in embedded systems in order to improve the management of software evolution. Based on the research questions stated in Chapter 1, and our previous research, we wanted to conduct an exploratory case study to get deeper insight about the problem.
+
+
+
+\subsection{Case Study Method}
 %  Introduce methods, why. Design/plan, justify the why part.  Why this approach was chosen
 
-According to Yin\cite{yin2003case}, a research design is an action plan from getting here to there, where here is defined as the initial set of questions answered, and there is some set of conclusions about these questions. Additionally, research can be seen as a blueprint of research, dealing with at least four problems: what questions to study, what data are relevant, what data to collect, and how to analyze the results\cite{yin2003case}. Soy\cite{soysusan} introduces a research process consisting of six steps for organizing and conducting the research:
+Case study is an empirical method to investigate a single phenomenon within a specific time space in real-life context\cite{Wohlin:2000:ESE:330775}. Case studies excels at bringing an understanding of why or how certain phenomena occur or to add strength to what is already known through previous research\cite{Wohlin:2000:ESE:330775,soysusan}. Moreover, Runeson et al.\cite{Runeson:2009:GCR:1519313.1519324} suggests case study as the most appropriate research method to use when exploring how a problem behaves in a real life context. In addition, they conclude that case study is suitable for software engineering research. There has been suggested systematic approaches for organizing and conducting a research successfully\cite{soysusan,Runeson:2009:GCR:1519313.1519324}. According to Yin\cite{yin2003case}, a research design is an action plan from getting here to there, where here is defined as the initial set of questions answered, and there is some set of conclusions about these questions. Moreover, a research design can be seen as a blueprint of research, dealing with at least four problems: what questions to study, what data are relevant, what data to collect, and how to analyze the results\cite{yin2003case}. Soy\cite{soysusan} proposes six steps that can be used when carrying out a case study:
 
 \begin{enumerate}
 	\item \textit{Determine and Define the Research Questions}: The first step involves establishing a research focus by forming questions about the problem to the studied. The researcher can refer to the research focus and questions over the course of study. 
@@ -39,54 +64,177 @@ According to Yin\cite{yin2003case}, a research design is an action plan from get
 	\item \textit{Prepare the Report}: In the final step, the researcher report the data by transforming the problem into one that can be understood. The goal of the written report is to allow the reader to understand, question, and examine the study.
 \end{enumerate}
 
-
-\subsection{The Research}
-The goal of this research project is to gain an understanding about the nature of technical debt and its potential sources in embedded systems in order to improve the management of software evolution in embedded systems. To investigate technical debt, we have combined the research process defined by Soy\cite{soysusan} and Oates\cite{Oates:2006:RIS:1202299}. Figure X illustrates the research process that has been used through this thesis.
-
-Step 1: Determine and Define the Research Questions
-In this case, we are primarily interested in ..... We use the literature and experience and motivation to define the following research questions that will be our primarily driving force through this research:
-
-
-
-Step 2: Select the Cases and Determine Data Gathering and Analysis Techniques
-A case study has been chosen as the research method, which will be conducted in real-life context to obtain knowledge about the problem to be studied. This study addressed the research questions. Furthermore, we gathered data by analyzing documents and code. %Additionally, interviews were used to get a deeper insight about the problems from the developers. 
-
-In prior to our previous research, we have chosen a case study as our research method. The study will be conducted in real-life context to obtain knowledge about the problem.  We determine that only one embedded system will be studied. We contact a electronic company located in Trondheim, who are open and interested to the idea of the case study.
-
-Step 3: Prepare To Collect Data
-
-Step 4: Data Collection
-
-Step 5: Evaluate and Analyze the Data
-
-Step 6: Prepare the Report
-
-
-FIGURE:
-
-1 {Experiences and Motivation -> RQ} -> 2 {Case Study, Documents, Qualitative, Type: Descriptive and Exploratory} -> 3 {Prepare, organize and structure the data (ISO 9126 for requirements)} -> 4 {Data collection} -> 5 {Data analysis} -> 6 {Findings, conclusion, report,  All steps and methods that has been conducted during the the research will be reported through this thesis. }
-
-
-
-This study consists of one study
-
-- Open source systems
-- Object oriented
-
-Data generation: Documents, Code
-
-Type: Descriptive, exploratory
-
-
-\section{System and Participants}
+\section{Case Context}
 % with whom /participants)
-We have studied one system in this thesis. This is a pilot project. System description, language, commercial, usage, context. How it was selected.
+We had the opportunity to work with Autronica. 
+
+AutroSafe is a high-end distributed fire alarm system. It was first released around year 2000. The software that is used in AutroSafe is written in C/C++. Project "Firmus" is the project name for the next generation AutroSafe. Firmus is a Latin word, which in English means: solid, firm, strong, steadfast, steady, stable, reliable, and powerful. The goal with "Firmus" is to replace the existing software by using newer technologies. It is developed by Autronica Fire and Security. Their main office is located in Trondheim, Norway. 
+
+In this research, we have studied one system. This is a pilot project by the company with the purpose on replacing an existing system. The goal is to identify the technical debt before it gets worse. System description, language, commercial, usage, context. How it was selected.
+
+
+To study the consequences of technical debt, we have chosen to study a commercial system. One of the disadvantages using commercial is the constraints associated with obtaining permission to mine and publish findings. This system is developed using C/C++, which makes data mining a challenge due to most tools available for data mining in this context operate on Java systems. 
+
+Summary of system: Written in C/C++ and has been in development since late 1990s. It is used widely on their products. We have studied a pilot project which goal is to use better design, technologies etc. This is a pilot project so it has not entered the evolution. Our goal is to identify technical debt that has accumulated recently, and we'd like to discover them before they get messy. 
+
+Tools that we have used: Various tools are used to mine data and understand the structure of the system studied. Eclipse plugins, Doxygen, etc. AltovaUML? A commercial suite of tools. UML design tool with the added functionality to produce UML diagrams from code. 
+
+
+How big the system is etc.
+
+Lines: 88546
+Lines of Code: 49287
+Files: 461
+Number of Packages
+Number of Classes
+Number of Interfaces
+Number of Methods
+Average Lines of Code per Class
+Developers on this project
 
 
 
-      
 
 
-\section{Importance and Limitations}
-Limitations about type of system, type of analysis
+
+\section{Research Process}
+A research process provides a systematic approach on how to fulfill the goal of a research. In this study, we have chosen to follow the principles of the six steps defined by Soy\cite{soysusan}, combined with the research process suggested by Oates\cite{Oates:2006:RIS:1202299}. 
+
+Figure X illustrates the research process that has been used through this thesis. 
+
+\subsection{Determine and Define the Research Questions} % Pre study, state of the art
+First, we need to set up the goals of this research by defining the research questions. In prior to our previous research\cite{forprosjekt}, we are interested in getting deeper insight into the field of technical debt. As mentioned in Section \ref{sub:classificationtechdebt}, many subcategories of technical debt exists. With regards to that, we have chosen to investigate design debt in embedded systems.
+
+In order to determine and define the research questions, we begin with an analysis of the state-of-the-art to determine what prior studies have determined about this topic, along with our experiences from our previous research. These research questions will be out primarily driving force through this research. We have defined three research questions RQ1-3 which are summarized in Table \ref{researchQuestionsChapter3}.
+
+\begin{table}[]
+	\centering
+	\caption{Research Questions}
+	\label{researchQuestionsChapter3}
+	\begin{tabular}{|l|p{8cm}|}
+		\hline
+		\textbf{RQ1} & How can design debt be identified?     \\ \hline
+		\textbf{RQ2} & Why does design debt accumulate? \\ \hline
+		\textbf{RQ3} & What are the effects of design debt?  \\ \hline
+		\textbf{RQ4} & What kind of design debt can be found in embedded systems? \\ \hline
+		\textbf{RQ5} & How to pay design debt? \\ \hline
+	\end{tabular}
+\end{table}
+
+
+\subsubsection{Literature Review}
+To define the research questions, and to design the case study, it was necessary to conduct a literature review. 
+
+
+
+
+\subsection{Select the Cases and Determine Data Gathering and Analysis Techniques} % Case Context
+%This study addressed the research questions. Furthermore, we gathered data by analyzing documents and code. %Additionally, interviews were used to get a deeper insight about the problems from the developers.
+To investigate the research questions, a representative context has to be chosen. With regards to that, we have chosen to conduct an exploratory and descriptive case study in real-life context to obtain knowledge about the problem to be studied. We had the opportunity to wok with Autronica Fire and Security in this study. "Firmus" is the project name for the next generation of AutroSafe. The main goal of this project is to replace the existing software that is used by AutroSafe today by adopting todays standards.
+
+
+A company located in Trondheim were interested in this case study and collaborated with us by offering us a system to study. The case study was conducted on a system developed in C/C++., which we have briefly described in Section XX. Furthermore, the company provided us a workspace and multiple data sources. We had access to their source code, issue lists in Stash, system requirements, design and code documentation. Our data were mainly extracted from these sources using various tools. The system consists of multiple components. Due to our time limit, we focused on three of the biggest components in the system. 
+
+A part of the literature review was to get familiar with existing tools that has been used to address similar problems. In Section XX, we have listed each tool that has been used to extract relevant data in this case study. Doxygen is used by the company to generate and keep the documentation up-to-date. In order to understand the system and how the different components interact, we spent some time analyzing the system documentation. Moreover, Doxygen can generate various diagrams such as inheritance diagrams, and dependency graphs. However, a downside with Doxygen is that it lacks a feature for interacting with the diagrams and graphs. Doxygen allows us to specify depth of the graphs that are generated, but they can become very large, which makes the graphs difficult to understand. Moreover, Doxygen does not provide full diagrams for internal dependencies in each component, it can generate dependencies for a chosen file. There are many tools that offers reverse engineering of C/C++ source code, so we decided to try out a few of them, including ArgoUML, Enterprise Architect, and Understand. 
+
+Some static analysis tools has been used to extract design problems at code level. These includes Understand, SonarQube, CppClean, CppDepend, CppCheck, and Sonargraph. 
+
+Data is collected from issue lists, and has been mapped to their corresponding components and source files in order to find which component we should look more at. This data will be compared to the data we have extracted using static analysis tools mentioned above.
+
+
+
+
+\subsection{Prepare To Collect Data}
+The third step in this case study is about preparing for data collection. Firstly, we need to review the system documentation in order to get familiar with the system and its components. Due to the time limit, we have chosen to collect data from three critical components using the tools listed in Section XX. We prioritize the components using the issue lists, and break down the components to identify bad design. Bad design includes god classes, dependency cycles, complex interfaces, and unused code in the components. A Word document is created to keep track of the extracted data so we can review it later for analysis. If any interviews would be needed, they would be set up and planned on this stage. 
+
+\subsubsection{Selection of Tools}
+Various tools have been used to mine for data and understand the structure of the system studied. The following sections will describe the tools that has been used in this research.
+
+% Kilde: http://www.stack.nl/~dimitri/doxygen/
+\textbf{Doxygen} is a free software for generating documentation from annotated C++ sources. Doxygen has the ability to generate documentation in HTML or in Latex. Since the documentation is extracted from the source code, it is easier to keep the documentation up to date. In addition, Doxygen can be configured to extract the code structure from undocumented sources files, which makes it possible to visualize the relations between various elements in the software. Doxygen is used by the company to keep the documentation up-to-date, and was therefore used in this project to learn about the system and to visualize the system.
+
+\textbf{ArgoUML} is an open source UML modeling tool that includes support for all standard UML 1.4 diagrams\cite{argouml}. ArgoUML features reverse engineering of C++ projects by reading C++ source files and generate and UML model and diagrams. 
+
+\textbf{Enterprise Architect} is a commercial UML modeling tool. It has the ability to produce UML diagrams from code. This tool was used to create class diagrams for each component, allowing us to identify possible class hotspots and design pattern realizations.
+
+\textbf{SonarQube} is an open source platform for quality management of code. It has the ability to monitor different types of technical debt. It supports multiple languages through plugins, including Java, C/C++, JavaScript, and PHP. A downside with SonarQube is that some of the plugins requires a commercial license, and that some features included are not applicable for C++.
+
+\textbf{Understand}  is a commercial code static analysis tool. It supports dozen of languages, including Java, C/C++, Fortran and Python. Understand can help developers analyze, measure, visualize, and maintain source code. It includes many features, including dependency graph visualization of code, and various metrics about the code (e.g. coupling between object classes),. 
+
+\textbf{CppDepend} is a commercial static analysis tool for C/C++ code. 
+
+\textbf{CppClean} is an open source static analysis tool for C/C++ code. It attempts to detect problems in C++ that slow development in large code bases. Among many features, CppClean supports finding unnecessary \textit{'\#includes'} in header files, global/static data that are potential problems when using threads, and unnecessary function declarations.
+
+\textbf{CppCheck} is another open source static analysis tool for C/C++ code. Unlike CppClean, CppCheck detects various kinds of bugs that the compilers normally do not detect, such as memory leaks, out of bounds, and uninitialized variables.
+
+\textbf{CCCC}
+
+\textbf{SourceMonitor}
+
+\subsubsection{Metrics Selection}
+The metrics selected 
+
+
+
+
+% How is data collected, from where
+\subsection{Data Collection}
+The fourth step of the research process is to execute the plan that was created in step three. During the case study, data is collected from multiple sources by using different tools to improve the reliability of the study. The first source of design flaws it to look for code smells in the source. Table \ref{tab:codesmell} in Section \ref{subsub:codesmell} lists the code smells that are presented by Fowler et al.\cite{fowler1999refactoring}. We have identified the different code smells by using various static analysis tools and manual confirmation by looking at class and dependency diagrams. For instance, code duplication data were extracted using SonarQube, and long methods were identified using CppDepend and Understand. Furthermore, UML class diagrams were generated by reverse engineering the source code to verify some of the results. Doxygen was not able to provide full class diagrams or dependency graphs for the system, so we had to look for other tools. We came across ArgoUML, an open source alternative to generate UML diagrams by reverse engineering C/C++ code. After comparing some of the results with snippets from Doxygen Class diagrams, we noticed that ArgoUML failed to reverse engineer some classes and their corresponding relations. This led us to look for commercial software. Using Understand, we were able to extract internal dependencies in each component, and dependencies between components. We noticed two form of dependencies, direct dependencies and circular dependencies. In addition, Understand was able to generate UML class diagrams, which were used to confirm complex classes and interfaces. 
+
+
+
+
+
+The second source is to analyze the various software and object-oriented metrics. Metrics is used to manage, predict, and improve the quality of a software product\cite{rodriguez2001overview}. Using tools, we have extracted multiple metrics. Project Summary metrics summarizes the system by counting lines, classes etc. File metrics looks at each file. Class metrics looks at object-oriented design metrics. 
+
+
+The third source of evidence are interviews to validate the results from first and second source, done at the end of the case study. The developers are interviewed using a semi-structured interview. This type of interview allow us to improvise and explore the course of the interview. The interview is recorded and written notes are taken.
+
+
+
+
+\subsection{Evaluate and Analyze the Data}
+In the fifth step of the case study, we will examine the data collected in fourth step. Validations and confirmations of the data needs to be done in a systematic way, and confirmations is needed to draw some valuable and conclusions about them.
+
+We analyze the data by looking at the extracted data from the tools manually. Furthermore, we plot the findings into a word document. This was done to make the findings more accessible, and to interpret the data afterwards. The results are then compared with our findings from the literature review. 
+
+
+
+\subsection{Prepare the Report}
+At last, the methods conducted will be reported through this thesis. This involves all the steps that we have gone through this thesis, including stating the problem, performing a literature review, listing the research questions, explaining data gathering and analysis techniques used, and a conclusion where research questions are answered and suggestions are made for further research. The report also includes findings from the literature review, and how they are related to our findings from the case study. At last, the report conclusion makes suggestions for further research, so that other researchers may apply these techniques in some other context to determine whether findings are similar to our research or not.
+
+%FIGURE:
+
+%1 {Experiences and Motivation -> RQ} -> 2 {Case Study, Documents, Qualitative, Type: Descriptive and Exploratory} -> 3 {Prepare, organize and structure the data (ISO 9126 for requirements)} -> 4 {Data collection} -> 5 {Data analysis} -> 6 {Findings, conclusion, report,  All steps and methods that has been conducted during the the research will be reported through this thesis. }
+
+
+
+
+\section{Summary of the Research Design}
+The research questions described in Section XX were answered using the case study methodology and a literature review. The literature review helped us getting familiar with the topic and to identify the tools needed to mine data. Furthermore, the case study was conducted in collaboration with a company located in Trondheim. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

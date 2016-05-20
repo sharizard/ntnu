@@ -1,0 +1,287 @@
+REQUIREMENTS
+
+---------------------
+OVERVIEW
+---------------------
+System Overview
+- SIL 3 Solution
+- High Integrity
+- Network Toplogy
+
+Customers and Users
+- Customer Needs
+- User Characteristics
+
+Constrins, Assumptions, and Dependencies
+- Constraints
+- Dependencies
+
+Design Guidelines
+
+
+
+---------------------
+PRODUCT REQUIREMENTS
+---------------------
+Regulatons and Certification
+
+Compability Requirements and Constraints
+
+Interface Requirements
+- External Systems
+- User INterface
+
+Performance Requirements
+- Assumptions
+- Capacity
+- Size limits for systems without Dual safety and without SIL requirements
+- Size limitatiojns in SIL-2 Systems
+- Size limitations in SIL-3 and Dual Safety Systems
+- Timing
+	- AL_COM
+	- Configuration
+	- Initialization and Start-uo
+	- Activation and indication
+- Power Supply
+- Product Design
+- Product Cost
+
+
+
+
+---------------------
+FUNCTIONAL SAFETY REQUIREMENTS
+---------------------
+Context
+
+Top Level Safety Requirements
+- SW Safety Functions
+- Input Functions
+- Output Finctions
+- C&E Overview
+- SW Systematic Capability
+
+Dual Safety
+
+Modes of Operation
+
+Constraints between HW and SW
+
+Monitoring and Testing
+- SW Self-monitoring
+- HW Monitoring
+	- Voltages and Temperature
+	- Monitoring of on board micro controllers
+	- Minotoring of IO Modules
+	- Monitoring of break and shoron AL_Com. Power Loop and AutroFieldBus
+	- Monitoring of Loop Units
+	- RAM Memory
+	- Data in RAM
+	- Data in Flash Memory
+	- Power Supply Redundancy
+	- Panel Network
+	- Quality Monitoring
+- Periodic test of safety functions while system is running
+- Testability of safety functions while AutroSafe is Operational
+- Software functions to execute proof tests and diagnostic tests to meet SIL
+
+Non-safety function
+
+Safety Properties
+- Safe State
+- Fault Handling for HW
+- Fault Handling for sensors and actuators
+- Fault handling for SW itself
+- On line periodic testing of safety functions
+- Off line periodic testing of safety functions
+- Safety modification
+- interfaces to non-safety related functions
+- Capacity and reposnse time performance
+- Interfaces between SW and the PE system
+- Safety related commmuncation
+- Site Specific Configuration Data
+- Data Interfaces to External Systems
+- Protection of Operational Parameters
+	- Invalid, out of range and untimely values
+	- Unauthorized changes
+	- Corruption
+	- Compability
+
+
+
+---------------------
+GROUPING AND CAUSE & EFFECT
+---------------------
+
+Zones and Grouping
+- Operation Zone
+- Detection Zones
+	- Immediate DZ
+	- Delay DZ
+	- Dependency DZ
+	- Delay Dependency DZ
+	- SOLAS DZ
+- Alarm Zones
+- Activation Groups and VOting
+- Disable Groups
+- Day Night Groups
+- Local Alarm Delay Group
+- Oepration Class Group
+- Output Activation
+	- Activation Time
+	- Outputs to Fire Alarm Devices (FAD)
+	- Binary Outputs and Outputs to Fire Protection Equipment (FPE)
+	- Outputs to Fire Alarm ROuting Equipment (FARE)
+	- Outputs fo Fault Warning ROuting Equipment (FWRE)
+	- Activation of Common Trouble outputs
+	- FARE Acknowledge
+
+
+---------------------
+CONDITIONS
+---------------------
+Indication of Conditions
+
+Alarm Condition
+
+Prealarm Condition
+
+Early Warning Condition
+
+Supervisory Condition
+
+Fault Warning COndition
+
+Disable Condition
+
+Inhibit Condition
+
+Test Condition
+
+Quiescent Condition
+
+Safe State
+
+
+
+
+---------------------
+OPERATIONS
+---------------------
+Initialization
+
+Silent Start-up
+
+Mute panel (local and remote)
+
+Silence and Resound
+
+Reset
+
+Disable and Enable
+
+Inhibit
+
+Dual Safety
+
+
+
+---------------------
+FAULT SAFETY
+---------------------
+Fault Handling
+
+System Fault
+
+System Fault Recovery Procedure
+
+Recover from Lost Panels and Units
+
+
+---------------------
+FRONT PANEL INDICATION AND OPERATION
+---------------------
+
+
+---------------------
+LOG
+---------------------
+
+
+---------------------
+EXTERNAL INTERFACES
+---------------------
+AUtroCom
+
+VDR (Voyage Data Recorder)
+
+ESPA (European Selective Paging Association)
+
+Modbus
+
+Voice Alarm Interface
+
+Web Interface
+
+
+---------------------
+MARKET DIFFERENTIATION
+---------------------
+
+
+
+---------------------
+LIFECYCLE REQUIREMENTS
+---------------------
+Production Requirements
+
+Documentation Requirements
+
+Installation Requirements
+- Add Panels
+- Network
+- AL_COM
+- Cause and Effect Configuration
+
+Commissioning Requirements
+
+Testability Requirements
+
+Operability Requirements
+
+Maintainability Requirements
+
+Serviceability Requirements
+
+Availability Requirements
+- Dual Safety
+- Loss and Removal of Pantels and Fragmented Network
+- AL_COM
+- AFB and Power Loop
+
+Reliability Requirements
+
+End of Lifecycle Requirements
+
+
+---------------------
+ENVIRONMENT, HEALTH AND SAFETY
+---------------------
+Materials of Concern (MOC)
+
+Functional Safety
+
+User/Operator Safety
+
+
+---------------------
+SECURITY
+---------------------
+
+
+
+
+
+
+Design Requirements
+- Network Monitor
