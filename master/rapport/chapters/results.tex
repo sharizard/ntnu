@@ -4,7 +4,9 @@
 
 \chapter{Results}
 
-This chapter presents the results of this study. The first section presents the participants. The main findings are presented in Section X.. Section X focuses the term technical debt.  Finally, Section X reveals the way technical debt is managed.
+This chapter presents the results of this study. 
+In this study, we evaluated the design and software quality of the system. This study also addresses all of the research questions. 
+
 
 %No documentation for pattern usage, but they have a document with coding standard. This includes how to use some patterns. But no docs on where patterns are used, not so big focus on it. 
 
@@ -16,23 +18,9 @@ This chapter presents the results of this study. The first section presents the 
 %Se etter kode som ikke blir brukt
 %Kunne teste ting isolert
 
-\section{Overview}
-In this study, we evaluated the design and software quality of the system. This study also addresses all of the reseach questions. 
-
-
-\section{Issue List Resulsts}
-The first step was to examine the issue list in order to determine which of the components to look out for. 
-
-\section{Tool Analysis}
-
-
-
-
-
-
 \section{Code Smell Detection}
 \label{sub:code_smell_detection}
-As we explained in Chapter 2, one of the ways to identify design debt is to look at the number of code smells in the source code. Table \ref{tab:identifiedCodeSmell} describes the number of code smells that were identified using automatic and manual approaches. 
+As we explained in Chapter 2, one of the ways to identify design debt is to look at the number of code smells in the source code. Table \ref{tab:identifiedCodeSmell} describes the number of code smells that were identified using automatic.
 
 \begin{table}[]
 \centering
@@ -56,35 +44,34 @@ Lazy Class                                    & Dispensables      \\ \hline
 Data Class                                    & Dispensables      \\ \hline
 Duplicated Code                               & Approximately 5\% of the source code. 39 files affected.       \\ \hline
 Speculative Generality                        & Dispensables      \\ \hline
-Message Chains                                & Encapsulators     \\ \hline
-Middle Man                                    & Encapsulators     \\ \hline
-Feature Envy                                  & Couplers          \\ \hline
-Inappropriate Intimacy                        & Couplers          \\ \hline
 \end{tabular}
 \end{table}
 
-\subsection{Duplicated Code}
+\subsubsection{Duplicated Code}
 Duplicated code is found by looking for a block of code that appears at multiple places in the source code, both internally in a file or in another file. Our results revealed that 39 files contains duplicated code. This determines 5\% of the source code, rougly 4400 lines of code is duplicated. Table XX summarizes the
 
-\subsection{Large Class}
+\subsubsection{Large Class}
 
-\subsection{Long Method}
+\subsubsection{Long Method}
 Looks for LOC of the method. A long method code smell is considered to be 200 LOC. Another tool using the rules: 30 LOC and 150+ lines reported 47 hits. 
 
 
 
-\subsection{Long Parameter List}
-The minimum number of parameters is 6. 3 of them were considered as critical, one with 9 parameters and two with 12. 
+\subsubsection{Long Parameter List}
+The maximum number of parameters allowed is set to 5, which means that 6 or more parameters in a method are considered as code smell. The various tools reported 15 hits, whereas 3 hits were considered as critical. The first critical hit contained nine parameters, and the other two contained twelve parameters. We verified the results manually by examining the class diagrams for the corresponding methods.
 
-\subsection{Speculative Generality}
+\subsubsection{Speculative Generality}
 
-In addition, we record the number of false positive to further reflect the accuracy of the results. "False positive definition." 
+\subsubsection{Shotgun Surgery}
 
-\subsection{Dead Code}
-Dead Code is a code smell that is not mentioned by Fowler. 
 
-Unused variables, unused functions. 
+\subsubsection{Dead Code}
+Dead Code is a code smell that is not mentioned by Fowler. TODO: Present dead code in Firmus.
 
+Unused variables, unused functions, unnecessary header files. 
+
+\subsubsection{God Class}
+A god class is an object that controls way too many other objects in the system and has grown beyond all logic to become the class that does everything. One way to identify god classes is to look for the number of instance variables. 
 
 
 
@@ -185,11 +172,27 @@ Metrics for files:
 
 
 
-\section{Object-Oriented Design Metrics}
-While size metrics are important for identifying large classes, size metrics alone may not tell us why the classes are big. In addition to the traditional metrics, we have also gathered data using object-oriented metrics. The metrics used to measure the quality of the code is mostly based on the work of Chidamber and Kemerer.\cite{chidamber1994metrics}. They have proposed a set of static metrics that are designed to measure the quality of object-oriented software. These metrics are widely known, and their metrics suite is the deepest research in object-oriented metrics investigationand the measurements we have are the following: Weighted Method per Class (WMC), Depth of Inheritance Tree (DIT), Number of Children (NOC), Lack of Cohesion in Methods (LCOM), Response For a Class (RFC), and Coupling between Object Classes (CBO). 
 
 
-Overall Project Firmus Components:
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Object-Oriented Metrics in Firmus}
+While traditional metrics are important for identifying large and complex classes, they alone may not tell us why some classes are big. In addition to the traditional metrics, we have also gathered data using object-oriented metrics. Object-oriented metrics we have used to measure the quality of the code is mostly based on the work of Chidamber and Kemerer.\cite{chidamber1994metrics}. They have proposed a set of static metrics that are designed to measure the quality of object-oriented software. These metrics are widely known, and their metrics suite is the deepest research in object-oriented metrics investigation and the measurements we have are the following: Weighted Method per Class (WMC), Depth of Inheritance Tree (DIT), Number of Children (NOC), Lack of Cohesion in Methods (LCOM), Response For a Class (RFC), and Coupling between Object Classes (CBO). 
+
+
+\subsection{Object-Oriented Metrics for the whole Project}
+A total of 321 files were analyzed. These files contains 229 classes, and 32068 lines of code. We have decided to exclude the tests from object-oriented metrics analysis. Descriptive statistics such as minimum, maximum, median, sample mean, and standard deviation are presented in this section. Table \ref{tab:oometrics-firmus} presents descriptive statistics for class level metrics for the whole project.
 
 \begin{table}[]
 \centering
@@ -209,9 +212,24 @@ NIV             & 0            & 18           & 1               & 2.223         
 \end{tabular}
 \end{table}
 
+TODO: Find X\% of the total classes with high coupling, low cohesion, deep hierarchy. 
 
+A class is cohesive if LCOM is low. The median reveals that more than 50\% of the classes have low cohesion. These classes increases the complexity of the software, and may therefore increase the likelihood of errors during development. 
+
+DIT value is generally low in the captured statistics. A class with DIT = 0 is the root of a class hierarchy. With an average value of 1, more than half of the classes inherits from a superclass. However, the statistics indicates some classes with deep hierarchy. Both average value of NOC and DIT are medium, showing that inheritance is used in most of the classes to an optimal level. This depth level is well managed at this point, and it probably comes from inheritance. Complexity is under control at this point in development. NOC median value tells us that approximately half of the classes have a flat class structure, indicating that inheritance is not used enough. However, the max NOC value is very large. Classes with high NOC value is difficult to modify and will require more testing because of the effects on changes on all the children. 
+
+In general, higher values of CBO indicates fault prone classes. Both sample mean and median shows low CBO values for over half of the classes in this system. However, the maximum value that has been captured is very large. This class is an example of a class that is hard to understand, harder to reuse, and more difficult to maintain. 
+
+The RFC statistics reveals that most classes have a RFC of less than 10. However, the maximum value is revealed to be 115. Classes with large RFC tends to be complex and have decreased understandability. Testing classes with large RFC is more complicated. In addition, most of the classes have a WMC of less than 7, but there are a few classes with more extreme values. Those classes with highest WMC are candidates for inspection and refactoring. 
+
+
+%Good refactoring would be to look at all the classes and see where we could use more abstraction. Reducing redundancy would reduce code size and speed. 
+
+\subsection{Object-Oriented Metrics for the Components}
+Descriptive statistics in Table \ref{tab:oometrics-firmus} reveals statistics for class level metrics for the whole project. However, the statistics does not say anything about class level metrics in the different components. Some components may have good statistics, while other components have bad statistics In order to identify the weak components, we calculated descriptive statistics for each component, presented in the coming subsubsections. 
 
 \subsubsection{Component A}
+Excluding the tests, we counted 56 files containing 40 classes and 6286 lines of code. Descriptive statistics for Component A are presented in Table \ref{tab:oometrics-al}.
 \begin{table}[]
 \centering
 \caption{OO-metrics for component A}
@@ -230,7 +248,11 @@ NIV             & 0            & 12           & 1               & 2.4           
 \end{tabular}
 \end{table}
 
-
+Among the 40 classes, over half of the classes has low cohesion. 
+DIT and NOC is very low.
+CBO has average values, but one of the classes has a maximum value of 8.
+RFC median shows, but the average value is higher than the median. This indicates that some classes have high RFC values, hence increasing the sample mean. WMC is set to be low, but some classes has high values.
+NIM and NIV is moderate.
 
 
 
@@ -244,7 +266,7 @@ NIV             & 0            & 12           & 1               & 2.4           
 
 
 \subsubsection{Component B}
-
+Excluding the tests, we counted 42 files containing 23 classes and 3905 lines of code. Descriptive statistics for Component B are presented in Table \ref{tab:oometrics-al}.
 \begin{table}[]
 \centering
 \caption{OO-metrics for Component B}
@@ -263,7 +285,17 @@ NIV             & 0            & 86           & 1               & 2.222         
 \end{tabular}
 \end{table}
 
+LCOM is very high. Similar to Component A, half of the classes have low cohesion. 
 
+DIT and NOC has a very low sample mean and median. However, max NOC value is 20.
+
+RFC has average values, but max is very high. 
+
+CBO is average, but max value is set to 30.
+
+WMC is average, but max is high. 
+
+NIM and NIV. 
 
 
 
@@ -271,7 +303,7 @@ NIV             & 0            & 86           & 1               & 2.222         
 
 
 \subsubsection{Component C}
-
+Component C contains 30 files, 20 classes, and 4763 lines of code. 
 \begin{table}[]
 \centering
 \caption{OO-metrics for Component C}
@@ -290,14 +322,25 @@ NIV             & 0            & 9            & 2               & 3.15          
 \end{tabular}
 \end{table}
 
+LCOM median shows that half of the classes has more than 60\% LCOM. 
+
+DIT and NOC is very low. Inheritance is not used that much. 
+
+CBO has moderate values, but maximum value is relatively high. 
+
+RFC moderate values.
+
+WMC: Max is a bit far away from sample mean and average.
+
+NIM and NIV
 
 
 
 
 
 
-\subsubsection[Component D}
-
+\subsubsection{Component D}
+Component D has 13 files with 1647 lines of code. Among these, we found one class. 
 \begin{table}[]
 \centering
 \caption{OO-metrics for Component D}
@@ -322,7 +365,7 @@ NIV             & 2            & 2            & -               & 2             
 
 
 \subsubsection{Component En}
-
+3 files, 367 lines of code. Only 1 class.
 \begin{table}[]
 \centering
 \caption{OO-metrics for Component En}
@@ -345,6 +388,7 @@ NIV             & 2            & 2            & -               & 2             
 
 
 \subsubsection{Component Ex}
+48 files, 4089 lines of code. 86 classes.
 \begin{table}[]
 \centering
 \caption{OO-metrics for Component Ex}
@@ -370,7 +414,7 @@ NIV             & 0            & 10           & 0               & 1.209         
 
 
 \subsubsection{Component G}
-
+59 files, 3701 lines of code, 32 classes.
 \begin{table}[]
 \centering
 \caption{Component G}
@@ -399,7 +443,7 @@ NIV             & 0            & 18           & 2               & 3.062         
 
 
 \subsubsection{Component L}
-
+16 files, 849 lines of code, 7 classes.
 \begin{table}[]
 \centering
 \caption{OO-metrics for Component L}
@@ -426,7 +470,7 @@ NIV             & 0            & 5            & 1               & 1.571         
 
 
 \subsubsection{Component N}
-
+17 files, 1839 lines of code, 8 classes.
 \begin{table}[]
 \centering
 \caption{OO-metrics for Component N}
@@ -449,7 +493,7 @@ NIV             & 0            & 8            & 5.5             & 4.375         
 
 
 \subsubsection{Component P}
-
+12 files, 722 lines of code, 8 classes.
 \begin{table}[]
 \centering
 \caption{OO-metrics for Component P}
@@ -473,7 +517,7 @@ NIV             & 0            & 6            & 3.5             & 3.125         
 
 
 \subsubsection{Component S}
-
+4 files, 223 lines of code, 2 classes.
 \begin{table}[]
 \centering
 \caption{OO-metrics for Component S}
@@ -497,7 +541,7 @@ NIV             & 1            & 1            & 1               & 1             
 
 
 \subsubsection{Component W}
-
+1 file, 1 class, 69 lines of code.
 \begin{table}[]
 \centering
 \caption{OO-metrics for Component W}
@@ -578,16 +622,3 @@ Our results show that (whats good and wrong with these metrics, what can be done
 
 
 
-\section{Threats To Validity}
-\label{sub:threats_to_validity}
-
-\subsection{Internal Validity}
-\label{sub:internal_validty}
-
-\subsection{External Validity}
-\label{sub:external_validity}
-
-\subsection{Construct Validity} % (fold)
-\label{sub:construct_validity}
-
-% subsection construct_validity (end)
