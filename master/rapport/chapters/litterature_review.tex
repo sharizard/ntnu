@@ -184,6 +184,17 @@ Mention the tools here, and its case study context.
 
 Static analysis tools are able to alert software developers of potential problems in the source code. 
  
+ ASA issues identify problems on source code line level.
+
+ Person person = aMap.get("bob");
+ if(person != null) {
+ 	// do something with person
+ }
+ String name = person.getName(); <- potential nullpointerexception. 
+
+ Tools can point to the problem, and suggest solutions. 
+
+ Inexpensive.
 
 %However, one thing to have in mind is that even though a tool indicates a potiential problem in code doesnt mean there is a problem. It takes human judgement to determine if something could be problamtic down the road. These tools give us warnings that it might be time to look at a system or module more closely. Tools docus on code, and doenst idnicate problems in system architecture or design that might relate to various quality attribute.
 
