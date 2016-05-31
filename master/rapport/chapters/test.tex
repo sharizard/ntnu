@@ -1,0 +1,82 @@
+\subsection{Traditional Metrics}
+\label{sub:QA_metrics_results}
+
+
+
+\begin{table}[]
+\centering
+\caption{Project Summary}
+\label{tab:projectsummary}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+                                                    & \textbf{CCCC} & \textbf{SonarQube} & \textbf{Understand}                      & \textbf{SourceMonitor} \\ \hline
+\textbf{Lines}                                      &               & 88404              & 88546                                    & 88546                  \\ \hline
+\textbf{Lines of Code (LOC)}                        & 46220         & 48693              & 49287                                    &                        \\ \hline
+\textbf{Number of Files (NOF)}                      &               & 461                & 461                                      & 461                    \\ \hline
+\textbf{Number of Modules (NOM)}                    & 459           &                    &                                          &                        \\ \hline
+\textbf{Classes}                                    &               & 851                & 830                                      & 375                    \\ \hline
+\textbf{Functions}                                  &               & 3111               & 3589                                     & 812                    \\ \hline
+\textbf{Statements}                                 &               & 45153              & 30109 (executable) + 18882 (declarative) & 35622                  \\ \hline
+\textbf{Comments (COM)}                             & 19705         & 15962              & 23017                                    & 22845                  \\ \hline
+\textbf{Information Flow Measure (inclusive) (IF4)} & 171493        &                    &                                          &                        \\ \hline
+\textbf{Information Flow Measure (visible) (IF4v)}  & 166589        &                    &                                          &                        \\ \hline
+\textbf{Information Flow Measure (concrete) (IF4c)} & 3789          &                    &                                          &                        \\ \hline
+\end{tabular}
+\end{table}
+
+
+Table \ref{tab:projectsummary} summarizes the measurements over the project as a whole from the different tools. The results from the different tools reveals some differences in the measurements. For example, CCCC did not identify number of files in the project, but instead it identified number of non-trivial modules in the project. Non-trivial modules include all classes, and any other module for which member functions are identified. Furthermore, SonarQube identified 851 classes in the project. We can see that the difference between the results of amount of classes from SourceMonitor/Understand and SonarQube is big. In addition, SonarQube identified a total of 45153 statements in the source code, while Understand identified 35254 statements, which is pretty close to what SourceMonitor identified. 
+
+Using CCCC, we were able to measure information flow between the different modules. This is done by identifying and counting inter-module couplings in the module interfaces. 
+
+%MVG: A measure of the decision complexity of the function which make up the program. The strict definition if this measure is that it is the umber of linearly independent routes through a directed acyclic graph which maps the flow of control of a subprogram. The analyzer counts this by recording the number of distinct decision outcomes contained within each function, which yields a good approximation to the formally defined version of the measure.
+
+%L_C : Lines per comment: Indicates density of comments with respect to logical complexity of program
+
+%M_C: Indicates density of comments with respect to logical complexity of the program.
+
+%IF4: Measure of information flow between modules suggested by Henry and Kafura. The analyzer makes an approx. count of this by counting inter-module couplings identified in the module interfaces.
+
+
+Moreover, we gathered two types of metrics: Class metrics and file metrics. File metrics returns software quality metrics for the specific file, while class metrics contains metrics for each class. A file can contain multiple classes. We wish to look at the different metrics on each file to indicate if there is any weaknesses in that particular file and what classes the file contains. The metrics we measured are lines of code, complexity of file, average complexity per function, amount of functions, and max depth. 
+
+SonarQube class metric includes nested classes, enums, interfaces, and annotations. Understand and SourceMonitor class metric includes classes and struct keyword. 
+
+SonarQube has more accurate data on classes and functions, while SourceMonitor has more accurate data about statements. 
+
+
+
+
+@article{ferreira2012identifying,
+  title={Identifying thresholds for object-oriented software metrics},
+  author={Ferreira, Kecia AM and Bigonha, Mariza AS and Bigonha, Roberto S and Mendes, Luiz FO and Almeida, Heitor C},
+  journal={Journal of Systems and Software},
+  volume={85},
+  number={2},
+  pages={244--257},
+  year={2012},
+  publisher={Elsevier}
+}
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+                                                    & \textbf{CCCC} & \textbf{SonarQube} & \textbf{Understand}                      & \textbf{SourceMonitor} \\ \hline
+\textbf{Lines}                                      &               & 88404              & 88546                                    & 88546                  \\ \hline
+\textbf{Lines of Code (LOC)}                        & 46220         & 48693              & 49287                                    &                        \\ \hline
+\textbf{Number of Files (NOM)}                      &               & 461                & 461                                      & 461                    \\ \hline
+\textbf{Number of Modules (NOF)}                    & 459           &                    &                                          &                        \\ \hline
+\textbf{Classes}                                    &               & 851                & 339                                      & 375                    \\ \hline
+\textbf{Functions}                                  &               & 3111               & 2637                                     & 812                    \\ \hline
+\textbf{Statements}                                 &               & 45153              & 22115 (executable) + 13139 (declarative) & 35622                  \\ \hline
+\textbf{McCabe's Cyclomatic Complexity (MVG)}       & 3572          & 15266              &                                          & Max complexity (71)    \\ \hline
+\textbf{Comments (COM)}                             & 19705         & 15962              & 23017                                    & 22845                  \\ \hline
+\textbf{LOC/COM (L\_C)}                             & 2.346         & 3.05               & 2.141                                    &                        \\ \hline
+\textbf{MVG/COM (M\_C)}                             & 0.181         &                    &                                          &                        \\ \hline
+\textbf{Information Flow Measure (inclusive) (IF4)} & 171493        &                    &                                          &                        \\ \hline
+\textbf{Information Flow Measure (visible) (IF4v)}  & 166589        &                    &                                          &                        \\ \hline
+\textbf{Information Flow Measure (concrete) (IF4c)} & 3789          &                    &                                          &                        \\ \hline
+\end{tabular}
+\end{table}

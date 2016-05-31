@@ -199,11 +199,6 @@ Static analysis tools are able to alert software developers of potential problem
 %However, one thing to have in mind is that even though a tool indicates a potiential problem in code doesnt mean there is a problem. It takes human judgement to determine if something could be problamtic down the road. These tools give us warnings that it might be time to look at a system or module more closely. Tools docus on code, and doenst idnicate problems in system architecture or design that might relate to various quality attribute.
 
 
-SOFTWARE METRICS
-Proposed as quality indicator for software systems. 
-Rien defined 61 object-oriented design heuristics characterizing 
-
-
 \subsection{Strategies and Practices for Managing Technical Debt}
 
 Increasing awareness of technical debt
@@ -237,7 +232,7 @@ Prevent accumulation of technical debt
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ARCHITECTURAL TECHNICAL DEBT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Architectural Technical Debt}
+\section{Design Debt}
 Bass et al.\cite{Bass:2012:SAP:2392670} defines software architecture as following: 
 
 \begin{displayquote}
@@ -317,7 +312,12 @@ Examples
 
 
 
+\section{Object-Oriented Metrics}
+Object-Oriented metrics have been proposed as a quality indicator for object-oriented software systems. There are three traditional metrics that are widely used, and are well understood by researchers and practitioners\cite{quenelobject}. These metrics are: Cyclomatic Complexity, Size, and Comment Percentage. Cyclomatic complexity evaluates the complexity of an algorithm in a method. Cyclomatic complexity for a method should be below 10\cite{quenelobject}. Size of a method is used evaluate the understandability of the code. Size are measured in many different ways, including all physical lines of code, lines of statements, and number of blank lines. Comment percentage measures the number of comments in percent by counting total number of comments divided on total lines of code minus number of blank lines.
 
+In addition to the traditional metrics, Chidamber and Kemerer\cite{chidamber1994metrics} proposed a set of six software metrics to identify certain design traits of a software component. These metrics are: Weighted Methods per Class (WMC), Depth of Inheritance Tree (DIT), Number of Children (NOC), Lack of Cohesion in Methods (LCOM), Coupling Between Objects (CBO), and Response For a Class (RFC). The WMC is used to count the number of methods in a class, or to count the of sum of complexities of all methods in a class. The complexity of a method is measured by cyclomatic complexity. This metric measures understandability, maintainability, and reusability\cite{quenelobject}. The DIT metric measure the maximum number of steps from a class node to the root in the inheritance hierarchy. The deeper a class is withing the hierarchy, the greater number of methods it is likely to inherit, making it more complex to predict its behavior\cite{quenelobject}. Moreover, this metric are related to efficiency, reusability, understandability, and testability\cite{quenelobject}. NOC metric measures the number of subclasses of a class in a hierarchy. The greater number of children may be an indication of subclasses misuse or improper parent abstraction. This metric evaluates efficiency, reusability, and testability\cite{quenelobject}. THe LCOM is used to measure the lack of cohesion in methods of a class. It measures the dissimilarity of methods in a class by looking at the instance variables or attributes used by the methods. High cohesion indicates good subdivision, while low cohesion increase the complexity of a class. This metric measures efficiency and reusability\cite{quenelobject}. The CBO metric counts the number of other classes to which a class is coupled. Excessive coupling is detrimental to modular design and prevents reuse\cite{quenelobject}. Larger number of coupled objects indicates higher sensitivity to changes in other parts of the design. CBO evaluates efficiency and reusability\cite{quenelobject}. The RFC metric counts the total number of methods in a class that can be invoked in a response to a message sent to an object. This metric includes all methods accessible within the class hierarchy. RFC metric evaluates understandability, maintainability, and testability\cite{quenelobject}.
+
+TODO: Nevne artikler som har tatt i bruk disse metricene.
 
 
 

@@ -5,7 +5,61 @@
 \chapter{Discussion}
 
 \section{Metric Threshold}
-Number of methods inherited : 22
+In addition to the descriptive statistics results in Table \ref{tab:oometrics-firmus}, \ref{tab:oometrics-al}, \ref{tab:oometrics-blc}, \ref{tab:oometrics-config}, \ref{tab:oometrics-ex}, \ref{tab:oometrics-guri}, \ref{tab:oometrics-log}, \ref{tab:oometrics-netw}, \ref{tab:oometrics-proc}, and \ref{tab:oometrics-sys}, we applied thresholds for object-oriented metrics in order to identify the classes in which inspection is needed. Measuring metrics in object-oriented software is important in terms of quality management\cite{tarcisio,ferreira2012identifying}. However, metrics are not effectively used in software industry due to the fact that for the majority of metrics, thresholds are not defined\cite{tarcisio}. Threshold is defined as values used to set ranges of desirable and undesirable metric values for measured software\cite{ferreira2012identifying}. Knowing thresholds for metrics allow us to assess the quality of a software, and we may be able to identfy where in a design errors are likely to occur. 
+
+We have gathered thresholds that has been proposed by researchers for the metrics we have applied in this thesis. Table \ref{tab:thresholds} presents the metrics and their respecive thresholds.
+
+
+
+
+
+\begin{table}[]
+\centering
+\caption{Thresholds for object-oriented software metrics}
+\label{tab:thresholds}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Metric}                       & \textbf{Observed Limit} & \textbf{Recommended Max Value} \\ \hline
+Lack of Cohesion in Methods (LCOM)    & 100                     & 0.725\cite{tarcisio}                               \\ \hline
+Depth in Inheritance Tree (DIT)       & 4                       & 4\cite{tarcisio}                              \\ \hline
+Coupling Between Object classes (CBO) & 30                      & 14\cite{sahraoui2000can}                             \\ \hline
+Number of Children (NOC)              & 20                      & 10                             \\ \hline
+Response For the Class                & 115                     & 50\cite{rosenberg1999risk}                           \\ \hline
+Number of Instance Methods            & 48                      & 40                             \\ \hline
+Number of Instance Variables          & 18                      & 10                             \\ \hline
+Weighted Method per Class (WMC)       & 48                      &                                \\ \hline
+Weighted Method per Class 2 (WMC)     & 325                     & 34\cite{tarcisio}                             \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection{LCOM}
+LCOM is related to the counting of methods using common attributes. We would like to check if project Firmus has relatively higher value of LCOM than the recommended max value for threshold. The recommended threshold for LCOM is 72.5\%. We measured the percentage of classes by the metric values of LCOM. In total, we identified 41 of the 229 classes with LCOM value larger than 72.5\%. 
+
+We observe that lac of cohesion values seem increasing with the size of classes which is plausible. In effect, large classes tend to lack cohesion. These classes tend to have a relatively high number of attributesand methods.
+
+The high average values of LCOM can be caused by a large number of attributes and methods in the class, where many of the methods does not use the same attributes.
+
+
+\subsubsection{DIT and NOC}
+DIT incicates how deep a class is in the inheritence tree. It is evident that a deep inheritence makes software maintenance more difficult("SITER DALY et al. 1996"). DIT has a recommended threshold value of 4. The evaluated maximum value from Table \ref{tab:oometrics-firmus} is 4. There are two classes with DIT value of 4, indicating deep inheritance. These failes may be more fault-prone.
+
+Moreover, the maximum value of NIC measured is 20. We identified two classes with NOC value larger than 10. However, the majority of classes have a NOC value of less than 10, indicating th
+
+\subsubsection{CBO}
+
+\subsubsection{RFC}
+RFC is defined as the total number of methods that can be executed in response to a message to a class. This count includes all methods available in the class hierarchy. 
+
+\subsubsection{NOM and NIM}
+Generelt ønsker man å ha flere små metoder i en klasse enn et par store. Dersom LCOM ikke stemmer kan klassen bli veldig stor og det kan også si ne om at klassen er en code smell som bør splittes opp.
+
+\subsubsection{NIV}
+
+\subsubsection{WMC}
+There may be many methods in a class, hence WMC2 not giving good results. If a class has many methods, some methods may have low cmoplexity while others have high complexity.
+
+
+
 
 CBO: 14
 
@@ -16,12 +70,10 @@ RFC: Should not exceed 50, but it is acceptable to have RFC up to 100. RefactorI
 NOC: Lower limit is 0, recommended upper limit is 10.
 
 DIT: 0 indiactes a root, 2 and 3 indicated a higher degree of reuse. If there is a majority of DIT values 
-below 2, it may represent poor exploitation of the advantages of OO design and inheritance. Recommended max value f 5 since deeper trees constitue greater design compelxity as more methods and classes are involved. 
+below 2, it may represent poor exploitation of the advantages of OO design and inheritance. Recommended max value f 5 since deeper trees constitue greater design compelxity as more methods and classes are involved. DIT: 2 is good. 
 
 NIM: Good: 0-10, Regular: 11-40, bad: 40+
 NIV: Good: 0, regular: 1-10, bad: 10+
-
-DIT: 2 is good. 
 
 LCOM: Good: 0, regular: 1-20, bad: greater than 20. 
 
@@ -29,13 +81,49 @@ LCOM: Good: 0, regular: 1-20, bad: greater than 20.
 
 For 101-1000 classes:
 
-Coupling: 
-- Good: 0-1, regular: 2-20, bad: 20+
+CBO: Good: 0-1, regular: 2-20, bad: 20+
 
 NIV: 0-1, 1-8, 8+
 NIM: 0-25, 6-50, 50+
 DIT: 2
 LCOM: 0, 1-20, 20+
+
+
+
+
+
+\section{Measuring Software Quality using Object-Oriented Metrics}
+The goal with this case study conducted at Autronica in Trondheim is to find ways that can help us to identify design debt in embedded systems. One approach of doing this is to measure the software quality using object-oriented metrics. Using object-oriented metrics to measure the system can help us to identify poorly designed classes, which also helps us to answer the first research question.
+
+\section{Identifying Code Smells Using Automatic Approaches}
+
+
+
+\subsection{Refactoring Suggestions}
+
+
+
+\section{Research Questions}
+%Table "X" contains a summary of the resuls of this research. Although, the research did not specify the effects of design debt in embedded systems, we still were able to identify some of the effects it had on
+According to our results, we can now answer the research questions that were stated in Chapter 1.
+\textbf{RQ1: How can design debt be identified?}
+In this study, we have been able to identify design debt using automatic static analysis tools, and by measuring object-oriented metrics.
+
+
+\textbf{RQ2: What are the effects of design debt?}
+- How it affects the software quality attributes
+
+\textbf{RQ3: What kind of design debt can be found in embedded systems?}
+- Code smells
+- 
+
+\textbf{RQ4: How to pay design debt?}
+- Refactoring suggestions.
+
+
+
+
+
 
 \section{Threats To Validity}
 \label{sub:threats_to_validity}
@@ -50,3 +138,11 @@ LCOM: 0, 1-20, 20+
 \label{sub:construct_validity}
 
 % subsection construct_validity (end)
+
+
+
+
+
+
+
+% Prøve å få til evaluering av verktøyene og metrikkene. Svar på forskningspørsmå, hold det temarettet.
