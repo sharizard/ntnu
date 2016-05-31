@@ -23,6 +23,8 @@ In this study, we evaluated the design and software quality of the system. This 
 \section{Measuring the Software Quality using Metrics}
 One way to identify design debt is to measure the software quality using metrics. 
 
+The first step to identify design debt is to find the structural code and the design attributes of a system. The design attributes in this case is the object-oriented metrics.
+
 
 
 %Metrics for files:
@@ -76,13 +78,18 @@ WMC2            & 0            & 325          & 10              & 19.707        
 
 \textbf{LCOM}: A class is cohesive if LCOM is low. In this analysis, LCOM is measured in percent. Our data reveals that LCOM value lies between a range from 0 to 100, indicating that there are classes with high and low cohesion. Figure "X" show the frequency distribution of LCOM values. There are 77 classes with LCOM value of 0\%, indicating that these classes has high cohesion. However, 119 classes has a value of LCOM larger than 50\%. Among these, 7 classes have a value of LCOM larger than 90\%, where 2 classes have a LCOM value of 100\%. Classes with low cohesion increases the complexity of the software, and may therefore increase the likelihood of errors during development. In order to improve the class design, it is necessary to split one class to two or more classes to make them more cohesive.
 
-\textbf{DIT and NOC}: DIT value is generally low in the captured statistics. A class with DIT value of 0 is the root in a class hierarchy. Figure "X" shows that 89 classes have a DIT value of 0, and 68 classes have a DIT value of 1. MOreover, DIT value of 2 and 3 indicates higher degree of reuse. In total, we identified 70 classes with DIT value of 2 and 3. The maximum value of DIT captured is set to four. These values show that inheritance is used in most of the classes to an optimal level. However, there may be some possibilities for improvements for classes with DIT value of 0. Moreover, NOC metric measures the number of subclasses of a class. The median value of NOC reveal that half of the classes have NOC value of 0, implying that inheritance may not be used enough. However, the max value of NOC is 20, which may indicate a misuse of subclassing. Classes with high NOC value are difficult to modify, and they usually require more testing because of the effects on changes on all the children. 
+\textbf{DIT and NOC}: DIT value appears to be generally low in the captured statistics. A class with DIT value of 0 is the root in a class hierarchy. Figure "X" shows that 89 classes have a DIT value of 0, and 68 classes have a DIT value of 1. The median value suggests that most classes tend to be close to the root in the inheritance hierarachy. According to Chidamber and Kemerer\cite{chidamber1994metrics}, DIT metric can be used to determine whether the design is top heavy or bottom heavy. A design is top heavy if there are too many classes near the root, and bottom heavy if most classes are near the bottom of the hierarchy. By observing the empirical data of DIT, the system appears to be top heavy, which indicates that there may be lack of reuse through inheritance. Classes with a DIT value of 2 and 3 indicates higher degree of reuse through inheritance. In total, we identified 70 classes with DIT value of 2 and 3. The maximum value of DIT is 4. These values show that inheritance is used in most of the classes to an optimal level. However, there may be some possibilities for improvements for classes with DIT value of 0. 
 
-\textbf{CBO}: In general, higher values of CBO indicates fault prone classes. Moreover, the reusability of a class will decrease. Our analysis show that 194 classes have a value of CBO less than 10, and 4 classes have a value larger than 20. The maximum value of CBO is 30. This class is an example of a class that is hard to understand, harder to reuse, and more difficult to maintain. 
+Furthermore, the NOC metric measures the number of subclasses of a class. The median value of NOC implies that most half of the classes has no immediate children, which indicates that inheritance may not be used enough. According to the Figure "X", approximately 86\% of the classes seem to have no subclasses. Max value of NOC is 20, which may indicate a misuse of subclassing. Classes with high NOC value are difficult to modify, and they usually require more testing because of the effects on changes on all the children. 
+
+
+\textbf{CBO}: In general, higher values of CBO indicates fault prone classes. Our analysis show that 194 classes have a value of CBO less than 10, and that 4 classes have a value larger than 20. The maximum value of CBO is 30. This class is an example of a class that is hard to understand, harder to reuse, and more difficult to maintain. 
 
 \textbf{RFC and WMC}: Classes with large RFC tends to be complex and have decreased understandability. Testing classes with large RFC is more complicated. The RFC statistics reveals that majority of the classes have a RFC of less than 20. There are only 22 classes with a value of RFC larger than 30, where 2 of them have a value larger than 100. The maximum value of RFC in this system is 115. In addition, most of the classes have a WMC of less than 7, but there are a few classes with more larger values. Classes with large WMC values may indicate Large Class code smell, and these classes are candidates for inspection and eventually refactoring. 
 
 \textbf{WMC2} By the WMC2 metric, we can observe the complexity of a class by summing complexity of all methods. In general, low values of WMC2 indicates greater polymorphism in a class, while higher higher values of WMC2 indicates more complexity. By examining at Figure "X", we observe that majority of the classes have a value of WMC2 less than 10. More precisely, 123 classes has a value of WMC2 less than 10. Moreover, 5 classes have a value of WMC2 larger than 100. The maximum value of WMC is set to 325.
+
+
 
 \textbf{NIM and NIV}: NIM and NIV metric reports the number instance methods and instance variables in a class. Our analysis show that most classes are small. The sample mean of NIV tells us that each class has an average of 2 instance variables. The maximum value of NIV is 18, indicating that there is at least one class that contains 18 instance variables. The sample mean of NIM show us that each class has an average of 8 instance methods. More precisely, there are 170 classes with value of NIM less than 10. The maximum value of NIM is 48, which indicates that there is at least one class contains 48 methods. NIM and NIV metric can help us identify Large Class code smell.
 
@@ -132,14 +139,13 @@ AL: LogicsUnitFad (kasnkje)
 BLC: AclibTranslator
 
 
-
 \begin{landscape}
 \setlength\LTleft{-.5in}
 	\begin{figure}
-	\label{fig:algraph}
-	\caption{Frequency distribution of OO-metrics in Component A}
 	\centering
 	\includegraphics[width=\textwidth]{images/al.pdf}
+	\caption{Frequency distribution of OO-metrics in Component A}
+	\label{fig:algraph}
 	\end{figure}
 \end{landscape}
 
@@ -179,10 +185,10 @@ WMC2            & 3            & 325          & 20              & 37.696        
 \begin{landscape}
 \setlength\LTleft{-.5in}
 	\begin{figure}
-	\label{fig:blcgraph}
-	\caption{Frequency distribution of OO-metrics in Component B}
 	\centering
 	\includegraphics[width=\textwidth]{images/blc.pdf}
+	\caption{Frequency distribution of OO-metrics in Component B}
+	\label{fig:blcgraph}
 	\end{figure}
 \end{landscape}
 
@@ -221,9 +227,10 @@ WMC2            & 2            & 106          & 9              & 23.25          
 \begin{landscape}
 \setlength\LTleft{-.5in}
 	\begin{figure}
-	\label{fig:confgraph}
 	\centering
 	\includegraphics[width=\textwidth]{images/conf.pdf}
+	\caption{Coming}
+	\label{fig:confgraph}
 	\end{figure}
 \end{landscape}
 
@@ -265,10 +272,10 @@ WMC2            & 0            & 41          & 7              & 8.744           
 \begin{landscape}
 \setlength\LTleft{-.5in}
 	\begin{figure}
-	\label{fig:exgraph}
-	\caption{Coming}
 	\centering
 	\includegraphics[width=\textwidth]{images/ex.pdf}
+	\caption{Coming}
+	\label{fig:exgraph}
 	\end{figure}
 \end{landscape}
 
@@ -307,10 +314,10 @@ WMC2            & 1            & 123          & 12              & 19.437        
 \begin{landscape}
 \setlength\LTleft{-.5in}
 	\begin{figure}
-	\label{fig:gurigraph}
-	\caption{Coming}
 	\centering
 	\includegraphics[width=\textwidth]{images/guri.pdf}
+	\caption{Coming}
+	\label{fig:gurigraph}
 	\end{figure}
 \end{landscape}
 
@@ -345,10 +352,10 @@ WMC2            & 4            & 42          & 11              & 19.571         
 \begin{landscape}
 \setlength\LTleft{-.5in}
 	\begin{figure}
-	\label{fig:loggraph}
-	\caption{Coming}
 	\centering
 	\includegraphics[width=\textwidth]{images/log.pdf}
+	\caption{Coming}
+	\label{fig:loggraph}
 	\end{figure}
 \end{landscape}
 
@@ -387,10 +394,10 @@ WMC2            & 4            & 125          & 32              & 40.375        
 \begin{landscape}
 \setlength\LTleft{-.5in}
 	\begin{figure}
-	\label{fig:netgraph}
-	\caption{Coming}
 	\centering
 	\includegraphics[width=\textwidth]{images/network.pdf}
+	\caption{Coming}
+	\label{fig:netgraph}
 	\end{figure}
 \end{landscape}
 
@@ -426,10 +433,10 @@ WMC2            & 1            & 47           & 8               & 15.75         
 \begin{landscape}
 \setlength\LTleft{-.5in}
 	\begin{figure}
-	\label{fig:procgraph}
-	\caption{Coming}
 	\centering
 	\includegraphics[width=\textwidth]{images/process.pdf}
+	\caption{Coming}
+	\label{fig:procgraph}
 	\end{figure}
 \end{landscape}
 
@@ -501,7 +508,7 @@ Component W contains only one file. This file consists of 69 lines of code. In t
 
 \section{Identifying Code Smells using Automatic Approaches}
 \label{sub:code_smell_detection}
-As we explained in Chapter 2, one of the ways to identify design debt is to look at the number of code smells in the source code. Table \ref{tab:identifiedCodeSmell} describes the number of code smells that were identified using automatic.
+As we explained in Chapter 2, one of the ways to identify design debt is to look at the number of code smells in the source code. Code smells are an indicator of software design shortcomings that can decrease software maintainability. Table \ref{tab:identifiedCodeSmell} describes the number of code smells that were identified using automatic.
 
 \begin{table}[]
 \centering

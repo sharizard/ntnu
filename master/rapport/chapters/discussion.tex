@@ -39,16 +39,59 @@ We observe that lac of cohesion values seem increasing with the size of classes 
 
 The high average values of LCOM can be caused by a large number of attributes and methods in the class, where many of the methods does not use the same attributes.
 
+Viewpoints: 
+- Cohesiveness of methods within a class is desirable, since it promotes encapsulation
+- Lack of cohesion implies classes should probably be split into two or more subclasses
+- Any measure of disparateness of methods helps identify design flaws in classes
+- Low cohesion increases complexity, thereby increasing the likelihood of errors during the development process.
+
 
 \subsubsection{DIT and NOC}
 DIT incicates how deep a class is in the inheritence tree. It is evident that a deep inheritence makes software maintenance more difficult("SITER DALY et al. 1996"). DIT has a recommended threshold value of 4. The evaluated maximum value from Table \ref{tab:oometrics-firmus} is 4. There are two classes with DIT value of 4, indicating deep inheritance. These failes may be more fault-prone.
 
-Moreover, the maximum value of NIC measured is 20. We identified two classes with NOC value larger than 10. However, the majority of classes have a NOC value of less than 10, indicating th
+Moreover, the maximum value of NIC measured is 20. We identified two classes with NOC value larger than 10. However, the majority of classes have a NOC value of less than 10.
+
+DIT Viewpoints from Chidamber:
+- The deeper a class is in the hierarchy, the greater number of methods it is likely to inherit, making it more complext to predict its behaviour. 
+- Deeper trees consistute greater design complexity, since more methods and classes are involved.
+- The deeper a class is in the hierachy, the greater the potential reuse of inherited methods.
+
+From their study:
+- Site A: Median: 1, Max: 8, Min: 0
+- Site B: Median: 3, Max: 10, Min: 0
+
+
+NOC Viewpoints:
+- Greater the number of children, grater the reuse, since inheritance is a form of reuse
+- Greater the number of children, greater the likelihood of improper abstraction of the parent class. If a class have a large number of children, it may be a case of misuse of subclassing.
+- The number of children gives an idea of the potential influece a class has on the design. If a class has a large number of children, it may require more testing of the methods in that class
+
+From their study:
+- Site A: Median: 0, Max: 42, Min: 0
+- Site B: Median: 0, Max: 50, Min: 0
 
 \subsubsection{CBO}
 
+Viewpoints:
+- Excessive coupling between object classes is detrimental to modular design and prevents reuse. The more independent a class is, the easier it is to reuse it in another application.
+- In order to improve the modularity and promote encapsulation, inter-oject class couples should be kept to a minimum. The larger number of couples, the higher the sensitivity to changes in other parts of the design, and therefore maintenance is more difficult.
+- A measure of couping is useful to determine how complex the testing of varioous parts of a design are likely to be. The higer the inter-object class coupling, the more rigorous the testing needs to be.
+
+From their study:
+- Site A: Median: 0, Max: 84, Min: 0
+- Site B: Median: 9, Max: 234, Min: 0
+
 \subsubsection{RFC}
 RFC is defined as the total number of methods that can be executed in response to a message to a class. This count includes all methods available in the class hierarchy. 
+
+Viewpoints:
+- If a large number of methods can be invoked in response to a message, the testing and debugging of the class becomes more complicated since it requires a greater level of understanding required on the part of the tester. 
+- The larger the number of methods that can be invoked from a class, the grater the complexity of the class.
+- A worst case of value for possible responses will assist in appropriate alocation of testing time.
+
+Study results:
+- Site A: Median: 6, Max: 120, Min: 0
+- Site B: Median: 28, Max: 422, Min: 3
 
 \subsubsection{NOM and NIM}
 Generelt ønsker man å ha flere små metoder i en klasse enn et par store. Dersom LCOM ikke stemmer kan klassen bli veldig stor og det kan også si ne om at klassen er en code smell som bør splittes opp.
@@ -57,6 +100,19 @@ Generelt ønsker man å ha flere små metoder i en klasse enn et par store. Ders
 
 \subsubsection{WMC}
 There may be many methods in a class, hence WMC2 not giving good results. If a class has many methods, some methods may have low cmoplexity while others have high complexity.
+
+
+
+The classes above the recommended values can be seen as outliners. 
+
+According to Chidamber: 
+- Number and complexity of methods may be an indicator of how much time and effort is required to develop and maintain the class.
+- Larger number of methods in a class, the greater the potential impact on chilcren since they will inherit all the methods in the defined class.
+- A class with many methods are likely to be more application specific, hence limiting the possibility of reuse.
+
+Their study results on WMC
+- Site A: Median: 5, Max: 106, Min: 0
+- Site B: Median: 10, Max: 346, Min: 0
 
 
 
@@ -106,18 +162,19 @@ The goal with this case study conducted at Autronica in Trondheim is to find way
 \section{Research Questions}
 %Table "X" contains a summary of the resuls of this research. Although, the research did not specify the effects of design debt in embedded systems, we still were able to identify some of the effects it had on
 According to our results, we can now answer the research questions that were stated in Chapter 1.
-\textbf{RQ1: How can design debt be identified?}
+\\
+\textbf{RQ1: How can design debt be identified?} \\
 In this study, we have been able to identify design debt using automatic static analysis tools, and by measuring object-oriented metrics.
 
 
-\textbf{RQ2: What are the effects of design debt?}
+\textbf{RQ2: What are the effects of design debt?} \\
 - How it affects the software quality attributes
 
-\textbf{RQ3: What kind of design debt can be found in embedded systems?}
+\textbf{RQ3: What kind of design debt can be found in embedded systems?} \\
 - Code smells
 - 
 
-\textbf{RQ4: How to pay design debt?}
+\textbf{RQ4: How to pay design debt?} \\
 - Refactoring suggestions.
 
 
