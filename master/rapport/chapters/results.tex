@@ -20,7 +20,7 @@ In this study, we evaluated the design and software quality of the system. This 
 
 
 
-\section{Measuring the Software Quality using Metrics}
+\section{Measuring the Software Quality using Object-Oriented Metrics}
 One way to identify design debt is to measure the software quality using metrics. 
 
 The first step to identify design debt is to find the structural code and the design attributes of a system. The design attributes in this case is the object-oriented metrics.
@@ -508,28 +508,18 @@ Component W contains only one file. This file consists of 69 lines of code. In t
 
 \section{Identifying Code Smells using Automatic Approaches}
 \label{sub:code_smell_detection}
-As we explained in Chapter 2, one of the ways to identify design debt is to look at the number of code smells in the source code. Code smells are an indicator of software design shortcomings that can decrease software maintainability. Table \ref{tab:identifiedCodeSmell} describes the number of code smells that were identified using automatic.
+As we explained in Chapter 2, one of the ways to identify design debt is to look at the number of code smells in the source code. Code smells are an indicator of software design flaws in object-oriented systems that can decrease software maintainability which may lead to issues in further evolution of the system\cite{olbrich2009evolution}. The analysis of code smells in the system is based on automatic static analysis tools. We investigated each tool that we could use in this project, and evaluated the smells they are able to detect. Table \ref{tab:identifiedCodeSmell} describes the number of code smells that were identified using automatic static analysis tools.
 
 \begin{table}[]
 \centering
 \caption{Number of Code Smells detected}
 \label{tab:identifiedCodeSmell}
-\begin{tabular}{|l|l|}
+\begin{tabular}{|l|p{3cm}|}
 \hline
 \textbf{Code Smell}                           & \textbf{Detected}    \\ \hline
 Long Method                                   & 10          \\ \hline
 Large Class                                   & 8          \\ \hline
 Long Parameter List                           & 15          \\ \hline
-%Data Clumps                                   & Bloaters          \\ \hline
-%Switch Statements                             & O-O Abusers       \\ \hline
-%Temporary Field                               & O-O Abusers       \\ \hline
-%Refused Bequest                               & O-O Abusers       \\ \hline
-%Alternative Classes with Different Interfaces & O-O Abusers       \\ \hline
-%Parallel Inheritance Hierarchies              & O-O Abusers       \\ \hline
-%Divergent Change                              & Change Preventers \\ \hline
-%Shotgun Surgery                               & Change Preventers \\ \hline
-%Lazy Class                                    & Dispensables      \\ \hline
-%Data Class                                    & Dispensables      \\ \hline
 Duplicated Code                               & Approximately 5\% of the source code. 39 files affected.       \\ \hline
 Speculative Generality                        & 1153      \\ \hline
 Dead Code 									  & 151 \\ \hline
@@ -537,7 +527,7 @@ Dead Code 									  & 151 \\ \hline
 \end{table}
 
 \subsubsection{Duplicated Code}
-Duplicated code is found by looking for pieces of code that appears at multiple places in the source code, both internally in a file or in another file. A piece of code is considered duplicated if the piece of code contains at least 10 lines of code and occurs at multiple places in the source code. Table \ref{tab:identifiedCodeSmell} reports the number of duplicated code found by SonarQube, expressed as a percentage value. Including the test files, the results show that roughly 5\% of the source code contains duplicated code. This corresponds to 4395 lines of code affecting 39 files across the system. By examining the results, we identified that roughly 54\% of the duplicated code is located in Component A. The other duplicated lines are spread across Component B, N, P, C, D, L, Ex, S, and G. Table \ref summarizes duplication in the different components, where "information" column summarizes number of files affected by duplicated code and the number of duplicated lines among these files.
+Duplicated code is found by looking for pieces of code that appears at multiple places in the source code, both internally in a file or in another file. A piece of code is considered duplicated if the piece of code contains at least 10 lines of code and occurs at multiple places in the source code. Table \ref{tab:identifiedCodeSmell} reports the number of duplicated code found by SonarQube, expressed as a percentage value. Including the test files, the results show that roughly 5\% of the source code contains duplicated code. This corresponds to 4395 lines of code, which affects 39 files across the system. By examining the results, we identified that roughly 54\% of the duplicated code is located in Component A. The other duplicated lines are spread across Component B, N, P, C, D, L, Ex, S, and G. Table \ref{tab:duplicatedLines} summarizes duplicated lines in the different components. The first column contains the name of the components, while the second column summarizes number of files affected by duplicated code and the number of duplicated lines among these files.
 
 \begin{table}[]
 \centering

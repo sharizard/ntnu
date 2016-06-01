@@ -65,6 +65,7 @@ Krutchen et al.\cite{krutchen} presented a technical debt landscape for organizi
 Technical debt can accumulate in many different ways, and therefore it is important to distinguish the various types of technical debt. Multiple studies\cite{li2015systematic,p8-codabux,foser076-brown,tom2013exploration,Zazworka:2011:PDD:1985362.1985372,Zazworka:2013:CSE:2460999.2461005} have pointed out several subcategories of technical debt based on its association with traditional software life-cycle phases; architectural debt, code debt, defect debt, design debt, documentation debt, infrastructure debt, requirements debt, and test debt. Table \ref{tab:subcategories} lists the different subcategories of technical debt.
 
 \begin{table}
+	\resizebox{\textwidth}{!}{
 	\centering
 	\begin{tabular}{ | p{5cm} | p{8cm} |}
 	\hline
@@ -78,7 +79,7 @@ Technical debt can accumulate in many different ways, and therefore it is import
 	Requirements debt\cite{li2015systematic,Zazworka:2013:CSE:2460999.2461005} & Refers to the requirements that are not fully implemented, or the distance between actual requirements and implemented requirements.\\ \hline
 	Test debt\cite{li2015systematic,Zazworka:2013:CSE:2460999.2461005,foser076-brown} & Refers to shortcuts taken in testing. An example is lack of unit tests, and integration tests.\\
 	\hline
-	\end{tabular}
+	\end{tabular}}
 	\caption{Types of Technical Debt} \label{tab:subcategories}
 \end{table}
 
@@ -233,27 +234,9 @@ Prevent accumulation of technical debt
 
 
 \section{Design Debt}
-Bass et al.\cite{Bass:2012:SAP:2392670} defines software architecture as following: 
+Design debt is defined as su
 
-\begin{displayquote}
-\textit{The software architecture of a system is the set of structures needed to reason about the system, which compromise software elements, relations among them, and properties of both.}
-\end{displayquote}
-
-The architecture of a software is one of the most important artifacts within the systems life cycle\cite{Bass:2012:SAP:2392670,knodel2006static}. Architectural design decisions that are made during the design phase, affect the systems ability to accept changes and to adapt to changing market requirements in the future. As the design decisions are made early, it will directly affect the evolution and maintenance phase\cite{Pressman:2009:SEP:1593949}, activities that consumes a big part of the systems lifespan\cite{Vliet:2008:SEP:1481475}. Design changes are specifically related to the adaptive and corrective categories. The issues of software architecture has long been a concern for those building and evolving large software systems\cite{perry1997state}.
-
-
-
-
-Architectural technical debt is regarded as implemented solutions that are sub-optimal with respect to the quality attributes defined in the desired architecture. 
-
-Architecture plays a significant role in the development of large systems\cite{krutchen}.
-
-Examples
-
-\subsection{Dependencies}
-
-
-
+Code smells are design flaws in object-oriented design that may lead to maintainability issues in future evolution of the software system ("Siter: The Evolution and Impact of Code Smells: A Case study of two open source systems")
 
 
 
@@ -274,38 +257,41 @@ Examples
 
 
 
-\begin{table}
-    \begin{tabular}{lll}
-    Quality Attributes & Criteria             & Description \\
-    Functionality      & ~                    & ~           \\
-    ~                  & Suitability          & ~           \\
-    ~                  & Accuracy             & ~           \\
-    ~                  & Interoperability     & ~           \\
-    ~                  & Security             & ~           \\
-    Reliability        & ~                    & ~           \\
-    ~                  & Maturity             & ~           \\
-    ~                  & Fault Tolerance      & ~           \\
-    ~                  & Recoverability       & ~           \\
-    Usability          & ~                    & ~           \\
-    ~                  & Understandability    & ~           \\
-    ~                  & Learnability         & ~           \\
-    ~                  & Operability          & ~           \\
-    ~                  & Attractiveness       & ~           \\
-    Efficiency         & ~                    & ~           \\
-    ~                  & Time behaviour       & ~           \\
-    ~                  & Resource utilization & ~           \\
-    Maintainability    & ~                    & ~           \\
-    ~                  & Analyzeability       & ~           \\
-    ~                  & Changeability        & ~           \\
-    ~                  & Stability            & ~           \\
-    ~                  & Testability          & ~           \\
-    Portability        & ~                    & ~           \\
-    ~                  & Adaptability         & ~           \\
-    ~                  & Installability       & ~           \\
-    ~                  & Co-existence         & ~           \\
-    ~                  & Replaceability       & ~           \\
-    All                & ~                    & ~           \\
-    ~                  & Compliance           & ~           \\
+\begin{table}[ht!]
+	\centering
+	\caption{ISO9126 Quality Attributes}
+	\label{tab:qaAttributes}
+    \begin{tabular}{|l|l|l|}
+    Quality Attributes & Criteria             & Description \\ \hline 
+    Functionality      & ~                    & ~           \\ \hline
+    ~                  & Suitability          & ~           \\ \hline
+    ~                  & Accuracy             & ~           \\ \hline
+    ~                  & Interoperability     & ~           \\ \hline
+    ~                  & Security             & ~           \\ \hline
+    Reliability        & ~                    & ~           \\ \hline
+    ~                  & Maturity             & ~           \\ \hline
+    ~                  & Fault Tolerance      & ~           \\ \hline
+    ~                  & Recoverability       & ~           \\ \hline
+    Usability          & ~                    & ~           \\ \hline
+    ~                  & Understandability    & ~           \\ \hline
+    ~                  & Learnability         & ~           \\ \hline
+    ~                  & Operability          & ~           \\ \hline
+    ~                  & Attractiveness       & ~           \\ \hline
+    Efficiency         & ~                    & ~           \\ \hline
+    ~                  & Time behaviour       & ~           \\ \hline
+    ~                  & Resource utilization & ~           \\ \hline
+    Maintainability    & ~                    & ~           \\ \hline
+    ~                  & Analyzeability       & ~           \\ \hline
+    ~                  & Changeability        & ~           \\ \hline
+    ~                  & Stability            & ~           \\ \hline
+    ~                  & Testability          & ~           \\ \hline
+    Portability        & ~                    & ~           \\ \hline
+    ~                  & Adaptability         & ~           \\ \hline
+    ~                  & Installability       & ~           \\ \hline
+    ~                  & Co-existence         & ~           \\ \hline
+    ~                  & Replaceability       & ~           \\ \hline
+    All                & ~                    & ~           \\ \hline
+    ~                  & Compliance           & ~           \\ \hline
     \end{tabular}
 \end{table}
 
@@ -315,7 +301,7 @@ Examples
 \section{Object-Oriented Metrics}
 Object-Oriented metrics have been proposed as a quality indicator for object-oriented software systems. There are three traditional metrics that are widely used, and are well understood by researchers and practitioners\cite{quenelobject}. These metrics are: Cyclomatic Complexity, Size, and Comment Percentage. Cyclomatic complexity evaluates the complexity of an algorithm in a method. Cyclomatic complexity for a method should be below 10\cite{quenelobject}. Size of a method is used evaluate the understandability of the code. Size are measured in many different ways, including all physical lines of code, lines of statements, and number of blank lines. Comment percentage measures the number of comments in percent by counting total number of comments divided on total lines of code minus number of blank lines.
 
-In addition to the traditional metrics, Chidamber and Kemerer\cite{chidamber1994metrics} proposed a set of six software metrics to identify certain design traits of a software component. These metrics are: Weighted Methods per Class (WMC), Depth of Inheritance Tree (DIT), Number of Children (NOC), Lack of Cohesion in Methods (LCOM), Coupling Between Objects (CBO), and Response For a Class (RFC). The WMC is used to count the number of methods in a class, or to count the of sum of complexities of all methods in a class. The complexity of a method is measured by cyclomatic complexity. This metric measures understandability, maintainability, and reusability\cite{quenelobject}. The DIT metric measure the maximum number of steps from a class node to the root in the inheritance hierarchy. The deeper a class is withing the hierarchy, the greater number of methods it is likely to inherit, making it more complex to predict its behavior\cite{quenelobject}. Moreover, this metric are related to efficiency, reusability, understandability, and testability\cite{quenelobject}. NOC metric measures the number of subclasses of a class in a hierarchy. The greater number of children may be an indication of subclasses misuse or improper parent abstraction. This metric evaluates efficiency, reusability, and testability\cite{quenelobject}. THe LCOM is used to measure the lack of cohesion in methods of a class. It measures the dissimilarity of methods in a class by looking at the instance variables or attributes used by the methods. High cohesion indicates good subdivision, while low cohesion increase the complexity of a class. This metric measures efficiency and reusability\cite{quenelobject}. The CBO metric counts the number of other classes to which a class is coupled. Excessive coupling is detrimental to modular design and prevents reuse\cite{quenelobject}. Larger number of coupled objects indicates higher sensitivity to changes in other parts of the design. CBO evaluates efficiency and reusability\cite{quenelobject}. The RFC metric counts the total number of methods in a class that can be invoked in a response to a message sent to an object. This metric includes all methods accessible within the class hierarchy. RFC metric evaluates understandability, maintainability, and testability\cite{quenelobject}.
+In addition to the traditional metrics, Chidamber and Kemerer\cite{chidamber1994metrics} proposed a set of six software metrics to identify certain design traits of a software component. These metrics are: Weighted Methods per Class (WMC), Depth of Inheritance Tree (DIT), Number of Children (NOC), Lack of Cohesion in Methods (LCOM), Coupling Between Objects (CBO), and Response For a Class (RFC). The WMC is used to count the number of methods in a class, or to count the of sum of complexities of all methods in a class. The complexity of a method is measured by cyclomatic complexity. This metric measures understandability, maintainability, and reusability\cite{quenelobject}. The DIT metric measure the maximum number of steps from a class node to the root in the inheritance hierarchy. The deeper a class is withing the hierarchy, the greater number of methods it is likely to inherit, making it more complex to predict its behavior\cite{quenelobject}. Moreover, this metric are related to efficiency, reusability, understandability, and testability\cite{quenelobject}. NOC metric measures the number of subclasses of a class in a hierarchy. The greater number of children may be an indication of subclasses misuse or improper parent abstraction. This metric evaluates efficiency, reusability, and testability\cite{quenelobject}. The LCOM is used to measure the lack of cohesion in methods of a class. It measures the dissimilarity of methods in a class by looking at the instance variables or attributes used by the methods. High cohesion indicates good subdivision, while low cohesion increase the complexity of a class. This metric measures efficiency and reusability\cite{quenelobject}. The CBO metric counts the number of other classes to which a class is coupled. Excessive coupling is detrimental to modular design and prevents reuse\cite{quenelobject}. Larger number of coupled objects indicates higher sensitivity to changes in other parts of the design. CBO evaluates efficiency and reusability\cite{quenelobject}. The RFC metric counts the total number of methods in a class that can be invoked in a response to a message sent to an object. This metric includes all methods accessible within the class hierarchy. RFC metric evaluates understandability, maintainability, and testability\cite{quenelobject}.
 
 TODO: Nevne artikler som har tatt i bruk disse metricene.
 

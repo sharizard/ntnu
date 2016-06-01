@@ -3,41 +3,84 @@
 % !TEX spellcheck = en-US
 
 \chapter{Discussion}
-
-\section{Metric Threshold}
-In addition to the descriptive statistics results in Table \ref{tab:oometrics-firmus}, \ref{tab:oometrics-al}, \ref{tab:oometrics-blc}, \ref{tab:oometrics-config}, \ref{tab:oometrics-ex}, \ref{tab:oometrics-guri}, \ref{tab:oometrics-log}, \ref{tab:oometrics-netw}, \ref{tab:oometrics-proc}, and \ref{tab:oometrics-sys}, we applied thresholds for object-oriented metrics in order to identify the classes in which inspection is needed. Measuring metrics in object-oriented software is important in terms of quality management\cite{tarcisio,ferreira2012identifying}. However, metrics are not effectively used in software industry due to the fact that for the majority of metrics, thresholds are not defined\cite{tarcisio}. Threshold is defined as values used to set ranges of desirable and undesirable metric values for measured software\cite{ferreira2012identifying}. Knowing thresholds for metrics allow us to assess the quality of a software, and we may be able to identfy where in a design errors are likely to occur. 
-
-We have gathered thresholds that has been proposed by researchers for the metrics we have applied in this thesis. Table \ref{tab:thresholds} presents the metrics and their respecive thresholds.
+This thesis aims to investigate the possibilities to identify design debt in embedded systems. Our case study evaluated a software system written in C/C++. This chapter will discuss the results we gathered during our case study. Section 5.1 contains a discussion the measured values for object-oriented metrics by applying a set of threshold values to uncover possible unsecure parts of the code. Section 5.2 will lo
 
 
 
+\section{Evaluation of Object-Oriented Metrics by Applying Threshold Values}
+Measuring software metrics in object-oriented software is important in terms of quality management\cite{tarcisio,ferreira2012identifying}, as software metrics can be used as predictors of fault-prone classes in object-oriented systems\cite{basili1996validation}. A study by Basili et. al\cite{basili1996validation} assessed Chidamber and Kemeerers\cite{chidamber1994metrics} suite of object-oriented metrics as predicators of fault-prone classes. Their results implied that object-oriented metrics appear to be useful to predict class fault-proneness during early phases in software life-cycle. Object-oriented measurements alone are not necessary sufficient to identify parts of the system with major design violations. According to Tarcisio, software metrics are not effectively used in software industry due to the fact that for the majority of metrics, thresholds are not defined\cite{tarcisio}. Threshold is defined as values used to set ranges of desirable and undesirable metric values for measured software\cite{ferreira2012identifying}. Knowing thresholds for metrics allow us to assess the quality of a software, and we may be able to identify where in a design errors are likely to occur. Lanza et al.\cite{lanza2007object} presents two ways to identify major sources for threshold values; statistical information (i.e., thresholds that are based on statistical measurements), and general accepted semantics (i.e., thresholds that are based on information which is considered common).  
 
+Threshold values were derived for the individual metrics using their descriptive statistics from Table \ref{tab:oometrics-firmus} in order to identify the classes with major design violations. Threshold values have been identified using statistical information\cite{lanza2007object}. For each metric, we used the the sample mean and standard deviation from Table \ref{tab:oometrics-firmus} to derive its corresponding threshold value. The first threshold value is corresponds with the mean and represents the most typical value in the data set\cite{cais2014identifying}. According to Lanza et al.\cite{lanza2007object}, the first threshold value can be calculated by subtracting the standard deviation from the sample mean. However, the standard deviation in our data set may be larger than the sample mean, which leads to negative threshold values. The second threshold value the sum of the sample mean and the standard deviation. It represents high, but still acceptable values. The third threshold value is simply the second threshold value multiplied with 1.5\cite{lanza2007object}. It is considered as extreme, and should not be included in the data set. In addition, we have gathered thresholds that has been proposed by researchers for the metrics we have measured in this thesis. Table \ref{tab:thresholds} presents the metrics and their threshold values.
 
-\begin{table}[]
+\begin{table}[ht!]
+\resizebox{\textwidth}{!}{
 \centering
 \caption{Thresholds for object-oriented software metrics}
 \label{tab:thresholds}
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{3cm}|}
 \hline
-\textbf{Metric}                       & \textbf{Observed Limit} & \textbf{Recommended Max Value} \\ \hline
-Lack of Cohesion in Methods (LCOM)    & 100                     & 0.725\cite{tarcisio}                               \\ \hline
-Depth in Inheritance Tree (DIT)       & 4                       & 4\cite{tarcisio}                              \\ \hline
-Coupling Between Object classes (CBO) & 30                      & 14\cite{sahraoui2000can}                             \\ \hline
-Number of Children (NOC)              & 20                      & 10                             \\ \hline
-Response For the Class                & 115                     & 50\cite{rosenberg1999risk}                           \\ \hline
-Number of Instance Methods            & 48                      & 40                             \\ \hline
-Number of Instance Variables          & 18                      & 10                             \\ \hline
-Weighted Method per Class (WMC)       & 48                      &                                \\ \hline
-Weighted Method per Class 2 (WMC)     & 325                     & 34\cite{tarcisio}                             \\ \hline
-\end{tabular}
+\textbf{Metric} & \textbf{Observed Value} 	& \textbf{Low} 		& \textbf{High}  & \textbf{Extreme value} 	& \textbf{Recommended Max Value} \\ \hline
+LCOM   			& 100			         	& 42				& 75   			 & 100+						& 72.5\cite{tarcisio}           \\ \hline
+DIT 			& 4             			& 1					& 2				 & 3+						& 4\cite{tarcisio}, 5\cite{rosenberg1999risk,metricoverview,metricsguide}              \\ \hline
+CBO    			& 30  			          	& 6					& 11			 & 17+						& 5\cite{rosenberg1999risk,metricsguide}, 14\cite{sahraoui2000can,phpdepend}     \\ \hline
+NOC    			& 20 			           	& 0					& 2				 & 4+						& 3\cite{tarcisio}, 5\cite{metricsguide}, 10\cite{metricoverview}               \\ \hline
+RFC    			& 115           			& 15				& 34			 & 51+						& 50\cite{rosenberg1999risk}      \\ \hline
+NIM    			& 48            			& 8					& 15			 & 23+						&               \\ \hline
+NIV    			& 18            			& 2					& 5				 & 7+						&             \\ \hline
+NOM    			& 48            			& 9					& 16			 & 24+						& 20\cite{rosenberg1999risk}                \\ \hline
+WMC    			& 325  			         	& 19				& 51			 & 76+						& 34\cite{tarcisio}, 40\cite{rosenberg1999risk}, 50\cite{phpdepend}      \\ \hline
+\end{tabular}}
 \end{table}
 
+
+For 101-1000 classes:
+
+CBO: Good: 0-1, regular: 2-20, bad: 20+
+NIV: 0-1, 1-8, 8+
+NIM: 0-25, 6-50, 50+
+DIT: 2
+LCOM: 0, 1-20, 20+
+
+
+ARTIKLER: 
+
+WMC, DIT, RFC CBO, and NOC metrics appear to be useful to predict fault-prone classes. 
+
+WMC: It was shown to be somewhat significant, and their results were stronger for new and modified classes. As excpected, the larger WMC is, the larger the probability of fault detection. Internal complexity does not have a strong impact if the class is reused verbatim or with very slight modifications. In that case, class interface properties will have the most significant impact.
+
+DIT: Shown to be very significant. The larget DIT, the larger probability of defect detection.
+
+RFC: Very significant. The larger RFC, the larger probability of defect detection, especially for UI classes and new/modified classes, same reason as for WMC for extensively modified classes.
+
+NOC: Very significant except in the case of UI casses, but the trend seem to be a contrary to what they expected The larger the NOC value, the lower the probability of defect detection. This trend can be explained by that most classes do not have more than one child, and that verbatim reused classes are somwwhat associated with large NOC.
+
+CBO: Very significant, and particular for UI classes.
+
+LCOM: NIV kan si noe om LCOM. Si at det er 10 instanse variabler, det er ikke sikkert at alle blir delt på mellom metodene i klassen. LCOM is also significcant for predicting fault proneness.
+
+These metrics can be used to build a predictive model of fault-prone classes.
+
+Their result show these values:
+WMC: Max 99, min 1, med 9.5, mean 13.4, stdev 14.9
+DIT 9,0,0,1.32,1.99
+RFC 105, 0, 19.5, 33.91, 33.37
+NOC 13 0 0 0.23, 1.54
+LCOM 426, 0, 0, 9.7, 63.77
+CBO 30 0 5 6.8 7.56
+
+
+% Hva betyr våre findings, hvor verdifulle de kan være, og hvorfor.
+
 \subsubsection{LCOM}
-LCOM is related to the counting of methods using common attributes. We would like to check if project Firmus has relatively higher value of LCOM than the recommended max value for threshold. The recommended threshold for LCOM is 72.5\%. We measured the percentage of classes by the metric values of LCOM. In total, we identified 41 of the 229 classes with LCOM value larger than 72.5\%. 
+LCOM is related to the counting of methods using common attributes in a class. In our experiment, we observed that LCOM median value for Project Firmus is 55, which is very similar to LCOM media value measured by Chidamber and Kemerer\cite{chidamber1994metrics}, Okike\cite{okike2010pedagogical}, and Basili et. al\cite{basili1996validation}. A low median value indicates that at least 50\% of the classes are cohesive.
 
-We observe that lac of cohesion values seem increasing with the size of classes which is plausible. In effect, large classes tend to lack cohesion. These classes tend to have a relatively high number of attributesand methods.
+By following Chidamber and Kemerer's guide of interpreting th
 
-The high average values of LCOM can be caused by a large number of attributes and methods in the class, where many of the methods does not use the same attributes.
+
+
+ We applied the extreme threshold value to the system studied, and identified two classes with low cohesion. However, by analyzing the frequency distribution of LCOM values in Figure "X", we clearly see that the normal distrubution is not normal. That may be the reason we got our values in the first place, and why it would be better to use one of the recommended max values as threshold. The recommended threshold value for LCOM is 72.5, which is very close to our "high" value. By applying the recoomended threshold, we identified 41 classes with LCOM value larger than 72.5. 
+
+We observe that lack of cohesion values seem increasing with the size of classes which is plausible. In reality, large classes tend to lack cohesion. These classes tend to have a relatively high number of attributes and methods. Moreover, high average values of LCOM can be caused by a large number of attributes and methods in the class, where many of the methods does not use the same attributes. By observering our results, we noticed that classes with zero instance variables tend to have high cohesion.
 
 Viewpoints: 
 - Cohesiveness of methods within a class is desirable, since it promotes encapsulation
@@ -46,31 +89,41 @@ Viewpoints:
 - Low cohesion increases complexity, thereby increasing the likelihood of errors during the development process.
 
 
-\subsubsection{DIT and NOC}
-DIT incicates how deep a class is in the inheritence tree. It is evident that a deep inheritence makes software maintenance more difficult("SITER DALY et al. 1996"). DIT has a recommended threshold value of 4. The evaluated maximum value from Table \ref{tab:oometrics-firmus} is 4. There are two classes with DIT value of 4, indicating deep inheritance. These failes may be more fault-prone.
-
-Moreover, the maximum value of NIC measured is 20. We identified two classes with NOC value larger than 10. However, the majority of classes have a NOC value of less than 10.
-
-DIT Viewpoints from Chidamber:
-- The deeper a class is in the hierarchy, the greater number of methods it is likely to inherit, making it more complext to predict its behaviour. 
-- Deeper trees consistute greater design complexity, since more methods and classes are involved.
-- The deeper a class is in the hierachy, the greater the potential reuse of inherited methods.
-
-From their study:
-- Site A: Median: 1, Max: 8, Min: 0
-- Site B: Median: 3, Max: 10, Min: 0
 
 
-NOC Viewpoints:
-- Greater the number of children, grater the reuse, since inheritance is a form of reuse
-- Greater the number of children, greater the likelihood of improper abstraction of the parent class. If a class have a large number of children, it may be a case of misuse of subclassing.
-- The number of children gives an idea of the potential influece a class has on the design. If a class has a large number of children, it may require more testing of the methods in that class
+\subsubsection{Depth in Inheritance Tree}
+%DIT Viewpoints from Chidamber:
+%%- The deeper a class is in the hierarchy, the greater number of methods it is likely to inherit, making it more complext to predict its behaviour. 
+%- Deeper trees consistute greater design complexity, since more methods and classes are involved.
+%- The deeper a class is in the hierachy, the greater the potential reuse of inherited methods.
+DIT indicates how deep a class is in the inheritance tree. It is evident that a deep inheritance makes software maintenance more difficult("SITER DALY et al. 1996"). Higher degree of DIT indicate a trade-off between increased complexity and increase reuseability. By following Chidamber and Kemerer's\cite{chidamber1994metrics} guide to interpreting their DIT metric using descriptive statistics, a low median value indicates that at least 50\% of the classes tend to be close to the root in the inheritance hierarchy. In their study, a low median value had a typical value of 1 and 3. However, if there is a majority of DIT values below 2, it may represent poor exploitation of the advantages of object-oriented design and inheritance, because a DIT value of 2 and 3 indicates higher degree of reuse. In Table \ref{tab:oometrics-firmus}, we observe that DIT median value for Project "Firmus" is 1. More precisely, approximately 39\% of the classes have a DIT value of 0, while 26.7\% of the classes have a DIT value of 1. The classes are considered to be close to the root in the inheritance tree, and there may be a probability of not exploiting the advantages of object-oriented metrics.
 
-From their study:
-- Site A: Median: 0, Max: 42, Min: 0
-- Site B: Median: 0, Max: 50, Min: 0
+Moreover, we derived the following threshold for the DIT metric: a low/good value of 1, a high/typical value of 2, and extreme/bad value of 3. By applying these thresholds, we observe that at least 26.7\& of the classes satisfies good value. However, the extreme/bad value of 3 does not comply with the median value of 3 which Chidamber and Kemerer\cite{chidamber1994metrics} considers as a good value. Using the recommended max value of 4 seems to be a better idea in this case. As the tree gets deeper, it constitutes greater design complexity as more classes and methods are involved. By applying the recommended threshold value, we identified two classes with a DIT value of 4 or more. Classes with high values of DIT have shown to be very significant in identifying fault-prone classes\cite{basili1996validation}.
+
+
+
+\subsubsection{Number Of Children}
+%NOC Viewpoints:
+%- Greater the number of children, grater the reuse, since inheritance is a form of reuse
+%- Greater the number of children, greater the likelihood of improper abstraction of the parent class. If a class have a large number of children, it may be a case of misuse of subclassing.
+%- The number of children gives an idea of the potential influece a class has on the design. If a class has a large number of children, it may require more testing of the methods in that class
+NOC measures the number of children a class has. In general, the greater number of children, the greater potential of reuse, since inheritance is a form of reuse. However, if a class have a large number of children, it may be a case of misuse of subclassing\cite{basili1996validation}. Higher degrees of NOC indicates increase in reuse, but in trade-off, the classes may require more testing. In Table \ref{tab:oometrics-firmus}, we observe that NOC median value is 0. The distribution of NOC metric shows that approximately 86.5\% of all classes have no children, and that a small number of classes have many immediate subclasses. Both Chidamber and Kemerer\cite{chidamber1994metrics}, and Basili et al.\cite{basili1996validation} have observed the similar median values for NOC metric in their respective studies. These values suggests that designer may not be fully exploiting the advantages of inheritance as a basis for designing classes. Lack of communication could be another reason between class designers, which leads developers not to reuse.
+
+Following threshold value for NOC metric were derived from its descriptive statistics in Table \ref{tab:oometrics-firmus}: a low/good value of 0, a high/typical value of 2, and extreme/bad value 4. These values are comparable to the thresholds that Filo et al.\cite{tarcisio} have identified in their study. The difference is that they classify extreme/bad value as 4. By applying these thresholds, we observe that at 91.2\% of the classes are classified as low/good, 5.2\% of all classes are classified as high/typical, and 3.6\% of all classes are classified as extreme/bad. These classes are an indication of something that may be hard to understand an maintain. These classes should be reviewed.
+
+
+
 
 \subsubsection{CBO}
+CBO refers to the number couplings between object classes. Higher values of CBO indicates the extent of lack of reuse potential, and efforts required to maintain and test the class. According to Chidamber and Kemererer\cite{chidamber1994metrics}, a low median had a typical value of 0 and 9. A median value of 0 suggests that at least half of the classes are self-contained and do not refer to other classes.
+
+In our study, we identified a CBO median value of 5, indicating that at least 50\% of the classes refer to 5 or less object classes. CBO can be used as a way to track whether the class hierarchy is losing its integrity, and whether different parts of the system are developing unnecessary relations between classes.
+
+
+
+
+
+
 
 Viewpoints:
 - Excessive coupling between object classes is detrimental to modular design and prevents reuse. The more independent a class is, the easier it is to reuse it in another application.
@@ -80,6 +133,9 @@ Viewpoints:
 From their study:
 - Site A: Median: 0, Max: 84, Min: 0
 - Site B: Median: 9, Max: 234, Min: 0
+
+
+
 
 \subsubsection{RFC}
 RFC is defined as the total number of methods that can be executed in response to a message to a class. This count includes all methods available in the class hierarchy. 
@@ -117,66 +173,85 @@ Their study results on WMC
 
 
 
-CBO: 14
-
-WMC: Lower limit 1, upper limit 50 (refactorIT)
-
-RFC: Should not exceed 50, but it is acceptable to have RFC up to 100. RefactorIT recommends a default threshold from 0 to 50 for a class. 
-
-NOC: Lower limit is 0, recommended upper limit is 10.
-
-DIT: 0 indiactes a root, 2 and 3 indicated a higher degree of reuse. If there is a majority of DIT values 
-below 2, it may represent poor exploitation of the advantages of OO design and inheritance. Recommended max value f 5 since deeper trees constitue greater design compelxity as more methods and classes are involved. DIT: 2 is good. 
-
-NIM: Good: 0-10, Regular: 11-40, bad: 40+
-NIV: Good: 0, regular: 1-10, bad: 10+
-
-LCOM: Good: 0, regular: 1-20, bad: greater than 20. 
-
----------
-
-For 101-1000 classes:
-
-CBO: Good: 0-1, regular: 2-20, bad: 20+
-
-NIV: 0-1, 1-8, 8+
-NIM: 0-25, 6-50, 50+
-DIT: 2
-LCOM: 0, 1-20, 20+
 
 
 
 
 
-\section{Measuring Software Quality using Object-Oriented Metrics}
-The goal with this case study conducted at Autronica in Trondheim is to find ways that can help us to identify design debt in embedded systems. One approach of doing this is to measure the software quality using object-oriented metrics. Using object-oriented metrics to measure the system can help us to identify poorly designed classes, which also helps us to answer the first research question.
+Classes which are infected with God Class, and God Methods have higher class error probability than non-infected classes.
 
-\section{Identifying Code Smells Using Automatic Approaches}
 
 
 
 \subsection{Refactoring Suggestions}
+The following subsections discuss how refactoring can be applied to the identified code smells.
+
+\subsubsection{Duplicated Code}
+Our results revealed that 5\% of the source code, including the test files, contains duplicated code. 
+
+Removing duplicated code will reduce the number of lines of code. However, duplicated code in different locations must be handled differently.
+
+We identified same code in two or more methods. By applying the "Extract Mehotd" refactoring technique, a new method is created. The methods which contains the duplicated code will call on this method.
+
+If duplicated code are found in two or more different classes, the "Extract Superclass" refactoring technique can be applied. This allows us to create a single superclass for these classes that maintains all their prevous functionality. In this case, number of lines of code will increase, and so will the NOC metric. On the other hand, if there are duplicated in
+
+For example, we identified two identical file in both Component B and Component S. By 
+
+\subsubsection{God Class}
+How to refactor, does the refactoring affect some of the metrics
+
+\subsubsection{Long Method}
+How to refactor, does the refactoring affect some of the metrics
+
+\subsubsection{Long Paramter List}
+How to refactor, does the refactoring affect some of the metrics
+
+\subsubsection{Dead Code}
+How to refactor, does the refactoring affect some of the metrics
+The quickest way to refactor dead code is to delete unused code and unneeded files. Removing dead code will reduce the number of lines of code. 
+
+\subsubsection{Speculative Generality}
+How to refactor, does the refactoring affect some of the metrics
 
 
-
-\section{Research Questions}
+\section{Research Evaluation}
 %Table "X" contains a summary of the resuls of this research. Although, the research did not specify the effects of design debt in embedded systems, we still were able to identify some of the effects it had on
 According to our results, we can now answer the research questions that were stated in Chapter 1.
 \\
 \textbf{RQ1: How can design debt be identified?} \\
 In this study, we have been able to identify design debt using automatic static analysis tools, and by measuring object-oriented metrics.
 
+We have been able to identify desigb debt by statically analyzing source code using tools, and by measring its object-oriented metrics using Chidambre and Kememer metric suite.
+
+By applying thresholds for object-oriented metrics, we were able to identify the classes with potential design flaws in which needs inspection.
+
+For det første så har vi identifisert noen code smells. Fordelen med code smells er at de kommer med en liste av refaktoreringssteknikker. 
+
+Vi har også sett på OO-metrikker, og ved å legge til treshholds har vi klart å trekke ut klassene som påvirker kvalitetsattributter mest. Hvordan kan disse fikses på?
+
+The goal with this case study conducted at Autronica in Trondheim is to find ways that can help us to identify design debt in embedded systems. One approach of doing this is to measure the software quality using object-oriented metrics. Using object-oriented metrics to measure the system can help us to identify poorly designed classes, which also helps us to answer the first research question.
+
+We identified threshold values for the system that was studied, and applied them to uncover possible design flaws in the source code. The threshold values of metrics detected X classes that needs to be reviewed. Moreover, there are not many threshold values for this type of systems, and this our results can be used for comparasion for any similar systems. Moreover, we evaluated C\&K metrics + NIM and NIV, NOM. For metric measuring, we used software with precisely described computation of these metrics.
+
+%Although we applied modern techniques to threshold identification, our study still should be viewed as evaluation of one software system and our results should not be taken as a dogma. Our techniques can be  applied to another kind of software for which it is hard to gather data, but it is necessary to bear in mind, that the thresholds represent only local data and for general usage, the broader comparison should e used. We present our data as a base for possible future comparison with other studies and we hope our results can bring more light into the thresholds of safety critical software metrics. As a future endeavor,  e would like to study differences between metrics thresholds measured in this study and data from a system with at least some degree of similarity. We would like to compare our results with measurement of  hresholds of open-source operational systems (which appear to be the most similar to our software) 
+
+These classes can be used as early quality indicators.
 
 \textbf{RQ2: What are the effects of design debt?} \\
 - How it affects the software quality attributes
+
+Skrive noe om hvordan design debt påvirker de ulike kvalitets attributtene til et system. Gjerne gå dypere inn i et komponent for å finne ut av hvilke komponenter som påvirker systemets kvalitetsattributter mest. 
 
 \textbf{RQ3: What kind of design debt can be found in embedded systems?} \\
 - Code smells
 - 
 
+Se etter artikler som har gjort noe tilsvarende. Hva har andre forskere funnet av design debt? Hva har vi funnet, er det noen sammenhenger?
+
 \textbf{RQ4: How to pay design debt?} \\
 - Refactoring suggestions.
-
+- Applying design patterns
+-
 
 
 
@@ -184,15 +259,24 @@ In this study, we have been able to identify design debt using automatic static 
 
 \section{Threats To Validity}
 \label{sub:threats_to_validity}
+Validity is related to how much the results can be trusted\cite{Wohlin:2000:ESE:330775}. We consider threats to the external, internal, and construct validity of this study.
 
 \subsection{Internal Validity}
 \label{sub:internal_validty}
+Interval validity is the degree to which we can condulcde that the dependent variable is accounted for by the independen varuable.
 
 \subsection{External Validity}
 \label{sub:external_validity}
+External validity refers to the degree to which the results from the study can be generalized to the population. The system investigated in this study consists of one simple size and an application domain, hence increasing the threat to external validty. 
 
 \subsection{Construct Validity} % (fold)
 \label{sub:construct_validity}
+
+\subsection{Conclusion Validity} % (fold)
+\label{sub:conclusion_validity}
+Conclusion validity refers to the degree in which correct conclusion can be drawn from the relationship between treatment and the outcome. Our case study consisted of studying one system, so in general, the statistical power is very low. Deeper studies needs to be performed to confirm is our results have more applicability.
+
+% subsection subsection_name (end)
 
 % subsection construct_validity (end)
 
@@ -203,3 +287,4 @@ In this study, we have been able to identify design debt using automatic static 
 
 
 % Prøve å få til evaluering av verktøyene og metrikkene. Svar på forskningspørsmå, hold det temarettet.
+
