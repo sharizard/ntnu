@@ -3,7 +3,7 @@
 % !TEX spellcheck = en-US
 
 \chapter{Discussion}
-This thesis aims to investigate the possibilities to identify design debt in embedded systems. Our case study evaluated a software system written in C/C++. This chapter will discuss the results we gathered during our case study. Section 5.1 contains a discussion the measured values for object-oriented metrics by applying a set of threshold values to uncover possible unsecure parts of the code. Section 5.2 will lo
+This thesis aims to investigate the possibilities to identify design debt in embedded systems. Our case study evaluated a software system written in C/C++. This chapter will discuss the results we gathered during our case study. % Section 5.1 contains a discussion the measured values for object-oriented metrics by applying a set of threshold values to uncover possible insecure parts of the code. Section 5.2 will lo
 
 
 
@@ -24,26 +24,25 @@ LCOM   			& 100			         	& 42				& 75   			 & 100+						& 72.5\cite{tarcisio}
 DIT 			& 4             			& 1					& 2				 & 3+						& 4\cite{tarcisio}, 5\cite{rosenberg1999risk,metricoverview,metricsguide}              \\ \hline
 CBO    			& 30  			          	& 6					& 11			 & 17+						& 5\cite{rosenberg1999risk,metricsguide}, 14\cite{sahraoui2000can,phpdepend}     \\ \hline
 NOC    			& 20 			           	& 0					& 2				 & 4+						& 3\cite{tarcisio}, 5\cite{metricsguide}, 10\cite{metricoverview}               \\ \hline
-RFC    			& 115           			& 15				& 34			 & 51+						& 50\cite{rosenberg1999risk}      \\ \hline
+RFC    			& 115           			& 15				& 34			 & 51+						& 50\cite{rosenberg1999risk,metricoverview}      \\ \hline
 NIM    			& 48            			& 8					& 15			 & 23+						&               \\ \hline
 NIV    			& 18            			& 2					& 5				 & 7+						&             \\ \hline
-NOM    			& 48            			& 9					& 16			 & 24+						& 20\cite{rosenberg1999risk}                \\ \hline
 WMC    			& 325  			         	& 19				& 51			 & 76+						& 34\cite{tarcisio}, 40\cite{rosenberg1999risk}, 50\cite{phpdepend}      \\ \hline
 \end{tabular}}
 \end{table}
 
 
-For 101-1000 classes:
+%For 101-1000 classes:
 
-CBO: Good: 0-1, regular: 2-20, bad: 20+
-NIV: 0-1, 1-8, 8+
-NIM: 0-25, 6-50, 50+
-DIT: 2
-LCOM: 0, 1-20, 20+
+%CBO: Good: 0-1, regular: 2-20, bad: 20+
+%NIV: 0-1, 1-8, 8+
+%NIM: 0-25, 6-50, 50+
+%DIT: 2
+%LCOM: 0, 1-20, 20+
 
 
-ARTIKLER: 
-
+%ARTIKLER: 
+\iffalse
 WMC, DIT, RFC CBO, and NOC metrics appear to be useful to predict fault-prone classes. 
 
 WMC: It was shown to be somewhat significant, and their results were stronger for new and modified classes. As excpected, the larger WMC is, the larger the probability of fault detection. Internal complexity does not have a strong impact if the class is reused verbatim or with very slight modifications. In that case, class interface properties will have the most significant impact.
@@ -67,42 +66,27 @@ RFC 105, 0, 19.5, 33.91, 33.37
 NOC 13 0 0 0.23, 1.54
 LCOM 426, 0, 0, 9.7, 63.77
 CBO 30 0 5 6.8 7.56
+\fi
 
 
 % Hva betyr våre findings, hvor verdifulle de kan være, og hvorfor.
 
-\subsubsection{LCOM}
-LCOM is related to the counting of methods using common attributes in a class. In our experiment, we observed that LCOM median value for Project Firmus is 55, which is very similar to LCOM media value measured by Chidamber and Kemerer\cite{chidamber1994metrics}, Okike\cite{okike2010pedagogical}, and Basili et. al\cite{basili1996validation}. A low median value indicates that at least 50\% of the classes are cohesive.
-
-By following Chidamber and Kemerer's guide of interpreting th
-
-
-
- We applied the extreme threshold value to the system studied, and identified two classes with low cohesion. However, by analyzing the frequency distribution of LCOM values in Figure "X", we clearly see that the normal distrubution is not normal. That may be the reason we got our values in the first place, and why it would be better to use one of the recommended max values as threshold. The recommended threshold value for LCOM is 72.5, which is very close to our "high" value. By applying the recoomended threshold, we identified 41 classes with LCOM value larger than 72.5. 
-
-We observe that lack of cohesion values seem increasing with the size of classes which is plausible. In reality, large classes tend to lack cohesion. These classes tend to have a relatively high number of attributes and methods. Moreover, high average values of LCOM can be caused by a large number of attributes and methods in the class, where many of the methods does not use the same attributes. By observering our results, we noticed that classes with zero instance variables tend to have high cohesion.
-
-Viewpoints: 
-- Cohesiveness of methods within a class is desirable, since it promotes encapsulation
-- Lack of cohesion implies classes should probably be split into two or more subclasses
-- Any measure of disparateness of methods helps identify design flaws in classes
-- Low cohesion increases complexity, thereby increasing the likelihood of errors during the development process.
 
 
 
 
+% Large DIT values -> many inherited methoc, class behavour cannot be predicted
 \subsubsection{Depth in Inheritance Tree}
 %DIT Viewpoints from Chidamber:
 %%- The deeper a class is in the hierarchy, the greater number of methods it is likely to inherit, making it more complext to predict its behaviour. 
 %- Deeper trees consistute greater design complexity, since more methods and classes are involved.
 %- The deeper a class is in the hierachy, the greater the potential reuse of inherited methods.
 % In general, as the tree gets deeper, it constitutes greater design complexity as more classes and methods are involved. 
-DIT indicates how deep a class is in the inheritance tree. It is evident that a deep inheritance makes software maintenance more difficult("SITER DALY et al. 1996"). Higher degree of DIT indicate a trade-off between increased complexity and increase reuseability. By following Chidamber and Kemerer's\cite{chidamber1994metrics} guide to interpreting their DIT metric using descriptive statistics, a low median value indicates that at least 50\% of the classes tend to be close to the root in the inheritance hierarchy. In their study, a low median value had a typical value of 1 and 3. However, if there is a majority of DIT values below 2, it may represent poor exploitation of the advantages of object-oriented design and inheritance, because a DIT value of 2 and 3 indicates higher degree of reuse. In Table \ref{tab:oometrics-firmus}, we observe that DIT median value for Project "Firmus" is 1. More precisely, approximately 39\% of the classes have a DIT value of 0, while 26.7\% of the classes have a DIT value of 1. The classes are considered to be close to the root in the inheritance tree, and there may be a probability of not exploiting the advantages of object-oriented metrics.
+DIT indicates how deep a class is in the inheritance tree. It is evident that a deep inheritance makes software maintenance more difficult("SITER DALY et al. 1996"), as classes with higher value of DIT are associated with higher defects\cite{subramanyam2003empirical}. Moreover, higher degree of DIT indicates a trade-off between increased complexity and increase reuseability By following Chidamber and Kemerer's\cite{chidamber1994metrics} guide to interpreting their DIT metric using descriptive statistics, a low median value indicates that at least 50\% of the classes tend to be close to the root in the inheritance hierarchy. In their study, a low median value had a typical value of 1 and 3. However, if there is a majority of DIT values below 2, it may represent poor exploitation of the advantages of object-oriented design and inheritance, because a DIT value of 2 and 3 indicates higher degree of reuse. In Table \ref{tab:oometrics-firmus}, we observe that DIT median value for Project "Firmus" is 1. More precisely, approximately 39\% of the classes have a DIT value of 0, while 26.7\% of the classes have a DIT value of 1. The classes are considered to be close to the root in the inheritance tree, and there may be a probability of not exploiting the advantages of object-oriented metrics.
 
-Classes with high values of DIT have shown to be very significant in identifying fault-prone classes\cite{basili1996validation}. We derived the following threshold for the DIT metric to identify classes with high values of DIT: a low/good value of 1, a high/typical value of 2, and extreme/bad value of 3. By applying these thresholds, we observe that at least 26.7\% of the classes satisfies good value. However, the extreme/bad value of 3 does not comply with the median value of 3 which Chidamber and Kemerer\cite{chidamber1994metrics} considers as a good value. Therefore, we have chosen to apply the recommended max value of 5 seems as it has been recommended by other researchers. We were not able to identify any classes with a DIT value of 5 or more, but we identified two classes with DIT value of 4. These results indicates little use of inheritance and hence, polymorphism. 
+Classes with high values of DIT have shown to be very significant in identifying fault-prone classes\cite{basili1996validation}. We derived the following threshold for the DIT metric to identify classes with high values of DIT: a low/good value of 1, a high/typical value of 2, and extreme/bad value of 3. By applying these thresholds, we observe that at least 26.7\% of the classes satisfies good value. However, the extreme/bad value of 3 does not comply with the median value of 3 which Chidamber and Kemerer\cite{chidamber1994metrics} considers as a good value. Therefore, we have chosen to apply the recommended max value of 5 seems as it has been recommended by other researchers. We were not able to identify any classes with a DIT value of 5 or more, but we identified two classes with DIT value of 4. These results do indicate that reuse opportunities through inheritance is limited and perhaps compromised in favor of comprehensibility of the overall architecture. On the other hand, low values of DIT suggests that appropriate design preferences are being followed by the company\cite{subramanyam2003empirical}.
 
-The lower the class is in the inheritance three; the larger is its DIT, and therefore, the harder is the class maintainability. 
-
+% High probability of misuse of intheritance principles, more testing time is required.
 \subsubsection{Number Of Children}
 %NOC Viewpoints:
 %- Greater the number of children, grater the reuse, since inheritance is a form of reuse
@@ -110,65 +94,62 @@ The lower the class is in the inheritance three; the larger is its DIT, and ther
 %- The number of children gives an idea of the potential influece a class has on the design. If a class has a large number of children, it may require more testing of the methods in that class
 NOC measures the number of children a class has. In general, the greater number of children, the greater potential of reuse, since inheritance is a form of reuse. However, if a class have a large number of children, it may be a case of misuse of subclassing\cite{basili1996validation}. Higher degrees of NOC indicates increase in reuse, but in trade-off, the classes may require more testing. In Table \ref{tab:oometrics-firmus}, we observe that NOC median value is 0. The distribution of NOC metric shows that approximately 86.5\% of all classes have no children, and that a small number of classes have many immediate subclasses. Both Chidamber and Kemerer\cite{chidamber1994metrics}, and Basili et al.\cite{basili1996validation} have observed the similar median values for NOC metric in their respective studies. These values suggests that designer may not be fully exploiting the advantages of inheritance as a basis for designing classes. Lack of communication could be another reason between class designers, which leads developers not to reuse.
 
-Following threshold value for NOC metric were derived from its descriptive statistics in Table \ref{tab:oometrics-firmus}: a low/good value of 0, a high/typical value of 2, and extreme/bad value 4. These values are comparable to the thresholds that Filo et al.\cite{tarcisio} have identified in their study. The difference is that they classify extreme/bad value as 4. By applying these thresholds, we observe that at 91.2\% of the classes are classified as low/good, 5.2\% of all classes are classified as high/typical, and 3.6\% of all classes are classified as extreme/bad. These classes are an indication of something that may be hard to understand an maintain. These classes should be reviewed.
+Following threshold value for NOC metric were derived from its descriptive statistics in Table \ref{tab:oometrics-firmus}: a low/good value of 0, a high/typical value of 2, and extreme/bad value 4. These values are comparable to the thresholds that Filo et al.\cite{tarcisio} have identified in their study. The difference is that they classify extreme/bad value as 4. By applying these thresholds, we observe that at 91.2\% of the classes are classified as low/good, 5.2\% of all classes are classified as high/typical, and 3.6\% of all classes are classified as extreme/bad. Similar to DIT, these values indicate limitation in reuse opportunities in favor of comprehensibility of the overall architecture, which again suggest that appropriate design preferences for the system are being followed. These classes are an indication of something that may be hard to understand an maintain. These classes should be reviewed.
+
+% Large LCOM values present cohesive and independent class.
+\subsubsection{Lack of Cohesion in Methods}
+
+%Viewpoints: 
+%- Cohesiveness of methods within a class is desirable, since it promotes encapsulation
+%- Lack of cohesion implies classes should probably be split into two or more subclasses
+%- Any measure of disparateness of methods helps identify design flaws in classes
+%- Low cohesion increases complexity, thereby increasing the likelihood of errors during the development process.
+
+LCOM is related to the counting of methods using common attributes in a class. In general, smaller values of LCOM present cohesive and independent class, which is desirable since it promotes encapsulation. Larger values of LCOM does increase the complexity of the class, hence increasing the likelihood of errors during the development process. Our derived threshold values for LCOM metric reveals a low/good value 42, a high/typical value of 75, and an extreme/bad value of 100. When applying this threshold, we only identified two classes with an extreme/bad value. However, by analyzing the frequency distribution of LCOM values, we clearly see that the normal distribution of the data is not normal. This may be the reason for the derived threshold values. By comparing the recommended threshold value with our derived values, we notice that the recommended threshold value of 72.5 is very close that what we identified as high/typical value. By applying the recommended max threshold, we identified 41 classes with a LCOm value that is larger than 72.5. We do observe that LCOM values seem to increase with the size of classes. Most classes with a high value of LCOM revealed to have large number of methods. These methods indicate higher disparateness in the functionality provided by the class. In addition, Chidamber and Kemererer\cite{chidamber1994metrics} and Basili et al.\cite{basili1996validation} state that classes with large values of LCOM could be more error prone, more difficult to test. A refactoring option would be to split the classes into two or more classes that are more well defined in terms of behavior. Moreover, LCOM metric can be used by the developers to keep track of whether the cohesion principle is adhered.
 
 
-
+% class is sensitive to changes
 \subsubsection{Coupling Between Object classes}
 
 %Viewpoints:
 %- Excessive coupling between object classes is detrimental to modular design and prevents reuse. The more independent a class is, the easier it is to reuse it in another application.
 %- In order to improve the modularity and promote encapsulation, inter-oject class couples should be kept to a minimum. The larger number of couples, the higher the sensitivity to changes in other parts of the design, and therefore maintenance is more difficult.
 %- A measure of couping is useful to determine how complex the testing of varioous parts of a design are likely to be. The higer the inter-object class coupling, the more rigorous the testing needs to be.
-CBO refers to the number couplings between object classes. Higher values of CBO indicates the extent of lack of reuse potential of a class, and that more effort is required to maintain and test the class. According to Chidamber and Kemererer\cite{chidamber1994metrics}, a low median had a typical value of 0, while a high median had a value of 9. A median value of 0 suggests that at least half of the classes are self-contained and do not refer to other classes. Basili et al.\cite{basili1996validation} states that CBO appears to be useful to predict class fault-proneness. Our results revealed a CBO median value of 5, indicating that at least 50\% of the classes refers to 5 or less object classes. The CBO value is generally less for most classes, hence most of these classes are easy to understand, reuse, and maintain. We did notice that some of these classes had higher values in the other metrics, such as WMC and LCOM. 
+CBO refers to the number couplings between object classes. Higher values of CBO indicates the extent of lack of reuse potential of a class, and that more effort is required to maintain and test the class. An analysis by revealed that classes higher values of CBO are associated with higher defects\cite{subramanyam2003empirical}. According to Chidamber and Kemererer\cite{chidamber1994metrics}, a low median had a typical value of 0, while a high median had a value of 9. A median value of 0 suggests that at least half of the classes are self-contained and do not refer to other classes. Basili et al.\cite{basili1996validation} states that CBO appears to be useful to predict class fault-proneness. Our results revealed a CBO median value of 5, indicating that at least 50\% of the classes refers to 5 or less object classes. The CBO value is generally less for most classes, hence most of these classes are easy to understand, reuse, and maintain. We did notice that some of these classes had higher values in the other metrics, such as WMC and LCOM. 
 
-Threshold values for the CBO metric were derived, and the following values were identified:  a low/good value of 6, a high/typical value of 11, and an extreme/bad value of 17 or more. Comparing our thresholds, we do think that the extreme/bad value may be a little bit high, especially when we compare the values with the recommended max values. Moreover, C\&K did classify a median value of 9 as high. Therefore, we chose to use high/typical value as our default threshold. Bay applying the threshold, we observe that 11.3\% of all classes have a coupling of 12 or more. To promote encapsulation and improve modularity of a class, coupling between classes should be kept to a minimum. As the identified classes have high coupling values, they may be more sensitive to changes in other parts of the design, leading to maintenance problems. Moreover, it is likely that these classes are difficult to reuse in other parts of the system, and more complex to test.
-
-CBO can be used as a way to track whether the class hierarchy is losing its integrity, and whether different parts of the system are developing unnecessary relations between classes.
+Threshold values for the CBO metric were derived, and the following values were identified: a low/good value of 6, a high/typical value of 11, and an extreme/bad value of 17 or more. Comparing our thresholds, we do think that the extreme/bad value may be a little bit high, especially when we compare the values with the recommended max values. Moreover, C\&K did classify a median value of 9 as high. Therefore, we chose to use high/typical value as our default threshold. Bay applying the threshold, we observe that 11.3\% of all classes have a coupling of 12 or more. To promote encapsulation and improve modularity of a class, coupling between classes should be kept to a minimum. As the identified classes have high coupling values, they may be more sensitive to changes in other parts of the design, leading to maintenance problems. Moreover, it is likely that these classes are difficult to reuse in other parts of the system because the class is sensitive to change, and more complex to test. CBO can be used as a way to track whether the class hierarchy is losing its integrity, and whether different parts of the system are developing unnecessary relations between classes.
 
 
-
+% many methods can call the class, that affects its complexity
 \subsubsection{Response For Class}
 %Viewpoints:
 %- If a large number of methods can be invoked in response to a message, the testing and debugging of the class becomes more complicated since it requires a greater level of understanding required on the part of the tester. 
 %- The larger the number of methods that can be invoked from a class, the grater the complexity of the class.
 %- A worst case of value for possible responses will assist in appropriate alocation of testing time.
-RFC is defined as the total number of methods that can be executed in response to a message to a class. This count includes all methods available in the class hierarchy. 
+RFC is defined as the total number of methods that can be executed in response to a message to a class. This count includes all methods available in the class hierarchy. Larger values of RFC makes testing and debugging more complicated since it requires a greater level of understanding on the part o the tester\cite{chidamber1994metrics}, hence increasing the complexity of the class. It can be hard to predict the behavior of the class since it requires a deep understanding of the potential interactions that the objects of the class have with the rest of the system, hence affecting the classes testability. Our analysis show that most classes tend to be able to invoke a small number of methods. 74.2\% of the classes have a RFC value of less than 15.
+
+We were able to derive the following threshold values for RFC metric: a low/good value of 15, a high/typical value of 34, and an extreme/bad value of 51 or more. The extreme/bad value is very similar to the recommended max value although it is acceptable to have a RFC up to 100\cite{metricoverview}. However, it is recommended a default threshold from 0 to 50 for a class. By applying the thresholds on the captured metric for Project Firmus, we were able to identify 17 classes with RFC value larger than 50, with one class having a RFC value of 115. According to Chidamber et al.\cite{chidamber1998managerial}, RFC has been found to be highly correlated with WMC and CBO. However, our data reveal that RFC is not correlated with WMC and CBO. The class with a value of 115 had a CBO value of 2 and WMC value of 22. However, its DIT value is 4 may explain that large value of RFC comes from inherited methods. The same thing applies to the class with a RFC value of 109. The class have a CBO value of 3 and a WMC value of 10. However, the DIT value of this class is 4. These observation indicate that RFC is associated with DIT. Since there is a number of classes that have no parents, the RFC values also tend to be low. 
 
 
+%\subsubsection{Number Of Methods and Number of Instance Methods}
+%Generelt ønsker man å ha flere små metoder i en klasse enn et par store. Dersom LCOM ikke stemmer kan klassen bli veldig stor og det kan også si ne om at klassen er en code smell som bør splittes opp.
 
-Study results:
-- Site A: Median: 6, Max: 120, Min: 0
-- Site B: Median: 28, Max: 422, Min: 3
+%\subsubsection{Number of Instance Variables}
 
-\subsubsection{Number Of Methods and Number of Instance Methods}
-Generelt ønsker man å ha flere små metoder i en klasse enn et par store. Dersom LCOM ikke stemmer kan klassen bli veldig stor og det kan også si ne om at klassen er en code smell som bør splittes opp.
+%"GATHERED OO METRICS ARE ANALYZED TO POINT OUT CANDICATE CLASSES. THESE CLASSES NEEDS CODE ISPECTION AND POTENTIALLY REFACTORED USING TOOLS. CLASSES THAT NEEDS REFACTORING PROCESS ARE THOE WITH HIGH VALUE FOR OO METRICS AND HIGH VALUES FOR CLASS SIZE AND OVERALL COMPLEXITY"
 
-\subsubsection{Number of Instance Variables}
-
-
-
+% Complex class
 \subsubsection{Weighted Methods per Class}
-There may be many methods in a class, hence WMC2 not giving good results. If a class has many methods, some methods may have low cmoplexity while others have high complexity.
+WMC refers to the sum of complexity in each method. A greater value of WMC indicates a complex class. A class may contain many methods, hence affecting WMC value. If a class has many methods, some of the methods may have low complexity while other methods have high complexity.  Our results reveal a median value of 10 and sample mean value of 19.707. The results are quite similar to what Chidamber and Kemerer\cite{chidamber1994metrics} and Basili et al.\cite{basili1996validation} measured in their respective studies. Another aspect of our captured data is the similarity of the distribution of the metric values in their and our analyzed system. By looking at Figure X in Chapter 4, we notice that approximately 60 percent (i.e., 119 classes) have a WMC value of less than 10. This seem to suggest that most classes have a small number of methods. In addition, 7.4 percent (i.e., 17 classes) have value greater than 51. One of the classes in Component B revealed to have a WMC value of 325, which indicates that time and effort to develop and maintain this class may be high. This particular class has 44 methods and a CBO value of 10. A class with many methods are most likely application specific, hence reducing its reuse potential. Moreover, an increase in number of methods is associated with an increase in defects\cite{subramanyam2003empirical}. By examining the other classes, we noticed a trend where classes with more methods tend to have higher complexity. For instance, a class with a WMC value of 194 revealed to have 40 methods, suggesting an increase in defects as well.
 
-OUr threshold values: Low/good: 19				High/typical: 51	Extreme/bad: 76. By comparing these values with the recommended max value, we do notice that practicioners recommends a max value close to value we regard as high/typical. Therefore, it seems like this value is more appropriate to use to identify the classes with design flaws. By applying the threshold, we identified 16 classes with a WMC higher than 51. These classes can be considered as problematic.
+We derived the following threshold values for WMC: low/good value of 19, high/typical value of 51, and extreme/bad value of 76. By comparing these values with the recommended max value, the practitioners seem to recommend a max value close to the value we regard as high/typical. Therefore, it seems like this value is more appropriate to use to identify the classes with design flaws. By applying the threshold, we identified 16 classes with a WMC higher than 51. As we mentioned earlier, high complexity are associated with an increase in defects, hence indicating poor design and in worst case, unmanageable. In such cases, maintenance effort increase drastically. The 16 classes we revealed with high complexity are primary candidate classes in which code inspection and potentially refactoring is needed.
 
 
-The classes above the recommended values can be seen as outliners. 
-
-According to Chidamber: 
-- Number and complexity of methods may be an indicator of how much time and effort is required to develop and maintain the class.
-- Larger number of methods in a class, the greater the potential impact on chilcren since they will inherit all the methods in the defined class.
-- A class with many methods are likely to be more application specific, hence limiting the possibility of reuse.
-
-Their study results on WMC
-- Site A: Median: 5, Max: 106, Min: 0
-- Site B: Median: 10, Max: 346, Min: 0
+%The classes above the recommended values can be seen as outliners. 
 
 
 
-
-Classes which are infected with God Class, and God Methods have higher class error probability than non-infected classes.
+%Classes which are infected with God Class, and God Methods have higher class error probability than non-infected classes.
 
 
 
@@ -178,27 +159,24 @@ Classes which are infected with God Class, and God Methods have higher class err
 
 %The goal with this case study conducted at Autronica in Trondheim is to find ways that can help us to identify design debt in embedded systems. One approach of doing this is to measure the software quality using object-oriented metrics. Using object-oriented metrics to measure the system can help us to identify poorly designed classes, which also helps us to answer the first research question.
 
-This thesis is focused on identifying design debt in embedded systems. In particular, we were able to identify design debt by measuring object-oriented metrics and detecting code smells. The software design was analyzed using a suite of object-oriented metrics proposed by Chidamber and Kemererer, one of the most used object-oriented measures. According to our results, we can now answer the research questions that were stated in Chapter 1.
+This thesis is focused on identifying design debt in embedded systems. In particular, we were able to identify design debt by measuring object-oriented metrics and detecting code smells. The software design was analyzed using a suite of object-oriented metrics proposed by Chidamber and Kemererer, one of the most used object-oriented measures. The result does indicate that embedded software developers accumulate technical debt, despite the fact that they cannot contain any errors\cite{pretschner2007software,ebert2009embedded,trienekens2010quality}. However, it seems like the accumulated technical debt is manageable. An important aspect when delivering a product is to make sure the product is stable and reliable. According to our results, we can now answer the research questions that were stated in Chapter 1.
 
 
+%WMC, DIT, RFC CBO, and NOC metrics appear to be useful to predict fault-prone classes. 
 
+%WMC: It was shown to be somewhat significant, and their results were stronger for new and modified classes. As excpected, the larger WMC is, the larger the probability of fault detection. Internal complexity does not have a strong impact if the class is reused verbatim or with very slight modifications. In that case, class interface properties will have the most significant impact.
 
+%DIT: Shown to be very significant. The larget DIT, the larger probability of defect detection.
 
-WMC, DIT, RFC CBO, and NOC metrics appear to be useful to predict fault-prone classes. 
+%RFC: Very significant. The larger RFC, the larger probability of defect detection, especially for UI classes and new/modified classes, same reason as for WMC for extensively modified classes.
 
-WMC: It was shown to be somewhat significant, and their results were stronger for new and modified classes. As excpected, the larger WMC is, the larger the probability of fault detection. Internal complexity does not have a strong impact if the class is reused verbatim or with very slight modifications. In that case, class interface properties will have the most significant impact.
+%NOC: Very significant except in the case of UI casses, but the trend seem to be a contrary to what they expected The larger the NOC value, the lower the probability of defect detection. This trend can be explained by that most classes do not have more than one child, and that verbatim reused classes are somwwhat associated with large NOC.
 
-DIT: Shown to be very significant. The larget DIT, the larger probability of defect detection.
+%CBO: Very significant, and particular for UI classes.
 
-RFC: Very significant. The larger RFC, the larger probability of defect detection, especially for UI classes and new/modified classes, same reason as for WMC for extensively modified classes.
+%LCOM: NIV kan si noe om LCOM. Si at det er 10 instanse variabler, det er ikke sikkert at alle blir delt på mellom metodene i klassen. LCOM is also significcant for predicting fault proneness.
 
-NOC: Very significant except in the case of UI casses, but the trend seem to be a contrary to what they expected The larger the NOC value, the lower the probability of defect detection. This trend can be explained by that most classes do not have more than one child, and that verbatim reused classes are somwwhat associated with large NOC.
-
-CBO: Very significant, and particular for UI classes.
-
-LCOM: NIV kan si noe om LCOM. Si at det er 10 instanse variabler, det er ikke sikkert at alle blir delt på mellom metodene i klassen. LCOM is also significcant for predicting fault proneness.
-
-These metrics can be used to build a predictive model of fault-prone classes.
+%These metrics can be used to build a predictive model of fault-prone classes.
 
 
 
@@ -222,65 +200,42 @@ By applying thresholds for object-oriented metrics, we were able to identify the
 
 
 \subsubsection{RQ2: What are the effects of design debt?} 
-The second research question is related to the effects of having design flaws in embedded software.
+The second research question is related to the consequences of having design flaws in embedded software. Object-oriented metrics have proven to be indicators of problems in software design. Classes with larger metric values than its threshold values may affect the quality attributes of a system. Our analysis reported multiple classes in which following metric values were larger than its threshold values; CBO, RFC, WMC, LCOM, CBO, and NOC. Classes with large values of WMC are likely to be more application specific, hence affecting the software's understandability, reusability, flexibility, and maintainability quality attributes\cite{rosenberg1998applying,bansiya2002hierarchical}. Moreover, classes with large values of RFC may be harder to understand and test, hence affecting the software's understandability, testability, maintainability\cite{rosenberg1998applying}. In addition, RFC may affect system's functionality and reusability as objects communicates by message passing\cite{bansiya2002hierarchical}. LCOM measures the cohesion of a system. Lack of cohesion in a class increases is complexity, which ultimately leads to errors during development. This metric affects the systems efficiency, reusability, and understandability\cite{rosenberg1998applying,bansiya2002hierarchical}. Large values CBO complicates a system, since a module is harder to understand, change, reuse, and maintain due to its excessive coupling with other classes. CBO evaluates the systems understandability, extendability, efficiency, reusability, testability, and maintainability of a class\cite{rosenberg1998applying,bansiya2002hierarchical}. Furthermore, the DIT and NOC metric are related to inheritance which enables reuse. Large values of DIT indicates deep hierarchy which constitute greater design complexity. Deep hierarchy enhances the potential reuse of inherited methods but in trade-off, complexity will increase which affects other quality attributes. In total, this metric evaluates efficiency, reusability, understandability, and testability\cite{rosenberg1998applying}. In addition, DIT metric may also be related to flexibility, extendability, effectiveness, and functionality\cite{bansiya2002hierarchical}. NOC primarily evaluates efficiency, testability, and resuability of a system\cite{rosenberg1998applying}, but it may also influence flexibility, understandability, extendability, and effectiveness of a system\cite{bansiya2002hierarchical}.
 
-Classes with larger metric values than its threshold values may affect the quality attributes of a system. Our analysis reported multiple classes in which following metric values were larger than its threshold values; CBO, RFC, WMC, LCOM, CBO, and NOC. Classes with large values of WMC are likely to be more application specific, hence affecting the software's understandability, reusability, flexibility, and maintainability quality attributes\cite{rosenberg1998applying,bansiya2002hierarchical}. Moreover, classes with large values of RFC may be harder to understand and test, hence affecting the software's understandability, testability, maintainability\cite{rosenberg1998applying}. In addition, RFC may affect system's functionality and reusability as objects communicates by message passing\cite{bansiya2002hierarchical}. LCOM measures the cohesion of a system. Lack of cohesion in a class increases is complexity, which ultimately leads to errors during development. This metric affects the systems efficiency, reusability, and understandability\cite{rosenberg1998applying,bansiya2002hierarchical}. Large values CBO complicates a system, since a module is harder to understand, change, reuse, and maintain due to its excessive coupling with other classes. CBO evaluates the systems understandability, extendability, efficiency, reusability, testability, and maintainability of a class\cite{rosenberg1998applying,bansiya2002hierarchical}. Furthermore, the DIT and NOC metric are related to inheritance which enables reuse. Large values of DIT indicates deep hierarchy which constitute greater design complexity. Deep hierarchy enhances the potential reuse of inherited methods but in trade-off, complexity will increase which affects other quality attributes. In total, this metric evaluates efficiency, reusability, understandability, and testability\cite{rosenberg1998applying}. In addition, DIT metric may also be related to flexibility, extendability, effectiveness, and functionality\cite{bansiya2002hierarchical}. NOC primarily evaluates efficiency, testability, and resuability of a system\cite{rosenberg1998applying}, but it may also influence flexibility, understandability, extendability, and effectiveness of a system\cite{bansiya2002hierarchical}.
+Furthermore, code smells are manifestations of design flaws that can have negative influence on software quality. Although the results did not investigate the effects of the identified code smells on the system studied, we have reviewed the consequences of code smell that other researchers has discovered. Sjoberg et al.\cite{sjoberg2013quantifying} investigated the relationship between 12 different code smells and maintenance effort. Their result revealed that none of these code smells were associated with more maintenance effort. Similarly, Hall et al.\cite{hall2014some} state that some smells indicate fault-prone code in some circumstances but that the effect these smells have on faults and software maintainability is small. Lindsay et al.\cite{lindsay2010does} state that not all "Large Class" code smell are bad, some of them could be explained by decisions that perhaps are not entirely under the control of the developer. For example, a choice of particular design pattern may lead to this smell. On the other hand, both Li et al.\cite{li2007empirical} and Dhillon et al.\cite{dhillon2012can} state that bad smells are positively associated with increased error rate in software projects. Furthermore, Olbrich et al.\cite{olbrich2010all} proved that God Class and Brain Class code smell have a negative effect on software quality in terms of change frequency, change size, and number of weighted defects. Khomh et al.\cite{khomh2009exploratory} provided evidence that classes with specific code smells are more subject to change than others. 
 
-We have not been able to study the effects of code smells discovered in this research. However, we have analyzed effects of code smell that other researchers has discovered. Sjoberg et al.\cite{sjoberg2013quantifying} investigated the relationship between 12 different code smells and maintenance effort. Their result revealed that none of these code smells were associated with more maintenance effort. Similarly, Hall et al.\cite{hall2014some} state that some smells indicate fault-prone code in some circumstances but that the effect these smells have on faults is small. In some cases, spending effort on refactoring smells may have no effect on the system. On the other hand, both Li et al. and Dhillon et al. state that bad smells are positively associated with increased error rate in software projects. Furthermore, Olbrich et al. proved that God Class and Brain Class code smell have a negative effect on software quality in terms of change frequency, change size, and number of weighted defects. However, as the smells were normalized with respect to size, the results were opposite. 
-
-Artiklene viser at code smells som regel har minimale virkninger. Noen code smells kan ha andre virkninger på systemet, og påvirke systems kvalitets attributter. 
-
-We conclude with that the effects of having code smells may be low, and that its file or class metric should be measured.
-
+To summarize, these articles state that certain types of code smells can have minimal effects, while other types of code smells can have greater effects on the quality attributes of a system. For example, God Class code smell will create more maintenance effort than Dead Code code smell will. To determine the actual effects of having code smells, the file and class metric in which the code smells are located should be measured.
 
 % Skrive noe om hvordan design debt påvirker de ulike kvalitets attributtene til et system. Gjerne gå dypere inn i et komponent for å finne ut av hvilke komponenter som påvirker systemets kvalitetsattributter mest. 
 
 \subsubsection{RQ3: What kind of design debt can be found in embedded systems?} 
-
-The third research question is related to our results from the case study. We have been able to identify code smells in the analyzed system, and possible fault-prone classes by applying threshold values on the derived metrics.
-
-We have found code smells in form of dead code, duplicated code, speculative generality, 
+The third research question is related to our results from the case study. During our case study, we were able to identify fault-prone classes by applying threshold on the derived object-oriented metrics, and code smells using automatic static analysis code tools. We were able to find Duplicated Code, Dead Code, Speculative Generality, and Long Method as the most common code smells in general. Furthermore, object-oriented metrics are useful for investigating each individual class and the software in general. For example, by examining the metrics, we identified possible large and god class code smells, indicating possible fault-prone classes.
 
 %Se etter artikler som har gjort noe tilsvarende. Hva har andre forskere funnet av design debt? Hva har vi funnet, er det noen sammenhenger?
 
 \subsubsection{RQ4: How to pay design debt?} 
-- Refactoring suggestions.
-- Applying design patterns
+The last research question is related to the management of design debt. A common approach to keep design debt from growing, or to pay back design debt, is to conduct refactoring and re-engineering. Codabux et al.\cite{p8-codabux} does mention that refactoring is a common way to manage and ultimately get rid of technical debt. In addition, refactoring seem improve important internal measures for reusability of object-oriented classes\cite{moser2006does}. Without refactoring, the design of the program will decay over time. 
 
-The following subsections discuss how refactoring can be applied to the identified code smells.
+Our results show that 5\% of the source code, including the test files, contains duplicated code. In general, removing duplicated code will reduce the number of lines of code. Some duplicated code can found in the same class, while other are spread across multiple classes. Thus, they must be handled differently. In most of the cases, we identified the same block of code occurring in the same file or class. If the same code of block exists in two different methods of the same class, "Extract Method" refactoring technique should be applied. This technique creates a new method, which can be invoked from both methods that contained duplicated code\cite{fowler1999refactoring}. In addition, we identified some cases where the same block of code occurred in different classes in the system. For example, two identical files were identified in both Component S and B. If that is the case, then "Extract Class" refactoring technique should be applied. This will create a new class, superclass, or a subclass, which can be reused by both of the components with duplicated code. However, if the method is a critical part of one class, then it should be invoked by the other class.
 
-Our results revealed that 5\% of the source code, including the test files, contains duplicated code. 
+Moreover, we identified 10 long methods. To shorten a method, "Extract Method" can be applied by finding parts of the method that seem to go nicely together and make a new method\cite{fowler1999refactoring}. In some cases, a method may have lots of parameters and eventually temporary variables. If the method has lots of temporary variables to hold the result of an expression, then "Replace Temp with Query" refactoring technique should be applied\cite{fowler1999refactoring}. "Replace Temp with Query" extract the expression into a method, and all references to the temporary variables will be replaced with the expression. Moreover, this will allow us to reuse the new method in other methods. Long parameter list can be slimmed down with "Introduce Parameter Object" and "Preserve Whole Object"\cite{fowler1999refactoring}.
 
-Removing duplicated code will reduce the number of lines of code. However, duplicated code in different locations must be handled differently.
+In addition, we identified 15 methods with Long Parameter List code smell, whereas 3 methods were listed as critical. As mentioned in the paragraph above, Long Parameter List can be slimmed down with "Introducted Parameter Object", and "Preserve Whole Object". "Introduce Parameter Object" should be used when a group of parameters naturally go together, while "Presever Whole Object" should be applied when a whole object can be sent as parameter in a method call rather than several values from an object. In addition, "Replace Parameter with Method" refactoring technique can be applied when you can get the data in one parameter by making a request of an object you already know about\cite{fowler1999refactoring}.
 
-We identified same code in two or more methods. By applying the "Extract Mehotd" refactoring technique, a new method is created. The methods which contains the duplicated code will call on this method.
+Our results found 1153 hits of Speculative Generality code smell, including unused methods, local variables, and static globals. Fowler et al.\cite{fowler1999refactoring} suggest that unused variables and static globals should simply be deleted. Refactoring unused methods can be done by either removing them, or by applying "Inline Method" refactoring technique if a method body is more obvious than the method itself. "Inline Method" will replace calls to the method with the method content and delete the method.
 
-If duplicated code are found in two or more different classes, the "Extract Superclass" refactoring technique can be applied. This allows us to create a single superclass for these classes that maintains all their prevous functionality. In this case, number of lines of code will increase, and so will the NOC metric. On the other hand, if there are duplicated in
+The last code smell we identified is Dead Code, which reported 151 hits, including "Commented Out" code, unreachable code, and unnecessary "\#includes in header files". The quickest way to conduct refactoring on Dead Code code smell is to delete unused code and unneeded files. Notice that this will reduce the number of lines of code.
 
-For example, we identified two identical file in both Component B and Component S. By 
-
-How to refactor, does the refactoring affect some of the metrics
-
-How to refactor, does the refactoring affect some of the metrics
-
-How to refactor, does the refactoring affect some of the metrics
-
-How to refactor, does the refactoring affect some of the metrics
-The quickest way to refactor dead code is to delete unused code and unneeded files. Removing dead code will reduce the number of lines of code. 
-
-How to refactor, does the refactoring affect some of the metrics
--
-
-A common approach to keep design debt from growing, or to pay back design debt, is to conduct refactoring and re-engineering. Codabux et al.\cite{p8-codabux} does mention that refactoring is a common way to manage technical debt. 
-
-We believe that by applying refactoring will keep the software quality stable, which ultimately mitigates design debt issues.
+To summarize, design debt can be paid by applying refactoring. We believe that by applying refactoring will keep the software quality stable, which ultimately mitigates design debt issues. However, it is worth noticing that refactoring not necessary is the solution to pay design debt. In some cases, refactoring is unlikely to reduce fault-proneness in classes, and may increase fault-proneness in a class instead\cite{hall2014some}, hence affecting some of the object-oriented metrics. A consideration should be taken where both metrics and other classes affected by the refactoring are involved. For example, refactoring code smells like "Long Method" and "Duplicated Code" may increase the number of methods and coupling. To reduce the maintenance effort, we do believe that improving the software metrics and other work practices may be better more beneficial than refactoring code smells. 
 
 
+%A backlog is used to store issues. Even though the backlog does not store technical debt items, their backlog does include various issues across the system. By making the developers aware of design debt items, we do believe that it may be beneficial in long-run.
 
+%Testing is an important part of design debt pa
+%- Refactoring suggestions.
+%- Applying design patterns
+%- Re-engineering
 
-They conclude with that refactoring is unlikely to reduce fault-proneness and in some cases, they may increase fault-proneness.(hall)
-
-Refactoring is the process of improving a software design without changing its external behaviour\cite{fowler1999refactoring}. 
 
 
 
@@ -288,17 +243,19 @@ Refactoring is the process of improving a software design without changing its e
 \label{sub:threats_to_validity}
 Validity is related to how much the results can be trusted\cite{Wohlin:2000:ESE:330775}. We consider threats to the external, internal, and construct validity of this study.
 
+To validate this research, more experiments need to be done with different OO-languages on different systems. This study was carried out in an industrial context. A suggestion will be to carry the study out in multiple open-source systems and other industrial systems written in different systems. It would be interesting as well to compare different industrial systems within the same OO-language. Another limitation is that we selected bad smells based on the results from automatic static analysis tools. More statistical computation around the metrics could be done to get more precise results. Other tools should have been used, or a developed tool. Metrics were mainly dictated by what Understand could produce. 
+
 \subsection{Internal Validity}
 \label{sub:internal_validty}
-Interval validity is the degree to which we can condulcde that the dependent variable is accounted for by the independen varuable.
+Interval validity is the degree to which we can conclude that the dependent variable is accounted for by the independent variable.
 
 
 
-For metrikker, skriv noe om at det vi har regnet er basert på systemet. Om ting hadde vært annerledes ville metrikkene vært annerledes.
+%For metrikker, skriv noe om at det vi har regnet er basert på systemet. Om ting hadde vært annerledes ville metrikkene vært annerledes.
 
 \subsection{External Validity}
 \label{sub:external_validity}
-External validity refers to the degree to which the results from the study can be generalized to the population. The system investigated in this study consists of one simple size and an application domain, hence increasing the threat to external validty. 
+External validity refers to the degree to which the results from the study can be generalized to the population. The system investigated in this study consists of one simple size and an application domain, hence increasing the threat to external validity. 
 
 \subsection{Construct Validity} % (fold)
 \label{sub:construct_validity}
@@ -319,8 +276,8 @@ Conclusion validity refers to the degree in which correct conclusion can be draw
 
 % Prøve å få til evaluering av verktøyene og metrikkene. Svar på forskningspørsmå, hold det temarettet.
 
-It is worth noticing that not all results can be considered as a consequence of good design. At least some of the results can be explained by decisions that are perhaps not entirely under the control of the developer. For instance, time pressure is revealed as a common cause for technical debt accumulation. A company may compress a schedule to a point where engineers need to compromise design-time qualities to run-time qualities.
+% It is worth noticing that not all results can be considered as a consequence of good design. At least some of the results can be explained by decisions that are perhaps not entirely under the control of the developer. For instance, time pressure is revealed as a common cause for technical debt accumulation. A company may compress a schedule to a point where engineers need to compromise design-time qualities to run-time qualities.
 
-The results may also explained due to miscommunication within the team. Communication within a project team plays a big part in achieving higher software quality. A common way to handle design debt issues is to make sure that the developers are aware of the object-oriented metrics and its corresponding threshold values. For example, if the developers are aware of the classes in which have larger metric values than its threshold values, the debt would in long-term be less significant. 
+% The results may also explained due to miscommunication within the team. Communication within a project team plays a big part in achieving higher software quality. A common way to handle design debt issues is to make sure that the developers are aware of the object-oriented metrics and its corresponding threshold values. For example, if the developers are aware of the classes in which have larger metric values than its threshold values, the debt would in long-term be less significant. 
 
-We do believe that if developers thinks about metrics, they will ultimatly 
+% Software companies should constantly include metrics in design and development phase. Metrics about complexity and object-oriented design will give an insight in system size and quality attributes, such as the possiblity for reuse, maintenance, and testability. OO metrics can prompt potential code problems and refactoring need will be minimized. 

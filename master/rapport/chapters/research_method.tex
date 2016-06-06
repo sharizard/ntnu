@@ -165,7 +165,7 @@ The third step in this case study is about preparing for data collection. Firstl
 Using Understand, we measured the software metrics by analyzing the source code. In total, we extracted 9 metrics for each class on the system, excluding the tests.
 
 \begin{itemize}
-	\item LCOM (Lack of Cohesion in Percent): A method is cohesive when it performs a single task. Low cohesion increases complexity, and will increase the likelihood for errors during development process. In general, the desirable value for LCOM is to be lower. 
+	\item LCOM (Percent Lack of Cohesion): A method is cohesive when it performs a single task. Low cohesion increases complexity, and will increase the likelihood for errors during development process. In general, the desirable value for LCOM is to be lower. The average percentage of class methods using a given class instance variable
 
 	\item DIT (Max Depth Inheritance Tree): The longest path from a given class to the root class in the inheritance hierarchy.
 
@@ -175,13 +175,13 @@ Using Understand, we measured the software metrics by analyzing the source code.
 
 \item RFC (Response For a Class): The sum of the number of methods that can be potentially executed in response to a message by an object of a class.
 
-\item NIM (Number of Instance Methods): Number of instance methods in a class, which is methods that are accessible through an object of that class.
+\item NIM (Number of Instance Methods): Number of instance methods in a class, which is methods that are accessible through an object of that class. Non-static methods.
 
-\item NIV (Number of Instance Variables): Number of instance variables in a class, that is, variables that are only accessible through an object of that class. This variable is used to measure LCOM values. In addition, it can be used to identify God Classes.
+\item NIV (Number of Instance Variables): Number of instance variables in a class, that is, variables that are only accessible through an object of that class. This variable is used to measure LCOM values. non-static variables.
 
-\item WMC (Weighted Methods per Class): The number of all local methods in a class. More member of functions is considered to be more complex and therefore more error prone. Desirable value is low.
+\item NOM (Number of Methods): The number of all local methods in a class. More member of functions is considered to be more complex and therefore more error prone. Desirable value is low.
 
-\item WMC2 (Weighted Methods per Class 2): This metrics sums the cyclomatic complexity of each class by counting the cyclomatic complexity for each method.
+\item WMC (Weighted Methods per Class): This metrics sums the cyclomatic complexity of each class by counting the cyclomatic complexity for each method.
 \end{itemize}
 
 
@@ -201,7 +201,7 @@ For each metrics, we have computed descriptive statistics on all the classes of 
 \subsection{Data Collection}
 The fourth step of the research process is to execute the plan that was created in step three. During the case study, data is collected from two different sources by using multiple tools to improve the reliability of the study. The first source of design flaws it to identify for code smells in the source code. Table \ref{tab:codesmell} in Section \ref{subsub:codesmell}, Chapter 2, summarizes the code smells that are presented by Fowler et al.\cite{fowler1999refactoring}. By using automatic static analysis tools, we were able to identify multiple code smells in the system. Most of the code smells were manually verified by the researcher by inspecting the class and dependency diagrams for the class in which code smell exists. For instance, Duplicated Code code smell were identified using SonarQube. We inspected each file with duplicated code to verify the results. Another example of a code smell we identified is the Long Method code smell. Long Method code smell was identified using CppDepend and Understand. The results were verified by reverse engineering the source code to generate UML class diagrams. At first, we used the built-in functionality in Doxygen to generate the class diagrams. However, Doxygen was not able to provide full class diagrams. Therefore, we had too look for other options. We came across ArgoUML, an open source alternative to generate UML diagrams by reverse engineering C/C++ code. After comparing some of the results with snippets from Doxygen class diagrams, we noticed that ArgoUML failed to reverse engineer some of the classes and their corresponding relations to other classes. This led us to look for commercial software. Using Understand, we were able to extract the class diagrams for the system by using their built-in reverse engineering functionality. UML class diagrams were also used to verify Large Class code smell and God Classes. In addition, a dependency graph was extracted, which show internal dependencies in each component, and dependencies between components. We noticed two form of dependencies, direct dependencies and circular dependencies. 
 
-The second source of design flaw extraction identification is to measure the object-oriented metrics for the system. Object-oriented metrics are used to manage, predict, and improve the quality of a software product\cite{rodriguez2001overview}. Using Understand, CCCC, and SourceMonitor, we were able to extract multiple metrics. More precisely, we have extracted the following metrics: LCOM, DIT, CBO, NIV, NIM, WMC, NOC, and WMC2. In our measurements, we decided to exclude the test classes as they may affect the metrics in both positive and negative way.
+The second source of design flaw extraction identification is to measure the object-oriented metrics for the system. Object-oriented metrics are used to manage, predict, and improve the quality of a software product\cite{rodriguez2001overview}. Using Understand, CCCC, and SourceMonitor, we were able to extract multiple metrics. More precisely, we have extracted the following metrics: LCOM, DIT, CBO, NIV, NIM, NOM, NOC, and WMC. In our measurements, we decided to exclude the test classes as they may affect the metrics in both positive and negative way.
 
 
 
