@@ -3,9 +3,9 @@
 % !TEX spellcheck = en-US
 
 \chapter{Results}
-In this chapter, we present the results of this study. 
-In this study, we evaluated the design and software quality of the system. This study also addresses all of the research questions. 
-
+\label{chap:results}
+This chapter presents the results of this study. We evaluated the design and software quality of the system by measuring object-oriented metrics related to classes, and by identifying code smells in the system.
+We can identify design debt through measurements of the object-oriented metrics of the system.  
 
 %No documentation for pattern usage, but they have a document with coding standard. This includes how to use some patterns. But no docs on where patterns are used, not so big focus on it. 
 
@@ -16,16 +16,6 @@ In this study, we evaluated the design and software quality of the system. This 
 %Bruken av C++, gjenbruk kan skape arch drift
 %Se etter kode som ikke blir brukt
 %Kunne teste ting isolert
-
-
-
-
-\section{Measuring the Software Quality using Object-Oriented Metrics}
-One way to identify design debt is to measure the software quality using metrics. 
-
-The first step to identify design debt is to find the structural code and the design attributes of a system. The design attributes in this case is the object-oriented metrics.
-
-
 
 %Metrics for files:
 %- Component / Filename
@@ -39,9 +29,10 @@ The first step to identify design debt is to find the structural code and the de
 % Skal til Research Method
 
 
-
-\subsection{Object-Oriented Metrics in Firmus}
-In addition to the traditional metrics, we have also gathered data using object-oriented metrics. Traditional software metrics are important for identifying large and complex files, but they alone may not tell us why some classes are large and complex. Object-oriented metrics we have used to measure the quality of the code is mostly based on the work of Chidamber and Kemerer.\cite{chidamber1994metrics}. They have proposed a set of static metrics that are designed to measure the quality of object-oriented software. These metrics are widely known, and their metrics suite is the deepest research in object-oriented metrics investigation and the measurements we have are the following: Weighted Method per Class (WMC), Depth of Inheritance Tree (DIT), Number of Children (NOC), Lack of Cohesion in Methods (LCOM), Response For a Class (RFC), and Coupling between Object Classes (CBO). 
+\section{Object-Oriented Metrics in Project "Firmus"}
+\label{sec:oometricsFirmus}
+% In addition to the traditional metrics, we have also gathered data using object-oriented metrics. Traditional software metrics are important for identifying large and complex files, but they alone may not tell us why some classes are large and complex. 
+The metrics that have been used to measure the quality of the code is mostly based on the work of Chidamber and Kemerer.\cite{chidamber1994metrics}. They have proposed a set of static metrics that are designed to measure the quality of object-oriented software. These metrics are widely known, and their metrics suite is the deepest research in object-oriented metrics investigation and the measurements we have are the following: Weighted Method per Class (WMC), Depth of Inheritance Tree (DIT), Number of Children (NOC), Lack of Cohesion in Methods (LCOM), Response For a Class (RFC), and Coupling between Object Classes (CBO). 
 
 
 In addition to these metrics, we have chosen to count the number of instance variables and instance methods in each class. A short description of each metric is provided in Section "X". We present their descriptive statistics which includes the minimum, maximum, median, sample mean, and standard deviation values for the whole system. In addition, we present descriptive statistics for each component in the system.
@@ -51,9 +42,7 @@ The metric calculation are from several tools i.e., Understand, and CCCC. They a
 
 A description of object-oriented metrics can be found in Chapter 3, Section X. 
 
-
-\subsection{Object-Oriented Metrics for the whole Project}
- We have decided to exclude the tests from object-oriented metrics analysis. A total of 317 files were analyzed. These files contains 226 classes, and 31204 lines of code. Descriptive statistics such as minimum, maximum, median, sample mean, and standard deviation are presented in this section. Table \ref{tab:oometrics-firmus} presents descriptive statistics for class level metrics for the whole project.
+We have decided to exclude the tests from object-oriented metrics analysis. A total of 317 files were analyzed. These files contains 226 classes, and 31204 lines of code. Descriptive statistics such as minimum, maximum, median, sample mean, and standard deviation are presented in this section. Table \ref{tab:oometrics-firmus} presents descriptive statistics for class level metrics for the whole project.
 
 \begin{table}[]
 \centering
@@ -75,94 +64,87 @@ WMC            & 0            & 325          & 10              & 20.293         
 
 % TODO: Find X\% of the total classes with high coupling, low cohesion, deep hierarchy. 
 
-\textbf{LCOM}: A class is cohesive if LCOM is low. In this analysis, LCOM is measured in percent. Our data reveals that LCOM value lies between a range from 0 to 100, indicating that there are classes with high and low cohesion. Figure "X" show the frequency distribution of LCOM values. There are 77 classes with LCOM value of 0\%, indicating that these classes has high cohesion. However, 119 classes has a value of LCOM larger than 50\%. Among these, 7 classes have a value of LCOM larger than 90\%, where 2 classes have a LCOM value of 100\%. Classes with low cohesion increases the complexity of the software, and may therefore increase the likelihood of errors during development. In order to improve the class design, it is necessary to split one class to two or more classes to make them more cohesive.
+\textbf{LCOM}: A class is cohesive if LCOM is low. In this analysis, LCOM is measured in percent. Our data reveals that LCOM value lies between a range from 0 to 100, indicating that there are classes with high and low cohesion. Figure \ref{fig:lcomdistribution} shows the frequency distribution of LCOM values. There are 77 classes with LCOM value of 0, indicating that these classes have high cohesion. However, 119 classes have a value of LCOM larger than 50. Among these, 7 classes have a value of LCOM larger than 90, where 2 classes have a LCOM value of 100. Classes with low cohesion increase the complexity of the software, and may therefore increase the likelihood of errors during development. In order to improve the class design, it is necessary to split one class to two or more classes to make them more cohesive.
+
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=\textwidth]{images/threshold/lcom.pdf}
+	\caption{Frequency chart of the LCOM metric}
+	\label{fig:lcomdistribution}
+\end{figure}
 
 
 
 \textbf{CBO}: In general, higher values of CBO indicates fault prone classes. Our analysis show that 194 classes have a value of CBO less than 10, and that 4 classes have a value larger than 20. The maximum value of CBO is 30. This class is an example of a class that is hard to understand, harder to reuse, and more difficult to maintain. 
 
 
-\begin{figure}[!tbp]
-\centering
-\begin{subfigure}{\textwidth}
+\begin{figure}[ht!]
 	\centering
-	\includegraphics[width=.5\textwidth]{images/LCOM.png}
-	\caption{Frequency chart of the LCOM metric}
-	\label{fig:lcomdistribution}
-\end{subfigure}
-\begin{subfigure}{\textwidth}
-	\centering
-	\includegraphics[width=.5\textwidth]{images/CBO.png}
+	\includegraphics[width=\textwidth]{images/threshold/cbo.pdf}
 	\caption{Frequency chart of the CBO metric}
 	\label{fig:cbodistribution}
-\end{subfigure}
-\caption{Frequency chart for the CBO and LCOM metric}
 \end{figure}
 
 
 
 
-\textbf{DIT and NOC}: DIT value appears to be generally low in the captured statistics. A class with DIT value of 0 is the root in a class hierarchy. Figure "X" shows that 89 classes have a DIT value of 0, and 68 classes have a DIT value of 1. The median value suggests that most classes tend to be close to the root in the inheritance hierarachy. According to Chidamber and Kemerer\cite{chidamber1994metrics}, DIT metric can be used to determine whether the design is top heavy or bottom heavy. A design is top heavy if there are too many classes near the root, and bottom heavy if most classes are near the bottom of the hierarchy. By observing the empirical data of DIT, the system appears to be top heavy, which indicates that there may be lack of reuse through inheritance. Classes with a DIT value of 2 and 3 indicates higher degree of reuse through inheritance. In total, we identified 70 classes with DIT value of 2 and 3. The maximum value of DIT is 4. These values show that inheritance is used in most of the classes to an optimal level. However, there may be some possibilities for improvements for classes with DIT value of 0. 
+\textbf{DIT and NOC}: DIT value appears to be generally low in the captured statistics. A class with DIT value of 0 is the root in a class hierarchy. Figure \ref{fig:ditdistribution} shows that 89 classes have a DIT value of 0, and 68 classes have a DIT value of 1. The median value suggests that most classes tend to be close to the root in the inheritance hierarachy. According to Chidamber and Kemerer\cite{chidamber1994metrics}, DIT metric can be used to determine whether the design is top heavy or bottom heavy. A design is top heavy if there are too many classes near the root, and bottom heavy if most classes are near the bottom of the hierarchy. By observing the empirical data of DIT, the system appears to be top heavy, which indicates that there may be lack of reuse through inheritance. Classes with a DIT value of 2 and 3 indicates higher degree of reuse through inheritance. In total, we identified 70 classes with DIT value of 2 and 3. The maximum value of DIT is 4. These values show that inheritance is used in most of the classes to an optimal level. However, there may be some possibilities for improvements for classes with DIT value of 0. 
 
-Furthermore, the NOC metric measures the number of subclasses of a class. The median value of NOC implies that most half of the classes has no immediate children, which indicates that inheritance may not be used enough. According to the Figure "X", approximately 86\% of the classes seem to have no subclasses. Max value of NOC is 20, which may indicate a misuse of subclassing. Classes with high NOC value are difficult to modify, and they usually require more testing because of the effects on changes on all the children. 
+Furthermore, the NOC metric measures the number of subclasses of a class. The median value of NOC implies that most half of the classes has no immediate children, which indicates that inheritance may not be used enough. According to the Figure \ref{fig:nocdistribution}, approximately 86\% of the classes seem to have no subclasses. Max value of NOC is 20, which may indicate a misuse of subclassing. Classes with high NOC value are difficult to modify, and they usually require more testing because of the effects on changes on all the children. 
 
-\begin{figure}[!tbp]
-\centering
-\begin{subfigure}{\textwidth}
+\begin{figure}[ht!]
 	\centering
-	\includegraphics[width=.5\textwidth]{images/DIT.png}
-	\caption{Frequency chart of the DIT metric}
-	\label{fig:ditdistribution}
-\end{subfigure}
-\begin{subfigure}{\textwidth}
-	\centering
-	\includegraphics[width=.5\textwidth]{images/NOC.png}
+	\includegraphics[width=\textwidth]{images/threshold/noc.pdf}
 	\caption{Frequency chart of the NOC metric}
 	\label{fig:nocdistribution}
-\end{subfigure}
-\caption{Frequency chart of the DIT and NOC metric}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=\textwidth]{images/threshold/dit.pdf}
+	\caption{Frequency chart of the DIT metric}
+	\label{fig:ditdistribution}
 \end{figure}
 
 
 \textbf{RFC}: Classes with large RFC tends to be complex and have decreased understandability. Testing classes with large RFC is more complicated. The RFC statistics reveals that majority of the classes have a RFC of less than 20. There are only 22 classes with a value of RFC larger than 30, where 2 of them have a value larger than 100. The maximum value of RFC in this system is 115. In addition, most of the classes have a WMC of less than 7, but there are a few classes with more larger values. Classes with large WMC values may indicate Large Class code smell, and these classes are candidates for inspection and eventually refactoring. 
 
-\begin{figure}[!tbp]
-\centering
-\begin{subfigure}{\textwidth}
+\begin{figure}[ht!]
 	\centering
-	\includegraphics[width=.5\textwidth]{images/RFC.png}
+	\includegraphics[width=\textwidth]{images/threshold/rfc.pdf}
 	\caption{Frequency chart of the RFC metric}
 	\label{fig:rfcdistribution}
-\end{subfigure}
-\begin{subfigure}{\textwidth}
+\end{figure}
+
+\textbf{WMC} By examining at Figure \ref{fig:wmcdistribution}, we observe that majority of the classes have a value of WMC less than 10. More precisely, 123 classes has a value of WMC less than 10. Moreover, 5 classes have a value of WMC2 larger than 100. The maximum value of WMC is set to 325.
+
+\begin{figure}[ht!]
 	\centering
-	\includegraphics[width=.5\textwidth]{images/WMC.png}
+	\includegraphics[width=\textwidth]{images/threshold/wmc.pdf}
 	\caption{Frequency chart of the WMC metric}
 	\label{fig:wmcdistribution}
-\end{subfigure}
-\caption{Frequency chart of the WMC and RFC metric}
 \end{figure}
 
-\textbf{WMC} By the WMC2 metric, we can observe the complexity of a class by summing complexity of all methods. In general, low values of WMC2 indicates greater polymorphism in a class, while higher higher values of WMC2 indicates more complexity. By examining at Figure "X", we observe that majority of the classes have a value of WMC2 less than 10. More precisely, 123 classes has a value of WMC2 less than 10. Moreover, 5 classes have a value of WMC2 larger than 100. The maximum value of WMC is set to 325.
+\textbf{NIM and NIV}: NIM and NIV metric reports the number instance methods and instance variables in a class. Our analysis show that most classes are small. The sample mean of NIV tells us that each class has an average of 2 instance variables. The maximum value of NIV is 18, indicating that there is at least one class that contains 18 instance variables. The sample mean of NIM show us that each class has an average of 8 instance methods. More precisely, there are 170 classes with value of NIM less than 10. The maximum value of NIM is 48, which indicates that there is at least one class contains 48 methods. 
 
-\textbf{NIM and NIV}: NIM and NIV metric reports the number instance methods and instance variables in a class. Our analysis show that most classes are small. The sample mean of NIV tells us that each class has an average of 2 instance variables. The maximum value of NIV is 18, indicating that there is at least one class that contains 18 instance variables. The sample mean of NIM show us that each class has an average of 8 instance methods. More precisely, there are 170 classes with value of NIM less than 10. The maximum value of NIM is 48, which indicates that there is at least one class contains 48 methods. NIM and NIV metric can help us identify Large Class code smell.
 
-\begin{figure}[!tbp]
-\centering
-\begin{subfigure}{\textwidth}
-	\centering
-	\includegraphics[width=.5\textwidth]{images/NIM.png}
-	\caption{Frequency chart of the NIM metric}
-	\label{fig:nimdistrubition}
-\end{subfigure}
-\begin{subfigure}{\textwidth}
-	\centering
-	\includegraphics[width=.5\textwidth]{images/NIV.png}
-	\caption{Frequency chart of the NIV metric}
-	\label{fig:nivdistrubtion}
-\end{subfigure}
-\caption{Frequency chart of the NIM and NIV metric}
-\end{figure}
+%\begin{figure}[!tbp]
+%\centering
+%\begin{subfigure}{\textwidth}
+%	\centering
+%	\includegraphics[width=.5\textwidth]{images/NIM.png}
+%	\caption{Frequency chart of the NIM metric}
+%	\label{fig:nimdistrubition}
+%\end{subfigure}
+%\begin{subfigure}{\textwidth}
+%	\centering
+%	\includegraphics[width=.5\textwidth]{images/NIV.png}
+%	\caption{Frequency chart of the NIV metric}
+%	\label{fig:nivdistrubtion}
+%\end{subfigure}
+%\caption{Frequency chart of the NIM and NIV metric}
+%\end{figure}
 
 
 %Good refactoring would be to look at all the classes and see where we could use more abstraction. Reducing redundancy would reduce code size and speed. 
@@ -171,7 +153,7 @@ Furthermore, the NOC metric measures the number of subclasses of a class. The me
 Descriptive statistics in Table \ref{tab:oometrics-firmus} reveals statistics for class level metrics for the whole project. However, the statistics does not say anything about class level metrics in the different components. Some of the components may have good object-oriented metric values, while other components have bad statistics. In order to identify weak components, we calculated descriptive statistics for each component. 
 
 \subsubsection{Component A}
-Component A contains 53 files. Among these files, we identified 37 classes and 5427 lines of code. Figure \ref{fig:algraph} visualizes the frequency distribution of the analyzed object-oriented metrics. Table \ref{tab:oometrics-al} presents common descriptive statistics of the metric distribution.
+Component A contains 53 files. Among these files, we identified 37 classes and 5427 lines of code. Figure \ref{fig:algraph} presents the frequency distribution of the measured object-oriented metrics. Table \ref{tab:oometrics-al} presents common descriptive statistics of the metric distribution.
 
 \begin{table}[]
 \centering
@@ -191,15 +173,15 @@ WMC           & 3            & 194          & 19              & 31.081          
 \end{tabular}
 \end{table}
 
-The DIT values indicate that inheritance hierarchies is somehow flat. Classes with flat inheritance hierarchy usually hints that reuse through inheritance is not used. There are approximately eight classes with flat intheritance hierarchy. Rest of the classes inherits for at least one class. The max value captured show that some classes have deep hierarchy. Higher values for DIT indicates higher degree of reuse, but as tradeoff, it may increase complexity of the class. Moreover, the results indicate that most classes only have a few subclasses. Thirty-two classes has no subclasses. However, one class has NOC value of eight. 
+The DIT values indicate that inheritance hierarchies is somehow flat. Classes with flat inheritance hierarchy usually hints that reuse through inheritance is not used. There are approximately 8 classes with flat inheritance hierarchy. Rest of the classes inherits for at least one class. The max value captured show that some classes have deep hierarchy. Higher values for DIT indicates higher degree of reuse, but as trade off, it may potentially increase the complexity of the class. Moreover, the results indicate that most classes only have a few subclasses. There are 32 classes with no children. However, one class has NOC value of 8. 
 
-The results show that 37.5\% (i.e. 15 classes) of all classes are strongly cohesive, which implies that more than half of the classes show lack of cohesion. By examining Figure \ref{fig:algraph}, we see that two classes has LCOM values larger than 90\%, indicating loose class structures. Furthermore, most classes have small CBO values, indicating that most classes are self-contained. However, the frequency distribution shows that few of the classes are strongly coupled. One class have CBO value of twenty-nine, indicating a possible fault-prone class which affects its reusability and maintainability. This particular class has LCOM value of 62, WMC2 value of 95, and RFC value of 25.
+The results show that 40.5\% (i.e. 15 classes) of all classes in Component A are strongly cohesive, which implies that more than half of the classes show lack of cohesion. By examining Figure \ref{fig:algraph}, we notice that two classes has LCOM values larger than 90, indicating loose class structures. Moreover, most classes have small CBO values, indicating that most classes are self-contained. However, the frequency distribution shows that few of the classes are strongly coupled. One of the classes in this component has a CBO value of 29, indicating a possible fault-prone class which affects its reusability and maintainability. This particular class has LCOM value of 62, WMC value of 95, and RFC value of 25, hence being a possible Large Class code smell.
 
-The results show that each class have at least two methods. More than half of the classes have low RFC values, which indicates greater polymorphism. However, there are few classes in this component that has more high RFC. The maximum RFC is 115, and classes with high RFC are usually difficult to maintain and test. However, the class with a RFC value of 115 has 
+The results show that each class have at least two methods. More than half of the classes have low RFC values, which indicates greater polymorphism. However, there are few classes in this component that has larger values of RFC. The maximum RFC value is 115, and classes with high RFC are usually difficult to maintain and test. 
 
-The values of WMC2 ranges from 2 to 194. The median value indicate that half of the classes have a cyclomatic complexity of 17 or less. However, the sample mean is revealed to be larger than the median value. This implies that there are few classes with large values of WMC2, which is evident by inspecting the standard deviation.
+The values of WMC ranges from 3 to 194. The median value indicate that at least 50\% of the classes have a cyclomatic complexity of 17 or less. However, the sample mean is revealed to be larger than the median value. This implies that there are few classes with large values of WMC, which is evident by inspecting the standard deviation value.
 
-Classes with large number of instance variables are few. More than half of the classes has one instance variable or less. The largest number of instance variables is 12, revealing that software system does not apply information hiding principle appropriately for this class. Furthermore, each class is revealed to have two instance methods. Approximately 50\% of the classes have 10 instance methods or less. This means that rest of the classes have more than 10 instance methods, which indicates that classes may provide several services to other classes. The maximum value of NIM captured is 40. There are two classes with NIM value of 40, one having a WMC2 value of 194 and the other having a WMC2 value of 72. 
+Classes with large number of instance variables are few. At least 50\% of the classes have one instance variable or less. The largest number of instance variables in a class is 12, revealing that software system does not apply information hiding principle appropriately for this class. The same class have its LCOM value at 90. Furthermore, each class is revealed to have at least four instance methods. At least 50\% of the classes have 10 instance methods or less. This means that rest of the classes have more than 10 instance methods, which indicates that classes may potentially provide several services to other classes. This could be the reason behind large values of LCOM. The maximum value of NIM captured is 40. There are two classes with NIM value of 40, one having a WMC value of 194 and the other having a WMC value of 72. Both classes have a LCOM value larger than 90.
 
 
 %AL: LogicsEngine
@@ -227,7 +209,7 @@ Classes with large number of instance variables are few. More than half of the c
 \subsubsection{Component B}
 We identified 23 classes in Component B. These classes are spread across 42 files, which in total contains 3905 lines of code. Figure \ref{fig:blcgraph} presents a frequency chart of the object-oriented metric results for Component B. Table \ref{tab:oometrics-blc} presents descriptive statistics of the analyzed metrics.
 
-The values of LCOM in Component B range from 22 to 90 percent, indicating none of the classes are cohesive. There are only two classes with LCOM values below 50, both having low values in terms of cyclomatic, method count, coupled objects, and instance variables. Moreover, the WMC2 values ranges from 3 to 325. We decided to examine the class with a WMC2 value of 325. This class has a LCOM value of 74, and a CBO value of 10. Its RFC value is 44, while NIM and WMC is both 36. This class has no subclasses, but it does inherits methods and variables from one superclass. In terms of cyclomatic complexity, we believe that this class is the most complex class in this system. Moreover, there are 8 classes in this component with a LCOM value of 66. By examining the metrics of these classes, we did notice that 4 of these classes has identical DIT, CBO, RFC, NIM, NIV, WMC, and WMC2 values. Manual inspection of the classes did not reveal any duplicated code. However, in terms of refactoring, we do think that all these classes need the same effort.
+The values of LCOM in Component B range from 22 to 91, which indicates that none of the classes in Component B are cohesive. There are only two classes with LCOM values below 50, both having low values in terms of cyclomatic, method count, coupled objects, and instance variables. The WMC metric values range from 3 to 325. We decided to examine the class with max value of WMC. This class has a LCOM value of 74, and a CBO value of 10. Its RFC value is 44, while NIM is 36. This class has no subclasses, but it does inherit methods and variables from one superclass. In terms of cyclomatic complexity, this class is revealed to be the most complex class in the system. Moreover, there are 8 classes in this component with a LCOM value of 66. By examining the metrics of these classes, we did notice that 4 of these classes has identical DIT, CBO, RFC, NIM, NIV, and WMC values. Manual inspection of the classes did not reveal any duplicated code. In terms of refactoring, we do think that all these classes need the same effort.
 
 % to mulige store klasser.
 
@@ -266,7 +248,7 @@ WMC            & 3            & 325          & 19              & 35.826         
 \subsubsection{Component C}
 Our analysis shows that component C contains 29 files, 20 classes, and 4792 lines of code. We present the descriptive statistics for component C in Table \ref{tab:oometrics-config}, and the frequency distribution of the metrics in Figure \ref{fig:confgraph}.
 
-LCOM value of Component C ranges from 0 to 99. The median shows that more than half of the classes have LCOM value of 60 or more, indicating possibilities for design improvements by splitting up the classes. DIT and NOC metric values is very low, implying that inheritance may not be used. Moreover, CBO values ranges from 1 to 18. Each class has a CBO value of 5 in average. The results show that there is one class with CBO value of 18. This class prevents reuse due to its modular design. Strong coupling complicates a system since a class is harder to understand and modify. WMC2 metric values ranges from 2 to 106. The median value implies that half of the classes has a complexity value of 9, implying that complexity is well managed for those classes. However, the maximum value tells us that there is one complex class in this component. This particular class has a LCOM value of 63, and is coupled to 18 other objects, hence being the class with CBO value of 18. RFC, WMC, and NIM values of this class is 26, all maximum values that we analyzed. All these values are an indication of a possible fault-prone and complex class. In addition, this class may be affected by the Large Class code smell.
+LCOM value of Component C ranges from 0 to 89. The median value reveal that more than half of the classes have LCOM value of 60 or more, indicating possibilities for design improvements by splitting up the classes. DIT and NOC metric values is very low, implying that inheritance may potentially not be used enough. Moreover, CBO values ranges from 1 to 19. Each class has a CBO value of 5 in average. One of the classes have a CBO value of 18. This class prevents reuse due to its modular design. Strong coupling complicates a system since a class is harder to understand and modify. The WMC metric values ranges from 3 to 106. The median value suggests that complexity in this component is well managed for most classes. However, we identified one class with a WMC value of 106. This particular class has a LCOM value of 63, and is coupled to 18 other objects. RFC, and NIM values of this class is set to 26, which are the maximum values that we analyzed for the corresponding metrics. All these values are an indication of a possible fault-prone and complex class. In addition, this class may potentially be affected by the Large Class code smell.
 
 % 1 large class code smell, mulig 2. 
 
@@ -286,7 +268,7 @@ NOC             & 0            & 1            & 0               & 0.05          
 RFC             & 3            & 26           & 8.5             & 10.3                 & 5.741                       \\ \hline
 NIM             & 3            & 26           & 8.5             & 9.85                 & 5.153                       \\ \hline
 NIV             & 0            & 9            & 2               & 3.15                 & 3.013                       \\ \hline
-WMC2            & 3            & 106          & 12.5              & 27.65                 & 30.975                      \\ \hline
+WMC           & 3            & 106          & 12.5              & 27.65                 & 30.975                      \\ \hline
 \end{tabular}
 \end{table}
 
@@ -304,16 +286,16 @@ WMC2            & 3            & 106          & 12.5              & 27.65       
 
 
 \subsubsection{Component D}
-Our analysis show that Component D consists of 13 files and 1647 lines of code. Among these files, we identified only one class. This class has LCOM value of 68, which tells that the class is not very cohesive. Furthermore, our result show a DIT value of 1, an NOC value of 0, indicating that this class only inherits from a superclass. The CBO value is set to 10, implying that this class is coupled to 10 objects. The values of RFC, WMC, and NIM have a value of 8. Moreover, the class however has only 1 instance variable. The sum of complexity in this class is 17.
+Our analysis show that Component D consists of 13 files and 1647 lines of code. Among these files, we identified only one class. This class has LCOM value of 68. Furthermore, our results show a DIT value of 1 for this class, and a NOC value of 0. The CBO value is set to 10, implying that this class is coupled to 10 objects. The values of RFC, and NIM have a value of 8. Moreover, the class has one instance variable. The sum of complexity in this class is 17.
 
 \subsubsection{Component En}
 Similar to Component D, our analysis identified only one class among 3 files and 367 lines of code in Component En. The metrics are very similar to Component D metrics. The class has a LCOM value of 62, indicating low cohesion in some of the methods. However, compared to Component D, this class is only coupled to one object. The sum of complexity of methods in this class is 15.
 
 
 \subsubsection{Component Ex}
-Our analysis found 48 files in Component Ex. These files consist of 4089 lines of code, and among these, we identified 86 classes. 38\% of the number of classes in we identified in this system is located in this component. Table \ref{tab:oometrics-ex} present the descriptive statistics for Component Ex, while Figure \ref{fig:exgraph} present the frequency distribution of the measured metrics. 
+Our analysis found 48 files in Component Ex. These files consist of 4089 lines of code, and among these, we identified 86 classes. 38\% of the number of classes of the system is located in this component. Table \ref{tab:oometrics-ex} present the descriptive statistics for Component Ex, while Figure \ref{fig:exgraph} present the frequency distribution of the measured metrics. 
 
-The values of LCOM ranges from 0 to 100, indicating that there are classes with low and high cohesion. The median value of LCOM is 0, implying that half of the classes in this component has high cohesion.  Even though half of the classes has high cohesion, there are still many classes with low cohesion. Our results show that there are 22 classes with LCOM value larger than 50, where 6 classes has LCOM value of 80 or more. There are only 2 classes with LCOM value of 100. Moreover, the average cyclomatic complexity of the classes has a value of 8.7, while the median has a value of 7. These values implies that most classes may have more polymorphism and less complexity. Figure \ref{fig:exgraph} shows us that there are only one 8 classes with value of WMC2 larger than 20, where the maximum value is 41. These values indicates that the complexity is well managed to this point. By examining the CBO values, we observe that only 7 classes are self-contained. The rest of the classes are coupled to other objects. The majority of the classes has a CBO value of 5 or less. There is only one class with CBO value of 16, indicating that this class may be difficult to understand and maintain. The result show a RFC range from 0 to 28, with more than 50\% of the classes having RFC value of 10 or less.
+This component has classes with low and high cohesion. Despite the fact that at least 50\% of the classes have high cohesion, there are still many classes with low cohesion. Our results show that there are 22 classes with LCOM value larger than 50, whereas 6 classes have a LCOM value of 80 or more. There are 2 classes with LCOM value of 100. Moreover, the average cyclomatic complexity of the classes have a value of 8.744, while the median has a value of 7. These values imply that most classes may have more polymorphism and less complexity. Figure \ref{fig:exgraph} shows us that there are only one 8 classes with value of WMC larger than 20, where the maximum value is 41. These values indicate that the complexity is well managed to this point. By examining the CBO values, we observe that only 7 classes are self-contained. Rest of the classes are coupled to other objects. The majority of the classes has a CBO value of 5 or less. There is only one class with CBO value of 16, indicating that this class may potentially be difficult to understand and maintain. 
 
 \begin{table}[]
 \centering
@@ -351,9 +333,9 @@ WMC            & 0            & 41          & 7              & 8.744            
 
 
 \subsubsection{Component G}
-Component G consists of 59 files. These files includes 3701 lines of code and 32 classes. Descriptive statistics for Component G is summarized in Table \ref{tab:oometrics-guri}, and its frequency distribution of the metrics can be seen in Figure \ref{fig:gurigraph}. 
+Component G consists of 59 files. These files include 3701 lines of code and 32 classes. Descriptive statistics for Component G is summarized in Table \ref{tab:oometrics-guri}, and its frequency distribution of the metrics are presented in Figure \ref{fig:gurigraph}. 
 
-Overall, the statistics are indicating that there are some accumulated design debt in this component. The values of LCOM ranges from 0 to 94, where 8 classes has a LCOM value of 0. However, values of LCOM for rest of the classes are larger than 50. Moreover, the statistics show that 18 classes have a DIT value of larger than 0, indicating a higher degree of reuse. There are only 5 classes with subclasses in this component. WMC2 values in this component ranges from 1 to 123, where only class has a value of WMC2 larger than 100. We decided to examine the class with WMC2 value of 123. The results show that this class has a LCOM value of 92, CBO value of 22, RFC value of 30, NIM value of 9, NIV value of 18, and WMC value of 30. These values say that this class is probably influenced by the Large Class code smell, and is a candidate for inspection and refactoring.
+Overall, the statistics may indicate that there are some accumulated design debt in this component. The values of LCOM ranges from 0 to 94, where 8 classes has a LCOM value of 0. However, values of LCOM for rest of the classes are larger than 50. Moreover, the statistics show that at least 16 classes have a DIT value of larger than 0, which indicates a higher degree of reuse. There are only 5 classes with subclasses in this component. The WMC metric values in this component ranges from 1 to 123, where only class has a value of WMC larger than 100. We decided to examine the class with WMC value of 123. The metric of that class reveal a LCOM value of 92, CBO value of 22, RFC value of 30, NIM value of 9, and NIV value of 18. These values show that this class is probably influenced by the Large Class code smell, and is a candidate for inspection and possible refactoring.
 
 
 
@@ -390,7 +372,7 @@ WMC            & 1            & 123          & 12              & 19.437         
 
 
 \subsubsection{Component L}
-Component L consist of 16 files, 849 lines of code. Among these, we identified 7 classes. Figure \ref{fig:loggraph} presents the frequency distribution of the metrics, while Table \ref{tab:oometrics-log} presents the descriptive statistics for this component. The values of LCOM range from 0 to 80. There are only 2 classes with LCOM value at 0. However, rest of the classes are showing lack of cohesion. These classes are candidates for inspection, and should eventually be split up into multiple classes. Moreover, 4 classes have a DIT value of 1. WMC2 values ranges from 4 to 42. There are only 2 classes with WMC2 values larger than 30.
+Component L consist of 16 files, 849 lines of code. Among these, we identified 7 classes. Figure \ref{fig:loggraph} presents the frequency distribution of the metrics, while Table \ref{tab:oometrics-log} presents the descriptive statistics for this component. The values of LCOM range from 0 to 80. There are only 2 classes with LCOM value at 0. However, rest of the classes are showing lack of cohesion. These classes are candidates for inspection, and might eventually be split up into multiple classes. Moreover, 4 classes have a DIT value of 1. WMC metric value ranges from 4 to 42. There are only 2 classes with WMC values larger than 30.
 
 \begin{table}[]
 \centering
@@ -431,7 +413,7 @@ WMC            & 4            & 42          & 11              & 19.571          
 \subsubsection{Component N}
 Component N consists of 17 files. In total, there are 1839 lines of code spread across these files. We identified 8 classes in this component. Descriptive statistics for Component N are presented in Table \ref{tab:oometrics-netw}, while the frequency distribution of the metrics are presented in Figure \ref{fig:netgraph}.
 
-LCOM metric value ranges from 0 to 79. The median value show that more than half of the classes has LCOM value of 70 or more, indicating that this component should be split into more classes to increase the cohesion of each class. By taking a closer look at Figure \ref{fig:netgraph}, we identify two classes with LCOM values interval from 75 to 80. More precisely, one class has LCOM value of 78 while the other class has LCOM value of 79. We decided to examine the class with LCOM value of 79, and identified that this class has WMC2 value of 125, RFC value of 32, CBO value of 17, WMC value of 23 and NIM value of 21. These values tells us that this class may be affected by Large Class and God Class code smell.
+LCOM metric value ranges from 0 to 79. The median value shows that more than half of the classes has LCOM value of 70 or more, indicating that this component should be split into more classes to increase the cohesion of each class. By taking a closer look at Figure \ref{fig:netgraph}, we identify two classes with LCOM values interval from 75 to 80. More precisely, one class has LCOM value of 78 while the other class has LCOM value of 79. We decided to examine the class with LCOM value of 79, and identified that this class has WMC value of 125, RFC value of 32, CBO value of 19, and NIM value of 21. These values tells us that this class may be affected by Large Class code smell.
 
 
 \begin{table}[]
@@ -468,7 +450,7 @@ WMC            & 4            & 125          & 32              & 40.375         
 \subsubsection{Component P}
 Descriptive statistics calculated for Component P are presented in Table \ref{tab:oometrics-proc}. The frequency distribution of the metrics are presented in Figure \ref{fig:procgraph}. We identified 12 files in Component P, consisting of 12 files, 722 lines of code, and 8 classes.
 
-In case of measurement for cohesion, LCOM values in Component P lies between a range from zero percent to eight-one percent. A median value shows the level of cohesiveness in the system. In this context, median value show that more than half of the classes have large LCOM values, implying that these classes are improperly designed and should be split up to make them cohesive. By examining the component, we identified three classes with values of LCOM larger than 70. The DIT results range from 0 to 1, implying that most classes have flat inheritance hierarchies. There are only 2 classes having a DIT value of 1. Despite the fact that 6 of the classes have DIT metric of 0, they alone may not tell us if classes are part of an inheritance tree or if they are root classes. By examining the NOC results, we see that only one class has a NOC value of 1. Six classes have both NOC and DIT values of zero, indicating that they are not part of an inheritance hierarchy. CBO values lies between a range from zero to twelve, with a mean and median of 5.5. In addition, WMC2 values lies between a range from 1 to 47, where two classes has WMC2 values larger than 30. In addition, we were able to identify a complex class, possible a God Class code smell. This class has a LCOM value of 77, WMC2 value of 47, and DIT value of 1. Moreover, the class has 13 methods, and RFC value of 14.
+In case of measurement for cohesion, LCOM values in Component P ranges from 0\% to 81\%. A median value shows the level of cohesiveness in the system. In this context, the median value shows that more than half of the classes have large LCOM values, implying that these classes are improperly designed and should be split up to make them more cohesive. By examining the component, we identified three classes with values of LCOM larger than 70. The DIT results range from 0 to 1, implying that most classes have flat inheritance hierarchies. There are only 2 classes having a DIT value of 1. Despite the fact that 6 of the classes have DIT metric of 0, they alone may not tell us if classes are part of an inheritance tree or if they are root classes. By examining the NOC results, we see that only one class has a NOC value of 1. Six classes have both NOC and DIT values of zero, indicating that they are not part of an inheritance hierarchy. CBO values ranges from 0 to 12, with a mean and median of 5.5. WMC ranges from 1 to 47. 
 
 
 \begin{table}[]
@@ -504,7 +486,7 @@ WMC            & 1            & 47           & 8               & 15.75          
 
 
 \subsubsection{Component S}
-Table \ref{tab:oometrics-sys} presents the descriptive statistics for Component S. Component S contains 4 files, which consists of 223 lines of code and 2 classes. The LCOM values show that there are possibilities to improve the design of this component by splitting up methods that does not share fields with each other to separate classes. Moreover, the results points out that none of the classes has any subclasses. However, the results reveal that one of the classes inherits methods and variables from a superclass. Moreover, WMC2 metric values indicate that classes have less complexity and greater polymorphism.
+Table \ref{tab:oometrics-sys} presents the descriptive statistics for Component S. Component S contains 4 files, which consists of 223 lines of code and 2 classes. The LCOM values show that there are possibilities to improve the design of this component by splitting up methods that does not share fields with each other to separate classes. Moreover, the results point out that none of the classes has any subclasses. However, the results reveal that one of the classes inherits methods and variables from a superclass. Moreover, WMC metric values indicate that the classes have less complexity and greater polymorphism.
 
 \begin{table}[]
 \centering
@@ -530,7 +512,7 @@ WMC            & 6           & 19            & 12.5            & 12.5           
 
 
 \subsubsection{Component W}
-Component W contains only one file. This file consists of 69 lines of code. In this component, we identified one class. This class has a LCOM value of 58, indicating that some instance variables are not shared across the member functions. Moreover, DIT and NOC values of 0 indicates that this class does not inherit from a superclass, or has any subclasses. The results reports a CBO value of 4, implying that this class is not tightly coupled. There are only 2 instance variables in this class, and 6 methods, in which all are instance methods. WMC value of this class is set to 8, which indicates that this class is not complex.
+Component W contains only one file. This file consists of 69 lines of code. In this component, we identified one class. This class has a LCOM value of 58, indicating that some instance variables are not shared across the member functions. Moreover, DIT and NOC values of 0 indicates that this class does not inherit from a superclass, or has any subclasses. The results reports a CBO value of 4, implying that this class is not tightly coupled with other objects. There are only 2 instance variables in this class, and 6 methods, in which all are instance methods. WMC value of this class is set to 8.
 
 
 
@@ -565,10 +547,9 @@ Component W contains only one file. This file consists of 69 lines of code. In t
 
 
 
-\section{Identifying Code Smells using Automatic Approaches}
+\section{Identifying Code Smell using Automatic Approaches}
 \label{sub:code_smell_detection}
-Code smells are used to find problematic classes.
-As we explained in Chapter 2, one of the ways to identify design debt is to look at the number of code smells in the source code. Code smells are an indicator of software design flaws in object-oriented systems that can decrease software maintainability which may lead to issues in further evolution of the system\cite{olbrich2009evolution}. The analysis of code smells in the system is based on automatic static analysis tools. We investigated each tool that we could use in this project, and evaluated the smells they are able to detect. Table \ref{tab:identifiedCodeSmell} describes the number of code smells that were identified using automatic static analysis tools.
+Code smells are used to find problematic classes. As we explained in Chapter 2, one of the ways to identify design debt is to look at the number of code smell in the source code. Code smell is an indicator of software design flaws in object-oriented systems that can decrease software maintainability which may lead to issues in further evolution of the system\cite{olbrich2009evolution}. The analysis of code smells in the system is based on automatic static analysis tools. We investigated each tool that we could use in this project, and evaluated the smells they are able to detect. Table \ref{tab:identifiedCodeSmell} describes the number of code smells that were identified using automatic static analysis tools.
 
 \begin{table}[]
 \centering
@@ -637,6 +618,20 @@ Unused Static Globals 	& 	13	 \\ \hline
 %The results shows that X classes are infected with the Shotgun Surgery code smell. 
 
 
+
+\subsubsection{Large Class}
+Large Class is detected by counting the number of methods in a class. 
+%CBO and LCOM can be useful to detect God Classes with support of LOC and WMC. (article: on the effectiveness of concern metrics to detect code smells: an empirical study)
+
+%A class with large values of WMC and RFC indicates many possible re since the class may have a large number of methods that can be executed. These values along with LCOM can be used to measure God Class code smell. By identiying 
+
+%5 files
+%AL: LogicsEngine
+%Autrologic: LogicsUnitDetectionZone
+%Autrologic: Logicsunit
+%AL: LogicsUnitFad (kasnkje)
+%BLC: AclibTranslator
+
 \subsubsection{Dead Code}
 Fowler and Beck\cite{1999:RID:311424} do not classify dead code as code smell. However, dead code should be classified as a code smell, as it is a quite common problem as it hinders code comprehension and makes the current program structure less obvious\cite{mantyla2003taxonomy}. We examined three types of "Dead Code" code smell in Project Firmus: "Commented Out" Code, Unreachable Code, and Unnecessary Includes in Header Files. In total, we found 151 hits of "Dead Code" code smell, which we have summarized in Table \ref{tab:deadCode}.
 
@@ -652,21 +647,6 @@ Unreachable Code 	& 	10	 \\ \hline
 Unnecessary Includes in Header Files 	& 	74	 \\ \hline
 \end{tabular}
 \end{table}
-
-
-\subsubsection{God Classes}
-CBO and LCOM can be useful to detect God Classes with support of LOC and WMC. (article: on the effectiveness of concern metrics to detect code smells: an empirical study)
-
-A class with large values of WMC and RFC indicates many possible reponses since the class may have a large number of methods that can be executed. These values along with LCOM can be used to measure God Class code smell. By identiying 
-
-5 files
-%AL: LogicsEngine
-%Autrologic: LogicsUnitDetectionZone
-%Autrologic: Logicsunit
-%AL: LogicsUnitFad (kasnkje)
-%BLC: AclibTranslator
-
-
 
 % ANtiåpattern, move down to metrics, point out that possible god classes may be antipatterns.
 
