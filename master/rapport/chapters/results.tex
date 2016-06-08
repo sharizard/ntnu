@@ -4,8 +4,19 @@
 
 \chapter{Results}
 \label{chap:results}
-This chapter presents the results of this study. We evaluated the design and software quality of the system by measuring object-oriented metrics related to classes, and by identifying code smells in the system.
-We can identify design debt through measurements of the object-oriented metrics of the system.  
+
+\textit{\textbf{Report Overview}}
+\begin{itemize}
+	\item \textit{1. Introduction}
+	\item \textit{2. State-of-the-Art}
+	\item \textit{3. Research Methodology}
+	\item \textit{\textbf{4. Results}}
+	\item \textit{5. Discussion}
+	\item \textit{6. Conclusion}
+\end{itemize} \
+
+
+This chapter presents the results of this study. We evaluated the design and software quality of the system by measuring object-oriented metrics related to classes, and by identifying code smells in the system. Section \ref{sec:oometricsFirmus} presents the object-oriented metrics we have measured for Project "Firmus". In Subsection \ref{subsec:oometric-comp}, we present the object-oriented metrics for each component in Project "Firmus". Finally, Section \ref{sub:code_smell_detection} summarizes the code smells we have detected using automatic static analysis tools.
 
 %No documentation for pattern usage, but they have a document with coding standard. This includes how to use some patterns. But no docs on where patterns are used, not so big focus on it. 
 
@@ -32,42 +43,33 @@ We can identify design debt through measurements of the object-oriented metrics 
 \section{Object-Oriented Metrics in Project "Firmus"}
 \label{sec:oometricsFirmus}
 % In addition to the traditional metrics, we have also gathered data using object-oriented metrics. Traditional software metrics are important for identifying large and complex files, but they alone may not tell us why some classes are large and complex. 
-The metrics that have been used to measure the quality of the code is mostly based on the work of Chidamber and Kemerer.\cite{chidamber1994metrics}. They have proposed a set of static metrics that are designed to measure the quality of object-oriented software. These metrics are widely known, and their metrics suite is the deepest research in object-oriented metrics investigation and the measurements we have are the following: Weighted Method per Class (WMC), Depth of Inheritance Tree (DIT), Number of Children (NOC), Lack of Cohesion in Methods (LCOM), Response For a Class (RFC), and Coupling between Object Classes (CBO). 
-
-
-In addition to these metrics, we have chosen to count the number of instance variables and instance methods in each class. A short description of each metric is provided in Section "X". We present their descriptive statistics which includes the minimum, maximum, median, sample mean, and standard deviation values for the whole system. In addition, we present descriptive statistics for each component in the system.
-
-The metric calculation are from several tools i.e., Understand, and CCCC. They all provide extensive numbers of software quality metrics.
-
-
-A description of object-oriented metrics can be found in Chapter 3, Section X. 
-
-We have decided to exclude the tests from object-oriented metrics analysis. A total of 317 files were analyzed. These files contains 226 classes, and 31204 lines of code. Descriptive statistics such as minimum, maximum, median, sample mean, and standard deviation are presented in this section. Table \ref{tab:oometrics-firmus} presents descriptive statistics for class level metrics for the whole project.
+The metrics that have been used to measure the quality of the code is mostly based on the work of Chidamber and Kemerer.\cite{chidamber1994metrics}. They have proposed a set of static metrics that are designed to measure the quality of object-oriented software. These metrics are widely known, and their metrics suite is the deepest research in object-oriented metrics investigation and the measurements we have are the following: \textit{Weighted Method per Class (WMC)}, \textit{Depth of Inheritance Tree (DIT)}, \textit{Number of Children (NOC)}, \textit{Lack of Cohesion in Methods (LCOM)}, \textit{Response For a Class (RFC)}, and \textit{Coupling between Object Classes (CBO)}. In addition to these metrics, we have chosen to count the number of instance variables and instance methods in each class. A short description of each metric is provided in Section \ref{sec:researchprocess}. We present their descriptive statistics which includes the minimum, maximum, median, sample mean, standard deviation, kurtosis, and skewness values for the whole system. In addition, we present descriptive statistics for each component in the system. We have decided to exclude the tests from object-oriented metrics analysis. A total of 317 files were analyzed. These files contains 226 classes, and 31204 lines of code. Table \ref{tab:oometrics-firmus} presents descriptive statistics for class level metrics for the whole project.
 
 \begin{table}[]
+\resizebox{\textwidth}{!}{
 \centering
-\caption{OO-metrics for Project Firmus}
+\caption{Object-oriented metrics and descriptive statistics for Project "Firmus"}
 \label{tab:oometrics-firmus}
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} \\ \hline
-LCOM            & 0            & 100          & 55              & 42.711               & 32.961                      \\ \hline
-DIT             & 0            & 4            & 1               & 1.066                & 1.069                       \\ \hline
-CBO             & 0            & 30           & 5               & 6.178                & 5.162                       \\ \hline
-NOC             & 0            & 20           & 0               & 0.467                & 1.866                       \\ \hline
-RFC             & 0            & 115          & 10              & 15.991               & 18.769                      \\ \hline
-NIM             & 0            & 48           & 7               & 8.458                & 7.006                       \\ \hline
-NIV             & 0            & 18           & 1               & 2.195                & 2.828                       \\ \hline
-WMC            & 0            & 325          & 10              & 20.293                 & 31.934                      \\ \hline
-\end{tabular}
+\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} & \textbf{Kurtosis} & \textbf{Skewness} \\ \hline
+LCOM            & 0            & 100          & 55              & 42.711               & 32.961      & -1.501  & -0.274                 \\ \hline
+DIT             & 0            & 4            & 1               & 1.066                & 1.069  & -0.676  & 0.647                       \\ \hline
+CBO             & 0            & 30           & 5               & 6.178                & 5.162    & 2.093  & 1.214                     \\ \hline
+NOC             & 0            & 20           & 0               & 0.467      & 1.866               & 61.606  & 7.064        \\ \hline
+RFC             & 0            & 115          & 10              & 15.991      &  8.769             & 9.279  & 2.936   \\ \hline
+NIM             & 0            & 48           & 7               & 8.458      & 7.006              & 8.117  & 2.515           \\ \hline
+NIV             & 0            & 18           & 1               & 2.195              & 2.828     & 5.131  & 2.003                    \\ \hline
+WMC            & 0            & 325          & 10              & 20.293                 & 31.934   & 41.063  & 5.314                     \\ \hline
+\end{tabular}}
 \end{table}
 
 % TODO: Find X\% of the total classes with high coupling, low cohesion, deep hierarchy. 
 
-\textbf{LCOM}: A class is cohesive if LCOM is low. In this analysis, LCOM is measured in percent. Our data reveals that LCOM value lies between a range from 0 to 100, indicating that there are classes with high and low cohesion. Figure \ref{fig:lcomdistribution} shows the frequency distribution of LCOM values. There are 77 classes with LCOM value of 0, indicating that these classes have high cohesion. However, 119 classes have a value of LCOM larger than 50. Among these, 7 classes have a value of LCOM larger than 90, where 2 classes have a LCOM value of 100. Classes with low cohesion increase the complexity of the software, and may therefore increase the likelihood of errors during development. In order to improve the class design, it is necessary to split one class to two or more classes to make them more cohesive.
+\textbf{LCOM}: A class is cohesive if LCOM is low. In this analysis, LCOM is measured in percent. Our data reveals that LCOM value lies between a range from 0 to 100, indicating that there are classes with high and low cohesion. Figure \ref{fig:lcomdistribution} shows the frequency distribution of LCOM values. There are 77 classes with LCOM value of 0, indicating that these classes have high cohesion. However, 119 classes have a value of LCOM larger than 50. Among these, 7 classes have a value of LCOM larger than 90, where 2 classes have a LCOM value of 100. The normal distribution is almost perfectly symmetrical. In addition, the sample mean is very close to the peak. Classes with low cohesion increase the complexity of the software, and may therefore increase the likelihood of errors during development. In order to improve the class design, it is necessary to split one class to two or more classes to make them more cohesive.
 
 
-\begin{figure}[ht!]
+\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/threshold/lcom.pdf}
 	\caption{Frequency chart of the LCOM metric}
@@ -79,7 +81,7 @@ WMC            & 0            & 325          & 10              & 20.293         
 \textbf{CBO}: In general, higher values of CBO indicates fault prone classes. Our analysis show that 194 classes have a value of CBO less than 10, and that 4 classes have a value larger than 20. The maximum value of CBO is 30. This class is an example of a class that is hard to understand, harder to reuse, and more difficult to maintain. 
 
 
-\begin{figure}[ht!]
+\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/threshold/cbo.pdf}
 	\caption{Frequency chart of the CBO metric}
@@ -88,19 +90,18 @@ WMC            & 0            & 325          & 10              & 20.293         
 
 
 
-
 \textbf{DIT and NOC}: DIT value appears to be generally low in the captured statistics. A class with DIT value of 0 is the root in a class hierarchy. Figure \ref{fig:ditdistribution} shows that 89 classes have a DIT value of 0, and 68 classes have a DIT value of 1. The median value suggests that most classes tend to be close to the root in the inheritance hierarachy. According to Chidamber and Kemerer\cite{chidamber1994metrics}, DIT metric can be used to determine whether the design is top heavy or bottom heavy. A design is top heavy if there are too many classes near the root, and bottom heavy if most classes are near the bottom of the hierarchy. By observing the empirical data of DIT, the system appears to be top heavy, which indicates that there may be lack of reuse through inheritance. Classes with a DIT value of 2 and 3 indicates higher degree of reuse through inheritance. In total, we identified 70 classes with DIT value of 2 and 3. The maximum value of DIT is 4. These values show that inheritance is used in most of the classes to an optimal level. However, there may be some possibilities for improvements for classes with DIT value of 0. 
 
-Furthermore, the NOC metric measures the number of subclasses of a class. The median value of NOC implies that most half of the classes has no immediate children, which indicates that inheritance may not be used enough. According to the Figure \ref{fig:nocdistribution}, approximately 86\% of the classes seem to have no subclasses. Max value of NOC is 20, which may indicate a misuse of subclassing. Classes with high NOC value are difficult to modify, and they usually require more testing because of the effects on changes on all the children. 
+NOC metric measures the number of subclasses of a class. The median value of NOC implies that most half of the classes has no immediate children, which indicates that inheritance may not be used enough. According to the Figure \ref{fig:nocdistribution}, approximately 86\% of the classes seem to have no subclasses, hence affecting the normal distribution due to a high value of kurtosis. In addition, the skewness value indicate that long tail is on the positive side of the peak (i.e., on the right side). Furthermore, the max value of NOC is 20, which may indicate a misuse of subclassing. Classes with high NOC value are difficult to modify, and they usually require more testing because of the effects on changes on all the children. 
 
-\begin{figure}[ht!]
+\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/threshold/noc.pdf}
 	\caption{Frequency chart of the NOC metric}
 	\label{fig:nocdistribution}
 \end{figure}
 
-\begin{figure}[ht!]
+\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/threshold/dit.pdf}
 	\caption{Frequency chart of the DIT metric}
@@ -110,7 +111,7 @@ Furthermore, the NOC metric measures the number of subclasses of a class. The me
 
 \textbf{RFC}: Classes with large RFC tends to be complex and have decreased understandability. Testing classes with large RFC is more complicated. The RFC statistics reveals that majority of the classes have a RFC of less than 20. There are only 22 classes with a value of RFC larger than 30, where 2 of them have a value larger than 100. The maximum value of RFC in this system is 115. In addition, most of the classes have a WMC of less than 7, but there are a few classes with more larger values. Classes with large WMC values may indicate Large Class code smell, and these classes are candidates for inspection and eventually refactoring. 
 
-\begin{figure}[ht!]
+\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/threshold/rfc.pdf}
 	\caption{Frequency chart of the RFC metric}
@@ -119,7 +120,7 @@ Furthermore, the NOC metric measures the number of subclasses of a class. The me
 
 \textbf{WMC} By examining at Figure \ref{fig:wmcdistribution}, we observe that majority of the classes have a value of WMC less than 10. More precisely, 123 classes has a value of WMC less than 10. Moreover, 5 classes have a value of WMC2 larger than 100. The maximum value of WMC is set to 325.
 
-\begin{figure}[ht!]
+\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/threshold/wmc.pdf}
 	\caption{Frequency chart of the WMC metric}
@@ -150,32 +151,36 @@ Furthermore, the NOC metric measures the number of subclasses of a class. The me
 %Good refactoring would be to look at all the classes and see where we could use more abstraction. Reducing redundancy would reduce code size and speed. 
 
 \subsection{Object-Oriented Metrics for the Components}
+\label{subsec:oometric-comp}
 Descriptive statistics in Table \ref{tab:oometrics-firmus} reveals statistics for class level metrics for the whole project. However, the statistics does not say anything about class level metrics in the different components. Some of the components may have good object-oriented metric values, while other components have bad statistics. In order to identify weak components, we calculated descriptive statistics for each component. 
 
 \subsubsection{Component A}
 Component A contains 53 files. Among these files, we identified 37 classes and 5427 lines of code. Figure \ref{fig:algraph} presents the frequency distribution of the measured object-oriented metrics. Table \ref{tab:oometrics-al} presents common descriptive statistics of the metric distribution.
 
 \begin{table}[]
+\resizebox{\textwidth}{!}{
 \centering
-\caption{OO-metrics for component A}
+\caption{Object-oriented metrics and descriptive statistics for Component A}
 \label{tab:oometrics-al}
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} \\ \hline
-LCOM            & 0            & 94           & 62              & 46.405               & 34.321                      \\ \hline
-DIT             & 0            & 4            & 2               & 1.567                & 1.167                       \\ \hline
-CBO             & 0            & 30           & 6               & 6.758                & 6.639                       \\ \hline
-NOC             & 0            & 8            & 0               & 0.758                & 1.706                       \\ \hline
-RFC             & 6            & 115          & 38            & 43.649               & 31.515                      \\ \hline
-NIM             & 4            & 40           & 10              & 13.135                 & 8.891                       \\ \hline
-NIV             & 0            & 12           & 1               & 2.270                  & 2.969                       \\ \hline
-WMC           & 3            & 194          & 19              & 31.081                 & 36.554                      \\ \hline
-\end{tabular}
+\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} & \textbf{Kurtosis} & \textbf{Skewness} \\ \hline
+LCOM            & 0            & 94           & 62              & 46.405               & 34.321      & -1.477  & -0.472               \\ \hline
+DIT             & 0            & 4            & 2               & 1.567                & 1.167               &  -0.707 & 0.270      \\ \hline
+CBO             & 0            & 30           & 6               & 6.758                & 6.639             &  4.00 & 1.766       \\ \hline
+NOC             & 0            & 8            & 0               & 0.758                & 1.706             &    8.508 & 2.743      \\ \hline
+RFC             & 6            & 115          & 38            & 43.649               & 31.515               &      -0.708 & 0.559 \\ \hline
+NIM             & 4            & 40           & 10              & 13.135                 & 8.891               &    3.674 & 1.991    \\ \hline
+NIV             & 0            & 12           & 1               & 2.270                  & 2.969              &  3.694 & 1.917       \\ \hline
+WMC           & 3            & 194          & 19              & 31.081                 & 36.554              &    10.362 & 2.821    \\ \hline
+\end{tabular}}
 \end{table}
 
 The DIT values indicate that inheritance hierarchies is somehow flat. Classes with flat inheritance hierarchy usually hints that reuse through inheritance is not used. There are approximately 8 classes with flat inheritance hierarchy. Rest of the classes inherits for at least one class. The max value captured show that some classes have deep hierarchy. Higher values for DIT indicates higher degree of reuse, but as trade off, it may potentially increase the complexity of the class. Moreover, the results indicate that most classes only have a few subclasses. There are 32 classes with no children. However, one class has NOC value of 8. 
 
-The results show that 40.5\% (i.e. 15 classes) of all classes in Component A are strongly cohesive, which implies that more than half of the classes show lack of cohesion. By examining Figure \ref{fig:algraph}, we notice that two classes has LCOM values larger than 90, indicating loose class structures. Moreover, most classes have small CBO values, indicating that most classes are self-contained. However, the frequency distribution shows that few of the classes are strongly coupled. One of the classes in this component has a CBO value of 29, indicating a possible fault-prone class which affects its reusability and maintainability. This particular class has LCOM value of 62, WMC value of 95, and RFC value of 25, hence being a possible Large Class code smell.
+The results show that 40.5\% (i.e. 15 classes) of all classes in Component A are strongly cohesive, which implies that more than half of the classes show lack of cohesion. By examining Figure \ref{fig:algraph}, we notice that two classes has LCOM values larger than 90, indicating loose class structures. The kurtosis value of LCOM is negative, so we can consider LCOM having a flat distribution, which can be seen Figure \ref{fig:algraph}. 
+
+Most classes have small CBO values, indicating that most classes are self-contained. However, the frequency distribution shows that few of the classes are strongly coupled. One of the classes in this component has a CBO value of 29, indicating a possible fault-prone class which affects its reusability and maintainability. This particular class has LCOM value of 62, WMC value of 95, and RFC value of 25, hence being a possible Large Class code smell.
 
 The results show that each class have at least two methods. More than half of the classes have low RFC values, which indicates greater polymorphism. However, there are few classes in this component that has larger values of RFC. The maximum RFC value is 115, and classes with high RFC are usually difficult to maintain and test. 
 
@@ -196,7 +201,7 @@ Classes with large number of instance variables are few. At least 50\% of the cl
 	\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/pdf/al.pdf}
-	\caption{Frequency distribution of OO-metrics in Component A}
+	\caption{Frequency distribution of object-oriented metrics in Component A}
 	\label{fig:algraph}
 	\end{figure}
 \end{landscape}
@@ -215,21 +220,22 @@ The values of LCOM in Component B range from 22 to 91, which indicates that none
 
 
 \begin{table}[]
+\resizebox{\textwidth}{!}{
 \centering
-\caption{OO-metrics for Component B}
+\caption{Object-oriented metrics and descriptive statistics for Component B}
 \label{tab:oometrics-blc}
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} \\ \hline
-LCOM            & 22           & 91          & 66              & 63.348               & 15.916                    \\ \hline
-DIT             & 0           & 1           & 1             & 0.609              & 0.499                       \\ \hline
-CBO             & 1          & 21           & 5              & 6.13                & 4.799                       \\ \hline
-NOC             & 0            & 1           & 0               & 0.087                & 0.288                       \\ \hline
-RFC             & 6            & 48          & 9              & 14.217              & 11.977                      \\ \hline
-NIM             & 6           & 48           & 9               & 13.434                & 10.974                       \\ \hline
-NIV             & 1            & 10           & 2               & 3                & 2.504                       \\ \hline
-WMC            & 3            & 325          & 19              & 35.826               & 66.796                      \\ \hline
-\end{tabular}
+\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} & \textbf{Kurtosis} & \textbf{Skewness} \\ \hline
+LCOM            & 22           & 91          & 66              & 63.348               & 15.916   & 1.179  & -0.761                   \\ \hline
+DIT             & 0           & 1           & 1             & 0.609              & 0.499        & -1.950  & -0.477                 \\ \hline
+CBO             & 1          & 21           & 5              & 6.13                & 4.799       & 2.653  & 1.350                  \\ \hline
+NOC             & 0            & 1           & 0               & 0.087                & 0.288  & 8.605  & 3.140                       \\ \hline
+RFC             & 6            & 48          & 9              & 14.217              & 11.977    & 2.867  & 1.831                    \\ \hline
+NIM             & 6           & 48           & 9               & 13.434                & 10.974   & 3.822  & 1.986                      \\ \hline
+NIV             & 1            & 10           & 2               & 3                & 2.504       &  2.51 & 1.711                  \\ \hline
+WMC            & 3            & 325          & 19              & 35.826               & 66.796   & 17.288  & 3.964                     \\ \hline
+\end{tabular}}
 \end{table}
 
 
@@ -238,7 +244,7 @@ WMC            & 3            & 325          & 19              & 35.826         
 	\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/pdf/blc.pdf}
-	\caption{Frequency distribution of OO-metrics in Component B}
+	\caption{Frequency distribution of object-oriented metrics in Component B}
 	\label{fig:blcgraph}
 	\end{figure}
 \end{landscape}
@@ -255,21 +261,22 @@ LCOM value of Component C ranges from 0 to 89. The median value reveal that more
 
 
 \begin{table}[]
+\resizebox{\textwidth}{!}{
 \centering
-\caption{OO-metrics for Component C}
+\caption{Object-oriented metrics and descriptive statistics for Component C}
 \label{tab:oometrics-config}
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} \\ \hline
-LCOM            & 0            & 89           & 61              & 54.8                 & 22.139                       \\ \hline
-DIT             & 0            & 1            & 0               & 0.1                  & 0.308                       \\ \hline
-CBO             & 1            & 19           & 4.5               & 6.5                 & 5.587                       \\ \hline
-NOC             & 0            & 1            & 0               & 0.05                    & 0.223                           \\ \hline
-RFC             & 3            & 26           & 8.5             & 10.3                 & 5.741                       \\ \hline
-NIM             & 3            & 26           & 8.5             & 9.85                 & 5.153                       \\ \hline
-NIV             & 0            & 9            & 2               & 3.15                 & 3.013                       \\ \hline
-WMC           & 3            & 106          & 12.5              & 27.65                 & 30.975                      \\ \hline
-\end{tabular}
+\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} & \textbf{Kurtosis} & \textbf{Skewness} \\ \hline
+LCOM            & 0            & 89           & 61              & 54.8                 & 22.139    & 1.015  & -1.089                     \\ \hline
+DIT             & 0            & 1            & 0               & 0.1                  & 0.308  & 7.037  & 2.888                       \\ \hline
+CBO             & 1            & 19           & 4.5               & 6.5                 & 5.587     & -0.045  & 1.030                    \\ \hline
+NOC             & 0            & 1            & 0               & 0.05                    & 0.223     & 20  & 4.472                        \\ \hline
+RFC             & 3            & 26           & 8.5             & 10.3                 & 5.741   & 1.825 & 1.363                      \\ \hline
+NIM             & 3            & 26           & 8.5             & 9.85                 & 5.153    & 3.967  & 1.626                     \\ \hline
+NIV             & 0            & 9            & 2               & 3.15                 & 3.013   & -0.217  & 1.084                      \\ \hline
+WMC           & 3            & 106          & 12.5              & 27.65                 & 30.975   & 1.472  & 1.544                     \\ \hline
+\end{tabular}}
 \end{table}
 
 
@@ -279,7 +286,7 @@ WMC           & 3            & 106          & 12.5              & 27.65         
 	\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/pdf/conf.pdf}
-	\caption{Coming}
+	\caption{Frequency distribution of object-oriented metrics in Component C}
 	\label{fig:confgraph}
 	\end{figure}
 \end{landscape}
@@ -298,21 +305,22 @@ Our analysis found 48 files in Component Ex. These files consist of 4089 lines o
 This component has classes with low and high cohesion. Despite the fact that at least 50\% of the classes have high cohesion, there are still many classes with low cohesion. Our results show that there are 22 classes with LCOM value larger than 50, whereas 6 classes have a LCOM value of 80 or more. There are 2 classes with LCOM value of 100. Moreover, the average cyclomatic complexity of the classes have a value of 8.744, while the median has a value of 7. These values imply that most classes may have more polymorphism and less complexity. Figure \ref{fig:exgraph} shows us that there are only one 8 classes with value of WMC larger than 20, where the maximum value is 41. These values indicate that the complexity is well managed to this point. By examining the CBO values, we observe that only 7 classes are self-contained. Rest of the classes are coupled to other objects. The majority of the classes has a CBO value of 5 or less. There is only one class with CBO value of 16, indicating that this class may potentially be difficult to understand and maintain. 
 
 \begin{table}[]
+\resizebox{\textwidth}{!}{
 \centering
-\caption{OO-metrics for Component Ex}
+\caption{Object-oriented metrics and descriptive statistics for Component Ex}
 \label{tab:oometrics-ex}
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} \\ \hline
-LCOM            & 0           & 100          & 0               & 26.302               & 33.082                      \\ \hline
-DIT             & 0            & 3            & 2               & 1.581                & 1.121                       \\ \hline
-CBO             & 0            & 16           & 4               & 5.314                & 4.459                       \\ \hline
-NOC             & 0            & 20           & 0               & 0.744                & 2.736                       \\ \hline
-RFC             & 0            & 28           & 8               & 10.279               & 6.030                       \\ \hline
-NIM             & 0            & 22           & 3               & 4.907                & 3.846                       \\ \hline
-NIV             & 0            & 10           & 0               & 1.209                & 2.098                       \\ \hline
-WMC            & 0            & 41          & 7              & 8.744                 & 8.117                      \\ \hline
-\end{tabular}
+\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} & \textbf{Kurtosis} & \textbf{Skewness} \\ \hline
+LCOM            & 0           & 100          & 0               & 26.302               & 33.082    & -0.971 & 0.756                    \\ \hline
+DIT             & 0            & 3            & 2               & 1.581                & 1.121   & -1.313   & -0.234                     \\ \hline
+CBO             & 0            & 16           & 4               & 5.314                & 4.459  & -0.511   & 0.783                      \\ \hline
+NOC             & 0            & 20           & 0               & 0.744                & 2.736    & 32.072   & 5.338                     \\ \hline
+RFC             & 0            & 28           & 8               & 10.279               & 6.030    & 0.800  & 0.87                     \\ \hline
+NIM             & 0            & 22           & 3               & 4.907                & 3.846   & 4.082  & 1.785                      \\ \hline
+NIV             & 0            & 10           & 0               & 1.209                & 2.098  & 5.887  & 2.415                       \\ \hline
+WMC            & 0            & 41          & 7              & 8.744                 & 8.117     & 3.91  & 1.882                   \\ \hline
+\end{tabular}}
 \end{table}
 
 
@@ -321,7 +329,7 @@ WMC            & 0            & 41          & 7              & 8.744            
 	\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/pdf/ex.pdf}
-	\caption{Coming}
+	\caption{Frequency distribution of object-oriented metrics in Component Ex}
 	\label{fig:exgraph}
 	\end{figure}
 \end{landscape}
@@ -340,21 +348,22 @@ Overall, the statistics may indicate that there are some accumulated design debt
 
 
 \begin{table}[]
+\resizebox{\textwidth}{!}{
 \centering
-\caption{Component G}
+\caption{Object-oriented metrics and descriptive statistics for Component G}
 \label{tab:oometrics-guri}
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} \\ \hline
-LCOM            & 0            & 94           & 60              & 50.25                & 31.236                      \\ \hline
-DIT             & 0            & 2            & 1               & 0.625                & 0.609                       \\ \hline
-CBO             & 0            & 23           & 5.5             & 6.312                & 4.987                       \\ \hline
-NOC             & 0            & 2            & 0               & 0.25                 & 0.622                       \\ \hline
-RFC             & 2            & 30           & 9               & 10.187               & 6.382                       \\ \hline
-NIM             & 0            & 29           & 7               & 8.437                & 5.459                       \\ \hline
-NIV             & 0            & 18           & 2               & 3.062                & 3.926                       \\ \hline
-WMC            & 1            & 123          & 12              & 19.437                 & 24.794                      \\ \hline
-\end{tabular}
+\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} & \textbf{Kurtosis} & \textbf{Skewness} \\ \hline
+LCOM            & 0            & 94           & 60              & 50.25                & 31.236    & -0.767  & -0.794                    \\ \hline
+DIT             & 0            & 2            & 1               & 0.625                & 0.609    & -0.582  & 0.399                    \\ \hline
+CBO             & 0            & 23           & 5.5             & 6.312                & 4.987    & 1.898  & 1.152                    \\ \hline
+NOC             & 0            & 2            & 0               & 0.25                 & 0.622   & 4.231  & 2.357                      \\ \hline
+RFC             & 2            & 30           & 9               & 10.187               & 6.382   & 2.178  & 1.356                      \\ \hline
+NIM             & 0            & 29           & 7               & 8.437        & 5.459              & 5.669  & 1.745   \\ \hline
+NIV             & 0            & 18           & 2               & 3.062          & 3.926          & 5.983 & 2.225    \\ \hline
+WMC            & 1            & 123          & 12              & 19.437           & 24.794        & 9.572  & 2.824               \\ \hline
+\end{tabular}}
 \end{table}
 
 \begin{landscape}
@@ -362,7 +371,7 @@ WMC            & 1            & 123          & 12              & 19.437         
 	\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/pdf/guri.pdf}
-	\caption{Coming}
+	\caption{Frequency distribution of object-oriented metrics in Component G}
 	\label{fig:gurigraph}
 	\end{figure}
 \end{landscape}
@@ -375,21 +384,22 @@ WMC            & 1            & 123          & 12              & 19.437         
 Component L consist of 16 files, 849 lines of code. Among these, we identified 7 classes. Figure \ref{fig:loggraph} presents the frequency distribution of the metrics, while Table \ref{tab:oometrics-log} presents the descriptive statistics for this component. The values of LCOM range from 0 to 80. There are only 2 classes with LCOM value at 0. However, rest of the classes are showing lack of cohesion. These classes are candidates for inspection, and might eventually be split up into multiple classes. Moreover, 4 classes have a DIT value of 1. WMC metric value ranges from 4 to 42. There are only 2 classes with WMC values larger than 30.
 
 \begin{table}[]
+\resizebox{\textwidth}{!}{
 \centering
-\caption{OO-metrics for Component L}
+\caption{Object-oriented metrics and descriptive statistics for Component L}
 \label{tab:oometrics-log}
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} \\ \hline
-LCOM            & 0            & 80           & 68              & 50.857               & 35.130                      \\ \hline
-DIT             & 0            & 1            & 1               & 0.571                & 0.534                       \\ \hline
-CBO             & 1            & 14           & 6               & 6.714                & 4.609                       \\ \hline
-NOC             & 0            & 0            & 0               & 0                    & 0                           \\ \hline
-RFC             & 5            & 12           & 9               & 8.571                & 2.936                       \\ \hline
-NIM             & 3            & 12           & 9               & 8.286                & 3.402                       \\ \hline
-NIV             & 0            & 5            & 1               & 1.571                & 2.070                       \\ \hline
-WMC            & 4            & 42          & 11              & 19.571                 & 14.524                      \\ \hline
-\end{tabular}
+\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} & \textbf{Kurtosis} & \textbf{Skewness} \\ \hline
+LCOM            & 0            & 80           & 68              & 50.857               & 35.130  & -0.908  & -1.135                      \\ \hline
+DIT             & 0            & 1            & 1               & 0.571                & 0.534    & -2.8  & -0.374                \\ \hline
+CBO             & 1            & 14           & 6               & 6.714                & 4.609 & -0.712  & 0.327                         \\ \hline
+NOC             & 0            & 0            & 0               & 0                    & 0     & N/A  & N/A                        \\ \hline
+RFC             & 5            & 12           & 9               & 8.571                & 2.936    & -2.012  & -0.239                    \\ \hline
+NIM             & 3            & 12           & 9               & 8.286         & 3.402            & -1.221  & -0.555            \\ \hline
+NIV             & 0            & 5            & 1               & 1.571         & 2.070            & -0.535  & 1.120             \\ \hline
+WMC            & 4            & 42          & 11              & 19.571                 & 14.524     & -1.521  & 0.577                   \\ \hline
+\end{tabular}}
 \end{table}
 
 
@@ -399,7 +409,7 @@ WMC            & 4            & 42          & 11              & 19.571          
 	\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/pdf/log.pdf}
-	\caption{Coming}
+	\caption{Frequency distribution of object-oriented metrics in Component L}
 	\label{fig:loggraph}
 	\end{figure}
 \end{landscape}
@@ -417,21 +427,22 @@ LCOM metric value ranges from 0 to 79. The median value shows that more than hal
 
 
 \begin{table}[]
+\resizebox{\textwidth}{!}{
 \centering
-\caption{OO-metrics for Component N}
+\caption{Object-oriented metrics and descriptive statistics for Component N}
 \label{tab:oometrics-netw}
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} \\ \hline
-LCOM            & 0            & 79           & 70.5            & 54.5                 & 33.899                      \\ \hline
-DIT             & 0            & 1            & 0               & 0.25                 & 0.463                       \\ \hline
-CBO             & 3            & 19           & 12.5            & 11.5                   & 4.536                       \\ \hline
-NOC             & 0            & 1            & 0               & 0.125                & 0.353                       \\ \hline
-RFC             & 6            & 32           & 9               & 11.625               & 8.568                       \\ \hline
-NIM             & 6            & 21           & 8.5             & 9.75                 & 5.036                       \\ \hline
-NIV             & 0            & 8            & 5.5             & 4.375                & 3.068                       \\ \hline
-WMC            & 4            & 125          & 32              & 40.375                 & 36.707                      \\ \hline
-\end{tabular}
+\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} & \textbf{Kurtosis} & \textbf{Skewness} \\ \hline
+LCOM            & 0            & 79           & 70.5            & 54.5                 & 33.899   & -0.083  & -1.378                     \\ \hline
+DIT             & 0            & 1            & 0               & 0.25                 & 0.463    & 0  & 1.440                     \\ \hline
+CBO             & 3            & 19           & 12.5            & 11.5                   & 4.536    & 1.941  & -0.410                     \\ \hline
+NOC             & 0            & 1            & 0               & 0.125                & 0.353    & 8  & 2.828                     \\ \hline
+RFC             & 6            & 32           & 9               & 11.625               & 8.568    & 6.227  & 2.413                     \\ \hline
+NIM             & 6            & 21           & 8.5             & 9.75                 & 5.036   & 3.976  & 1.896                      \\ \hline
+NIV             & 0            & 8            & 5.5             & 4.375                & 3.068   & -1.142  & -0.630                      \\ \hline
+WMC            & 4            & 125          & 32              & 40.375                 & 36.707   & 5.172  & 2.092                    \\ \hline
+\end{tabular}}
 \end{table}
 
 
@@ -440,7 +451,7 @@ WMC            & 4            & 125          & 32              & 40.375         
 	\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/pdf/network.pdf}
-	\caption{Coming}
+	\caption{Frequency distribution of object-oriented metrics in Component N}
 	\label{fig:netgraph}
 	\end{figure}
 \end{landscape}
@@ -454,21 +465,22 @@ In case of measurement for cohesion, LCOM values in Component P ranges from 0\% 
 
 
 \begin{table}[]
+\resizebox{\textwidth}{!}{
 \centering
-\caption{OO-metrics for Component P}
+\caption{Object-oriented metrics and descriptive statistics for Component P}
 \label{tab:oometrics-proc}
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} \\ \hline
-LCOM            & 0            & 81           & 63              & 57.25                & 25.409                      \\ \hline
-DIT             & 0            & 1            & 0               & 0.25                 & 0.463                       \\ \hline
-CBO             & 0            & 13           & 6             & 6                  & 4.472                       \\ \hline
-NOC             & 0            & 1            & 0               & 0.125                & 0.353                       \\ \hline
-RFC             & 2            & 14           & 6.5             & 7.375                  & 3.502                       \\ \hline
-NIM             & 2            & 13           & 6.5             & 6.875                    & 3.044                       \\ \hline
-NIV             & 0            & 6            & 3.5             & 3.125                & 2.031                       \\ \hline
-WMC            & 1            & 47           & 8               & 15.75                & 15.809                      \\ \hline
-\end{tabular}
+\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} & \textbf{Kurtosis} & \textbf{Skewness} \\ \hline
+LCOM            & 0            & 81           & 63              & 57.25                & 25.409     & 4.625  & -1.987                   \\ \hline
+DIT             & 0            & 1            & 0               & 0.25                 & 0.463    & 0 & 1.440                     \\ \hline
+CBO             & 0            & 13           & 6             & 6                  & 4.472        & -0.645  & 0.255                 \\ \hline
+NOC             & 0            & 1            & 0               & 0.125                & 0.353     & 8  & 2.828                    \\ \hline
+RFC             & 2            & 14           & 6.5             & 7.375                  & 3.502     & 1.523  & 0.647                    \\ \hline
+NIM             & 2            & 13           & 6.5             & 6.875                    & 3.044   & 2.986  & 0.765                      \\ \hline
+NIV             & 0            & 6            & 3.5             & 3.125                & 2.031     & -0.886  & -0.223                    \\ \hline
+WMC            & 1            & 47           & 8               & 15.75                & 15.809     & -1.037  & 1.350                   \\ \hline
+\end{tabular}}
 \end{table}
 
 
@@ -478,7 +490,7 @@ WMC            & 1            & 47           & 8               & 15.75          
 	\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/pdf/process.pdf}
-	\caption{Coming}
+	\caption{Frequency distribution of object-oriented metrics in Component P}
 	\label{fig:procgraph}
 	\end{figure}
 \end{landscape}
@@ -489,27 +501,26 @@ WMC            & 1            & 47           & 8               & 15.75          
 Table \ref{tab:oometrics-sys} presents the descriptive statistics for Component S. Component S contains 4 files, which consists of 223 lines of code and 2 classes. The LCOM values show that there are possibilities to improve the design of this component by splitting up methods that does not share fields with each other to separate classes. Moreover, the results point out that none of the classes has any subclasses. However, the results reveal that one of the classes inherits methods and variables from a superclass. Moreover, WMC metric values indicate that the classes have less complexity and greater polymorphism.
 
 \begin{table}[]
+\resizebox{\textwidth}{!}{
 \centering
-\caption{OO-metrics for Component S}
+\caption{Object-oriented metrics and descriptive statistics for Component S}
 \label{tab:oometrics-sys}
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} \\ \hline
-LCOM            & 33           & 50           & 41.5            & 41.5                 & 12.021                      \\ \hline
-DIT             & 0            & 1            & 0.5             & 0.5                  & 0.707                       \\ \hline
-CBO             & 3            & 7            & 5             & 5                  & 2.829                       \\ \hline
-NOC             & 0            & 0            & 0               & 0                    & 0                           \\ \hline
-RFC             & 6            & 9            & 7.5             & 7.5                  & 2.121                       \\ \hline
-NOM             & 6            & 9            & 7.5             & 7.5                  & 2.121                       \\ \hline
-NIM             & 6            & 9            & 7.5             & 7.5                  & 2.121                       \\ \hline
-NIV             & 1            & 1            & 1               & 1                    & 0                           \\ \hline
-WMC            & 6           & 19            & 12.5            & 12.5                 & 9.192                         \\ \hline
-\end{tabular}
+\textbf{Metric} & \textbf{Min} & \textbf{Max} & \textbf{Median} & \textbf{Sample Mean} & \textbf{Standard Deviation} & \textbf{Kurtosis} & \textbf{Skewness} \\ \hline
+LCOM            & 33           & 50           & 41.5            & 41.5                 & 12.021   & N/A & -0.472                     \\ \hline
+DIT             & 0            & 1            & 0.5             & 0.5                  & 0.707     & N/A  & -0.472                    \\ \hline
+CBO             & 3            & 7            & 5             & 5                  & 2.829         & N/A  & -0.472                \\ \hline
+NOC             & 0            & 0            & 0               & 0                    & 0         & N/A  & -0.472                    \\ \hline
+RFC             & 6            & 9            & 7.5             & 7.5                  & 2.121          &N/A  & N/A               \\ \hline
+NOM             & 6            & 9            & 7.5             & 7.5                  & 2.121          & N/A  & N/A               \\ \hline
+NIM             & 6            & 9            & 7.5             & 7.5                  & 2.121        & N/A  & N/A                 \\ \hline
+NIV             & 1            & 1            & 1               & 1                    & 0     & N/A  & N/A                        \\ \hline
+WMC            & 6           & 19            & 12.5            & 12.5                 & 9.192        & N/A  &  N/A                   \\ \hline
+\end{tabular}}
 \end{table}
 
  
-
-
 
 \subsubsection{Component W}
 Component W contains only one file. This file consists of 69 lines of code. In this component, we identified one class. This class has a LCOM value of 58, indicating that some instance variables are not shared across the member functions. Moreover, DIT and NOC values of 0 indicates that this class does not inherit from a superclass, or has any subclasses. The results reports a CBO value of 4, implying that this class is not tightly coupled with other objects. There are only 2 instance variables in this class, and 6 methods, in which all are instance methods. WMC value of this class is set to 8.
@@ -529,25 +540,7 @@ Component W contains only one file. This file consists of 69 lines of code. In t
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Identifying Code Smell using Automatic Approaches}
+\section{Identifying Code Smells using Automatic Static Analysis Tools}
 \label{sub:code_smell_detection}
 Code smells are used to find problematic classes. As we explained in Chapter 2, one of the ways to identify design debt is to look at the number of code smell in the source code. Code smell is an indicator of software design flaws in object-oriented systems that can decrease software maintainability which may lead to issues in further evolution of the system\cite{olbrich2009evolution}. The analysis of code smells in the system is based on automatic static analysis tools. We investigated each tool that we could use in this project, and evaluated the smells they are able to detect. Table \ref{tab:identifiedCodeSmell} describes the number of code smells that were identified using automatic static analysis tools.
 
@@ -592,8 +585,7 @@ Component S 				& 2 files, 194 LOC \\ \hline
 
 
 \subsubsection{Long Method}
-Understand considers a Long Method as code smell if lines of code in method exceeds 200 lines. Using Understand, we identified 10 long methods, spread across six different files. 7 of 10 long methods are located in test files. 
-
+Understand for C++ considers a Long Method as code smell if lines of code in method exceeds 200 lines. We identified 10 long methods, spread across six different files. 7 of 10 long methods are located in the test files. 
 
 \subsubsection{Long Parameter List}
 Long Parameter List code smell is detected by comparing the total number of parameters in a method against a fixed threshold. The maximum number of parameters allowed in a method using CppDepend is set to 5. This means that 6 or more parameters in a method are considered as code smell. The results from CppDepend reports 15 hits of Long Parameter List code smell, where 3 hits are considered as critical. A Long Parameter List hit is critical when total of parameters in a method is higher than 8. The largest number of parameters in a method we identified was 12. These results were verified manually by examining the class diagrams for the corresponding methods.
@@ -617,10 +609,6 @@ Unused Static Globals 	& 	13	 \\ \hline
 %\subsubsection{Shotgun Surgery}
 %The results shows that X classes are infected with the Shotgun Surgery code smell. 
 
-
-
-\subsubsection{Large Class}
-Large Class is detected by counting the number of methods in a class. 
 %CBO and LCOM can be useful to detect God Classes with support of LOC and WMC. (article: on the effectiveness of concern metrics to detect code smells: an empirical study)
 
 %A class with large values of WMC and RFC indicates many possible re since the class may have a large number of methods that can be executed. These values along with LCOM can be used to measure God Class code smell. By identiying 

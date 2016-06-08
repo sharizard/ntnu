@@ -9,11 +9,13 @@
 % FancyHdr pakken gjør det mulig å legge til header og footer
 \usepackage{fancyhdr}
 \usepackage[Glenn]{fncychap}
+\usepackage{times}
+% for captions
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{subcaption}
 \usepackage{import}
 % For enumerate
-\usepackage{easylist}
+\usepackage[ampersand]{easylist}
 \usepackage{paralist}
 % for Bibtex
 \usepackage{cite}
@@ -26,13 +28,15 @@
 \usepackage[colorlinks=true, a4paper=true, pdfstartview=FitV,
 linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
 
+% for vertical pages
 \usepackage{scrextend}
 \usepackage{pdfpages}
 \usepackage{pdflscape}
 \usepackage{rotating}
 \usepackage{wrapfig}
 
-
+\usepackage{setspace}
+\linespread{1.25}
 
 \fancyhf{}
 \pagestyle{fancy} % legger til default
@@ -41,7 +45,7 @@ linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
 \fancyhead[RO,LE]{\rightmark} %Ønsker thesis tittel på høyre side på oddetallssider, og venstre på partallsider.
 \fancyhead[RE,LO]{\thepage}
 
-\setlength{\headheight}{14pt}
+\setlength{\headheight}{24pt}
 
 %endrer på størrelse på skrift
 \renewcommand{\headrulewidth}{0.4pt}
@@ -50,9 +54,6 @@ linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
 
 % bruk \pagestyle{empty} for å fjerne alt, og \pagestyle{plain} for å ha sidenummer på underkapitler (sections).
 % Husk å bytte til fancy ved neste avsnitt eller der du vil ha fancy greier.
-
-
-
 
 % For new page
 \usepackage{afterpage}

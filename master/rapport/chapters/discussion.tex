@@ -3,6 +3,18 @@
 % !TEX spellcheck = en-US
 
 \chapter{Discussion}
+\label{chap:discussion}
+
+\textit{\textbf{Report Overview}}
+\begin{itemize}
+	\item \textit{1. Introduction}
+	\item \textit{2. State-of-the-Art}
+	\item \textit{3. Research Methodology}
+	\item \textit{4. Results}
+	\item \textit{\textbf{5. Discussion}}
+	\item \textit{6. Conclusion}
+\end{itemize} \
+
 This thesis has investigated design debt in embedded systems. Section \ref{sec:dis-analysis} evaluates object-oriented metrics that have been measured by applying a set of threshold values to uncover possible insecure parts of the code. 
 
 
@@ -26,7 +38,7 @@ Table \ref{tab:thresholds} presents the metrics and their threshold values. The 
 \begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{3cm}|}
 \hline
 \textbf{Metric} & \textbf{Observed Value} 	& \textbf{Low} 		& \textbf{High}  & \textbf{Extreme} 	& \textbf{Recommended Value} \\ \hline
-LCOM   			& 100			         	& 42				& 75   			 & 100+						& 72.5\cite{tarcisio}           \\ \hline
+LCOM   			& 100			         	& 42				& 75   			 & 112.5 (100+)						& 72.5\cite{tarcisio}           \\ \hline
 DIT 			& 4             			& 1					& 2				 & 3+						& 4\cite{tarcisio}, 5\cite{rosenberg1999risk,metricoverview,metricsguide}              \\ \hline
 CBO    			& 30  			          	& 6					& 11			 & 17+						& 5\cite{rosenberg1999risk,metricsguide}, 14\cite{sahraoui2000can,phpdepend}     \\ \hline
 NOC    			& 20 			           	& 0					& 2				 & 4+						& 3\cite{tarcisio}, 5\cite{metricsguide}, 10\cite{metricoverview}               \\ \hline
@@ -90,7 +102,7 @@ CBO 30 0 5 6.8 7.56
 % In general, as the tree gets deeper, it constitutes greater design complexity as more classes and methods are involved. 
 \textit{DIT} indicates how deep a class is in the inheritance tree. Classes with higher value of DIT are associated with higher defects\cite{subramanyam2003empirical}. It is evident that a deep inheritance makes software maintenance more difficult\cite{daly1996evaluating}. Moreover, higher degree of \textit{DIT} indicates a trade-off between increased complexity and increase reuseability. By following Chidamber and Kemerer's\cite{chidamber1994metrics} guide to interpreting \textit{DIT} metric using descriptive statistics, a low median value indicates that at least 50\% of the classes tend to be close to the root in the inheritance hierarchy. In their study, a low median value had a typical value of 1 and 3. However, if the majority of \textit{DIT} values are below 2, it may represent a poor exploitation of the advantages of object-oriented design and inheritance, because a \textit{DIT} value of 2 and 3 indicates higher degree of reuse. 
 
-Figure \ref{fig:ditdistribution} in Chapter \ref{chap:results} show that approximately 39\% of the classes have a \textit{DIT} value of 0, while 26.7\% of the classes have a \textit{DIT} value of 1. These classes are considered to be close to the root in the inheritance tree, and there may be a probability of not exploiting the advantages of object-oriented methodologies. Classes with high values of \textit{DIT} have shown to be very significant in identifying fault-prone classes\cite{basili1996validation}. We have derived the following threshold values for the \textit{DIT} metric: a \textit{low/good value} of 1, a \textit{high/typical} value of 2, and an \textit{extreme/bad} value of 3. By applying these thresholds, we observe that at least 26.7\% of the classes satisfies good value. However, the \textit{extreme/bad} value of 3 does not comply with the median value of 3, which is considered as a good value\cite{chidamber1994metrics}. Therefore, we have chosen to apply the recommended max value of 5. As shown in Figure \ref{fig:ditdistribution}, there are no classes with a \textit{DIT} value of 5 or more. However, there are two classes with \textit{DIT} value of 4. These results do indicate that reuse opportunities through inheritance is limited and perhaps compromised in favor of comprehensibility of the overall architecture. On the other hand, low values of \textit{DIT} suggest that appropriate design preferences are being followed by the company\cite{subramanyam2003empirical}.
+Figure \ref{fig:ditdistribution} in Chapter \ref{chap:results} show that approximately 39\% of the classes have a \textit{DIT} value of 0, while 26.7\% of the classes have a \textit{DIT} value of 1. These classes are considered to be close to the root in the inheritance tree, and there may be a probability of not exploiting the advantages of object-oriented methodologies. Classes with high values of \textit{DIT} have shown to be very significant in identifying fault-prone classes\cite{basili1996validation,el2001prediction}. We have derived the following threshold values for the \textit{DIT} metric: a \textit{low/good value} of 1, a \textit{high/typical} value of 2, and an \textit{extreme/bad} value of 3. By applying these thresholds, we observe that at least 26.7\% of the classes satisfies good value. However, the \textit{extreme/bad} value of 3 does not comply with the median value of 3, which is considered as a good value\cite{chidamber1994metrics}. Therefore, we have chosen to apply the recommended max value of 5. As shown in Figure \ref{fig:ditdistribution}, there are no classes with a \textit{DIT} value of 5 or more. However, there are two classes with \textit{DIT} value of 4. These results do indicate that reuse opportunities through inheritance is limited and perhaps compromised in favor of comprehensibility of the overall architecture. On the other hand, low values of \textit{DIT} suggest that appropriate design preferences are being followed by the company\cite{subramanyam2003empirical}.
 
 % High probability of misuse of intheritance principles, more testing time is required.
 \subsubsection{Number Of Children}
@@ -112,7 +124,10 @@ The following threshold values for \textit{NOC} metric were derived from its des
 %- Any measure of disparateness of methods helps identify design flaws in classes
 %- Low cohesion increases complexity, thereby increasing the likelihood of errors during the development process.
 
-\textit{LCOM} is related to the counting of methods using common attributes in a class. As mentioned, smaller values of \textit{LCOM} represent cohesive and independent classes, which is desirable since it promotes encapsulation. Larger values of \textit{LCOM} increase the complexity of the class, hence increasing the likelihood of errors during the development process. Our derived threshold values for \textit{LCOM} metric reveal a \textit{low/good} value of 42, a \textit{high/typical} value of 75, and an \textit{extreme/bad value} of 100. There are only two classes within the \textit{extreme/bad} range. However, by analyzing the frequency distribution of \textit{LCOM} in Figure \ref{fig:lcomdistribution}, we clearly see that the normal distribution of the data is not normal. This may explain why our \textit{extreme/bad} threshold is high. The recommended threshold value for LCOM is 72.5. This value is similar to our definition of \textit{high/typical}. We choose to use the recommended threshold value for \textit{LCOM} metric, and identify 41 classes with larger \textit{LCOM} than 72.5, which we have illustrated in Figure \ref{fig:lcomdistribution}. Our data reveal that LCOM values seem to increase with the size of classes. Most classes with a high value of \textit{LCOM} revealed to have large number of methods. These methods indicate higher disparateness in the functionality provided by the class. Chidamber and Kemererer\cite{chidamber1994metrics} and Basili et al.\cite{basili1996validation} state that classes with large values of \textit{LCOM} could be more error prone, and more difficult to test. A refactoring option would be to split the classes into two or more classes that are more well defined in terms of behavior. Moreover, \textit{LCOM} metric can be used by the developers to keep track of whether the cohesion principle is adhered.
+\textit{LCOM} is related to the counting of methods using common attributes in a class. As mentioned, smaller values of \textit{LCOM} represent cohesive and independent classes, which is desirable since it promotes encapsulation. Larger values of \textit{LCOM} increase the complexity of the class, hence increasing the likelihood of errors during the development process. Our derived threshold values for \textit{LCOM} metric reveal a \textit{low/good} value of 42, a \textit{high/typical} value of 75, and an \textit{extreme/bad value} of 112.5. However, as we see in Figure \ref{fig:lcomdistribution}, there are no classes with LCOM value larger than 100. This result is influenced by the special shape of the data from LCOM metric. We clearly see that the normal distribution is not normal. The recommended threshold value for LCOM is 72.5. This value is similar to our definition of \textit{high/typical}. We choose to apply the recommended threshold value for \textit{LCOM} metric. We identified 41 classes with larger \textit{LCOM} than 72.5, which we have illustrated in Figure \ref{fig:lcomdistribution}. Our data reveal that LCOM values seem to increase with the size of classes. Most classes with a high value of \textit{LCOM} revealed to have large number of methods. These methods indicate higher disparateness in the functionality provided by the class. Chidamber and Kemererer\cite{chidamber1994metrics} and Basili et al.\cite{basili1996validation} state that classes with large values of \textit{LCOM} could be more error prone, and more difficult to test. A refactoring option would be to split the classes into two or more classes that are more well defined in terms of behavior. Moreover, \textit{LCOM} metric can be used by the developers to keep track of whether the cohesion principle is adhered.
+
+
+
 
 
 % class is sensitive to changes
@@ -193,9 +208,9 @@ The first research question is related to the techniques we have used to identif
 
 Code smells are an example of design flaws that can degrade maintainability of source code, which implies that code smells can be used as an indicator to identify fault-prone files in the system. Moreover, code smells are an indication of refactoring possibilities in code base. We have been able to identify \textit{Duplicated Code}, \textit{Long Method}, \textit{Long Parameter List}, \textit{Speculative Generality}, \textit{Dead Code}, and \textit{Large Classes} code smells in our analysis. \textit{Duplicated Code} was identified using \textit{SonarQube}. \textit{SonarQube} analyzed the entire source code base, and identified similar code blocks that had an appearance in multiple places. \textit{Long Method}, \textit{Speculative Generality}, and \textit{Dead Code} were identified using \textit{CppDepend}, \textit{Understand}, and \textit{CCCC}. \textit{Long Parameter List} code smell were detected using \textit{CppDepend} and confirmed using \textit{Enterprise Architect}.
 
-Another approach to assessing the software quality is based on object-oriented metrics\cite{codabux2016technical}. Object-oriented metrics can be used to identify design flaws, and defect-prone, change-prone, and fault-prone classes\cite{basili1996validation}. In addition, object-oriented metrics may affect the quality attributes of a system. For example, large values of \textit{WMC} will affect a system's maintainability and reusability\cite{quenelobject}. Object-oriented metrics are calculated over data that are extracted from the systems source code. Chidamber and Kemerer's suite of metrics have been applied in empirical investigations of object-oriented systems by multiple researchers, including Basili et al.\cite{basili1996validation}, Chidamber and Kemerer\cite{chidamber1994metrics}, Okike\cite{okike2010pedagogical}, and Bakar et al.\cite{bakar2014analysis}. We have applied this suite of object-oriented metrics to discover potential fault-prone classes.
+Another approach to assessing the software quality is based on object-oriented metrics\cite{codabux2016technical}. Object-oriented are able to predict maintenance effort more than traditional metrics can\cite{li1993object} by identifying design flaws, and defect-prone, change-prone, and fault-prone classes\cite{basili1996validation}. In addition, object-oriented metrics may potentially affect the quality attributes of a system. For example, large values of \textit{WMC} will affect a system's maintainability and reusability\cite{quenelobject}. Object-oriented metrics are calculated over data that are extracted from the systems source code. Chidamber and Kemerer's suite of metrics have been applied in empirical investigations of object-oriented systems by multiple researchers, including Basili et al.\cite{basili1996validation}, Chidamber and Kemerer\cite{chidamber1994metrics}, Okike\cite{okike2010pedagogical}, and Bakar et al.\cite{bakar2014analysis}. We have applied this suite of object-oriented metrics to discover potential fault-prone classes.
 
-\textit{Understand} is an integrated development environment that enables static code analysis through visualization, documentation, and metric tools. The software is capable of analyzing projects with multiple lines. An academical license tool was provided to us, and the tool was used in our case study to compute software metrics. Every file file in the system were analyzed, and metrics are then extracted from these files. The tool has been used by researchers. Understand have been proven to be useful for code analysis. Malhotra et al.\cite{malhotra2015fault} calculated threshold values of object-oriented metrics by using statistical models. \textit{Understand} was used to extract relevant metric data from one of the systems. Furthermore, Codabux et al.\cite{codabux2016technical} extracted class-level metrics for defect- and change-prone classes using \textit{Understand}.
+\textit{Understand} C++ is an integrated development environment that enables static code analysis through visualization, documentation, and metric tools. The software is capable of analyzing projects with multiple lines. An academical license tool was provided to us, and the tool was used in our case study to compute software metrics. Every file file in the system were analyzed, and metrics are then extracted from these files. The tool has been used by researchers. Understand have been proven to be useful for code analysis. Malhotra et al.\cite{malhotra2015fault} calculated threshold values of object-oriented metrics by using statistical models. \textit{Understand} was used to extract relevant metric data from one of the systems. Furthermore, Codabux et al.\cite{codabux2016technical} extracted class-level metrics for defect- and change-prone classes using \textit{Understand}.
 
 Threshold values were derived in this study to assist us on identifying classes with design flaws. Threshold can be defined as the upper bound value value for a metric. A metric value with a greater than its upper bound threshold value can be considered as problematic, while a metric value lower than its upper bound threshold value can be considered as acceptable. Both metric values and threshold values can be compared in design phase of software development to identify the metrics whose value is bigger than its threshold. Results from our study suggests that refactoring can be applied to classes with larger metric value than its threshold. In other words, we were able to predict possible fault-prone classes by applying metric threshold. For instance, a class with a \textit{WMC} value larger than its threshold value indicate high complexity. Fault-prone classes should be used as early quality indicators, and actions should be take based on extent of the problem. For example, the project team may choose to redesign the entire class in order to achieve the desired metric value. 
 
@@ -232,18 +247,9 @@ Our results reveal 1153 hits of \textit{Speculative Generality} code smell, incl
 
 The last code smell we identified is \textit{Dead Code}. This smell includes "commented out" code, unreachable code, and unnecessary "\#includes in header files". The quickest way to conduct refactoring on Dead Code code smell is to delete unused code and unneeded files. Notice that this will reduce the number of lines of code.
 
-To summarize, design debt can be paid by conducting necessary refactoring. We believe that refactoring will keep the software quality stable, which ultimately mitigates design debt issues. However, it is worth noticing that refactoring not necessary is the solution to pay design debt. There may be some cases where refactoring is unlikely to reduce fault-proneness in classes, and may increase fault-proneness in a class instead\cite{hall2014some}. This phenomenon affects some of the object-oriented metrics. A consideration should be taken where both metrics and other classes affected by the refactoring are involved. For example, refactoring code smells like \textit{Long Method} and \textit{Duplicated Code} may increase the number of methods and coupling. We do believe that improving the software metrics and other work practices may be better more beneficial than refactoring code smells in order to reduce the maintenance effort.
-
-\section{Contributions}
-The contributions of this thesis can be
+To summarize, design debt can be paid by conducting necessary refactoring. We believe that refactoring will keep the software quality stable, which ultimately mitigates design debt issues. However, it is worth noticing that refactoring not necessary is the solution to pay design debt. There may be some cases where refactoring is unlikely to reduce fault-proneness in classes, and may increase fault-proneness in a class instead\cite{hall2014some}. This phenomenon affects some of the object-oriented metrics. A consideration should be taken where both metrics and other classes affected by the refactoring are involved. For example, refactoring code smells like \textit{Long Method} and \textit{Duplicated Code} may increase the number of methods and coupling. Code smells should be manged by prioritizing the most critical smells. If the goal is to maintain and improve a certain metric value, then remove the smell that allows to improve this metric. Furthermore, we do believe that improving the software metrics and other work practices may be better more beneficial than refactoring code smells in order to reduce the maintenance effort.
 
 
-Contributions:
-- Empirical knowledge about identification of design debt
-	- A set of threshold values
-- Types of design debt in embedded systems
-- Knowledge about how design debt affects embedded systems
-- Knowledge about refactoring design debt in embedded systems
 
 % En tabell som viser sammenheng mellom spørsmål, metode, og bidrag.
 
@@ -262,13 +268,20 @@ Contributions:
 
 \section{Threats To Validity}
 \label{sub:threats_to_validity}
-Validity is related to how much the results can be trusted\cite{Wohlin:2000:ESE:330775}. We consider threats to the external, internal, and construct validity of this study.
+Validity is related to how much the results can be trusted\cite{Wohlin:2000:ESE:330775}. We consider threats to the external, internal, and conclusion validity of this study.
 
-To validate this research, more experiments need to be done with different OO-languages on different systems. This study was carried out in an industrial context. A suggestion will be to carry the study out in multiple open-source systems and other industrial systems written in different systems. It would be interesting as well to compare different industrial systems within the same OO-language. Another limitation is that we selected bad smells based on the results from automatic static analysis tools. More statistical computation around the metrics could be done to get more precise results. Other tools should have been used, or a developed tool. Metrics were mainly dictated by what Understand could produce. 
+This study was carried out in an industrial context. To validate this research, more experiments need to be done with different object-oriented languages on different systems, both commercial and open-source. Another limitation is that we selected bad smells based on the results from automatic static analysis tools. More statistical computation around the metrics could be done to get more precise results. Other tools should have been used, or a developed tool. Metrics were mainly dictated by what Understand could produce. 
 
 \subsection{Internal Validity}
 \label{sub:internal_validty}
-Interval validity is the degree to which we can conclude that the dependent variable is accounted for by the independent variable.
+Interval validity is the degree to which we can conclude that the dependent variable is accounted for by the independent variable\cite{Wohlin:2000:ESE:330775}. In other words, it concerns any factors that could have influenced our study results. 
+
+We have used multiple tools to investigate design debt. In some cases, these tools may result false positives. 
+
+Moreover, the artifacts of the case study may be badly designed. 
+
+Another factor that may reduce the internal validity is the selection of subjects from a larger group\cite{Wohlin:2000:ESE:330775}. In this research, we found our subject for the case study after being recommended by others. The internal validity would be stronger if the subjects had been selected using random sampling.
+
 
 
 
@@ -276,14 +289,13 @@ Interval validity is the degree to which we can conclude that the dependent vari
 
 \subsection{External Validity}
 \label{sub:external_validity}
-External validity refers to the degree to which the results from the study can be generalized to the population. The system investigated in this study consists of one simple size and an application domain, hence increasing the threat to external validity. 
+External validity refers to the degree to which the results from the study can be generalized to the population\cite{Wohlin:2000:ESE:330775}. The system investigated in this study consists of one simple size and a single application domain, hence increasing the threat to external validity. That said, our results may potentially not be generalized to other safety-critical systems, both open-source and commercial. Other than that, we have only analyzed a system written in C/C++, and therefore the results obtained may not be generalized to projects written in other languages.
 
-\subsection{Construct Validity} % (fold)
-\label{sub:construct_validity}
 
 \subsection{Conclusion Validity} % (fold)
 \label{sub:conclusion_validity}
-Conclusion validity refers to the degree in which correct conclusion can be drawn from the relationship between treatment and the outcome. Our case study consisted of studying one system, so in general, the statistical power is very low. Deeper studies needs to be performed to confirm is our results have more applicability.
+Conclusion validity refers to the degree in which correct conclusion can be drawn from the relationship between treatment and the outcome\cite{Wohlin:2000:ESE:330775}. One important issue here was the sample size of the experiment. Our case study studied one system, so the statistical power is very low. Deeper studies need to be performed to confirm if our results have a more general applicability. In addition, we may have influenced the results by looking for a specific outcome. Another potential problem can be the lack of experience on conducing case studies.
+
 
 % subsection subsection_name (end)
 
