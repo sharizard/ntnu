@@ -5,30 +5,22 @@
 \chapter{Conclusion}
 \label{chap:conclusion}
 
-\textit{\textbf{Report Overview}}
-\begin{itemize}
-	\item \textit{1. Introduction}
-	\item \textit{2. State-of-the-Art}
-	\item \textit{3. Research Methodology}
-	\item \textit{4. Results}
-	\item \textit{5. Discussion}
-	\item \textit{\textbf{6. Conclusion}}
-\end{itemize} \
 
-Design debt is an instance of technical debt which describes the problem of increasing complexity of software design, and deterioration of its maintainability. Design debt is recognized to be a major problem for many software projects today. As the debt increases, more time will be spent on maintaining the system which means that the software development process and software evolution will become less effective. This will delay other development processes, such as releasing new features. Being able to measure and monitor the quality of software design will help the development team to understand the current situation of having design debt by making the debt visible. Once the problems are visible, suitable actions may potentially be performed, which includes refactoring and eventually re-engineering. 
+DD is an instance of TD which describes the problem of increasing complexity of software design, and deterioration of its maintainability. DD is recognized to be a major problem for many software projects today. As the debt increases, more time will be spent on maintaining the system which means that the software development process and software evolution will become less effective. This will delay other development processes, such as releasing new features. Being able to measure and monitor the quality of software design will help the development team to understand the current situation of having DD by making the debt visible. Once the problems are visible, suitable actions may potentially be performed, which includes refactoring and eventually re-engineering. 
 
-%However, technical debt is not always a bad thing to take. Organizations can use debt as a powerful tool to meet their business goals. For example, an organization may potentially gain edge over the competition in the market. It is necessary for organizations to have a strategy plan that includes practices and tools that decreases design debt and the overall technical debt. Øyvind Teig defines the term \textit{technical deposit} as \textit{a concept in programming that reflects the less development work that arises when coding is done by applying the best overall long term solution instead of coding that is easy to implement}. 
+%However, TD is not always a bad thing to take. Organizations can use debt as a powerful tool to meet their business goals. For example, an organization may potentially gain edge over the competition in the market. It is necessary for organizations to have a strategy plan that includes practices and tools that decreases DD and the overall TD. Øyvind Teig defines the term \textit{technical deposit} as \textit{a concept in programming that reflects the less development work that arises when coding is done by applying the best overall long term solution instead of coding that is easy to implement}. 
 
-This thesis presents the result of a case study that has been conducted in real-life context in collaboration with Autronica Fire and Security AS. The purpose of the study was to investigate design debt in safety-critical systems. Object-oriented metrics were measured, and descriptive statistics were computed to analyze and interpret the data. In addition, a set of threshold value were derived in order to identify classes that are most likely to pose problems for a system. Moreover, automatic static analysis tools were applied to detect code smells in the system. We do believe that these data provide enough information for the project team as a basis for further inspection. It is up to the team to determine the criticality of these classes to make the final determinitation.
+This thesis presents the result of a case study that has been conducted in real-life context in collaboration with Autronica Fire and Security AS. The purpose of the study was to investigate DD in safety-critical systems. OO-metrics were measured, and descriptive statistics were computed to analyze and interpret the data. In addition, a set of threshold value were derived in order to identify classes that are most likely to pose problems for a system. Moreover, automatic static analysis tools were applied to detect code smells in the system. We do believe that these data provide enough information for the project team as a basis for further inspection. It is up to the team to determine the criticality of these classes to make the final determinitation.
 
-The main contributions of this work are:
+The work contributes maintly to improvement in software metrics and software quality. The stated contributions of this work are:
 
 \begin{easylist}[itemize]
-& \textbf{C1:} Empirical knowledge about identification of design debt in safety-critical systems by object-oriented metric analysis and code smell detection.
-&& \textbf{C1.1:} A set of threshold values for the measured object-oriented metrics
-& \textbf{C2:} Empirical knowledge about the different types of design debt in safety-critical systems
-& \textbf{C3:} Empirical knowledge about the effects of having design debt in safety-critical systems
-%\item \textbf{C4} Empirical knowledge about refactoring possibilities of design debt
+& \textbf{C1:} Empirical knowledge about DD identification in safety-critical systems by OO-metric analysis and code smell detection.
+&& \textbf{C1.1:} A set of threshold values for the measured OO-metrics.
+& \textbf{C2:} Empirical knowledge about the effects of having DD in safety-critical systems.
+& \textbf{C3:} Empirical knowledge about the different types of DD in safety-critical systems.
+& \textbf{C4:} Empirical knowledge about paying DD.
+%\item \textbf{C4} Empirical knowledge about refactoring possibilities of DD
 \end{easylist}
 
 
@@ -37,7 +29,7 @@ The main contributions of this work are:
 Based on the results from this thesis, we outline some possibilities for future research.
 
 \begin{itemize}
-	\item We have mainly focused on measuring Chidamber and Kemerer's suite of object-oriented metrics. A possibility for future research would be to measure other software metrics, such as cyclomatic complexity and concurrency. 
+	\item We have mainly focused on measuring Chidamber and Kemerer's suite of OO-metrics. A possibility for future research would be to measure other software metrics, such as cyclomatic complexity and concurrency. 
 	\item Implementation of a tool which can detect code smells and suggest possible refactoring options.
 	\item A deeper study on a system by analyzing multiple releases of the system. The evolution of metrics and patterns over time can then be compared to see if the design is decaying or not. 
 	\item A study on the use of design patterns, design decay, design grime, and design rot in safety-critical systems.

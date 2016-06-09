@@ -5,25 +5,16 @@
 \chapter{Introduction}
 \label{chap:intro}
 
-\textit{\textbf{Report Overview}}
-\begin{itemize}
-	\item \textit{\textbf{1. Introduction}}
-	\item \textit{2. State-of-the-Art}
-	\item \textit{3. Research Methodology}
-	\item \textit{4. Results}
-	\item \textit{5. Discussion}
-	\item \textit{6. Conclusion}
-\end{itemize} \
 
 This chapter provides an introduction to this masters thesis. We begin with outlining the motivation for this research. Then a brief description of the research context and the research questions is presented. Lastly, we present the thesis outline. 
 
 
 \section{Motivation}
-Successful embedded systems continuously evolve in response to external demands for new functionality and big fixes\cite{graaf2003embedded}. Evolution occurs as software changes over time. One consequence of such evolution is an increase of issues in design, development, and maintainability\cite{7381510}. Software code often ends up not contributing to the mission of the original intended software architecture or design. 
+Successful embedded systems continuously evolve in response to external demands for new functionality and bug fixes\cite{graaf2003embedded}. Evolution occurs as software changes over time. One consequence of such evolution is an increase of issues in design, development, and maintainability\cite{7381510}. Software code often ends up not contributing to the mission of the original intended software architecture or design. 
 
-The main challenge with software evolution is the technical debt that is not paid by the organization during software development and maintenance. Technical debt addresses the debt that software developers accumulate by taking shortcuts in development in order to meet the organizations business goals. For example, a deadline may lead developers to create "non-optimal" solutions in order to deliver on time. As technical debt keeps accumulating, systems can become unmanageable and eventually unusable. Even more resources have to be spent during software maintenance on paying off the interest, i.e., the cost of having the debt. According to Gartner\cite{gartner2010}, the cost of dealing with technical debt threatens to grow to \$1 trillion globally by 2015. That is the double of the amount of technical debt in 2010. Furthermore, many embedded systems are getting interconnected within existing Internet infrastructure, further known as the Internet of Things. Such devices are threatened by security issues. For example, Matthew Garret got access to the electronic equipment in every hotel room in a hotel located in London\footnote{The Internet of dangerous, broken things: http://www.zdnet.com/article/the-insecurity-of-the-internet-of-things/}. These equipments were connected to a network. Furthermore, two research discovered the possibility to start Tesla Model S using a laptop\footnote{Researchers Hacked a Model S, But Tesla's Already Released a Patch: http://www.wired.com/2015/08/researchers-hacked-model-s-teslas-already/}.
+The main challenge with software evolution is the \textbf{Technical Debt} (TD) that is not paid by the organization during software development and maintenance. TD addresses the debt that software developers accumulate by taking shortcuts in development in order to meet the organizations business goals. For example, a deadline may lead developers to create "non-optimal" solutions to deliver on time. As TD keeps accumulating, software systems may potentially become unmanageable and eventually unusable. Even more resources have to be spent during software maintenance on paying off the interest, i.e., the cost of having the debt. According to Gartner\cite{gartner2010}, the cost of dealing with TD threatens to grow to \$1 trillion globally by 2015. That is the double of the amount of TD in 2010. Furthermore, many embedded systems are getting interconnected within existing Internet infrastructure, known as the Internet of Things. Such devices are threatened by security issues. For example, Matthew Garret got access to the electronic equipment in every hotel room in a hotel located in London\footnote{The Internet of dangerous, broken things: http://www.zdnet.com/article/the-insecurity-of-the-internet-of-things/}. These equipments were connected to a network. Additionally, two research discovered the possibility to start a Tesla Model S using a laptop\footnote{Researchers Hacked a Model S, But Tesla's Already Released a Patch: http://www.wired.com/2015/08/researchers-hacked-model-s-teslas-already/}.
 
-Several studies have classified the metaphor of technical debt into different types of debt that are associated with the different phases of software development\cite{li2015systematic,p8-codabux,foser076-brown,tom2013exploration,Zazworka:2011:PDD:1985362.1985372,Zazworka:2013:CSE:2460999.2461005}. Design debt is an instance of technical debt. Design debt accumulates when compromises are made in the software design. Software design plays a significant role in the development of large systems\cite{krutchen}. Unlike code-level debt, design debt usually has more significant consequences on software evolution by making the system more complex and harder to maintain over time\cite{mo2013mapping,izurieta2007software}. The quality of the software is very important, and without it, there will be more accidents and system failures. This is even more crucial for the case of safety-critical software, which failure can endanger human lives.
+Several studies have classified the metaphor of TD into different types of debt that are associated with the different phases of software development\cite{li2015systematic,p8-codabux,foser076-brown,tom2013exploration,Zazworka:2011:PDD:1985362.1985372,Zazworka:2013:CSE:2460999.2461005}. \textbf{Design Debt} (DD) is an instance of TD. DD accumulates when compromises are made in the software design. Software design plays a significant role in the development of large systems\cite{krutchen}. Unlike code-level debt, DD usually has more significant consequences on software evolution by making the system more complex and harder to maintain over time\cite{mo2013mapping,izurieta2007software}. The quality of the software is very important, and without it, there will be more system failures that may lead to accidents. This is even more crucial for the case of safety-critical software, which failure can endanger human lives.
 
 
 
@@ -31,7 +22,7 @@ Several studies have classified the metaphor of technical debt into different ty
 
 %With the increasing demand for features for embedded systems, complexity of embedded software has been on the rise
 
-% måler er å investigate design debt i sikkerhetskritiske systemer for å identifisiere og forstå hva design debt er, og hva slags virkninger den har på systemets kvalitets attributter.
+% måler er å investigate DD i sikkerhetskritiske systemer for å identifisiere og forstå hva DD er, og hva slags virkninger den har på systemets kvalitets attributter.
 
 
 
@@ -39,47 +30,48 @@ Several studies have classified the metaphor of technical debt into different ty
 
 
 \section{Research Context}
-This master thesis builds upon our previous study "Managing Technical Debt in Embedded Systems"\cite{forprosjekt}, a prestudy that was carried out in the fall of 2015. The written assignment for the specialization project had the following definition:
+This master thesis builds upon our previous study "Managing TD in Embedded Systems"\cite{forprosjekt}, a prestudy that was carried out in the fall of 2015. The written assignment for the specialization project had the following definition:
 
 \begin{addmargin}[2em]{2em}
-\textbf{Managing Technical debt in embedded systems} \\
-"This task is related to management of software in embedded systems, as well as evolution of such software over time. Embedded systems have often a long lifetime and it is thus important to find out best practices and tools for this management since it is necessary to cope with architectural and design decisions which were made perharps decades ago, as well as clearly find out how present decisions may affect future maintenance and operation. This is called technical debt since all decisions will have a future cost related to them. Such decisions are often not documented, the people that made the software is not available 10-20 years after the implementation, the Internet of Things make all kind of embedded systems accessible from the Internet and thus posing security threats.
+\textbf{Managing TD in embedded systems} \\
+"This task is related to management of software in embedded systems, as well as evolution of such software over time. Embedded systems have often a long lifetime and it is thus important to find out best practices and tools for this management since it is necessary to cope with architectural and design decisions which were made perharps decades ago, as well as clearly find out how present decisions may affect future maintenance and operation. This is called TD since all decisions will have a future cost related to them. Such decisions are often not documented, the people that made the software is not available 10-20 years after the implementation, the Internet of Things make all kind of embedded systems accessible from the Internet and thus posing security threats.
 
 The project may take different directions based on the students interests and motivation. Industrial companies are very interested in this topic, so it is possible to study industrial systems, both past and current., make suggestions and implement them, make tools, make processes, make best practice etc."
 \end{addmargin}
 
-In our previous research, we did a pre-study of the field of technical debt in embedded systems, where we investigated the reasons for companies to incur technical debt and the different strategies for managing it. Data was collected by conducting semi-structured interviews. After completing the study, we had a desire to look into a more narrow field of the concept technical debt by conducting a deeper case study for our upcoming master thesis. An interest was to study an industrial system.
+In our previous research, we did a pre-study on the field of TD in embedded systems. We investigated the reasons for organizations to incur TD, and the different strategies for managing it. Research data was collected by conducting semi-structured interviews. After completing the study, we had a desire to look into a more narrow field of the concept TD by conducting a deeper case study for our upcoming master thesis. A big interest was to study an industrial system.
 
-%Architectural technical debt is a problem for many software projects today. Even though ATD is recognized in many studies, there is lack of focus on ATD in embedded systems. In this thesis, we will investigate how architectural technical debt can be identified in embedded software projects, and how it can be managed. This chapter describes the relevant research methods used in software engineering, and the methods that has been used in this thesis to answer the research questions. 
+%Architectural TD is a problem for many software projects today. Even though ATD is recognized in many studies, there is lack of focus on ATD in embedded systems. In this thesis, we will investigate how architectural TD can be identified in embedded software projects, and how it can be managed. This chapter describes the relevant research methods used in software engineering, and the methods that has been used in this thesis to answer the research questions. 
 
-The work in our master thesis has been done in collaboration with Autronica Fire and Security AS, a global provider of safety solutions which includes fire safety equipment, marine safety monitoring, and surveillance equipment. Their main office is located in Trondheim, one of the largest cities in Norway. We have performed a deeper study on one of the company's fire detection systems software for approximately six weeks. The study explored their source code in order to investigate design debt. 
+The work in our master thesis has been done in collaboration with Autronica Fire and Security AS, a global provider of safety solutions, including fire safety equipment, marine safety monitoring, and surveillance equipment. Their main office is located in Trondheim, one of the largest cities in Norway. We have performed a deeper study on one of the company's fire detection systems software for approximately six weeks. The case study explored their source code in order to investigate DD. 
 
 
 \section{Research Design and Questions}
 \label{sec:chap1designquesitons}
-Being able to identify design debt helps the software engineering field to get one step closer on solving the problems that are faced by the software industry today. The goal of the analysis is to investigate design debt in safety-critical systems. Design debt is a problem for many software projects today. Although design debt is recognized in many studies, there is lack of focus on design debt in safety-critical systems. 
+Being able to identify DD helps the software engineering field to get one step closer on solving the problems that are faced by the software industry today. The goal of the research is to investigate DD in safety-critical systems. DD is a problem for many software projects today. Although DD is recognized in many studies, there is lack of focus on DD in safety-critical systems. 
 
-The relevant research methods in software engineering can be survey, design and creation, case study, experimentation, action research, and ethnography\cite{Oates:2006:RIS:1202299}. In this study, literature review and case study have been used to answer our research questions. Literature review was a part of the pre-study and has been used to get familiar with the term design debt and to define the research questions. Case studies are empirical methods used to investigate a single entity or phenomenon within a specific time space\cite{Wohlin:2000:ESE:330775}, which fits our desire to study an industrial system. Case studies can be both qualitative and quantitative\cite{bassey2003case,Oates:2006:RIS:1202299}. The research process we have chosen to adopt in this study follows the principles of the six steps defined by Soy\cite{soysusan}: \textit{Determine and Define The Research Questions, Select the Cases and Determine Data Gathering and Analysis Techniques, Prepare to Collect Data, Data Collection, Evaluate and Analyze Data, and Prepare the Report}.
+The relevant research methods in software engineering can be survey, design and creation, case study, experimentation, action research, and ethnography\cite{Oates:2006:RIS:1202299}. In this study, a literature review and case study have been used to answer our research questions. Literature review was a part of the pre-study. It has been used to get familiar with the term DD and to define the research questions. Case studies are empirical methods used to investigate a single entity or phenomenon within a specific time space\cite{Wohlin:2000:ESE:330775}, which fits our desire to study an industrial system. Case studies can be both qualitative and quantitative\cite{bassey2003case,Oates:2006:RIS:1202299}. The research process we have chosen to adopt in this study follows the principles of the six steps defined by Soy\cite{soysusan}: \textit{Determine and Define The Research Questions, Select the Cases and Determine Data Gathering and Analysis Techniques, Prepare to Collect Data, Data Collection, Evaluate and Analyze Data}, and \textit{Prepare the Report}.
 
 The main research questions investigated in this thesis are:
 
 \begin{itemize}
-	\item \textbf{RQ1}: How can design debt be identified?
-	%\item \textbf{RQ2}: How can architectural technical debt be re-factored to improve the quality?
-	\item \textbf{RQ2}: What kind of design debt can be found in embedded systems?
-	\item \textbf{RQ3}: What are the effects of design debt?
-	\item \textbf{RQ4}: How to pay design debt?
+	\item \textbf{RQ1}: How can DD be identified?
+	%\item \textbf{RQ2}: How can architectural TD be re-factored to improve the quality?
+	\item \textbf{RQ2}: What kind of DD can be found in embedded systems?
+	\item \textbf{RQ3}: What are the effects of DD?
+	\item \textbf{RQ4}: How to pay DD?
 \end{itemize}
 
-\section{Contrubution}
-This work contributes mainly to the improvement in software metrics and software quality. The main contributions of this work are:
+\section{Contribution}
+This work contributes mainly to improvement in software metrics and software quality. The stated contributions of this work are:
 
 \begin{easylist}[itemize]
-& \textbf{C1:} Empirical knowledge about identification of design debt in safety-critical systems by object-oriented metric analysis and code smell detection.
-&& \textbf{C1.1:} A set of threshold values for the measured object-oriented metrics
-& \textbf{C2:} Empirical knowledge about the different types of design debt in safety-critical systems
-& \textbf{C3:} Empirical knowledge about the effects of having design debt in safety-critical systems
-%\item \textbf{C4} Empirical knowledge about refactoring possibilities of design debt
+& \textbf{C1:} Empirical knowledge about DD identification in safety-critical systems by object-oriented metric analysis and code smell detection.
+&& \textbf{C1.1:} A set of threshold values for the measured object-oriented metrics.
+& \textbf{C2:} Empirical knowledge about the effects of having DD in safety-critical systems.
+& \textbf{C3:} Empirical knowledge about the different types of DD in safety-critical systems.
+& \textbf{C4:} Empirical knowledge about paying DD.
+%\item \textbf{C4} Empirical knowledge about refactoring possibilities of DD
 \end{easylist}
 
 

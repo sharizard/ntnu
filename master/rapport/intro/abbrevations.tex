@@ -1,0 +1,41 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX root = ..\main.tex
+% !TEX spellcheck = en-US
+%%=========================================
+
+\section*{\Huge Abbreviations}
+\addcontentsline{toc}{chapter}{Abbreviations}
+$\\[0.5cm]$
+
+\noindent 
+\begin{center}
+\begin{tabular}{ l c l }
+   ASA & = & Automatic Static Analysis \\
+   CBO & = & Coupling Between Objects \\
+   CC & = & Cyclomatic Complexity \\
+   DD & = & Design Debt \\
+   DIT & = & Depth in Inheritance Tree \\
+   LCOM & = & Lack of Cohesion in Methods \\
+   NIM & = & Number of Instance Methods \\
+   NIV & = &  Number of Instance Variables \\
+   NOC & = & Number Of Children \\
+   OO & = & Object-Oriented \\
+   RFC & = & Response For Class \\
+   TD & = & Technical Debt \\
+   WMC & = & Weighted Methods per Class \\
+\end{tabular}
+\end{center}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\headrulewidth}{0.1ex}
+\renewcommand{\footrulewidth}{0.1ex}
+\fancyfoot[LE,RO]{\thepage}
+\fancyhead[LE]{\leftmark}
+\fancyhead[RO]{\rightmark}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[LE,RO]{\thepage}\renewcommand{\headrulewidth}{0ex}}
+
+\pagenumbering{arabic} 				
+\setcounter{page}{1}
