@@ -36,17 +36,14 @@
 
 \section*{\Huge Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
-Software is contributing a substantial part of new functionality and innovations in safety-critical systems. These systems put a huge demand on software reliability, because a minor error can produce failure of a complete system. The evolution of software requires continuous development and maintenance. With size and complexity of safety-critical software growing as time goes, additional challenges arises, including implicit assumptions of \textit{technical debt}. \textit{Technical debt} refers to the compromises that are made in software development and maintenance in order to meet a short-term business goal. \textit{Design debt} is an instance of technical debt. As software systems evolve, their design tend to decay over time, hence accumulating design debt. Consequently, software design becomes more difficult to maintain. Therefore, the developers need to understand the reason for design debt accumulation so they can take proactive steps that may potentially reduce the debt in the future.
+Software is contributing a substantial part of new functionality and innovations in safety-critical systems. These systems put a huge demand on software reliability, because a minor error can produce failure of a complete system. The evolution of software requires continuous development and maintenance. With size and complexity of safety-critical software growing as time goes, additional challenges arises, including implicit assumptions of \textit{technical debt}. \textit{Technical debt} refers to the sum of compromises that are made in software development and maintenance to meet a short-term business goal. \textit{Design debt} is an instance of technical debt. As software systems evolve, their design tend to decay over time, hence accumulating design debt. Consequently, software design becomes more difficult to maintain. Therefore, the developers need to understand the reason for design debt accumulation so they can take proactive steps that may potentially reduce the debt in the future.
 
-The main goal of this thesis is to empirically investigate design debt in safety-critical systems. The goal is reflected in our attempt to answer the following research questions: 
+The main goal of this thesis is to empirically investigate design debt in safety-critical systems. The goal is reflected in our attempt to answer the following research questions: \newline
 %\setlength\itemsep{-1em} 
-\textbf{RQ1:} How can design debt be identified? 
-
-\textbf{RQ2:} What kind of design debt can be found in embedded systems? \
-
-\textbf{RQ3:} What are the effects of design debt? \
-
-\textbf{RQ4:} How to pay design debt? \
+\textbf{RQ1:} How can design debt be identified? \newline
+\textbf{RQ2:} What kind of design debt can be found in safety-critical systems? \newline
+\textbf{RQ3:} What are the effects of design debt? \newline
+\textbf{RQ4:} How to pay design debt? \newline
 
 A case study has been conducted to answer our research questions. The case study involves an analysis of a safety-critical system developed by Autronica Fire and Security AS. The system is written in C/C++. We used object-oriented metrics to identify classes that are most likely to pose problems for the system. Quantitative data were collected and analyzed using descriptive statistics. A set of thresholds for the metrics were derived to identify classes that have higher metric values than its threshold values. In addition, automatic static analysis tools were applied in order to detect code smells. 
 
@@ -59,3 +56,5 @@ This work contributes mainly to improvement in software metrics and software qua
 & \textbf{C4:} Empirical knowledge about paying design debt.
 %\item \textbf{C4} Empirical knowledge about refactoring possibilities of DD
 \end{easylist}
+
+\cleardoublepage

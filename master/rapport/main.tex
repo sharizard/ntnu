@@ -13,14 +13,14 @@
 
 	% Part 1
 
-	\include{intro/abstract}
-	\afterpage{\null\newpage}
-	\include{intro/sammendrag}
-	\afterpage{\null\newpage}
-	\include{intro/preface}
-	\afterpage{\null\newpage}
-	\include{intro/acknowledgements}
-	\afterpage{\null\newpage}
+	\input{intro/abstract}
+	%\afterpage{\null\newpage}
+	\input{intro/sammendrag}
+	%\afterpage{\null\newpage}
+	\input{intro/preface}
+	%\afterpage{\null\newpage}
+	%\input{intro/acknowledgements}
+	%\afterpage{\null\newpage}
 
 
 	% Part 2
@@ -34,23 +34,23 @@
 
 	\listoffigures
 	\addcontentsline{toc}{chapter}{List of Figures}
-	\clearpage
+	\cleardoublepage
 	%\afterpage{\blankpage}
-	\include{intro/abbrevations}
+	\input{intro/abbrevations}
 
 	
 
 	
 
 	% Part 3
-	\include{chapters/introduction}
-	\include{chapters/litterature_review}
-	\include{chapters/research_method}
+	\input{chapters/introduction}
+	\input{chapters/litterature_review}
+	\input{chapters/research_method}
 	%\afterpage{\blankpage}
-	\include{chapters/results}
-	\include{chapters/discussion}
+	\input{chapters/results}
+	\input{chapters/discussion}
 	%\afterpage{\blankpage}
-	\include{chapters/conclusion}
+	\input{chapters/conclusion}
 
 	\addcontentsline{toc}{chapter}{Referances}
 	\bibliography{references/papers,references/urls}

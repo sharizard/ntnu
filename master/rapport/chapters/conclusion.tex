@@ -8,9 +8,9 @@
 
 DD is an instance of TD which describes the problem of increasing complexity of software design, and deterioration of its maintainability. DD is recognized to be a major problem for many software projects today. As the debt increases, more time will be spent on maintaining the system which means that the software development process and software evolution will become less effective. This will delay other development processes, such as releasing new features. Being able to measure and monitor the quality of software design will help the development team to understand the current situation of having DD by making the debt visible. Once the problems are visible, suitable actions may potentially be performed, which includes refactoring and eventually re-engineering. 
 
-%However, TD is not always a bad thing to take. Organizations can use debt as a powerful tool to meet their business goals. For example, an organization may potentially gain edge over the competition in the market. It is necessary for organizations to have a strategy plan that includes practices and tools that decreases DD and the overall TD. Øyvind Teig defines the term \textit{technical deposit} as \textit{a concept in programming that reflects the less development work that arises when coding is done by applying the best overall long term solution instead of coding that is easy to implement}. 
+However, TD is not always a bad thing to take. Organizations can use debt as a powerful tool to meet their business goals. For example, an organization may potentially gain edge over the competition in the market. It is necessary for organizations to have a strategy plan that includes practices and tools that decreases DD and the overall TD. Øyvind Teig defines the term \textit{technical deposit} as \textit{a concept in programming that reflects the less development work that arises when coding is done by applying the best overall long term solution instead of coding that is easy to implement}. The term is the opposite of TD, and it could potentially be used in terms of paying back TD. 
 
-This thesis presents the result of a case study that has been conducted in real-life context in collaboration with Autronica Fire and Security AS. The purpose of the study was to investigate DD in safety-critical systems. OO-metrics were measured, and descriptive statistics were computed to analyze and interpret the data. In addition, a set of threshold value were derived in order to identify classes that are most likely to pose problems for a system. Moreover, automatic static analysis tools were applied to detect code smells in the system. We do believe that these data provide enough information for the project team as a basis for further inspection. It is up to the team to determine the criticality of these classes to make the final determinitation.
+This thesis presents the result of a case study that has been conducted in real-life context in collaboration with Autronica Fire and Security AS. The purpose of the study was to investigate DD in safety-critical systems. OO-metrics were measured, and descriptive statistics were computed to analyze and interpret the data. In addition, a set of threshold value were derived to identify classes that are most likely to pose problems for a system. Moreover, automatic static analysis tools were applied to detect code smells in the system. We do believe that these data provide enough information for the project team as a basis for further inspection. It is up to the team to determine the criticality of these classes to make the final determinitation.
 
 The work contributes maintly to improvement in software metrics and software quality. The stated contributions of this work are:
 
@@ -24,14 +24,23 @@ The work contributes maintly to improvement in software metrics and software qua
 \end{easylist}
 
 
-
 \section{Future Work}
 Based on the results from this thesis, we outline some possibilities for future research.
 
 \begin{itemize}
-	\item We have mainly focused on measuring Chidamber and Kemerer's suite of OO-metrics. A possibility for future research would be to measure other software metrics, such as cyclomatic complexity and concurrency. 
-	\item Implementation of a tool which can detect code smells and suggest possible refactoring options.
-	\item A deeper study on a system by analyzing multiple releases of the system. The evolution of metrics and patterns over time can then be compared to see if the design is decaying or not. 
-	\item A study on the use of design patterns, design decay, design grime, and design rot in safety-critical systems.
-	\item A study on differences between metrics thresholds measured in this study and data from other similar systems. For example, it may be possible to compare our results with the measurement of thresholds of open-source systems. 
+	\item We have mainly focused on measuring Chidamber and Kemerer's suite of OO-metrics in this research. A possibility for future research would be to measure other software metrics that have been suggested by other researchers.
+
+	\item This study has analyzed the final release of a system. Another possibility would be a case study to analyze multiple releases of a system over time. Comparing the evolution of software metrics, and code smells could be interesting to see which classes are more fault-prone.
+
+	\item Implementation of an open-source tool that are able to detect code smells in safety-critical systems and suggest possible refactoring options could be a possibility. 
+
+	\item Izurieta et al.\cite{izurieta2007software,izurieta2008testing,izurieta2013multiple} have studied design patterns, design decay, design grime, and design rot on multiple OO-systems. However, there are no research on the study of design decay in safety-critical systems. It could be interesting to study design patterns, design decay, design grime, and design rot in safety-critical systems.
+
+	\item We have derived a set of OO-metric thresholds in this research, but they cannot be generalized to other safety-critical systems. A possibility for future research wpiød be to derive threshold values from multiple systems to generelize the threshold to other systems. The systems could be commercial and open-source.
+
+	\item Another possibility could be to study on the differences between metric thresholds measured in this study and data from a system with at least some degree of similarity.
+
+	\item Safety-critical systems usually have concurrency in the form of communication tasks and threading. Investigating design debt from a process-oriented could be a possibility for future research.
 \end{itemize}
+
+\cleardoublepage

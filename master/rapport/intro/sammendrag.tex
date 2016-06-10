@@ -14,5 +14,26 @@
 % Context, objective, method, results, conclusion
 \section*{\Huge Sammendrag}
 \addcontentsline{toc}{chapter}{Sammendrag}
+Programvare bidrar en vesentlig del i utvikling av ny funksjonalitet og innovasjoner i sikkerhetskritiske systemer. Slike systemer er avhengig av programvarens pålitelighet, fordi en liten feil kan medføre svikt i et helt system system. Evolusjonen av programvare krever kontinuerlig utvikling og vedlikehold. Nye utfodringer oppstår ettersom størrelsen og kompleksiteten til sikkerhetskritiske programvare vokser. Dette inkluderer implisitte forutsetninger om \textit{teknisk gjeld}. \textit{Teknisk gjeld} oppstår når man i utviklingsarbeidet velger suboptimale måter å løse problemer på. \textit{Design gjeld} er en instans av teknisk gjeld. Designet til et system har en tendens til å forfalle over tid ettersom et programvaresystem utvikler seg. Dette fører til en oppsamling av design gjeld, noe som gjør det utfordrende å vedlikeholde programvaredesign. Utviklere er dermed nødt til å forstå hvorfor design gjeld akkumulerer slik at de kan ta gradvise steg for å redusere gjelden. 
 
-Programvare s
+Hovedmålet med oppgaven er å undersøke design gjeld i sikkerhetshetskritiske systemer. Målet med oppgaven er reflektert i vår forsøk på å svare på følgende forskningsspørsmål: \newline
+
+\textbf{FS1}: Hvordan kan design gjeld identifiseres? \newline
+\textbf{FS2}: Hva slags type design gjeld finnes i sikkerhetskritiske systemer? \newline
+\textbf{FS3}: Hva slags virkinger har design gjeld? \newline
+\textbf{FS4}: Hvordan kan design gjeld betales? \newline
+
+Et case studie har blitt gjennomført i et forsøk på å svare på forskningsspørsmålene. Case studiet involverer en analyse av et sikkerhetskritisk system utviklet av Autronica Fire and Security AS. Systemet er utviklet i C/C++. Vi har brukt objekt-orienterte metrikker for å identifisere klasser som mest sannsynlig vil skape problemer for systemet. Kvantitative data har blitt samlet ved hjelp av verktøy, og analysert ved hjelp av deskriptiv statistikk. Et sett med grenseverdier ble utledet for identifisering av klasser med større metrikkverdier enn dens grenseverdier. Vi har også brukt benyttet oss av verktøy for identifisering av "code smell".
+
+Resultatene fra case studiet bidrar hovedsakelig til forbedring av programvaremetrikker og programvarekvalitet. Bidragene for dette arbeidet er som følger:
+\begin{itemize}
+	\item \textbf{B1}: Empirisk kunnskap om identifikasjon av design gjeld i sikkerhetskritiske systemer ved en analyse av objekt-orienterte metrikker og "code smell".
+	\item \begin{itemize}
+		\item Et sett med grenseverdier for de målte objekt-orienterte metrikkene.
+	\end{itemize}
+	\item Empirisk kunnskap om virkningene til design gjeld i sikkerhetskritiske systemer.
+	\item Empirisk kunnskap om uliker typer av design gjeld i sikkerhetskritiske systemer.
+	\item Empirisk kunnskap om betaling av design gjeld.
+\end{itemize}
+
+\cleardoublepage
